@@ -1,0 +1,26 @@
+# Ignore the models directory
+keys/
+files/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environment
+venv/
+.env
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Logs and database files
+*.log
+*.sqlite3
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore PyCharm project files
+.idea/

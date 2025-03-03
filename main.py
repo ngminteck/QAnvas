@@ -1,0 +1,216 @@
+from canvasapi import Canvas
+from datetime import datetime, timedelta, timezone
+import os
+import re
+
+def get_assignments_due_dates(canvas, hide_older_than=7):
+    """
+    Retrieve assignments from all accessible courses that have a due date,
+    and sort them by due date. Assignments with no due date or with due dates
+    older than (now - hide_older_than days) are skipped.
+
+    :param canvas: The initialized Canvas object.
+    :param hide_older_than: Number of days; assignments older than this cutoff are excluded.
+    :return: A sorted list of assignments with due date details.
+    """
+    assignments_list = []
+    now = datetime.now(timezone.utc)
+    cutoff = now - timedelta(days=hide_older_than)
+
+    courses = canvas.get_courses()
+    for course in courses:
+        # Skip courses with access restrictions.
+        if getattr(course, 'access_restricted_by_date', False):
+            continue
+        try:
+            for assignment in course.get_assignments():
+                due_date_str = assignment.due_at  # ISO formatted string or None
+                # If there's no due date, ignore this assignment.
+                if not due_date_str:
+                    continue
+                parsed_due_date = None
+                try:
+                    parsed_due_date = datetime.strptime(due_date_str, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
+                except ValueError:
+                    try:
+                        parsed_due_date = datetime.strptime(due_date_str, "%Y-%m-%dT%H:%M:%S.%fZ").replace(
+                            tzinfo=timezone.utc)
+                    except Exception:
+                        parsed_due_date = None
+                # Skip if the due date exists and is older than cutoff.
+                if parsed_due_date is not None and parsed_due_date < cutoff:
+                    continue
+                assignments_list.append({
+                    'course_name': course.name,
+                    'assignment_name': assignment.name,
+                    'due_at': parsed_due_date,
+                    'due_at_str': due_date_str
+                })
+        except Exception as e:
+            print(f"Error retrieving assignments for course {course.name}: {e}")
+
+    # Sort assignments by due date.
+    sorted_assignments = sorted(
+        assignments_list,
+        key=lambda x: x['due_at'] if x['due_at'] is not None else datetime.max.replace(tzinfo=timezone.utc)
+    )
+    return sorted_assignments
+
+
+def get_announcements(canvas, hide_older_than=7, only_unread=False):
+    """
+    Retrieve announcements from all accessible courses and sort them by creation date.
+    Items with creation dates older than (now - hide_older_than days) are skipped.
+    If only_unread is True, only include announcements marked as unread (if available).
+
+    :param canvas: The initialized Canvas object.
+    :param hide_older_than: Number of days; announcements older than this cutoff are excluded.
+    :param only_unread: If True, only include announcements that are unread (if the attribute is available).
+    :return: A sorted list of announcements with creation date details.
+    """
+    announcements_list = []
+    now = datetime.now(timezone.utc)
+    cutoff = now - timedelta(days=hide_older_than)
+
+    courses = canvas.get_courses()
+    for course in courses:
+        if getattr(course, 'access_restricted_by_date', False):
+            continue
+        try:
+            for ann in course.get_discussion_topics(only_announcements=True):
+                # If only_unread is True, check the read_state attribute (if available)
+                if only_unread and getattr(ann, 'read_state', 'unread') != 'unread':
+                    continue
+
+                created_at_str = getattr(ann, 'created_at', None)
+                parsed_created_at = None
+                if created_at_str:
+                    try:
+                        parsed_created_at = datetime.strptime(created_at_str, "%Y-%m-%dT%H:%M:%SZ").replace(
+                            tzinfo=timezone.utc)
+                    except ValueError:
+                        try:
+                            parsed_created_at = datetime.strptime(created_at_str, "%Y-%m-%dT%H:%M:%S.%fZ").replace(
+                                tzinfo=timezone.utc)
+                        except Exception:
+                            parsed_created_at = None
+                # Skip if announcement date exists and is older than cutoff.
+                if parsed_created_at is not None and parsed_created_at < cutoff:
+                    continue
+                announcements_list.append({
+                    'course_name': course.name,
+                    'announcement_title': ann.title,
+                    'created_at': parsed_created_at,
+                    'created_at_str': created_at_str if created_at_str else "No date"
+                })
+        except Exception as e:
+            print(f"Error retrieving announcements for course {course.name}: {e}")
+
+    # Sort announcements by created date.
+    sorted_announcements = sorted(
+        announcements_list,
+        key=lambda x: x['created_at'] if x['created_at'] is not None else datetime.max.replace(tzinfo=timezone.utc)
+    )
+    return sorted_announcements
+
+
+def sanitize_filename(name):
+    """
+    Replace characters not allowed in filenames with an underscore.
+    """
+    return re.sub(r'[\\/*?:"<>|]', "_", name)
+
+
+def build_folder_path_map(course):
+    """
+    Build a mapping of folder_id to full folder path (relative to the course root)
+    using the folders returned by course.get_folders().
+    Each folder object should have attributes: id, name, and parent_folder_id.
+    """
+    folder_map = {}
+    folders = list(course.get_folders())
+    # Build a dictionary for quick lookup by folder id.
+    folder_dict = {folder.id: folder for folder in folders}
+
+    def get_full_path(folder):
+        # Recursively build the folder path by following parent_folder_id.
+        if folder.parent_folder_id and folder.parent_folder_id in folder_dict:
+            parent_folder = folder_dict[folder.parent_folder_id]
+            return os.path.join(get_full_path(parent_folder), sanitize_filename(folder.name))
+        else:
+            return sanitize_filename(folder.name)
+
+    for folder in folders:
+        folder_map[folder.id] = get_full_path(folder)
+    return folder_map
+
+
+def download_all_files(canvas, base_dir="files"):
+    """
+    Download all files for accessible courses while preserving the subfolder structure.
+    Files are saved to: base_dir/{course_name}/{subfolder(s)}/{filename}.
+
+    Courses with access restrictions (access_restricted_by_date True) are skipped.
+    """
+    courses = canvas.get_courses()
+    for course in courses:
+        # Skip courses with access restrictions.
+        if getattr(course, 'access_restricted_by_date', False):
+            print(f"Skipping restricted course: {course.id}")
+            continue
+
+        # Use the sanitized course name.
+        course_name = sanitize_filename(course.name)
+        print(f"Processing course: {course_name}")
+
+        # Build the folder mapping for the course.
+        folder_path_map = build_folder_path_map(course)
+
+        try:
+            files = course.get_files()
+        except Exception as e:
+            print(f"Error retrieving files for course {course.name}: {e}")
+            continue
+
+        for f in files:
+            # Determine the subfolder from the file's folder_id if available.
+            subfolder = ""
+            if f.folder_id and f.folder_id in folder_path_map:
+                subfolder = folder_path_map[f.folder_id]
+
+            # Use the file's display name for the filename (sanitized).
+            file_name = sanitize_filename(f.display_name)
+            local_file_path = os.path.join(base_dir, course_name, subfolder, file_name)
+            os.makedirs(os.path.dirname(local_file_path), exist_ok=True)
+
+            print(f"Downloading file to: {local_file_path}")
+            try:
+                f.download(local_file_path)
+            except Exception as e:
+                print(f"Error downloading file {f.display_name}: {e}")
+
+# ----------------- Example Usage -----------------
+
+# Load your API key and initialize the Canvas object
+with open('keys/canvas.txt', 'r') as file:
+    api_key = file.read().strip()
+
+API_URL = "https://canvas.nus.edu.sg/"
+canvas = Canvas(API_URL, api_key)
+
+# Adjust the 'hide_older_than' parameter as needed (default is 7 days)
+assignments = get_assignments_due_dates(canvas, hide_older_than=7)
+print("=== Sorted Assignments by Due Date (excluding those older than 7 days and without a due date) ===")
+for a in assignments:
+    print(f"{a['due_at_str']} - {a['course_name']}: {a['assignment_name']}")
+
+# Set only_unread=True to filter announcements, if supported.
+announcements = get_announcements(canvas, hide_older_than=7, only_unread=False)
+print("\n=== Sorted Announcements by Date (excluding those older than 7 days) ===")
+for ann in announcements:
+    print(f"{ann['created_at_str']} - {ann['course_name']}: {ann['announcement_title']}")
+
+
+
+
+download_all_files(canvas)
