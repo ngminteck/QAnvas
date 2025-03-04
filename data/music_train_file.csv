@@ -1,0 +1,736 @@
+Question,Answer
+Can I transpose a piece of music into another key?,To transpose a piece of music into another key
+If I can already play some music without knowing music theory,Plenty of people in the world can’t read or write
+How does knowing theory help me memorize a piece of music?,If you know scales
+Do I need to know theory if I just play drums?,A lot of drummers
+Is there a quick and easy way to learn to read music?,All first-year music students are given a couple of cheesy mnemonics to help them memorize the lines and spaces of the treble and bass clefs. Treble clef (from bottom to top of staff) Notes on the lines
+How do I identify a key based on the key signature?,If you know whether a piece of music is written in a major or minor key
+Why is music theory important?,Music theory helps people better understand music. The more you know about music theory
+Where do the 12 musical notes come from?,Many theories abound regarding the origin of the 12 notes used in music today. Some people think their origin is in math. The number 12 is easily divisible by the numbers 2
+Will learning music theory hinder my ability to improvise?,Learning proper grammar didn’t keep you from using slang or swearing
+Why is so much music theory centered on the piano keyboard?,A keyboard instrument
+What did you do about the Groove Music Pass customers who are over their OneDrive free storage plan limit?,Microsoft followed up directly with the small number of Groove Music Pass customers in this situation and provided options to take care of their needs.
+When moving my music to Spotify,To effectively move your music to Spotify
+I bought a Groove Music Pass and haven’t redeemed it. What are my options?,As of October 2
+What's happening to the Groove Music app?,We’ll continue to update the Windows 10 Groove Music apps for PC
+Will I still be able to play music I purchased from the Microsoft Store?,If you downloaded your purchased music to your devices before December 31
+Can I still move my music to Spotify?,No. When Microsoft announced the discontinuation of the Groove Music Pass streaming service on October 2
+As a part of my Groove Music Pass subscription,If OneDrive storage was included in your Groove Music Pass subscription
+I got my Groove Music Pass as part of a promotional offer. Am I eligible for a refund?,No. If you got your Groove Music Pass for free
+What’s happening to Groove Music on iOS and Android?,The Groove Music iOS and Android apps were removed from download from the Apple App Store and the Google Play Store on June 1
+Will I still be able to play my local music files?,Yes. Local files will still be playable with the Windows 10 Groove Music apps for PC and Windows Phone.
+I pre-paid for an annual Groove Music Pass. What were my options?,Your recurring annual Groove Music Pass continued through December 31
+What happened to my purchased music if I didn't download it?,When Microsoft announced the discontinuation of the Groove Music Pass streaming service on October 2
+I was a monthly Groove Music Pass subscriber. What were my options?,If your subscription extended beyond December 31
+What happened to my music after I moved it to Spotify?,All the music that had a match in Spotify’s catalog now appears in your Spotify library and playlists. All your purchased or uploaded non-Groove Music Pass music will remain untouched in the Windows 10 and Xbox Groove Music apps. Music you own and that is stored locally on your hard drive or on OneDrive is untouched and will continue to be playable from your local hard drive through the Windows 10 and Xbox Groove Music apps.
+What happened to the Groove Music Pass?,The Groove Music Pass streaming service was discontinued on January 1
+music streaming apps are available for Windows?,Depending on your region
+Will I still be able to play music I downloaded with Music Pass?,No. As of December 31
+I wasn't a Groove Music Pass subscriber. How does this affect me?,Nothing has changed for you. You can continue to play your local
+Does Spotify stream from OneDrive?,No. Spotify doesn’t stream music from OneDrive. Music you upload to your OneDrive music folder can still be downloaded to a PC for playback in the Windows 10 Groove Music app.
+I was a Groove Music Pass subscriber. Will my subscription automatically transfer to Spotify?,No. If you want access to tens of millions of streaming songs at no cost
+I can’t find all my music from Groove after moving my collection to Spotify. What happened to it?,We did our best to preserve your collection and playlists when moving
+What was Groove Music Pass content?,Groove Music Pass content was music and music videos that could be streamed or downloaded during your Groove Music Pass subscription. The Music Pass provided you with a streaming service of songs you didn’t need to own locally to play
+Can I still download all my purchased music?,No. When Microsoft announced the discontinuation of the Groove Music Pass streaming service on October 2
+Will I still be able to play music from OneDrive?,No. On March 31
+Will you use my email for anything else?,Nah dawg. Your information is private; we won’t share it anywhere or with anyone. We might send you the occasional company update or invite to a rad event though.
+I’d like to see A Song A Day keep going,Well
+Is there a playlist of all the songs you’ve sent me?,We don’t currently offer official playlists for all your songs. If playlists are something you’d like to see or if you have any other feature requests
+I'd like to sponsor your emails,Great! Send an email to Shannon at shannon@asongaday.co.
+I’m an artist or label,Fill out this form and we’ll be in touch if we share your music with our subscribers. If you want to premier a track or are interested in a special feature such as an interview
+What format do you send the songs in?,All songs link to an open stream
+How do I become a curator?,Tell us a bit about who you are and the music you love here. It might take us a while to touch base so feel free to follow up! We’re growing the community slow and steady.
+How do I unsubscribe?,"Scroll to the bottom of any song email and select ""unsubscribe."" If for some reason you're still getting emails from us"
+I’d like to play one of your rad shows. Who can I talk to?,Sweet! Send Shannon an email at shannon@asongaday.co.
+What other large datasets are available?,We mention some other sources of data related to Music Information Retrieval research. THIS IS NOT AN EXHAUSTIVE LIST! If you want your dataset to be included here
+How can I get the dataset?,See tab Getting the dataset. There you will also find a subset to get you started quickly.
+Statistics of the dataset,1
+Why are there more artist names than artist IDs?,If you count the artist names
+What is the format of the data files?,Each file represents one track with all the related information (artist information
+Can I add my audio to the dataset?,In the sense of having your audio analyzed and put in HDF5 format like the rest of the dataset
+What publications use the dataset?,We try to maintain an informal list here
+How can I organize all this data?,Gordon! (more to come on this). We have also created three SQLite databases
+How can I extend the dataset?,If you have data that could be linked with the Million Song Dataset
+Can I contact you privately to get the audio?,The Echo Nest data is released under the same terms of use as their API. For a more readable version of the TOS
+"What is the difference between ""terms"" and ""mbtags""?",Terms are the tags provided by The Echo Nest. They can come from a number of places
+Where can I get help?,Check to see if someone has brought up a similar issue in the forums; if not
+Why aren't the strings displaying correctly?,All data was downloaded in utf-8 format and was saved in the HDF5 file in utf-8 format. We hoped that this would ensure that every name / release / title will display correctly if you set your display to utf-8
+What is in the dataset?,Good question
+How was the dataset created?,We used The Echo Nest API and some information from a local copy of the musicbrainz server. Data was downloaded during December 2010. For more information on how we chose the tracks
+Can I recover audio from the features?,"Or ""can I reverse engineer the features?"". Well... you should try! Dan Ellis provided MATLAB code to do something like this"
+How do I cite the dataset?,Check the Contact Us tab.
+What can I do with this data?,Surprise us! But you might want a take a look at the tasks / demos tab to get inspired. That page incudes snippets of code to help you crawl through the whole dataset. This recent article provides a wide-ranging survey of existing Music Information Retrieval classification tasks.
+Why didn't you build an API?,APIs have a lot of merit
+How can I visualize a file?,A common first thing you might want to do is quickly glance at the numerical content of a data file. How you do this of course depends on the language you want to use. In each case
+How can I get involved?,Fields 'year'
+Will I get back the same data if I access The Echo Nest API?,Probably not
+What are song / aggregate / summary files?,"A ""song file"" refers to the typical HDF5 file containing information for only one song. An ""aggregate file"" is also an HDF5 file that contains the information for several songs. These are useful if you do I/O intensive experiments"
+What are these weird file paths?,We could not put a million files in one folder. Even a few thousand files in one directory can slow disk accesses significantly. We based the directory structure on The Echo Nest track IDs which are a kind of hash code. Echo Nest track IDs always take the form TR+LETTERS+LETTERS&NUMBERS. The directory path within the Million Song Dataset is the 3rd
+Is there any vocal training?,Let’s Play Music adheres to the philosophy that the voice is the first musical instrument. Most of class time is spent singing. The voice is trained to sing in tune
+How long and how frequent are the classes?,Classes are taught weekly. 1st year
+What are the main instruments for the 1st Year?,Three main instruments are utilized in the 1st Year. The first is the singing voice. We sing
+Isn’t age 4-5 too young to learn piano?,Research has proven that age 4-5 is an ideal age for music instruction. The ears are at prime listening capacity and the brain is busy connecting a network of neurons. Let’s Play Music captures this opportunity window by training the ears without requiring the finger strength or dexterity that a piano does.
+Why are they group lessons?,It has been well documented that children in group settings learn and perform better. They are more comfortable and stimulated in this environment. They thrive on the synergy and playful interaction of the Let’s Play Music class. Visit the Philosophy page for complete information.
+What are the main instruments for the 2nd and 3rd Years?,The piano becomes the instrument for instruction and practice in the 2nd and 3rd Years. Each child plays on his/her own full size keyboard in class and needs one for practice at home. Because of the intensive training in staff reading during the first year
+What is the parent involvement?,Parent involvement in music training is crucial. Parents are involved at home and in class. The 1st Year
+How is the curriculum calendar structured?,The curriculum is organized into 6 sequential semesters spanning 3 years. It follows the regular school year (September-May). Visit the Curriculum page for complete information
+How can you teach note-reading to a child who doesn’t know his letters?,In the 1st Year
+What do students do after 3 years of Let’s Play Music?,There is a beautiful balance of ear training and note reading in Let’s Play Music. Note reading is not delayed and the traditional letter names are taught so that graduates make a smooth transition to traditional private piano lessons.
+How big are the classes?,Optimum class size is 6-7 children
+Can I register for the 2nd or 3rd Year without having been through the 1st Year?,No. Let’s Play Music is highly sequential
+The information about an artist or album on AllMusic is incorrect. ,Factual information about credits
+How do I submit an album to AllMusic? ,Albums should be sent to our data provider
+How do I submit a biography or photo to AllMusic? ,Artist biographies and artist/recording images are provided by our data provider
+How do I update a biography on AllMusic? ,Updates to biographies should be sent to our data provider
+How do I update an artist photo on AllMusic? ,New and updated photos should be sent to our data provider
+How do I update my credits on AllMusic? ,Updates to credits should be sent to our data provider
+How do I add lyrics to AllMusic? ,We no longer provide lyric display on AllMusic.
+How do I get wrong lyrics corrected? ,We no longer provide lyric display on AllMusic.
+AllMusic has my credits assigned to multiple people. How do I combine them? ,Artists who have recorded under different names or who are credited differently across different liner notes may be attributed to different AllMusic pages. To get them properly combined
+AllMusic has my credits combined with somebody else's. How can these be split up? ,Artists with the same or very similar names are accidentally combined on occasion by our data provider TiVo. To get them properly split TiVo editors use a 1 to 5 star system. It is important to note that albums are rated only within the scope of an artist's own work; we won't compare a Miles Davis album to the latest album by Britney Spears.Editors may choose to revisit an artist's discography
+How do you determine an album or track pick? ,When looking at an artist's discography
+What is Editors' Choice? ,Each month
+What are Staff Picks? ,Every day our editorial team selects a different album to highlight on the home page of AllMusic. This may be a recent discovery
+"What does ""Associated With"" mean (under Related on an artist page)? ",If the artist is an individual
+"What does ""Collaborated With"" mean (under Related on an artist page)? ",This represents a behind-the-scenes musical partnership
+"What does ""Followed By"" mean (under Related on an artist page)? ",Artists who were influenced by the selected artist. This may be directly called out from research and interviews
+"What does ""Influenced By"" mean (under Related on an artist page)? ",Artists that have had a direct musical influence on
+"What does ""Similar To"" mean (under Related on an artist page)? ",Artists that share similarities with the selected artists. These are artists that sound similar
+"What does ""Group Members"" mean? ",Past and current members of the selected band.
+"What does ""Member Of"" mean? ",Band(s) that the selected artist is
+What are Genres? ,Genres should be seen as the broad categorization of music into a grouping. Things like jazz
+What are Styles? ,Styles are more specific sub-categories of music that fall under the broad genres. They usually relate to a specific time period (like power pop
+What are Themes? ,Activities or events particularly suited for a song
+What are Moods? ,Adjectives that describe the sound and feel of a song
+What are User Ratings? ,By creating an AllMusic account
+How do you come up with your album recommendations? ,By rating albums
+What are Lists? ,Lists is a feature on AllMusic that lets you create custom lists of albums you want to check out
+What is My Collection? ,Dedicated music fans who want to track which albums they own can now add albums to their collection list with a single click by visiting an album page. Or
+"What are New Release Notifications? Why should I ""Follow"" an artist? ","Registered users can ""Follow"" a band or musician on the artist page by clicking the ""Follow Artist"" button under an artist's name. If an artist you are following releases a new album or single"
+What is a User Profile? ,"User Profiles allow you to share your lists and collection. Navigate to the Profile Settings page in your user account and create your unique URL. You can see your profile page by clicking on ""My Profile"" at the top of any page. Once you’ve created your user profile"
+Do you have a mobile app? What is AllMusic Roundup? ,AllMusic Roundup was an iOS companion app to the AllMusic website
+I need help with a function on AllMusic that just isn't working. ,Sometimes we hear about problems like this if a user is using a very old browser version. We support current versions of most browsers
+Track samples aren't working. ,Sometimes we hear about problems like this if a user is using a very old browser version. We support current versions of most browsers
+How do I download or purchase music on your site? ,We do not sell any products directly on our site. When applicable
+What happened to the Billboard chart info? ,Billboard has changed their licensing terms and the cost associated with licensing that information to display on AllMusic was way WAY more than we can afford. We're pretty bummed about it but we simply can't afford to license the information from them anymore.
+How can I submit an idea for a new feature on AllMusic? ,Feature requests or any feedback related to AllMusic can be sent via our feedback form or by posting your idea on our Get Satisfaction page.
+How can I submit a suggestion for an improvement to an existing feature on AllMusic? ,Feature requests or any feedback related to AllMusic can be sent via our feedback form or by posting your idea on our Get Satisfaction page.
+What is an AllMusic subscription? What does it offer? ,By subscribing to support AllMusic you receive a number of benefits including an ad-free experience
+I can't log in to my AllMusic account. ,If you had an account dating back before 2007 and you're trying to log in with those credentials
+How can I get my Rovi ID? ,If you have been instructed to get your Rovi ID
+How do I take control of an artist page? ,AllMusic accounts are not connected to artist pages
+I don't agree with an album review. ,That's the great thing about being a music fan; you can have an opinion about an album that might not be the same as another person's opinion. TiVo editors take into account the history of the band
+I don't agree with an album rating. ,That's the great thing about being a music fan; you can have an opinion about an album that might not be the same as another person's opinion.  TiVo editors use a 1 to 5 star system. It is important to note that albums are rated only within the scope of an artist's own work; we won't compare a Miles Davis album to the latest album by Britney Spears.Editors may choose to revisit an artist's discography
+I don't agree with the Genre or Styles for an artist/album. ,"The AllMusic genre is considered to be a broad umbrella term that may have several styles under it. Occasionally we hear things like ""This band isn't pop/rock"
+Why can't I find Bryan Adams on AllMusic? ,Due to the request of Mr. Adams
+Can I get permission to use a song via AllMusic? ,Neither AllMusic nor TiVo own the rights to any music compositions
+Can I get the rights to republish an AllMusic biography or review? ,All biographies
+How do I get in touch with an artist? ,We do not have any way to get into contact with musicians
+Can I write for AllMusic? ,Our album reviews and artist biographies are provided by a company called TiVo. Their careers page is available here.
+How do I upload tracks or digital releases to be displayed on AllMusic? ,For adding digital-only releases to the database
+How do I submit a video to AllMusic? ,AllMusic does not have a method of allowing artists upload videos to the site. 
+Please remove an artist or album from AllMusic (aka takedown request) ,If your album or artist information is on AllMusic
+How did my album get on AllMusic? ,Album information such as reviews
+How do I get Spotify links added to a page on AllMusic? ,Our links to Spotify are automatically generated. We don't have a method of updating these links manually one-by-one at this time.
+How do I get Rdio links added to a page on AllMusic? ,We no longer provide links to Rdio.
+How do I get iTunes links added to a page on AllMusic? ,Our links to iTunes are automatically generated. We don't have a method of updating these links manually one-by-one at this time.
+How do I get a music video added to AllMusic? ,AllMusic does not have a method of allowing artists upload videos to the site.
+Whom do I contact about being interviewed on AllMusic? ,For interviews
+Whom do I contact about doing an album premiere on AllMusic? ,Want to premiere a video
+What are the differences between HDtracks and other digital-music services?,HDtracks offers music lovers the highest-quality downloads available anywhere on the web. Many digital music stores only offer heavily compressed MP3 files. When you purchase an HDtracks file
+What are AIFF,AIFF is a studio-quality digital-audio format. It is an uncompressed studio-quality file that is compatible with several players
+Will I really hear the difference between the various formats?,You should hear a substantial difference when listening to the music on a home stereo. The music will sound cleaner
+Do I need special equipment to play HDtracks files?,No
+What do I need to play 88/24,Please keep in mind that you will need a media player that is compatible with both the FLAC format and 88/24 or 96/24 resolution files. We suggest a media player such as MediaMonkey (PC)
+I live in a country outside of the United States. Are there territory restrictions?,Due to agreements with our member labels
+What are you doing with my e-mail address?,Nothing. Your e-mail address is stored in our database and only used to contact you to confirm the purchases you have made at HDtracks.
+Which payment methods does HDtracks accept?,HDtracks accepts Visa
+Why do you charge more for certain tracks?,A
+Why do HDtracks files take longer to download than files from other digital music stores?,AIFF is CD quality that is the same file size as a normal CD. It is about 10 times larger than a standard 128 kbps MP3 file.FLAC is a CD quality lossless compression file that is about 6 times as large as a normal 128kbps MP3 file.
+What is DRM and why should I care that HDtracks offers DRM-free music?,DRM stands for Digital Rights Management. It is a system that restricts people from using their music in a variety of ways and is generally frowned upon by music fans. DRM locks you into a certain hardware brand for the life of the music file. By cutting DRM out of the equation
+What is the user agreement?,The user agreement helps to protect the rights of HDtracks
+I forgot my password,Please email HDtracks customer support at contact@HDtracks.com
+There was an error in payment when trying to check out,The name and billing address that you have entered in your My Account page must match the address that is on file with your credit card company. If you get this error message
+I lost my Internet connection before the Download Manager launched but I still got a receipt. Now what?,"Your order has been processed and is now in the system. Go to your account page and then click on the red Resume Download link in your order history to automatically launch the Download Manager and resume your download. A message will also appear at the top of the page that says ""You have an order that is not completely downloaded. Click here to go to your account page to download your tracks."" the next time you logon if you still have not completed download of your order."
+How do I update my account information?,If any of your personal information has changed
+How do I add HDtracks.com to my list of safe sites?,"Hotmail users will have to add ""hdtracks.com"" to their safe list of domains in order to ensure you receive email from us. In order to do this"
+How do I install the download manager?,Compatibility
+Why do I need the Download Manager?,The HDtracks Download Manager is the best way to download and sort your hi-res music library. The free application downloads and stores all your hi-res music in one
+How do I launch the Download Manager?,You will need to install this program and run it on your computer in order to download your first purchase. It will then launch automatically on each subsequent purchase. Alternatively
+Where do my files go once the download is complete?,By default
+I clicked “Launch Download Manager” and all I get is a blank page with the URL “hdtracks,If you get this page
+My username and password seem to be correct,First make sure that you are logging in under the correct username
+Why isn't my Download Manager working?,If your Download Manager does not automatically launch and start downloading your order
+One of my songs “failed” in the Download Manager. How do I get that track?,Just close the download manager and re-launch it. Any failed files will download successfully. If not
+I accidentally selected the wrong file format. Can I change it?,If you selected the wrong format
+How do I get the audio files from the Downloader into my media player?,You will not be able to access your audio files directly from the HDtracks Downloader. Your files will be located in the “HDtracks” folder within your computer’s “Music” folder. From there
+Will the Download Manager work on my smartphone?,Unfortunately the HDtracks download manager is not available as a mobile app. You need to install the download manager on your computer and then you can transfer the files to your device.
+I want my music to be downloaded to a different location.,Open the download manager and click “settings.” In the settings window
+I lost my music! Can I re-download it?,Unfortunately HDtracks' policy does not allow for multiple downloads of the same order after 90 days. This is why we ask that our customers back up their files. Contact HDtracks customer support for details.
+How do I download an album in different sample rates?,To download an album in different sample rates (resolutions) you must place two separate orders and download one at a time. This can be a bit tricky because the Download Manager cannot overwrite existing files with the same name. Please contact HDtracks support for assistance.
+Can I download music files to another computer besides my own? And how do I do this?,Yes
+How do I import the album into iTunes,On iTunes
+Why won't my music play in iTunes/Windows Media Player?,Please refer to this chart to match your media player with the recommended formats. If you need to change formats
+Can I play HDtracks on my iPod or other personal media player?,Most iPods (except the iPod Shuffle) will play HDtracks AIFF files. Please check to see if your portable player will play AIFF
+How can I play my HDtracks through my home system?,You can connect your computer directly to your home stereo just like you would a CD player. There are also several devices on the market
+How do I import my tracks into iTunes or Media Monkey?,"From the iTunes ""File"" menu select"
+How can I set up an HD music environment?,HD files are the same thing as purchasing a CD but without the disc. You can burn your file to a CD-R or use a home music server ( there are some on our cool links page). The better your Hi-FI system the better your HD files will sound. A good Hi-FI system will translate into a good HD music file system.
+What are DSD files?,DSD (Direct Steam Digital) is a 1 bit over-sampled pulse density modulation format used to record music
+What computer music player do I need to play back DSD?,There are several music playback software and hardware options available such as Foobar 2000
+What DACs support DSD?,There are many consumer offerings from Mytek
+Does iTunes support DSD files?,No. As of this writing
+ Is this a copyright-free database?, No
+ Can I use the RWC Music Database simply for listening or as background music (in stores, The database may not be used for such purposes. It can only be used for research.
+ Can I make the contents of the database available on the Internet?, This is generally not permitted; as is stated in the Pledge
+ May I modify the pieces/data recorded in the database?, Pieces/data may be freely modified for research purposes
+ May I play a piece from the database when demonstrating research results at an academic conference or exhibition? Can I use modified or processed pieces for such demonstrations?, In either case
+ May I demonstrate our research results including music excerpts from the database on the Internet or on conference/workshop CDs or DVD-ROMs? (New), When users who have submitted the Pledge and received authorization demonstrate their own research results with the help of those excerpts
+ It is impractical to list the names of all potential users of a single database set acquired for joint use by multiple users at my research organization; what should I do?, The person in charge of the research organization (which could be a project
+ When only one user will actually be using the database, As a general rule
+ Is it possible to place a bulk order if I wish to acquire several types of databases at the same time?, Yes. Please mark the check boxes by the names of all the databases you wish to use.
+ Is it possible for a single person or a single organization to obtain multiple sets of the same database?, Yes. However
+ As a university professor, The user's supervisor (you) or the user should e-mail a Notification of Changes to User Contact Information form to rwc-mdb-order-ml [at] aist.go.jp to update the name of the user. The new user name might be that of the supervisor (your name) or of another student.
+ We would like to discontinue use of the database because the research project for which it was being used has concluded (or the organization conducting the research project is closing); what should we do?, When discontinuing use of the database
+ While there are some high quality pieces, The primary purpose of the database is not to provide pieces of high musical quality. Instead
+ I am not satisfied with the quality and/or with certain selections; is it possible to have improvements made?, The media being distributed constitute a pre-packaged database offered as is; there are no plans to make future improvements. However
+ We have a variety of requirements regarding database contents, We certainly encourage such activities. We hope very much that our series of databases will serve as a starting point from which databases for music information processing will be compiled worldwide
+How does Artist's Pick work?,Whether it’s a track After you update your image using Spotify for ArtistsThe songs that appear under Popular on your Spotify artist profile are automatically updated every 24 hours and ranked based on their number of all-time streams and their number of recent streams. Your popular tracks can’t be manually updated.QuestionYou can manage all your artist profiles’ images with Spotify for ArtistsIf your music ends up on a different artist profileYou can! With Spotify for Artists
+How do I invite team members to Spotify for Artists?,If you have Admin access to a profile in Spotify for ArtistsSpotify for Artists provides artists and their managers with audience stats and tools for managing their profile on Spotify. If you’re an artist or managerLog in to Spotify for Artists. Open the side menu by clicking the three dots in the top-left. Click your name located at the bottom of the side menu. Click User Settings. Edit business email information as desired. Click Save. Note
+How do I edit my or another team member’s company and role?,You can pick any playlist available on Spotify to feature on your artist profile. If you want to create your own playlistWhen you remove your profile image altogetherYour artist radio station is based on your related artists. If you don’t have any artists listed under Related Artists on your profile
+How do I get music on Spotify?,Music on Spotify is delivered by either a distributor or a record label working with a distributor. They handle all the licensing and distribution
+What type of royalties does Spotify pay?,If your music ends up on a different artist profile If your label handles music distribution We distribute the net revenue from Premium subscription fees and ads to rightsholders. To calculate net revenue
+How does Spotify know who to recommend my concerts to?,Before your first release goes live on Spotify At the moment you can't reach out directly to your fansGo to your artist profile. Click (…) to the right of the FOLLOW button. Click Share You can make changes or updates to your song submission right up to release day. Bear in mind Tracks from your new release are always included in your followers’ Release Radar playlists. You can specify which song they get by submitting it for playlist consideration
+Why can't I edit a music submission made by my label?,Licensors and labels who submit a song for playlist consideration are also able to make it label-only. A label-only submission means you and your management team are able to view which song was submitted and by who Search results in Spotify are based on a mix of current and all-time popularity—but vary from user to user based on personal listening preferences. The more streams and followers you have
+What is SoundBetter?,SoundBetter is the leading services marketplace connecting service seekers and service providers in the music production industry — now part of the Spotify for Artists family. As a musician
+How much does Spotify cost on PlayStation Music?,Spotify is available for free. You can upgrade to Spotify Premium to enjoy your music add-free
+Is Facebook login available?,Users who log in to Spotify using their Facebook credentials will need to use the Spotify app on Android or iPhone/iPad
+Is offline playback available?,Yes
+How do I unlink my Spotify account and my account on PlayStation Network?,Once your subscription has expired
+Whatƒ??s special about Spotify being available on PlayStation Music?,You can stream music with Spotify on your PS4 system. You can even listen to Spotify in the background while playing supported games for PS4 (not available while using Remote Play). Spotify Connect acts as a remote that allow you to control playback on your PS4 console from a separate mobile phone or tablet without pausing your game. (Spotify Free and Premium users can use Spotify Connect to control PlayStation 4 using Android devices 2.4.0 and later and iOS devices 2.7.0 and later).
+I have Spotify Free but Iƒ??m interested in Spotify Premium. How do I upgrade to Spotify Premium?,You can upgrade to Spotify Premium directly from the Spotify app on your PS4 console or Xperiaƒ?› device. You can also upgrade from a web or mobile browser after linking your account on PlayStation Network to your Spotify account https
+How do I manage my Spotify subscription?,If you purchased Spotify Premium from Spotify directly
+I already have a Spotify account. How will it work for me?,Open the Spotify app in PlayStation Music and link your Spotify account to your account on PlayStation Network.
+Which devices support Spotify available on PlayStation Music?,Spotify is available on PlayStation Music on your PS4 system
+Where is Spotify available on PlayStation Music?,Spotify is now available on PlayStation Music in Andorra
+Is background playback available?,Yes
+How do I link my account on PlayStation Network to my Spotify account?,To link your account on PlayStation Network with your Spotify account
+Are Spotify Free accounts included?,Yes
+When listening to Spotify on my PS4 system,Yes
+How do I get a Spotify account?,You can create a Spotify account on your PS4 console
+Itƒ??s great that Spotify is now available on PlayStation Music. How do I get it?,On a PS4 console
+Uh oh. I think my account link was disconnected. What should I do?,On your PS4 console
+What Spotify features are available on PlayStation Music?,With Spotify now available on PlayStation Music
+How much is it to sign-up and register as an Artist?,Sign-up and registration is free. There are also no subscription fees.
+"What is the ""Platform Usage Fee""?",The Platform Usage Fee is what allows FLIG to address your needs. It covers credit card transaction fees
+Do I have to keep all my communication with a planner within the FLIG platform?,Yes you do
+Can I link my bank account with FLIG to get paid via direct deposit?,FLIG uses credit/debit card processing right now
+How do I get paid?,All Artists are paid 24 hours post performance. One of the benefits of working with FLIG is that we charge Planners 100% in advance of the event and hold the funds in escrow to guarantee your payment.
+If someone asks me to book another gig at a FLIG event,If they are not already a FLIG Planner
+Is all my information stored safely and securely with FLIG?,Absolutely! Our servers and data center are SOC Type II Audit compliant and meet SEC.gov security standards. FLIG also utilizes ssl standard technology encryption and account recovery conventions. In other words
+Do I have to report FLIG earnings when I do my taxes?,Yes you do. But FLIG makes it super easy. In your account
+What is the benefit of booking gigs with FLIG instead of on my own?,As a FLIG Member
+How will Artists who are not selected,Artists who are not selected for an event will be notified via email that the performance opportunity is ƒ??no longer availableƒ?.
+Is Music In Africa a commercial enterprise?,No. Music In Africa is a non-profit organisation.
+I canƒ??t sync my Soundcloud or Deezer account.,If this happens check that the URL you are adding is correct. Also check that your Soundcloud account is set up to allow your music to be embedded on third-party websites. You have to log into your Soundcloud account to do this.
+How do I know that my registration has been accepted?,Delegates whose registrations have been accepted will be notified via e-mail.
+What should I include in my profile?,All the important information about your work such as stage or business name
+How can I book for an exhibition space?,Exhibition stands are available (2019 fee to be confirmed). You can also take advantage of our unique interactive exhibition option
+When should I register?,As soon as registration opens. Registration for 2019 opens on 1 May 2019
+Does Music In Africa sell music or offer downloads?,No. Music In Africa does not sell music or offer any music downloading services ƒ?? we do not deal with music files. However
+How long does it take Music In Africa to moderate my account?,We strive to publish profiles within 24 hours after their creation. If your profile is not published within this period
+I would like to get involved in Music In Africa ƒ?? how can I do so?,Contact us on info@musicinafrica.net. We welcome all who believe in our initiative ƒ??journalists
+Are there other activities related to ACCES that I need to look out for before the conference?,Please look out for the ACCES programme online and subscribe to our monthly newsletter for updates on all the showcases
+How do I contribute content?,Knowledgeable individuals or businesses are welcome to contribute content with Music In Africa. You will first need to create a contributorƒ??s profile and contact us on content.en@musicinafrica.net if youƒ??d like to submit an article to be published. If your content adheres to our editorial policy
+What are the official languages and will there be real time translation?,English and French are our official languages. Translation will be provided for these two languages.
+What are the benefits of creating a profile?,An up-to-date profile provides many opportunities. Musicians and professionals working in the African music sector are able to connect with the rest of the continent and tap into a rapidly growing market throughout the globe
+How do I find out who is speaking and performing at ACCES 2019?,The programme will be published on the ACCES website. Also make sure to subscribe to our newsletter for updates.
+I have created my account but itƒ??s still not published?,The Music In Africa editorial team moderates all user-generated content
+Who owns the Music In Africa portal?,Music In Africa is owned and governed by the Music In Africa Foundation ƒ?? a pan-African non-profit organisation. The foundation was formed in Kenya in July 2013 and officially registered as a non-profit organisation (NPO) in South Africa in February 2014.
+How do I get a confirmation letter for visa purposes,The confirmation email that you receive when you register may also be used for visa purposes. However
+Where is ACCES happening in the coming years?,ACCES 2020 venue will be announced at ACCES 2019.
+How do I claim a profile?,When creating your new account
+I am not a music professional ƒ?? is this portal for me?,Yes. Music In Africa is for everyone interested or operating in the African music sector. Whether youƒ??re a musician
+Do I still need to register if I am African?,Yes. All attending delegates must register online.
+What is a profile?,Music In Africa allows people from all walks of life to create profiles about themselves or their music-related businesses
+What is the best way to book for accommodation in Accra,When registrations open we provide a list of our partner hotels for 2019. Please check our info page here for more details
+Can I sync any kind of external media with my Music In Africa profile?,At the moment
+Who selects the ACCES performers?,The ACCES Curation Committee selects performers.
+How does Music In Africa recommend tracks for me?,When you are logged in
+Will there be shuttles to get delegates to various venues?,Yes. Please refer to registration confirmation document for specific details.
+Are there any opportunities for me to perform?,Yes
+Iƒ??ve spotted an error on the site ƒ?? how can I correct it?,Simply go to the Contact Us page and send us your feedback.
+I want to speak at ACCES how do I do it?,In general the organising team reaches out to speakers who meet the editionƒ??s focus areas. However
+I do not want to Sync everything from my Soundcloud /Deezer account.,No worries
+Who should create a profile?,Everyone who is operating in the African music sector is welcome ƒ?? from musicians to record labels
+How can I contact the ACCES organizers?,Please send an email to projects@musicinafrica.net for any questions or inquiries.
+Which countries does Music In Africa cover?,Music In Africa has five strategically placed offices across Africa
+Where do I pick up my ACCES pass,There will be an on-sight registration desk where all registered delegates will receive their badges
+How do I become a member of the Music In Africa Foundation?,We are currently adding a feature to this website that will allow users to apply online for membership. In the interim
+How do I put my music on Music In Africa?,First you need to have your music on legitimate music digital platforms that are intergrated on Music In Africa. Currently these are (Soundcloud
+Will I be able to attend ACCES if I have not registered?,All delegates should register and reserve their seat. Only registered persons will receive the ACCES pass.
+ACCES is free for Africans,The fee is $100.
+How do I renew my contract after 12 months?,If you would like to renew your 12-month plan to continue enjoying your JioSaavn Pro subscription at $4.90/mth
+Who are our partner apps?,Our partner apps are Spotify
+Can I subscribe to multiple premium music accounts with Singtel Music?,Yes
+How might your data waiver for Singtel Music be affected?,Your data waiver for Singtel Music may be affected due to one or more of the following
+If I am an existing Spotify/KKBOX/JioSaavn/TIDAL/Deezer premium subscriber but subscribed directly to one of these services,To enjoy local data waiver
+Is the local data waiver applicable for other music apps?,Currently the local data charges waiver is only for Singtel Music partner apps. However
+How can I pay for my Singtel Music subscription?,The subscription charges for Singtel Music will be included in your monthly Singtel bill.
+How do I cancel my subscription to Singtel Music and what happens when I do so?,For cancellations
+What is TIDAL HiFi?,TIDAL HiFi is the high fidelity music subscription that allows you to stream 40 million tracks in lossless quality at 1411kbps. Lossless content is CD quality music meaning that the files are not compressed
+Who can subscribe to Singtel Music?,You can subscribe to Singtel Music if you are our existing Singtel Postpaid Mobile customer. If youƒ??re not an existing Singtel Postpaid Mobile customer
+How do I activate or link my selected premium music account?,You will receive a confirmation SMS after successful subscription of Singtel Music. Simply click on the link in the SMS and follow the steps to activate or link your selected premium music account. If you have an existing premium music account
+What is Deezer HiFi?,Deezer HiFi is a music streaming service that allows you to discover and play all your favourite music in high-fidelity and lossless audio. Choose from millions of tracks and playlists
+What is Singtel Music?,Itƒ??s a music service that allows all music lovers to stream and download their favourite songs via their favourite music apps
+Does the subscription for this premium music service cover data roaming fees when I am overseas? Can data charges be waived even when I am overseas?,Only local data charges are waived with Singtel Music. If you like to stream and download music while you are overseas
+To what extent are the local data charges waived for Singtel Music?,After you have subscribed
+Can Prepaid Mobile customers subscribe to Singtel Music?,Unfortunately
+How do I use Spotify,Please refer to the FAQs on the individual websites of the respective mobile apps for more information Spotify FAQ
+Where can I subscribe to Singtel Music?,You can sign up via the following
+What benefits do I enjoy with a Singtel Music subscription?,Youƒ??ll enjoy a premium music account on either Spotify
+Can you unlink a Spotify Premium/KKBOX Premium/JioSaavn Pro/TIDAL Premium/TIDAL HiFi/Deezer Premium/Deezer HiFi Music Account and link a different Spotify Premium/KKBOX Premium/JioSaavn Pro/TIDAL Premium/TIDAL HiFi/Deezer Premium/Deezer HiFi Music Account to Singtel Music?,No
+How do I know if my subscription to Singtel Music is successful?,After you have subscribed
+When can I apply for admission?,Application for admission to the programmes at the Conservatory for Academic Year 2016/2017 is open from 1 October 2015 to 31 December 2015. Applications with incomplete supporting documents will be rejected after the closing date.
+If I wish to transfer to Yong Siew Toh Conservatory of Music from another Bachelor of Music programme,Audition determines a candidateƒ??s studio level and ensemble requirement. Placement exams and evaluation of transcripts decide the class year and the number of semesters required to complete the programme. All transfer students must be in-residence for a minimum of two years in order to receive a degree from the University.
+How do I schedule an audition?,After you have submitted an online application
+On my Bachelor of Music Degree,Your degree will be from the National University of Singapore
+d) Recommendations,Comments from teachers and professors who understand your musical ability contribute to our understanding of you as a musician and are valuable in helping us decide our offer.
+Do I get to select my studio teacher?,Where there is a choice of studio teachers
+Master of Music Degree,The current annual full tuition fees for the Master of Music Degree programme are
+Is it necessary for overseas applicants to submit SAT,IELTS and TOEFL are not required for admission to the Conservatory. However
+What is the relationship between the Yong Siew Toh Conservatory and National University of Singapore (NUS)?,The Conservatory is an autonomous school within the NUS. As such
+Where can I obtain a recommendation form from the Conservatory?,After submitting your application online
+When do I take the English Language Proficiency Test?,Singaporeans
+How long after the audition will I hear if I have been accepted?,Offers of admission will be made from February to April 2016 with all results fully released by April 2016.
+How do I apply for on-campus accommodation?,Online Application for Housing & Payment of SGD26.75 Registration Fee (early May to June) Part 2
+CPE Certificate in Music Leadership,Financial assistance and loans are not available for this programme.
+When are applications due?,Online application is from 1 October to 31 December 2015. Applications with incomplete supporting documents after 31 December 2015 will be rejected.
+Are certificates of external examination boards accepted for admission?,Certificates and gradings obtained through external examinations such as ABRSM
+What should prospective Composition applicants submit in their portfolio?,Candidates are required to submit a portfolio of 3 original scores representing the applicantƒ??s most accomplished works written for different combinations of instruments/voices (example
+Can NUS students who are non-music majors enroll for music courses offered by the Conservatory?,The Conservatory is only able to offer limited choice of modules as electives for NUS students from other faculties. Major studies is not available for enrolment. For enquiries on music electives offered each semester
+When will the auditions be held in Singapore?,The audition dates in Singapore for 2016/2017 are
+Can diploma students from the Nanyang Academy of Fine Arts and the LaSalle College of the Arts apply?,Music diploma students from the Nanyang Academy of Fine Arts and LaSalle College of the Arts are welcome to apply but should note that placement in advanced semesters or year of study will be subject to further consideration on a case-by-case basis depending on the academic standing in NAFA and LaSalle and the audition placement score. Applicants currently in the final year of high school or equivalent studies as above are suitable to apply if they are expecting to finish their course and obtain the necessary qualifications before 1 August 2016.
+b) Academic Status,As the modules offered in both the Bachelor of Music (Hons) and Master degree programmes are University-level subjects
+Medical Examination for International Students for Studentƒ??s Pass,All international students who plan to stay in Singapore for 6 months or more will need to undergo and pass a medical examination which must include both an HIV test and a chest x-ray for detection of Tuberculosis for the application of the Studentƒ??s Pass. The original copy of both the radiologist report on the chest x-ray and the laboratory report on the HIV test must be attached to the completed medical report and submitted to the Immigration and Checkpoints Authority (ICA) within 3 months of issue.
+Will I be given credits if I have a diploma in music?,Applicants who have a diploma in music (obtained locally or abroad through full-time studies) must first meet the admission requirements to the Conservatory and the University. Advance standings may be considered on a case-by-case basis.
+CPE in Music Leadership,Fees for the CPE Certificate in Music Leadership are $400 per modular credit (MC) for 20MCs.
+c) English Proficiency,As classes are conducted in the English medium at the Conservatory
+What is the relationship between the Yong Siew Toh Conservatory and the Peabody Institute?,The Conservatoryƒ??s collaboration with the Peabody Institute is the first of its kind between a renowned American conservatory of music and a leading university in the Asia-Pacific region. Ranked among the top music schools in the world
+How do I apply for a scholarship?,Candidates for the Bachelor of Music (Hons) Degree programme are not required to submit a separate application for the scholarships as the award of scholarship is guaranteed for all students accepted into the undergraduate programme. Candidates offered admission to the Master of Music Degree programme may apply for financial aid after they have accepted the offer of admission. Singapore citizens accepted into the Young Artist programme are not required to submit a separate application for the NAC-Conservatory of Music Scholarship. The scholarship will be awarded to students on a case-by-case basis after a consultation with the Director as part of the consideration for acceptance into the programme.
+Do I need to provide the accompanist for my audition?,Applicants are recommended to perform with an accompanist at their own arrangement. Applicants auditioning in Singapore may enquire with the Conservatory Admissions Office at musadmissions@nus.edu.sg for recommendations of accompanists available in Singapore.
+How do I apply for Studentƒ??s Pass?,Studentƒ??s Pass is applicable to international students only and applied online via Studentƒ??s Pass Online Application & Registration (SOLAR). Part 1
+When are required documents due for submission?,Applicants must ensure that all necessary documents are prepared for submission at the time of application. Students pending their final year results and certificate should submit all high school transcripts up to the time of application. All documents must reach the Conservatory by the closing date of application.
+Bachelor of Music (Hons) Degree,The current annual full tuition fee for the Bachelor of Music (Hons) Degree programme is SGD100
+If I apply to major in composition,Candidates residing in Singapore who meet the audition requirements will be shortlisted for an interview during the audition week. At the interview
+If I cannot accept your offer of admission and/or scholarship,For Singapore male applicants enlisting for national service
+Young Artist,Currently
+When is the Freshman Arrival & Orientation?,All newly admitted students will be involved in a 3-week orientation programme from mid-July to August
+Bachelor of Music (Hons) Degree,The Conservatory currently offers full scholarships
+Can I choose pieces other than those listed in the repertoire guide for my audition?,The audition repertoire requirement for various programmes reflects the level of performance expected of the candidate in the programmes. Candidates who are unable to offer the repertoire required for audition may not be at the level to enrol in the coursework and should re-consider other options for undergraduate studies
+What should students prepare for enrolment at the University after acceptance?,The Conservatory Admissions will be in contact with students via email regularly regarding administration matters from early May to July. Students will receive instructions regarding on-campus housing application
+How do I apply for the NUS Student Card?,Students must first submit their photo online for the printing of the NUS Student Card between early May and June. Your student card will be ready and given to you during orientation.
+What are the important dates of the Academic Year 2016/2017?,Online Application is from 1 October 2015 to 31 December 2015. Live auditions will take place from December 2015 to March 2016 and will be held in Melbourne
+How will my high school or diploma results affect my chances for admission?,While the key admission criteria is the candidateƒ??s ability to perform or compose at a threshold acceptable for admission
+If I apply to the Yong Siew Toh Conservatory,Students are allowed to take some of the modules that are offered in NUS that are outside of the Conservatory.
+Who is eligible to apply for the Bachelor of Music (Hons) Degree programme?,The Bachelor of Music (Honours) Degree programme is currently offered for majors in orchestral instruments
+a) Audition & Interview,Preparing for a strong audition is a key requirement for admission to the major studies in performance. Candidates must be confident in performing the audition repertoire at a very high level. Candidates applying for the major in Composition will be assessed by the quality of their works submitted in their portfolio. Candidates applying for the major in Recording Arts and Science are expected to have G.C.E ƒ??Aƒ?? level equivalent passes in Mathematics and Physics.
+Pre-Admission Medical Examination,All newly admitted students are required to undergo a medical examination.
+Is there an application fee?,There is no application fee or other fees involved during the application phase. Foreign students are requested to consult with the Conservatory Admissions Office if they encounter agents charging them an application fee.
+Young Artist,The current annual full tuition fee for the Young Artist programme is SGD7
+Will students who are weak in English language receive help in terms of instruction?,All students who are not exempted from the Universityƒ??s Qualifying English Test are required to sit for the test in July 2016. Based on the test
+I have not completed my high school examinations. Am I eligible to apply before the audition or will have to wait till I receive my high school results and certificate?,If you are currently in the final year of high school studies and expected to graduate by June 2016
+Master of Music Degree,Currently
+When is the NUS Registration Online Exercise?,All students must be registered before commencing a course of study at the University. Registration refers to a formal process whereby a student enrols at the start of his/her period of study to become part of the NUS student community. Registration takes place from June to July and consists of two stages
+My copyright is being infringed,The information contained in Discogs is generally publicly available information
+Who added my discography to your site?,Discogs is a user built website that relies on its userbase to add and update the information that we display. Anyone can add and edit the information.
+Can I request staff edits or changes to my information on Discogs?,All edits to the database must be done by the community - our staff do not make edits or adjustments. If you have spotted errors
+Who created an account for me on your site?,The artist / label discographies are not accounts
+Can I get exclusive control of my artist or label page?,Sorry
+Can I remove information?,Information is taken directly from publicly available releases in the possession of one or more members of the site
+Who Can Live at The Artesan Lofts? Are There Income Restrictions?,The Artesan Lofts are made possible with financing that encourages affordable housing. As a result
+What is a live-work space?,A space that combines your living quarters and workspace. Artesan Lofts has offers two 2-bedroom
+Who Manages The Artesan Lofts?,The Artesan Lofts are managed by Realty and Mortgage Company (Phone ƒ?? 773-989-8000)
+How Much is the Security Deposit?,Artesan Loftsƒ?? apartments charges the equivalent to one monthƒ??s rent. Complete your pre-application online today!
+What is the Artist Interview Committee?,The Artist Interview Committee is drawn from local artists and community organizations as well as 1-2 members of the Property Management team. The process is friendly and informal
+How Much is Rent?,1 Bedroom ƒ?? $814 2 Bedroom ƒ?? $966 * Net payable rent will be reduced by a utility allowance applicable to the unit size. Explore our artist apartments and floor plans through a clickable map.
+Are Units at The Artesan Lofts ADA Compliant?,The Artesan Artist Lofts will not discriminate against applicants or residents because of their disability or the disability of anyone associated with them and from treating persons with disabilities less favorably than others because of their disability. Four (4) units in the building are designed for persons with mobility impairments
+How Does My Credit Report Affect My Application?,A. Credit Standing Eligible Artesan Lofts applicants must have a satisfactory history of meeting financial obligations
+Do You Have to Be An Artists to Live at The Artesan Lofts?,No
+How does Artesan Lofts Support the Arts Based Community?,Artesan Lofts is helping to intersect community-based arts and commerce opportunities to affordable housing. Along with the John C. Dunham Aurora Arts Center
+Can I Have Pets?,Every household can have 1 dog up to 25 pounds or up to two cats. A pet security deposit will be required.
+What Questions Will the Artist Interview Committee Ask?,The questions are based on selection criteria and asked of every artist applicant. One is a demonstrated commitment to art. The second is a desire to live in and contribute to a community
+What Are the Artesan Lofts?,Immersed in art
+What Utilities are included?,Tenant is responsible for paying their own gas and electric. However
+What if I Use Tools and Equipment That Makes Noise?,The property does have restrictions about noise. Quiet time is generally considered between 10pm and 7am. Amplified musical or dance practice is only allowed in the tenant common space and within the stated rules for those spaces. The project has adopted some rules about noise that adheres to the City of Aurora noise ordinance
+How Do I Apply?,There are three steps to the application process for rental of units at Artesan Artist Lofts
+Where is the parking located for the Artesan Lofts?,All residents at the Artesan Lofts will be provided with one parking pass to the Cityƒ??s ƒ??Goldƒ?parking lots / garages and will have unlimited access to these lots. If more than one parking pass is needed
+How Do You Define Artist?,We understand that artists work within a wide spectrum of creative pursuits. As a result
+Is There A Waiting List?,If an applicant is preliminarily approved and there are no available units
+Why do you call yourself the Artesan Lofts?,One of Auroraƒ??s strengths is diversity. The growing arts scene in Aurora is young
+Can I Have Roommates? Or I Have Kids,Yes
+Are All Art Forms Allowed at Artesan Artist Lofts?,Artistic processes that are extremely noisy
+How do I share my songs on Music Xray with others?,Each song is assigned its own permanent link
+How many songs can I upload? Is there a limit?,There is no limit to how many songs you can upload to Music Xray. In fact
+How do I add or change my similar artists?,When youƒ??re logged into your artist account and inside of your dashboard
+Where can I read about success stories on Music Xray?,Please check out our success stories page here.
+I don't want my songs to be public online,So you donƒ??t want your songs to be public? This question is one that comes up a lot. There's a very particular reason that all songs submitted to an industry professional have to be public. Let's say you were submitting a song that was not publicly searchable to an Industry Professional
+How do I delete a song I have uploaded?,In order to delete a song
+I am already signed to a label and have a publishing deal,This is a question that requires you to take several things into consideration. You should always check with your label or management to make sure youƒ??re in a position to find song placements. Often times
+Where do I view my past submissions?,To view your past submissions
+How do I view my potential fans?,You can see your fans from in the ƒ??Targeted Fansƒ?tab. Many of the fans have a Facebook icon next to their email address
+What is a ƒ??Song Activity Chartƒ??,The Song Activity Chart is a feature that allows you to track a songƒ??s progress on the site. The graph shows you your songƒ??s daily progress
+What is Music Xray?,Music Xray is a platform where artists can submit their music directly to Industry Professionals. When you submit to an opportunity
+How do I know if I am entitled to a refund?,You can only be refunded for submissions that are past the 45 day response deadline. We refund musicians when we canƒ??t live up to our end of the deal
+How can I check my income earned (refunds,Login to your account
+Who can post opportunities on Music Xray?,Only verified and vetted industry professionals can post opportunities on the site. Our staff filters all postings to ensure theyƒ??re accurate and relevant. We never allow services to be sold or solicited on the site
+How do I sign up as a Music Industry Professional?,To sign up as a Music Industry Professional with Music Xray
+What is an EPK and how can I create one?,EPK stands for Electronic Press Kit. It is a place where you can list all of your songs in an online
+How do I contact your support team for help?,There is a black
+"What is the difference between ""songs with Diagnostics"" and ""songs without Diagnostics""?",Weƒ??ll show you how your song is perceived by the industry and how its ratings compare to all the other songs on the site.Next
+Where do I find my songƒ??s permanent link/URL?,There are two ways to find your songƒ??s permanent link (xray)
+Do your songs have to be professionally recorded,The quality of the songs do not always matter on Music Xray. Its important to read the descriptions for an opportunity before you submit to get a feel for what types of tracks the industry professional is looking for. Sometimes an industry professional is looking for finalized songs for radio play
+I've received a response but I am not sure what it means. What is a submission status/response and how do I find these for each song within my account?,The submission status appears on every submission you make and depending on the opportunity you submit to the status may vary. To check on the status of each submission
+Does Music Xray take a cut of deals?,No. We do not take any portion of any deal reached as a result of our site. We let you keep all the money you make from any deal. If you encounter any questionable material within a contract
+How do I get the money I made from my tip jar?,Your tips will go directly into your Account Balance
+How can I use the Affiliate Program and RSS Feed to Earn Money?,If you are using your affiliate id for posts to the Music Xray site to earn extra income you can now use our RSS feed to do the same. Just use this RSS feed that has the latest opportunities and include your affiliate id (i.e. - http
+How are my ratings collected?,Your ratings are collected in one of two ways. When you run a Diagnostics campaign your song is sent to five industry professionals who specialize in your genre for their ratings consideration. This lets us establish a baseline for your track in the industry. From there weƒ??re able to calculate other data around your track based on how songs with similar ratings compared.Every time you make a submission on Music Xray
+Music Xray is asking me to associate my Facebook account. What if I don't want to do this? What happens if I do?,If you sign up for a fan account with Music Xray
+How to I enter,You must enter your Paypal information so youƒ??re able to receive payments from Music Xray. Please login to your account first. Once you're in your account
+Is there a sign-up fee with Music Xray?,With Music Xray
+Where do I run a Fan Match campaign?,Once youƒ??re logged into your account and in your dashboard tab
+I'm not receiving email updates from Music Xray! How do I fix this?,Please login to your account first. Once you're in your account
+My Fan Match campaign appears to be stuck. How can I fix this?,If your campaign appears to be stalled at a certain number of fans
+What can I do with a Music Xray artist account?,Please visit this link for more information!
+What is the Average Submission Graph?,The average submission graph shows how many submissions it took on average for songs with similar ratings to be selected on Music Xray. You can use this chart to set realistic expectations about how your song might be received in the industry
+How do I upload songs to Music Xray?,When youƒ??re logged into your account
+Why do I need to enter similar artists?,You must enter similar artists in order to target the fans that have musical interests who would appreciate your music. Without listing similar artists
+How do I contact your support team for help?,There is a black
+What is S2O (Sonic Opportunity Matching)?,S2O is a tool designed for artists to receive better opportunity matches. After your music is uploaded to our website
+What is your 45 day Listen and Response Guarantee?,At Music Xray
+How do you calculate my cost per fan?,We calculate your cost per fan using the following formula
+How do I create an account?,Sign up for an Industry Professional account here.Sign up for an Artist account here.Sign up for a Fan account here.
+What is the ƒ??target fansƒ?button?,The ƒ??target fansƒ?button allows you to target potential fans whose taste preferences are specifically matched to your music. These potential fans will be sent the song of your choice
+Can I submit only lyrics to an opportunity?,You are able to upload anything that is in mp3 format; however
+How do I edit song information?,To edit the information on your songs
+How do I know they are legitimate? Do you screen your industry professionals?,All the Music Industry Professionals on Music Xray are background checked
+I'm not receiving email updates from Music Xray! How do I fix this?,Please login to your account first. Once you're in your account
+What format and size must my songs be?,Your songs must be in mp3 format and under 20MB.
+How do I pay out my Account Balance to PayPal?,If you would like for your funds to be transferred back into your PayPal account
+What happens to the submission fee set by the Industry Professional?,Music Industry Professionals set their fee based on how many submissions they can handle. Many of them send their fees off to various charities directly from Music Xray. Theyƒ??re not allowed to use the fees as part of their business or to run contests. We do not tolerate any Industry Professional abusing these fees
+What is the ƒ??Sonic Opportunity Matchesƒ?button?,The ƒ??Sonic Opportunity Matchesƒ?button shows you all of your opportunity matches for this song. Click here to read more about S20 and opportunity matches.
+What are ƒ??Recommended Next Stepsƒ??,You can think of your Recommended Next Steps as a GPS-like roadmap for gaining traction in the industry. Theyƒ??re data driven recommendations that factor in your songs strengths. We also recommend targeted actions
+How do I sign up as a Music Industry Professional?,To sign up as a Music Industry Professional with Music Xray
+How long can I expect to wait until I hear back from an Industry Professional?,The Industry Professionals on our site have a strict 45 day deadline policy that they must adhere to. We feel that this gives them enough time to consider submissions in relation to others they receive
+I'm having an issuing finding my payouts. How can I make sure I was actually paid out?,If you login to your account
+Who are the fans that Iƒ??m targeting on Music Xray?,These fans are people
+How can I check my income earned (refunds,Login to your account
+How does Diagnostics affect legacy users (Created account before February 20th 2013)?,If you have previously submitted to a Music Xray opportunity before February 20th
+What exactly is the Music Xray transaction fee?,Transaction fees do differ from submission fees. Let us explain
+Is my music copyright protected? How do I know?,As far as copyright laws go
+How do I receive Sonic Opportunity Matching matches?,If we have found an S2O match for your song(s)
+How do I set up my tip jar?,Select the ƒ??tipsƒ?tab and click on ƒ??tip jarƒ?from the dropdown menu. You can find the direct link
+How can I invite other friends (musicians) to join Music Xray?,To invite your friends to join Music Xray
+What are industry ratings?,Your song is rated based on 5 factors
+Can I submit instrumental tracks?,Of course! Many opportunities accept both instrumental tracks and songs with vocals. Do your songs have to be professionally recorded
+What is the ƒ??Search Displaysƒ?tab?,The ƒ??Search Displaysƒ?tab is split into three categories
+Help! I keep receiving an error message whenever I try to perform a certain action. What do I do?,Weƒ??re sorry youƒ??re having an issue! We suggest trying these troubleshooting steps to see if it fixes the problem first
+Can I submit instrumental tracks?,Of course! Many opportunities accept both instrumental tracks and songs with vocals.
+What is a pingback and how do I find this?,"A ""pingback"" is just another word for ""conversation."" To see your pingbacks"
+How do I sign up as a fan and what happens when I do?,All you have to do as a fan seeking new music is sign-up
+How does fan targeting work and how much does it cost?,For every $1 you spend
+What is Fan Match?,Fan Match does two things
+How do I edit my fan match profile?,To edit your Fan Match profile
+What happens when I delete a song?,When you delete a song that has been submitted to an opportunity in the past
+How do I change my email address?,If you need to change your email address
+How do I set-up my Next Big Sound Statistics?,To set up your Next Big Sound Artist Statistics
+How do I opt out of Fan Targeting (with my Diagnostics package)?,After you purchase Diagnostics
+How do I sign up as an artist on Music Xray?,On our home page
+What data does a Song Activity Chart track?,It tracks things such as
+How do I sign up as an artist on Music Xray?,On our home page
+Where are my refunds located?,When you are logged into your account
+Can I filter opportunities by location or cost?,Currently
+Where do I find my songƒ??s permanent link/URL?,There are two ways to find your songƒ??s permanent link (xray)
+How do I sign up as a fan and what happens when I do?,All you have to do as a fan seeking new music is sign-up
+Can I add more potential fans to a campaign thatƒ??s already running?,Yes
+What is Music Xray?,Music Xray is a platform where artists can submit their music directly to Industry Professionals. When you submit to an opportunity
+What is the manage track button?,The ƒ??manage trackƒ?button takes you to the manage track page - your new hub for managing all information around a particular track
+Why does Music Xray allow Industry Professionals to charge submission fees?,You only pay when you decide to submit a song to an opportunity
+"What is the difference between ""income earned",Income Earned
+Who are the Music Industry Professionals on Music Xray?,The Music Industry Professionals on Music Xray represent a wide variety of backgrounds
+How do I make my song available for download?,In your dashboard tab
+How do I upload songs to Music Xray?,When youƒ??re logged into your account
+Where are my ratings located?,When youƒ??re in your artist dashboard
+What is S2O (Sonic Opportunity Matching)?,S2O is a tool designed for artists to receive better opportunity matches. After your music is uploaded to our website
+How many songs can I submit to each opportunity at once?,Physically
+What types of responses can I expect to receive? Will my song always be given a response? If so,Short response types
+What is Fan Match?,Fan Match does two things
+How does Diagnostics affect legacy users (Created account before February 20th 2013)?,If you have previously submitted to a Music Xray opportunity before February 20th
+What is the purpose of fan match for fans?,Our Fan Match feature on our site is designed to introduce you to artists in their very first stage of their career. Because our artists are at varying levels in their career
+What if the band or member of the band can't make it on the day?,If a member of the band is unable to attend on the day of the event
+How do I confirm a booking?,If you would like to book a band
+How long will the band play for?,Every band has various options but you can expect most bands to offer either 2 x 45
+Is the band PAT tested with adequate public liability insurance (PLI)?,Yes
+What will the band wear?,Function bands will usually dress smart in suits or shirt and trousers. If you've chosen a band with a particular image
+Do we need to hire a raised stage?,A stage is always a great addition to a performance but is not a requirement.
+What time will the band arrive?,Bands will usually arrive and set-up from 5
+Does the price quoted include travel costs and expenses?,Yes
+Are there any hidden fees such as VAT?,No
+What time should the band start playing?,This is completely up to you and your schedule on the day. For evening events
+Will the band require refreshments?,We request that the band is provided with free soft drinks throughout their stay at the venue and a meal
+What are the minimum power requirements for the band?,Most bands require at least 2-3 independent 13 amp sockets. This can vary depending on the size of the band and sound system. Details will be included on the contract.
+How long does it take the band to set up?,Most bands will set up in around an hour. This will vary depending on the size of the band and event.
+Will the band learn a specific song to be played at our Event / Wedding?,Most bands will learn one special song for free so if you have a first dance or a song to the end the night on
+Does the band provide music between and before sets?,Yes
+Does the band provide their own PA system / Sound equipment?,Yes
+Why is the price quoted higher than the price on the website?,The price shown on our website is the bands local fee for the current year. Bands are happy to travel but their fee may increase to cover expenses and travel time.
+How long are the intervals?,The intervals are usually around 20 minutes long but this can be longer to suit your requirements on the day.
+Can we choose the set list?,You're welcome to send over a list of your favourite songs from the bands repertoire and the band will try to include these in their set. Bear in mind that most bands will alter their set to suit the audience reaction.
+How can I pay the processing fee?,You may pay by credit card or PayPal.
+What do I have to do?,Itƒ??s easy (and fun!) to rack up Fan pointsƒ??..but First you must register. It is Free ƒ?? No credit card required.
+Can I make changes to the submission I paid for?,Yes
+How do I enter?,Itƒ??s easy to submit your recordings
+How can my fans help?,Your fans can help you earn IMA honors by voting for your Song and Short Form Music Video submissions
+Do I need to be an IMA Nominee to attend?,All IMA Artists and other indie creatives & indie music fans are welcome.
+Will my music/video be public on your website?,entries provided by an upload and all Short Form Music Videos provided by a link automatically become public on your IMA Fan Page and our Vox Pop fan voting platform immediately upon processing the submission fee. If you donƒ??t want your music/video public
+Do I have to vote in every category at once or can I return at a later time?,Yes! We encourage you to return to the Jukebox often to continue exploring new entries. Simply log in and have at it!
+Which categories should I enter?,Artists often have difficulty pigeonholing their music ƒ?? especially if itƒ??s a mix of musical styles and influences. Or suited to more than one category. Entrants can (and frequently do) enter the same work in multiple categories to expand their opportunities.
+When does fan voting end?,Fan voting to determine nominees usually ends one to two weeks prior to the announcement of nominees. Fan voting to determine the Fan Winners usually ends two to three weeks prior to the announcement of winners. All eligible artists for fan voting are encouraged to begin promoting their entries as soon as possible to maximize their potential for votes.
+I still have questions ƒ?? what do I do?,eMail us at IMAbuzz@independentmusicawards.com and weƒ??ll get in touch with you.
+How will I know if Iƒ??ve won?,You will be notified via the email address provided when you registered. It is important to add IMAbuzz@independentmusicawards.com to your approved contacts ƒ?? and notify us if your contact info changes.
+Can I enter work in multiple categories?,Yes you may enter the same song
+Does my work have to be copyrighted?,It is not a requirement. However
+Why do I have to pay to enter?,The processing fee helps to offset the cost of organizing every aspect of the program. It helps with such things as
+Can I vote more than once for my favorite Artists?,Nope
+Where can I find my IMA Fan Page URL?,Upon processing an uploaded Song or a Short Form Music Video entry provided with a URL
+Iƒ??m a Nominee from outside the USA ƒ?? can you help me get a visa to attend?,Please contact Robert@IndependentMusicAwards.com ASAP if you require an official IMA letter to obtain the necessary border crossing paperwork. You must have a valid ƒ??Oƒ?or ƒ??Pƒ?Artist Visa issued by your own
+Can I submit work that isnƒ??t released yet?,Yes
+What does it cost to enter?,A nominal processing fee is required per entry
+How does it work?,Fans accumulate points by helping their favorite IMA Artists win a Nomination and/or IMA Fan-Favorite Award.
+OK,Of course! Weƒ??ll email you directly throughout the year to keep you posted about important IMA dates
+How do I update my artist/band info?,You may edit your artist/band photo
+What do I win?,Well
+Is there a ceremony?,YES! The 17th IMA Winners were announced June 22nd
+Can I win both the Fan & the Judge-Determined Award?,Absolutely!! And each year
+When are nominees & winners announced?,Nominees will be announced in April
+What is the Vox Pop?,The Vox Pop is The Independent Music Awards Fan Voting Platform created to engage fans with our entrants. It also serves as a unique music discovery tool. The top voted entrant in each Song and Short Form Music Video category becomes a nominee. The other four nominees in these categories and all five nominees in ALL other categories are solely determined by our judging panelists. The top voted nominee in each Song and Short Form Music Video category becomes the Vox Pop Fan Winner (which is separate from the judge-determined winner). Nominees in these categories can be named both the Vox Pop Fan Winner and the judge-determined winner. There are no Vox Pop Fan Winners in the Album
+Do I need to purchase a ticket to attend the ceremony?,Yes
+Can I enter cover songs? /,Must all music submissions be original compositions? With the exception of A Cappella
+What do I win?,The IMAs elevate the exceptional work of artists and releases from around the globe. In addition to the prestige of earning IMA honors
+Can I change my vote?,Unfortunately
+How many copies should I include if Iƒ??m mailing in my entry?,Include one (1) CD
+When submitting work that isnƒ??t released yet,You may put a placeholder URL in this field (e.g.
+How do I keep track of the points Iƒ??ve earned?,No worries. The promotional items in your Fan toolkit have a unique link that automatically registers your interactions on The IMA site. And the actions of every one of the friends youƒ??ve registered. Youƒ??ll be able to easily track your progress on your Fan Dashboard.
+Why donƒ??t I have an IMA Fan Page? / Where are my entries posted on your website?,Only uploaded Song entries and Short Form Music Videos provided with a link will be posted on your IMA Fan page for fan voting. All other entries are solely reviewed by our judging panelists. If you donƒ??t have an IMA Fan Page or donƒ??t see any songs/videos on your page
+Iƒ??m not a nominee ƒ?? why should I attend?,As an indie artist youƒ??ll get to discuss your music projects with top-ranked artists and influencers from around the globe
+Do I lose any rights to work entered?,NO! You maintain all rights to your work.
+Can I vote for more than 1 Artist?,Absolutely! We encourage you to discover and champion new artists. In fact
+Why is it saying my YouTube link is invalid? / Why is my video not playing on my IMA Fan Page / Vox Pop?,We require the full YouTube URL (e.g. https
+I canƒ??t log in. Whatƒ??s the problem?,The activation link may be stuck in your spam/junk folder or youƒ??re trying to log in using an email address thatƒ??s different than what you used to register. You will not be able to log in without clicking this activation link
+Can I submit my work from 10 years ago?,No. All submitted material must be released within the eligible time frame. See Eligibility section above.
+How do fans vote?,Eligible fan voting entrants provide their IMA Fan Page link to their fans. When fans arrive at the page
+Iƒ??m a Nominee. Do I have to be at the ceremony to be named a winner?,No! Winning projects are determined solely for their artistic merit. However
+When is the deadline to submit?,The deadline to enter The 18th annual Independent Music Awards is Midnite (Pacific Time)
+What is The IMA Fan Award?,An extension of the popular Fan Award
+I entered work,NO! Submitting work
+Can I submit multiple artists/bands from my account?,Yes. We frequently get submissions from labels and managers that have a roster of artists. To add more artists/bands
+What are fan rewards?,Fans are rewarded for championing Artists on The IMA site
+How are the nominees and winners determined?,The IMA Artist & Industry Judging Panel plays a crucial role in helping determine our nominees and winners. The Panel consists of esteemed recording artists
+Whereƒ??s the cash and prizes?,The IMAs is an awards program ƒ?? not a song contest or talent show. In addition to bragging rights
+How does the voting system work?,Fans listen to entered songs & videos on The IMA site. If they think itƒ??s worthy of a nomination they click ƒ??VOTEƒ?? to register their vote. After the voting process ends
+I'd love to work for Sub Pop,Unfortunately
+I'm interested in interning for Sub Pop. Do you have internships available?,Sub Pop loves
+What is your demo policy? How do I submit my music?,If you would like us to hear your music
+What music courses does PBE provide?,The music courses are as follows: Pop Piano Improvisation
+How long will it take before I am really able to start playing (for an adult)?,It depends on your level of musical experience and training. A student with zero musical background will take on average
+I have some music background. May I skip the subject matter that I already know?,Yes
+Is it possible not to follow your syllabus?,Yes
+I have absolutely NO music background. Am I eligible to learn?,Yes
+I am really old. Can I really learn to play at your school?," PBE started in 2003 as a music school for adults.  Click here ? to read an article by Straits Times on ""Aging with Classes'"
+Do I need to read music notes in order to learn from your courses?,Playing solely “by ear” is never a good substitute for the skill of reading music
+Do you teach any music theory? Will I learn about proper musical notation?,In order to play the correct notes
+I have some classical training or I am learning classical music. Will learning Pop or Jazz Piano at the same time affect my progress?,If you have previously attended some classical piano lessons
+ I already have ABRSM Grade 8 in Classical Piano,The ABRSM grading is relevant to classical training
+Can my piano instructor teach me how to sing?,It actually depends on the instructor and also whether the student wishes to play and sing. Usually
+What is your success rate in training your students?,We are very proud to say that all of our students have benefited from the P.B.E.S™ courses. Many of those that have learnt at our school for a reasonable period of time are now able to play by ear and improvise. We are teaching our students by using a proven international teaching methodology designed since 2003.
+What's the difference between your courses and others?,The main difference from a classical training course is that we emphasize and teach improvisation techniques and skills. Although we consider the reading of music notation very important
+What songs do you teach in your courses?,We teach our students songs from all the various pop and jazz genres. The PBE fake book used for teaching purposes contains many songs including Pop hits
+May I choose the songs I wish to learn?,Yes
+May I bring my own songs to learn?,In general
+I play for the choir or band at my church. Do you teach Praise & Worship songs as well?,Yes
+What does PBES stand for?,P.B.E.S™  = Play By Ear Syllabus (the Study of Contemporary Music Improvisation & Aural Techniques). This teaching methodology was designed with an aim to make the learning of music improvisation accessible to teenagers and adults (regardless of whether they are absolute beginners or musicians with some experience and/or training).
+What is your syllabus about?,P.B.E.S™ is a flexible syllabus that provides for customized learning. While it is an organized and structured syllabus where you will learn about chords
+ Do you teach kids? How old must a child be to be accepted as a PBE student?,Children between the age of 7-12 yrs old can enroll in the Pop Piano Junior course. Toddlers between the age of 5-6 yrs old can enroll in the Pop Piano Kids course. At the moment
+What are music fake sheets? Why does PBES use these?,Music fake sheets are music sheets that are stripped down to their most basic properties. A fake sheet consists of only melody notes (to be played with the right hand) and chord symbols. The reality is that all musicians (other than classical musicians) rely on such fake sheets during their performances
+What are music fake books?,A music fake book is simply a compilation of a wide variety of fake sheets.
+May I bring my own score sheet to learn during the lesson?,Yes you may
+What do you mean by “play by ear”?,Playing by ear actually means improvisation
+What is “pop” music compared to “classical” music?,Pop is actually an abbreviation for ‘popular’ or ‘popular music’
+Does Pop training replace Classical training in general?,No
+When can I start learning Jazz?,Jazz music represents a very advanced genre and is considered to be the highest level of music. Thus
+What exactly is Jazz Piano or Jazz genre in general?,Jazz music represents a genre of its own. Jazz originated during the early 20th century among African-American communities
+I did Grade 8 classical piano about 10 years ago. Which level should I start with now?,You could probably start at PBES Level 2. Although you may have forgotten much music theory and though your piano playing may be very rusty
+ Does your school cover music theory? Are they separate from the practical lessons?,Yes
+How is improvisation linked to “playing by ear”?,The word improvisation literally means to play by ear
+Why is it important that we all should learn to play by ear?,Music is truly an art
+How does a person learn to play by ear?,Simply
+Do I have to learn to read notes?,In general
+What are P.B.E.S™ approved songs?,As there are approximately billions of songs in existence
+Do you provide keyboard (synthesizer) lessons?,Yes
+ Can I learn music production online? ,Yes
+ Can I study while working full-time? ,Yes. Our courses are designed to fit to your life and not the other way around.
+ Do I need a visa to study at United POP Online? ,You do not need a visa to enroll for studying at United POP Online. When it comes to the hands-on live sessions you may need to travel which then may also require to have a Visa. Please make an appointment with us
+ Do I need to buy additional software/ hardware? ,This depends on the course/ programme you choose. Please contact us for further information.
+ I have studied some courses that relate to some of the subjects already. Is there something like a test of prior knowledge so that I can “skip” a course/speed up my study? ,We are happy to answer this question during a personal consultation as it depends on the type of course and what kind of qualification you have earned.
+ Do I have to attend the on-location sessions? ,We strongly recommend to attend them because they are an important part of the course concept. If you can not attend them
+ Why decide for United POP? ,United POP is not only a school
+ Where to study music production? ,United POP Online is the right way to start your career in music production and audio engineering.
+ What if I can not attend one or more of the virtual classroom sessions? ,All virtual classroom sessions will be recorded and you can watch them any time as often as you want.
+ Are there any semester breaks? ,No
+ Am I allowed to use your music for a commercial purpose?,Yes! You are permitted by our license agreement to use our music commercially as long as you add substantial value to the songs. Read our full license agreement.
+ I forgot my password,Sure! Just fill out this simple form and we will e-mail you instructions on choosing a new password.
+ Is this website really free? What’s the catch?,Yes it is really free. We promise. Period. There is no catch at all. You sign up for the site and we give you free music. If you still aren’t buying it
+ What are the ISRC numbers associated with your songs?,Unfortunately
+Is the primary use of the file on a Windows PC or Apple Macintosh system?,Windows
+ Do I have to pay any fees for using your music?,No. Our music comes with a royalty-free
+ How do I delete my account?,As of right now
+ I’m already logged in,This problem typically arises when you have multiple tabs or windows of your Internet browser open to Free Stock Music. In one window you may be logged in while on the other you may be not. If this is the case
+ If I use your music,No you do not. If you’d like to
+ How do you make money? What’s in it for you?,We are sponsored by a stock footage company called Footage Firm. Because of this sponsorship
+ I didn’t receive an email with my password. Where is it?,On rare occasions
+ How often do you add new music to the site?,Every Tuesday and Thursday. Occasionally we may take breaks from this schedule
+ Can I request certain music for your library?,Sure! We love to get feedback from our users on the types of music they enjoy most — whether that’s genre
+ I receive a 403 Forbidden message when I try to download,Usually this happens when trying to download from an older version of Internet Explorer or Opera browsers. Certain versions of these browsers don’t support modern web standards that we used to build our site around. The simplest solution is to use Google Chrome or Mozilla Firefox (both are free browser solutions).
+ What is the name of your composer(s) so I can provide proper credit?,We cannot provide individual information about composers because our library is comprised of many songs from many different composers. If you wish to give credit
+Would I prefer high-quality sound or small file-size?,High Quality Sound
+ Which format do you recommend I download?,The unsatisfying answer is
+ How do I change the e-mail address on my account?,You can change your email address via the “Update Profile” page located here. Please note that if you change your e-mail address
+ What does “substantial value” mean?,The term “substantial value” means you modify or add to the music in a way that makes it uniquely yours. Simply by adding it to a video or singing lyrics on the song
+ Will you always be free or is this for a limited time?,We will always be free and have no plans whatsoever to charge for the site
+ How do I change my password?,You can change your password via the “Update Profile” page located here.
+ YouTube has flagged my video with your music,Because we don’t create the songs ourselves (we buy them from other composers)
+Does the program I plan to use the song in support this format?,Yes
+ What file formats is your music available in?,Every song has a WAV
+Where can I get a degree in music therapy?,A list of AMTA-approved schools that offer a degree in music therapy can be found on the AMTA website. From the home page
+Where do music therapists work?,Music therapists work in psychiatric hospitals
+How can music therapy techniques be applied by healthy individuals?,Healthy individuals can use music for stress reduction via active music making
+What is the future of music therapy?,The future of music therapy is promising because state of the art music therapy research in physical rehabilitation
+Is there research to support music therapy?,AMTA promotes a vast amount of research exploring the benefits of music as therapy through publication of the Journal of Music Therapy
+What attributes does one need to be a music therapist?,Personal qualifications include an interest in people and a desire to help others empower themselves. Those who are considering music therapy as a career must be accomplished musicians. A music therapist must be versatile and able to adjust to changing circumstances. Music therapists should demonstrate care and concern and be able to offer emotional support for clients and families. Patience
+What is the potential salary of a music therapist?,Each year AMTA members and non-member music therapists are surveyed and our AMTA Member Survey & Workforce Analysis of the profession is published. This includes a descriptive statistical profile of the profession. Music therapists' salaries vary based on location
+What do music therapists do?,Music therapists assess emotional well-being
+Who can benefit from music therapy?,Children
+How is music therapy utilized in nursing homes?,Music is used with elderly persons to increase or maintain their level of physical
+How do I become a music therapist?,Those who wish to become music therapists must earn a bachelor’s degree or higher in music therapy from an American Music Therapy Association (AMTA) approved program and have at minimum the entry level credential
+What are some misconceptions about music therapy?,That the client or patient has to have some particular music ability to benefit from music therapy -- they do not. That there is one particular style of music that is more therapeutic than all the rest -- this is not the case. All styles of music can be useful in effecting change in a client or patient's life. The individual's preferences
+How is music therapy utilized in psychiatric facilities?,Music therapy allows persons with mental health needs to
+What is a typical music therapy session like?,Since music therapists serve a wide variety of persons with many different types of needs there is no such thing as an overall typical session. Sessions are designed and music selected based on the individual client's treatment plan. However
+What is the history of music therapy as a health care profession?,The idea of music as a healing influence which could affect health and behavior is as least as old as the writings of Aristotle and Plato. The 20th century discipline began after World War I and World War II when community musicians of all types
+Where can I find an internship in music therapy?,After completing the required coursework at an approved music therapy degree program
+What is Music Therapy?,Music Therapy is the clinical and evidence-based use of music interventions to accomplish individualized goals within a therapeutic relationship by a credentialed professional who has completed an approved music therapy program. (American Music Therapy Association definition
+How is music therapy utilized in hospitals?,Music is used in general hospitals to
+What is the American Music Therapy Association?,The American Music Therapy Association is the largest professional association which represents over 5
+Can I pay for my accommodation in installments?,Yes
+Can I stay on Sunday night?,Yes
+Is there hot water in the Boutique bathrooms?,The water in the showers is naturally warm.
+When can I book Wonder Feasts?,We announce Feasts and release tickets around October or November
+How does check-in work?,Your ticket purchase confirmation includes a ticket/QR code. Upon arrival on site
+Can I bring my pet?,Dogs are allowed with a pre-paid dog pass.
+Can we have more than 2 people in a Safari Duo?,No
+How do I receive my tickets?,Upon successful completion of your purchase
+Are there lockers on site?,Valuables can be safely stored in a locker located at the Info Tent. Fees apply.
+I am not arriving as early as Thursday,Tent pitches are allocated on a first-come first-served basis
+How can I volunteer or participate at Wonderfruit?,Applications for volunteers
+Can I transfer my Bell Tent/Safari Duo/Boutique RV?,Yes
+How does the Wonderfruit cashless payment system work?,Just three simple steps
+Can I get a one-day ticket for Friday or Saturday?,No
+Can I leave the site and then come back in?,Yes you will be allowed to re-enter the Wonderfruit site as long as you have a valid wristband on. Please note there is no entry when the gates are closed between midnight and 8am (no exceptions).
+Can I book Boutique accommodation for less than 4 nights?,No
+When can I get a timetable/lineup/programme?,Daily programmes will be available on our website
+Is accommodation included in my ticket?,Tickets cover general admission only and do not include accommodation.
+I've got a weekend ticket - can I enter on Friday?,No
+Can I bring my camera or drone?,You may bring your camera as long as the photos won't be used commercially. Drones are forbidden unless you have applied for and received a permit from Wonderfruit.
+How can I DJ or play at Wonderfruit?,Our program curators are always on the lookout for fresh and unique talent from all around the world. If you fit the bill
+Can I pay for my boutique accommodation in installments?,Yes
+Can I pay for my ticket in installments?,Yes
+How can I get to Wonderfruit from Pattaya or my accommodation?,Paid shuttle buses and other transport options between Pattaya and The Fields will be announced around November.
+Are there water points on site?,Yes
+What time does the music stop?,Wonderfruit has 24 hours of programming every day. It's not on all stages but there is always something on somewhere. The full schedule will be released on the app later in the year.
+Can we have more than 4 people in a Bell Tent or Boutique RV?,No
+Can I transfer my General Camping pass?,Yes
+Why is there a General Camping fee?,The General Camping fee covers the costs of your facilities - this includes areas like the dedicated bathrooms
+Will there be sufficient toilets?,We take facilities and comfort very seriously. We have plenty of excellent quality toilets in a number of convenient locations including all camping zones. Please respect the countryside and do not use the woods and bushes.
+Are there any medical services on site?,Ambulance and paramedical services will be in attendance 24 hours a day during the event.
+Are there any additional fees for using my cashless wristband?,No
+Where’s my ticket/wristband?,All tickets will be exchanged for a wristband at the entrance to the site. If you have any ticket enquiries
+What is the check-in process for Boutique Camping?,Upon arrival at the Boutique Camping reception
+How accessible is the site?,Wonderfruit welcomes people with disabilities and we are constantly working on ways to improve the site and the experience for all. Here are some things that it might be useful for you to know before you arrive
+Do I need a ticket if I’m staying in Boutique Camping?,Yes
+What is the ticket price for kids?,Entry for children aged 12 and under is free of charge
+Are there showers on site?,Showers are available in camping areas. Do be prepared to queue at busy times and bear in mind it may be better to use the showers at off-peak times
+When can I check in to Boutique Camping?,You can check in at Boutique reception any time that the gates are open
+I have dietary requirements,We do our best to cater to all dietary preferences and ensure a balance of food outlets offering vegan
+My friends are staying in Boutique Camping – can we camp with them?,Unfortunately not; no private tents are allowed in the Boutique Camping area.
+Do you have wifi?,Out in the gorgeous countryside
+What’s in a Safari Duo?,One king-size bed with linens
+What types of tickets are available for Wonderfruit?,We think the best way to experience Wonderfruit is to totally immerse yourself for the full festival. However
+I want to bring my children (aged 12 or under) – do they need a ticket?,Entry for children aged 12 and under is free but they will receive wristbands upon check-in with a parent or guardian. Under 13s trying to enter without an accompanying adult will be turned away.
+Can I bring my own food and drink?,Bringing your own food and soft drinks is permitted only in the camping areas but cooking is prohibited. You will be searched as you exit your campsite to enter the festival grounds
+What if there’s credit left on my wristband when I want to leave?,Cash refunds for any remaining credit will be available from top up stations on site at designated times to be announced. Make sure to do so before you leave the site for good.
+I’ve booked Boutique Camping,The Boutique Camping area has its own separate entrance and dedicated parking area. Follow signs for Boutique Camping when you arrive on site.
+Are there ATMs on site?,Wonderfruit is cashless but ATMs are available at various locations around the site if you want to withdraw cash to top up your wristband.
+When I arrive,You can set up your tent in the designated General Camping zone only and you'll need an access pass. This area has a drinking water station
+Where can I get a site map?,The site map will be published on the website and app shortly before the event and there will be printed copies available on site.
+What’s in the Bell Tents?,Two double beds with linens
+Can I transfer my ticket?,Yes
+Is there hot water in the campsite bathrooms?,Yes
+What times are the gates open?,Gates are open
+What’s in the Boutique Camping area?,Besides your fully-furnished tents
+Where can I find the First Aid tent?,Medical assistance is available near the Info Tent until 8am Monday 16 December.
+What’s in the Boutique RVs?,A double bed and two single bunks with linens
+I heard you moved in 2018; where is the new location?,We moved for 2018 and we're sticking to our new home in 2019. Find a map
+Where can I charge my phone?,We have charging stations around The Fields. Lots of Wonderers also bring a battery pack to charge their devices on the go.
+What are the benefits of Wonderfruit cashless payments?,Your RFID wristband makes it quick and easy to pay for everything you need in The Fields. It's accepted at all bars
+Can I get a refund for my ticket?,Tickets are non-refundable; however they are transferable. We’ll release information on how to pre-register your ticket a little nearer to the event and at that time
+Are there any age limits?,All ages are welcome; however anyone under the age of 13 MUST be accompanied by a parent
+What happens if my wristband is damaged?,We highly recommend your don’t tamper with your wristband as you will need it at all times for entry/re-entry and making all purchases on-site. If your wristband gets damaged
+I would like to suggest a new article or an edit to an existing article. What should I do?,We welcome our readers’ feedback! Please contact us with as much detail as possible
+How can I tell which articles come from specialized Grove publications?,To reinforce our vision of Grove as a single unified publication
+How do I access a NAXOS link?,To access a NAXOS link
+Why do the filtering options on my search or browse results keep changing?,Many of these filters are dynamic
+How do I cite an article in Grove Music Online?,Grove Music Online is an online resource and the current edition of all previous Grove titles. Citations should follow the online resource practices of your preferred style sheet. If you click the pencil icon to the upper right of any article
+What is the difference between Oxford Music Online and Grove Music Online?,Oxford Music Online is a portal for access and cross-search to Grove Music Online and other Oxford University Press reference content in one location. You can also access Grove Music Online separately through its own URL at oxfordmusiconline.com/grovemusic.
+How can I perform an advanced search?,Advanced search options are available in the left sidebar of search or browse results list. You can run a quick search
+Is Oxford Music Online free,Yes
+Can I print content,Yes. You can print and save individual articles to which you have access. To generate a PDF of an individual article
+How do I access the Encyclopedia of Popular Music?,The Encyclopedia of Popular Music is now only available on Oxford Reference
+Why do some articles include multimedia links at the end?,Multimedia links are editorially-selected recommendations for listening or viewing on one of our partner sites (currently Alexander Street Press and Naxos) and include audio
+Which browsers should I use?,Oxford Music Online is designed to display and function correctly on the latest versions of Chrome
+Where are the playable Sibelius examples?,Grove Music used to offer playable musical examples supported by the Scorch browser plugin
+Will my screen-reader software work?,Oxford Music Online has full W3C Priority 1 and 2 compliance
+Do Boolean operators and other search helpers work?,Yes. Common searching commands
+How can I see the newest content published online?,You can click this link to see recently published articles.
+How much material can I legally print or save to PDF?,You are limited by copyright restrictions to the amount of information you can print and download. It is very important that you read our Privacy Policy and Legal Notice
+How do I end a session when connected via IP?,Scroll down to the bottom of any page and click “Sign out” in the bottom right corner. We also advise closing out of the tab once signing out so that a new session isn’t started.
+Why can’t a find a composer through search?,We are in the process of removing individual biographies from family articles and publishing them instead on their own article pages so that they may be more easily found and searched. This process can temporarily affect the ranking of the individual biographies within search results. If search results do not display the individual family member you are looking for
+Why don’t I see Grove Jazz or Grove Opera articles in search and browse results?,We have grouped together under a single search result articles on a single topic so that you can get to our primary treatment of the subject first. Any additional articles
+Where can I find information about abbreviations in Grove articles?,Click here for lists of abbreviations. Bibliographic abbreviations or sigla that display their expansions when clicked can be found on the Abbreviations pages
+What does my Oxford Music Online subscription include?,Your subscription to Oxford Music Online includes Grove Music Online
+I would like to reuse or reproduce excerpts from Grove Music Online. Do I need to get permission?,Yes
+What is your policy on third party data mining?,OUP recognizes the research benefit of Text and Data Mining (TDM) across a variety of research fields. As such
+ Will I be able to select the songs to be played by the band?,"Yes. You can pick the songs from our existing song repertoire (sent via email or accessible under ""Video Showcase"" tab) or add in the ones you prefer if they are not already in the list."
+ Can I have a preview of the live band at any venues?,There are a few options if you would like to have a preview of the band. 1) Coming down to one of our soundchecks prior to the start of the events & celebration. We will fill your in on the schedule. 2) Have a preferred singer in mind? Let us know and we will keep you updated with the singer's regular singing schedule at the various live music outlets in Singapore. Feel free to go down to these venue to have a listen to him/her!
+ Why should I engage White Ribbon Live Music?,Affordable and competitive charges Having live music performances at your wedding/event is now more consumer-friendly with our competitively-priced live music packages
+ How do I make a booking?,To make a booking
+ Can I select my preferred singer?,You can select your preferred singer from our list of singers. Do note that it is subjected to the singer's availability on the date. In the event that your appointed singer has urgent matters to attend to on the engagement date
+ What time will the band arrive on the day?,Live band will arrive at 1130am for soundcheck for lunch celebrations and 6pm for soundcheck for dinner celebrations. These timings are based on the usual celebrations. Do let us know if your celebration is not at the usual timings and we will arrive 60-90mins earlier accordingly. If sound system is engaged from us
+ How do I make the remaining payment?,Remaining balance can be paid via cheque
+ What instruments do your musicians play?,Our musicians can play piano
+ What do I have to do after I have placed my deposit with White Ribbon?,Hiring a live band is hassle free
+ What combination of instruments can I have for the band size I've opted for?,Instrumentation of the band is dependant on your song choices as well as the song genre (jazz
+ Can I have the price list for your live music packages?,Most certainly! Drop us an email at services@whiteribbon.sg and we will get back to you in no time. Prices for the live music packages vary according the size of band e.g. 3-pc
+ Is it mandatory to engage external sound system?,Yes. It is mandatory to hire sound system setup from us. 99% of our clients opt for this sound system package. We strictly do not profit from the sound system as the set-up is done by external sound company. Having a professional live band at your wedding celebration is an excellent entertainment for you & your guests. It adds a touch of sophistication
+ Will your singers be able to double up as emcees for my wedding celebration?,Yes. Some of our singers are able to double up as emcees for your celebration. An additional $150 is applicable.
+ Can I meet up with anyone to firm up some details before placing a deposit?,We do believe in personalised services so a meet-up can be arranged with one our staff or our co-founders. Do note that a meet up is not necessary as confirmation of our live band service is done via online correspondence 80% of the time. Having said so
+ Any cancellation policy?,There will be no refund of deposit in any circumstances. By placing the deposit of $500
+ Can the band sing my march-in songs?,Most definitely. Singing for your march-in is part of all our packages.
+ Can I request for a special song to be performed during my wedding?,Sure! We can work out a song list with the special songs you would like to be included and sung on your big day. We welcome you to sing and dedicate a song to your loved ones on this special day too. Your guests can also feel free to make song requests and dedications during the celebration at no additional costs! An additional charge is applicable only if rehearsal with the band on a separate is required. No additional charge if you can go through your customised requests with the band on the day of the celebration during the sound check.

@@ -1,0 +1,121 @@
+I purchased Neutron via PayPro but still getting Trial Expired?
+I purchased Neutron in Google Play but still getting Trial Expires message?
+Can I install and use Neutron on Android device without Google Play services?
+Why Neutron stops playing when screen is switched off on Huawei/Honor device?
+Is it possible to achieve Bit-Perfect output with Neutron?
+Are there any themes for Neutron which could change its Look and Feel?
+How to complete close Neutron app so it becomes unloaded from the memory?
+Is there support for a streaming audio?
+How to avoid playing ringtones and other audio files with non-music content?
+How to create my own playlist and add tracks to it?
+Where I can find the file of the playlist which I created by Neutron?
+I modified metadata (tags) of some music files but do not see the changes in Neutron.
+Does Neutron download album art from the Internet?
+I do not see album art, does Neutron supports it?
+How do I connect to my network device via SMB/CIFS or UPnP/DLNA?
+If I set Preamp gain above slider's middle position sound becomes distorted.
+On every track change the sound becomes overloaded (too loud) and then becomes normal normal, is it a bug?
+I copied new music to the directory referenced by one of the Source entries but music does not appear in Neutron automatically.
+Can I create more sources to link some other directories which contain music files?
+Can I register more directories which have music files?
+Is it possible to delete an existing source entry inside Sources?
+What is Resampling and does Neutron use it?
+Crossfeeding button is replaced with Surround when Surround mode becomes active?
+How to avoid loosing my settings?
+How to transfer files to Neutron over the local network?
+How to save CPU and battery when using Neutron?
+I found a bug how can I report it?
+What are your course fees? What should I do to commence or enroll in a course?
+May I postpone my lesson if I can’t turn up?
+How can I check the slot availability for the courses?
+How may I book my recuperation/make-up lessons?
+Will the school assess my abilities before I begin my lessons?
+I need to terminate my lessons, how may I do so?
+If my instructor is absent, do I need to pay for that lesson?
+Can I attend lessons on a fortnightly (every 2 weeks) basis instead of once a week?
+What are the school’s peak and off peak hours?
+Do you have any practice rooms? Do I need to pay for usage, and do I need to make any advance bookings?
+Does the school rent out rooms or teaching studios to the public?
+Do I have to purchase any learning materials?
+What If I lose the P.B.E.S™ student edition textbook? Can I get a replacement?
+Am I able to choose my own instructor?
+If I don’t like the current instructor, may I switch to another instructor half-way through the course?
+May I request being assigned to a male/female instructor?
+What are your opening hours?
+Can you offer flexible hours?
+Do you have weekday evening slots?
+Do you conduct any group classes?
+When do I have to pay my school fees?
+Are your music classes conducted only in English?
+Do you have any trial lesson and do I have to pay for it?
+What happens if I can't come to one of the lessons? Do I get a replacement lesson?
+May I change my permanent lesson schedule or day once my lesson slot is fixed?
+If I am sick, do I get a makeup lesson?
+Yes, provided you are able to show a copy of your MC to our administrator at the counter, who will then credit your account a recuperation/makeup lesson for the one you missed.
+Can I still get a makeup lesson credit?
+How do I use a makeup lesson?
+Can I use my makeup lesson for my next month’s school fees?
+When can I use my makeup lesson?
+If I need to travel for 1-2 months, may I stop and continue later?
+What type of payment do you accept? Do you accept credit cards?
+How are your classes conducted?
+Do you provide home lessons?
+What is the maximum length of time (How long) I may suspend my lessons for?
+Can I book now?
+If I can’t come for a lesson, can the lesson fee be waived (if I inform the school way in advance)?
+What happens if there are 5 lessons in that particular month? Do I miss that one lesson?
+40 How long does it take to complete one level?
+You may decide for yourself the duration of your study at Play by Ear Music School.
+Do you conduct ABRSM Jazz exams at PBE music school?
+Are there any exams in your school?
+May I speak with the instructor first before I sign up?
+How do I know when I should progress to the next level, if there are no exams?
+Do I get a certificate at the end of the course?
+How many instructors does PBE have?
+Do I need to bring anything for my first lesson?
+What are PBE workshops? Who can attend those workshops?
+How may I check the latest workshop schedule?You may visit our website http://play-by-ear.net/workshop-schedules.html
+It is retained as a security deposit for us, in the event where students are late or default on their fee payments or if they terminate their lessons without giving the required 4 weeks’ advance notice.
+Is there a customized program that will suit my lifestyle?
+How do I create an account on Jamendo Music?
+What do I do if I can't access my account?
+How can downloading on Jamendo be free and legal?
+What do I do if I stumble upon a track that seems to be copyrighted?
+How do the radios work?
+What is free music?
+What is Creative Commons?
+Are there any requirements I have to meet before joining any of the music courses?
+Should I join Group or Private Coaching?
+I already have some music background, can I skip the beginning stages (for group classes)?
+Are the courses beneficial for people who aspire to perform?
+What if I am too slow or too fast in the class?
+How would I know if I am comfortable with the age group of the class?
+Do I need to bring my own instrument to classes?
+What types of songs will I be playing with?
+How is the payment of course fee like?
+Do you conduct lessons on weekends and Public Holidays?
+Can I choose my preferred day to have the lesson conducted?
+What happens if I have to miss 1 lesson on my own accord?
+Do you conduct private coaching lessons?
+What if I need to be away for a period of time due to personal plans?
+I really want to attend your classes, but I can’t commit to the same timing every week. Do you have a more flexible class schedule?
+Do you conduct special courses with certain goals in mind, for corporate or a group of music friends?
+What happens after completing a course?
+I like to go for karaoke sessions with my friends and wish to learn how to sing better. However, I don’t wish to take up singing professionally. Is this course suitable for me?
+I would like to perform on my daughter’s wedding in 6 months’ time. Will I be able to learn to sing my preferred song and be taught on how to perform in front of an audience?
+My friends say me that I’m tone-deaf. Will vocal lessons support me to improve this aspect?
+What is chest voice, head voice? I heard all these terms before but totally have no idea!
+What is falsetto? I always sing my high notes with airy sound.
+I always experience hoarseness after singing in karaoke. What is wrong?
+I need to use my voice in my work. Would learning singing helps in my speech too？
+Acoustic Guitar
+What is the difference between an acoustic and a classical guitar?
+I'm a left-hander. Do I need to get a left-hander guitar?
+I know that your fingers will hurt when first start playing guitar. I am not so sure if I could take it. How badly does it really hurt?
+Is it better to learn on electric guitar or acoustic guitar?
+Will I learn to read musical scores (a.k.a. 5-lines score) and play according to them?
+What is a chord?
+I am a classical pianist who wishes to play pop music. Do I need to start from the beginning?
+I have a piano at home. Can I use the piano to practice?
+Do you guide us for certification examinations?
+What is accompaniment?
