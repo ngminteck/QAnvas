@@ -32,6 +32,8 @@ def deepseek(prompt):
     )
     return response.choices[0].message.content
 
+
+
 # Test the function
 if __name__ == "__main__":
     user_input = input("Enter your query for DeepSeek: ")
