@@ -675,6 +675,7 @@ if __name__ == "__main__":
         topic="how to implement langchain?",
         filter_terms=["EBA5004"]
     )
+    print("\nFinal top results from Example 1:", results1)
 
     # Example 2: Using partial filter term "UI" (matches sub-module 'CUI')
     print("\nExample 2: Using filter term 'UI'")
