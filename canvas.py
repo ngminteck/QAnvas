@@ -31,9 +31,13 @@ class CanvasManager:
           - Otherwise, if the course name (via its aliases) matches a filter term, all its sub-modules are used.
           - If no filter terms are provided, all courses and sub-modules are processed.
 
-        After building (or loading) the vector index and performing semantic search,
-        the function returns the top 3 best matching results. Each result contains a content
-        preview and file information (e.g. file path and page number if available).
+        After performing semantic search, the function returns the top 3 results as a list of dictionaries.
+        Each dictionary contains:
+          "result_rank": rank of the result,
+          "content_preview": the matching text preview,
+          "file_path": the source file path,
+          "page": page information if available (or "N/A"),
+          "metadata": the complete metadata.
 
         Hard-coded file structure:
           ISY5004 (Graduate Certificate in Intelligent Sensing Systems):
@@ -49,16 +53,12 @@ class CanvasManager:
         Parameters:
           - topic (str): The semantic query.
           - index_dir (str): Where to save or load the HNSWLib index.
-          - k (int): Number of top matching chunks to retrieve (used to build the index/search).
+          - k (int): Number of top matching chunks to retrieve (used during search).
           - filter_terms (list, optional): List of filter terms (course or sub-module identifiers or aliases).
 
         Returns:
-          A list of dictionaries (up to 3 items) with keys:
-             "result_rank": rank of the result,
-             "content_preview": a preview of the text,
-             "file_path": file where the text comes from,
-             "page": page information if available (or "N/A"),
-             "metadata": the complete metadata.
+          A list (up to 3 items) of dictionaries with keys:
+             "result_rank", "content_preview", "file_path", "page", "metadata".
         """
         from langchain.embeddings import OpenAIEmbeddings
         from langchain.vectorstores import HNSWLib
@@ -80,7 +80,7 @@ class CanvasManager:
             "CUI": ["Conversational Uls", "CNI"]
         }
 
-        # Hard-coded folder paths using canonical identifiers.
+        # Hard-coded folder paths.
         file_paths = {
             "ISY5004": {
                 "VSD": {"path": "files\\Vision Systems (6-10Jan 2025)"},
@@ -95,7 +95,7 @@ class CanvasManager:
             }
         }
 
-        # --- Step 1: Resolve Filters (with partial fuzzy matching) ---
+        # --- Step 1: Resolve filter terms with fuzzy matching ---
         def resolve_filter(filter_list, alias_mapping, threshold=0.7):
             resolved = []
             for item in filter_list:
@@ -119,10 +119,10 @@ class CanvasManager:
         else:
             print("No filter terms provided; processing all courses and sub-modules.")
 
-        # --- Step 2: Select Hard-Coded Paths Based on Specificity ---
+        # --- Step 2: Choose paths based on specificity ---
         courses_to_process = {}
         for course, submodules in file_paths.items():
-            # Check for specific sub-module matches.
+            # If any sub-module matches, use only those (more specific).
             matching_submodules = {sm: details["path"] for sm, details in submodules.items() if
                                    sm in resolved_submodule}
             if matching_submodules:
@@ -137,7 +137,7 @@ class CanvasManager:
             print("No courses/sub-modules match the provided filter terms.")
             return []
 
-        # --- Step 3: Gather Files from the Selected Paths ---
+        # --- Step 3: Gather files ---
         selected_paths = []
         for course, submodules in courses_to_process.items():
             for sub_module, folder_path in submodules.items():
@@ -155,14 +155,14 @@ class CanvasManager:
             return []
         print(f"Found {len(selected_paths)} file(s) from hard-coded paths.")
 
-        # --- Step 4: Load and Process Documents ---
+        # --- Step 4: Load and process documents ---
         documents = []
         for fp in selected_paths:
             try:
                 loader = UnstructuredFileLoader(fp)
                 docs = loader.load()
                 for doc in docs:
-                    doc.metadata["file_path"] = fp  # store source file path
+                    doc.metadata["file_path"] = fp
                 documents.extend(docs)
             except Exception as e:
                 print(f"Error loading file {fp}: {e}")
@@ -170,7 +170,7 @@ class CanvasManager:
             print("No documents could be loaded from the selected files.")
             return []
 
-        # --- Step 5: Split Documents and Build/Load Index ---
+        # --- Step 5: Split and index documents ---
         text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
         docs = text_splitter.split_documents(documents)
         try:
@@ -186,7 +186,7 @@ class CanvasManager:
             print(f"Error building/loading index: {e}")
             return []
 
-        # --- Step 6: Perform Semantic Search and Return Top 3 Results with File Info ---
+        # --- Step 6: Perform semantic search and return top 3 results ---
         try:
             results = vector_store.similarity_search(topic, k=k)
         except Exception as e:
@@ -194,13 +194,12 @@ class CanvasManager:
             return []
         print(f"Found {len(results)} relevant slide chunk(s) for topic: '{topic}'")
 
-        # Limit to top 5 results.
-        top_results = results[:5]
+        # Return top 3 with file info.
+        top_results = results[:3]
         final_results = []
         for idx, res in enumerate(top_results, start=1):
-            # Retrieve file info from metadata.
             file_info = res.metadata.get("file_path", "Unknown file")
-            page_info = res.metadata.get("page", "N/A")  # if page info exists, else "N/A"
+            page_info = res.metadata.get("page", "N/A")
             final_results.append({
                 "result_rank": idx,
                 "content_preview": res.page_content,
@@ -209,8 +208,8 @@ class CanvasManager:
                 "metadata": res.metadata
             })
             print(f"--- Result {idx} ---")
-            print("Content Preview:",
-                  res.page_content[:200] + "..." if len(res.page_content) > 200 else res.page_content)
+            preview = res.page_content[:200] + "..." if len(res.page_content) > 200 else res.page_content
+            print("Content Preview:", preview)
             print("File Path:", file_info)
             print("Page Info:", page_info)
             print("Additional Metadata:", res.metadata)
@@ -677,14 +676,14 @@ if __name__ == "__main__":
         filter_terms=["EBA5004"]
     )
 
-    # Example 2: Using partial filter term "CUI" (matches sub-module 'CUI')
-    print("\nExample 2: Using filter term 'CUI'")
+    # Example 2: Using partial filter term "UI" (matches sub-module 'CUI')
+    print("\nExample 2: Using filter term 'UI'")
     results2 = manager.retrieve_lecture_slides_by_topic(
         topic="how to implement langchain?",
         filter_terms=["UI"]
     )
 
-    # Example 3: Using both "EBA5004" and partial "CUI" (sub-module takes precedence)
+    # Example 3: Using filter terms 'EBA5004' and 'CUI' (EBA5004 ignored)
     print("\nExample 3: Using filter terms 'EBA5004' and 'CUI'")
     results3 = manager.retrieve_lecture_slides_by_topic(
         topic="how to implement langchain?",
@@ -695,6 +694,20 @@ if __name__ == "__main__":
     print("\nExample 4: Using no filter terms")
     results4 = manager.retrieve_lecture_slides_by_topic(
         topic="how to implement langchain?"
+    )
+
+    # Example 5: Using filter terms 'TPML' and 'CUI' (should return both TPML and CUI from EBA5004)
+    print("\nExample 5: Using filter terms 'TPML' and 'CUI'")
+    results5 = manager.retrieve_lecture_slides_by_topic(
+        topic="how to implement langchain?",
+        filter_terms=["TPML", "CUI"]
+    )
+
+    # Example 6: Using filter terms 'ISS' and 'CUI' (should return all sub-modules for ISY5004 and CUI for EBA5004)
+    print("\nExample 6: Using filter terms 'ISS' and 'CUI'")
+    results6 = manager.retrieve_lecture_slides_by_topic(
+        topic="how to implement langchain?",
+        filter_terms=["ISS", "CUI"]
     )
 
     # 2. DOWNLOAD ALL FILES (Uncomment to run)
