@@ -8,42 +8,284 @@ import pprint
 
 class CanvasManager:
     """
-    A manager class to handle Canvas operations such as retrieving assignments,
-    announcements, timetables, and downloading files concurrently.
+    A manager class to handle Canvas operations such as retrieving lecture slides,
+    downloading files, managing timetables, assignments, announcements, etc.
     """
 
     def __init__(self, api_url: str, api_key: str):
         self.canvas = Canvas(api_url, api_key)
 
-    # ========================
-    # HELPER FUNCTIONS FOR FUZZY MATCHING AND HTML STRIPPING
-    # ========================
+    # ======================================================
+    # RETRIEVE LECTURE SLIDES FUNCTIONS
+    # ======================================================
 
-    @staticmethod
-    def get_match_score(query: str, title: str) -> float:
+    def retrieve_lecture_slides_by_topic(self,
+                                         topic: str,
+                                         index_dir: str = "hnswlib_index",
+                                         k: int = 5,
+                                         course_filter: list = None,
+                                         sub_module_filter: list = None):
         """
-        Normalize both strings and compute a similarity ratio using difflib.
-        If the normalized query is found as a substring in the normalized title,
-        returns 1.0 (i.e. 100% confidence).
+        Retrieve lecture slides related to a given topic using semantic search with HNSWLib,
+        using hard-coded folder paths and alias mappings for both courses and sub-modules.
+        The logic is:
+          1. Resolve the provided course and sub-module filters using alias mappings.
+             If no course filter is provided, attempt to infer one from the query.
+          2. Use the canonical course and sub-module values to select the appropriate hard-coded folders.
+          3. Load files from those folders, process them, build (or load) an index, and run a semantic search.
+        Hard-coded file structure:
+          ISY5004 (Graduate Certificate in Intelligent Sensing Systems):
+            • Vision Systems -> "files\\Vision Systems (6-10Jan 2025)"
+            • Spatial Reasoning from Sensor Data -> "files\\Spatial Reasoning from Sensor Data (13-15Jan 2025)"
+            • Real time Audio-Visual Sensing and Sense Making -> "files\\Real-time Audio-Visual Sensing and Sense Making (20-23Jan 2025)"
+          EBA5004 (Graduate Certificate in Practical Language Processing):
+            • Text Analytics -> "files\\[PLP] Text Analytics (2025-02-10)"
+            • New Media and Sentiment Mining -> "files\\EBA5004 Practical Language Processing [2420]\\01_NMSM"
+            • Text Processing Using Machine Learning -> "files\\EBA5004 Practical Language Processing [2420]\\02_TPML"
+            • Conversational Uls -> "files\\EBA5004 Practical Language Processing [2420]\\03_CNI"
+        Parameters:
+          - topic (str): The semantic query.
+          - index_dir (str): Where to save or load the HNSWLib index.
+          - k (int): Number of top matching chunks to retrieve.
+          - course_filter (list, optional): List of course identifiers or aliases.
+          - sub_module_filter (list, optional): List of sub-module identifiers or aliases.
+        Returns:
+          List of document chunks matching the topic query.
         """
-        query_norm = re.sub(r'\W+', ' ', query).strip().lower()
-        title_norm = re.sub(r'\W+', ' ', title).strip().lower()
-        if query_norm in title_norm:
-            return 1.0
-        return difflib.SequenceMatcher(None, query_norm, title_norm).ratio()
+        import os
+        from langchain.embeddings import OpenAIEmbeddings
+        from langchain.vectorstores import HNSWLib
+        from langchain.document_loaders import UnstructuredFileLoader
+        from langchain.text_splitter import CharacterTextSplitter
 
-    @staticmethod
-    def strip_html(text: str) -> str:
-        """
-        Remove HTML tags from the given text and decode HTML entities.
-        """
-        import html
-        text = re.sub(r'<[^>]+>', '', text)
-        return html.unescape(text)
+        # Define alias mappings.
+        course_aliases = {
+            "ISY5004": ["Intelligent Sensing Systems", "Computer Vision", "CV", "ISS"],
+            "EBA5004": ["Practical Language Processing", "NLP", "Nature Language Processing", "PLP"]
+        }
 
-    # ========================
+        sub_module_aliases = {
+            "VSD": ["Vision Systems", "VS"],
+            "SRSD": ["Spatial Reasoning from Sensor Data"],
+            "RTAVS": ["Real time Audio-Visual Sensing and Sense Making"],
+            "TA": ["Text Analytics"],
+            "NMSM": ["New Media and Sentiment Mining"],
+            "TPML": ["Text Processing Using Machine Learning"],
+            "CUI": ["Conversational Uls", "CNI"]
+        }
+
+        # Hard-coded folder paths using canonical identifiers.
+        file_paths = {
+            "ISY5004": {
+                "VSD": {
+                    "path": "files\\Vision Systems (6-10Jan 2025)"
+                },
+                "SRSD": {
+                    "path": "files\\Spatial Reasoning from Sensor Data (13-15Jan 2025)"
+                },
+                "RTAVS": {
+                    "path": "files\\Real-time Audio-Visual Sensing and Sense Making (20-23Jan 2025)"
+                }
+            },
+            "EBA5004": {
+                "TA": {
+                    "path": "files\\[PLP] Text Analytics (2025-02-10)"
+                },
+                "NMSM": {
+                    "path": "files\\EBA5004 Practical Language Processing [2420]\\01_NMSM"
+                },
+                "TPML": {
+                    "path": "files\\EBA5004 Practical Language Processing [2420]\\02_TPML"
+                },
+                "CUI": {
+                    "path": "files\\EBA5004 Practical Language Processing [2420]\\03_CNI"
+                }
+            }
+        }
+
+        # --- Step 1: Resolve/Infer Filters ---
+        def resolve_filter(filter_list, alias_mapping, threshold=0.7):
+            resolved = []
+            for item in filter_list:
+                item_lower = item.lower()
+                for canonical, aliases in alias_mapping.items():
+                    if CanvasManager.get_match_score(item_lower, canonical.lower()) >= threshold:
+                        resolved.append(canonical)
+                        break
+                    elif any(CanvasManager.get_match_score(item_lower, alias.lower()) >= threshold for alias in aliases):
+                        resolved.append(canonical)
+                        break
+            return resolved
+
+        def infer_course_filter(query, alias_mapping, threshold=0.7):
+            inferred = []
+            query_lower = query.lower()
+            for canonical, aliases in alias_mapping.items():
+                for alias in aliases:
+                    if CanvasManager.get_match_score(query_lower, alias.lower()) >= threshold:
+                        inferred.append(canonical)
+                        break
+            return inferred
+
+        if course_filter:
+            resolved_course_filter = resolve_filter(course_filter, course_aliases, threshold=0.7)
+        else:
+            resolved_course_filter = infer_course_filter(topic, course_aliases, threshold=0.7)
+            if not resolved_course_filter:
+                resolved_course_filter = list(file_paths.keys())
+            print("Using course filter (inferred):", resolved_course_filter)
+
+        if sub_module_filter:
+            resolved_sub_module_filter = resolve_filter(sub_module_filter, sub_module_aliases, threshold=0.7)
+        else:
+            resolved_sub_module_filter = None
+            print("No sub-module filter provided; including all sub-modules.")
+
+        # --- Step 2: Select Hard-Coded Paths Based on Filters ---
+        courses_to_process = {}
+        for course, submodules in file_paths.items():
+            if course not in resolved_course_filter:
+                continue
+            courses_to_process[course] = {}
+            for sub_module, details in submodules.items():
+                if resolved_sub_module_filter and sub_module not in resolved_sub_module_filter:
+                    continue
+                courses_to_process[course][sub_module] = details["path"]
+
+        if not courses_to_process:
+            print("No courses/sub-modules match the provided filters.")
+            return []
+
+        # --- Step 3: Gather Files from the Selected Paths ---
+        selected_paths = []
+        for course, submodules in courses_to_process.items():
+            for sub_module, folder_path in submodules.items():
+                if not os.path.exists(folder_path):
+                    print(f"Warning: Folder '{folder_path}' does not exist.")
+                    continue
+                try:
+                    for file in os.listdir(folder_path):
+                        if file.lower().endswith(('.pdf', '.txt', '.pptx')):
+                            selected_paths.append(os.path.join(folder_path, file))
+                except Exception as e:
+                    print(f"Error accessing folder {folder_path}: {e}")
+
+        if not selected_paths:
+            print("No files found in the selected hard-coded paths.")
+            return []
+
+        print(f"Found {len(selected_paths)} file(s) from hard-coded paths.")
+
+        # --- Step 4: Load and Process Documents ---
+        documents = []
+        for fp in selected_paths:
+            try:
+                loader = UnstructuredFileLoader(fp)
+                docs = loader.load()
+                for doc in docs:
+                    doc.metadata["file_path"] = fp
+                documents.extend(docs)
+            except Exception as e:
+                print(f"Error loading file {fp}: {e}")
+
+        if not documents:
+            print("No documents could be loaded from the selected files.")
+            return []
+
+        # --- Step 5: Split Documents and Build/Load Index ---
+        text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+        docs = text_splitter.split_documents(documents)
+
+        try:
+            if os.path.exists(index_dir):
+                print("Loading existing HNSWLib index...")
+                vector_store = HNSWLib.load_local(index_dir, OpenAIEmbeddings())
+            else:
+                print("Building HNSWLib index from lecture slides...")
+                embeddings = OpenAIEmbeddings()
+                vector_store = HNSWLib.from_documents(docs, embeddings)
+                vector_store.save_local(index_dir)
+        except Exception as e:
+            print(f"Error building/loading index: {e}")
+            return []
+
+        # --- Step 6: Perform Semantic Search ---
+        try:
+            results = vector_store.similarity_search(topic, k=k)
+        except Exception as e:
+            print(f"Error during similarity search: {e}")
+            return []
+        print(f"Found {len(results)} relevant slide chunk(s) for topic: '{topic}'")
+        for idx, res in enumerate(results, start=1):
+            preview = res.page_content[:200] + "..." if len(res.page_content) > 200 else res.page_content
+            print(f"--- Result {idx} ---")
+            print("Content Preview:", preview)
+            print("Metadata:", res.metadata)
+
+        return results
+
+    # ======================================================
+    # DOWNLOAD FILES FUNCTIONS
+    # ======================================================
+
+    def download_all_files_parallel(self, base_dir: str = "files", max_workers: int = 5):
+        """
+        Download all files for accessible courses concurrently while preserving the subfolder structure.
+        Files are saved to: base_dir/{course_name}/{subfolder(s)}/{filename}.
+        """
+        courses = list(self.canvas.get_courses())
+
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            futures = []
+            for course in courses:
+                if getattr(course, "access_restricted_by_date", False):
+                    print(f"Skipping restricted course: {course.id}")
+                    continue
+
+                course_name = self.sanitize_filename(course.name)
+                print(f"Processing course: {course_name}")
+
+                try:
+                    folder_path_map = self.build_folder_path_map(course)
+                except Exception as e:
+                    print(f"Error building folder path map for course {course.name}: {e}")
+                    folder_path_map = {}
+
+                try:
+                    files = list(course.get_files())
+                except Exception as e:
+                    print(f"Error retrieving files for course {course.name}: {e}")
+                    continue
+
+                for f in files:
+                    futures.append(
+                        executor.submit(self.download_file, f, course_name, folder_path_map, base_dir)
+                    )
+
+            for future in as_completed(futures):
+                try:
+                    future.result()
+                except Exception as e:
+                    print(f"Error in a download task: {e}")
+
+    def download_file(self, file_obj, course_name, folder_path_map, base_dir):
+        """
+        Download a single file, preserving folder structure.
+        """
+        try:
+            folder_id = getattr(file_obj, "folder_id", None)
+            folder_name = folder_path_map.get(folder_id, "")
+            target_dir = os.path.join(base_dir, course_name, folder_name)
+            os.makedirs(target_dir, exist_ok=True)
+            file_path = os.path.join(target_dir, file_obj.display_name)
+            print(f"Downloading {file_obj.display_name} to {file_path}...")
+            file_obj.download(file_path)
+        except Exception as e:
+            print(f"Error downloading file {file_obj.display_name}: {e}")
+
+    # ======================================================
     # TIMETABLE FUNCTIONS
-    # ========================
+    # ======================================================
 
     def get_timetable(self, full_time: bool, intake: int, course: str):
         """
@@ -116,9 +358,9 @@ class CanvasManager:
         else:
             print(f"No timetable file found for course code {course}.")
 
-    # ========================
+    # ======================================================
     # ASSIGNMENTS FUNCTIONS
-    # ========================
+    # ======================================================
 
     def get_assignments_due_dates(self, hide_older_than: int = 90, max_workers: int = 5):
         """
@@ -135,7 +377,6 @@ class CanvasManager:
             local_assignments = []
             if getattr(course, "access_restricted_by_date", False):
                 return local_assignments
-
             try:
                 for assignment in course.get_assignments():
                     due_date_str = assignment.due_at
@@ -226,9 +467,9 @@ class CanvasManager:
             print("Assignment not found.")
             return []
 
-    # ========================
+    # ======================================================
     # ANNOUNCEMENTS FUNCTIONS
-    # ========================
+    # ======================================================
 
     def get_announcements(self, hide_older_than: int = 7, only_unread: bool = False, max_workers: int = 5):
         """
@@ -245,17 +486,14 @@ class CanvasManager:
             local_announcements = []
             if getattr(course, "access_restricted_by_date", False):
                 return local_announcements
-
             try:
                 for ann in course.get_discussion_topics(only_announcements=True):
                     if only_unread and getattr(ann, "read_state", "unread") != "unread":
                         continue
-
                     created_at_str = getattr(ann, "created_at", None)
                     parsed_created_at = self._parse_date(created_at_str) if created_at_str else None
                     if parsed_created_at is not None and parsed_created_at < cutoff:
                         continue
-
                     local_announcements.append({
                         "course_name": course.name,
                         "announcement_title": ann.title,
@@ -344,48 +582,31 @@ class CanvasManager:
             print("Announcement not found.")
             return []
 
-    # ========================
-    # DOWNLOAD FILES FUNCTIONS
-    # ========================
+    # ======================================================
+    # HELPER / UTILITY FUNCTIONS
+    # ======================================================
 
-    def download_all_files_parallel(self, base_dir: str = "files", max_workers: int = 5):
+    @staticmethod
+    def get_match_score(query: str, title: str) -> float:
         """
-        Download all files for accessible courses concurrently while preserving the subfolder structure.
-        Files are saved to: base_dir/{course_name}/{subfolder(s)}/{filename}.
+        Normalize both strings and compute a similarity ratio using difflib.
+        If the normalized query is found as a substring in the normalized title,
+        returns 1.0 (i.e. 100% confidence).
         """
-        courses = list(self.canvas.get_courses())
+        query_norm = re.sub(r'\W+', ' ', query).strip().lower()
+        title_norm = re.sub(r'\W+', ' ', title).strip().lower()
+        if query_norm in title_norm:
+            return 1.0
+        return difflib.SequenceMatcher(None, query_norm, title_norm).ratio()
 
-        with ThreadPoolExecutor(max_workers=max_workers) as executor:
-            futures = []
-            for course in courses:
-                if getattr(course, "access_restricted_by_date", False):
-                    print(f"Skipping restricted course: {course.id}")
-                    continue
-
-                course_name = self.sanitize_filename(course.name)
-                print(f"Processing course: {course_name}")
-
-                folder_path_map = self.build_folder_path_map(course)
-                try:
-                    files = list(course.get_files())
-                except Exception as e:
-                    print(f"Error retrieving files for course {course.name}: {e}")
-                    continue
-
-                for f in files:
-                    futures.append(
-                        executor.submit(self.download_file, f, course_name, folder_path_map, base_dir)
-                    )
-
-            for future in as_completed(futures):
-                try:
-                    future.result()
-                except Exception as e:
-                    print(f"Error in a download task: {e}")
-
-    # ========================
-    # HELPER FUNCTIONS
-    # ========================
+    @staticmethod
+    def strip_html(text: str) -> str:
+        """
+        Remove HTML tags from the given text and decode HTML entities.
+        """
+        import html
+        text = re.sub(r'<[^>]+>', '', text)
+        return html.unescape(text)
 
     @staticmethod
     def _parse_date(date_str: str):
@@ -443,146 +664,61 @@ class CanvasManager:
             return os.path.join(*parts[1:]) if len(parts) > 1 else ""
         return path
 
-    @classmethod
-    def download_file(cls, f, course_name: str, folder_path_map: dict, base_dir: str):
-        """
-        Download a single file using its folder_id to determine the subfolder.
-        """
-        subfolder = ""
-        if f.folder_id and f.folder_id in folder_path_map:
-            subfolder = cls.remove_course_files_prefix(folder_path_map[f.folder_id])
-        file_name = cls.sanitize_filename(f.display_name)
-        local_file_path = os.path.join(base_dir, course_name, subfolder, file_name)
-        os.makedirs(os.path.dirname(local_file_path), exist_ok=True)
-        try:
-            f.download(local_file_path)
-            print(f"Downloaded: {local_file_path}")
-        except Exception as e:
-            print(f"Error downloading file {f.display_name}: {e}")
-
-    def retrieve_lecture_slides_by_topic(self,
-                                         topic: str,
-                                         files_dir: str = "files",
-                                         index_dir: str = "hnswlib_index",
-                                         k: int = 5,
-                                         allowed_dirs: list = None):
-        """
-        Retrieve lecture slides related to a given topic using semantic search with HNSWLib,
-        restricting indexing to specific subdirectories if allowed_dirs is provided.
-
-        Parameters:
-            topic (str): The topic or query to search for.
-            files_dir (str): The root directory where lecture slide files are stored.
-            index_dir (str): The directory to save/load the HNSWLib index.
-            k (int): The number of top matching chunks to retrieve.
-            allowed_dirs (list, optional): A list of allowed top-level subdirectory names (relative to files_dir)
-                                           to restrict indexing. Files outside these directories will be skipped.
-
-        Returns:
-            List of document chunks that best match the query.
-        """
-        from langchain.embeddings import OpenAIEmbeddings
-        from langchain.vectorstores import HNSWLib
-        from langchain.document_loaders import UnstructuredFileLoader
-        from langchain.text_splitter import CharacterTextSplitter
-        import os
-
-        # Check if the HNSWLib index already exists
-        if os.path.exists(index_dir):
-            print("Loading existing HNSWLib index...")
-            vector_store = HNSWLib.load_local(index_dir, OpenAIEmbeddings())
-        else:
-            print("Building HNSWLib index from lecture slides...")
-            documents = []
-            # Recursively traverse the files directory
-            for root, dirs, files in os.walk(files_dir):
-                # If allowed_dirs is provided, check the top-level folder of the current root
-                if allowed_dirs:
-                    # Compute the relative path from files_dir to the current folder
-                    rel_root = os.path.relpath(root, files_dir)
-                    # Extract the top-level directory name
-                    top_level = rel_root.split(os.path.sep)[0]
-                    if top_level not in allowed_dirs:
-                        continue
-
-                for file in files:
-                    if file.lower().endswith(('.pdf', '.txt', '.pptx')):
-                        file_path = os.path.join(root, file)
-                        try:
-                            loader = UnstructuredFileLoader(file_path)
-                            docs = loader.load()
-                            # Store the file path in metadata for later reference
-                            for doc in docs:
-                                doc.metadata["file_path"] = file_path
-                            documents.extend(docs)
-                        except Exception as e:
-                            print(f"Error loading file {file}: {e}")
-            if not documents:
-                print("No lecture slides found in the specified directories.")
-                return []
-
-            # Split documents into manageable chunks
-            text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
-            docs = text_splitter.split_documents(documents)
-            embeddings = OpenAIEmbeddings()
-            vector_store = HNSWLib.from_documents(docs, embeddings)
-            vector_store.save_local(index_dir)
-
-        # Perform semantic search on the HNSWLib index
-        results = vector_store.similarity_search(topic, k=k)
-        print(f"Found {len(results)} relevant slide chunk(s) for topic: '{topic}'")
-        for idx, res in enumerate(results, start=1):
-            preview = res.page_content[:200] + "..." if len(res.page_content) > 200 else res.page_content
-            print(f"--- Result {idx} ---")
-            print("Content Preview:", preview)
-            print("Metadata:", res.metadata)
-        return results
-
 
 if __name__ == "__main__":
     # Example usage:
-    with open("keys/canvas.txt", "r") as file:
-        api_key = file.read().strip()
+    try:
+        with open("keys/canvas.txt", "r") as file:
+            api_key = file.read().strip()
+    except Exception as e:
+        print("Error reading API key:", e)
+        api_key = ""
 
     API_URL = "https://canvas.nus.edu.sg/"
     manager = CanvasManager(API_URL, api_key)
 
-    # 1. TIMETABLE
+    # 1. RETRIEVE LECTURE SLIDES
+    results1 = manager.retrieve_lecture_slides_by_topic(
+        topic="how to implement langchain?",
+        course_filter=["EBA5004"],
+        sub_module_filter=["CUI"]
+    )
+    results2 = manager.retrieve_lecture_slides_by_topic(
+        topic="how to implement langchain?",
+        course_filter=["EBA5004"],
+        sub_module_filter=["CNI"]
+    )
+    results3 = manager.retrieve_lecture_slides_by_topic(
+        topic="how to implement langchain?",
+        course_filter=["PLP"],
+        sub_module_filter=["CUI"]
+    )
+    results4 = manager.retrieve_lecture_slides_by_topic(
+        topic="how to implement langchain?",
+        course_filter=["EBA5004"]
+    )
+    results5 = manager.retrieve_lecture_slides_by_topic(
+        topic="how to implement langchain?",
+        course_filter=["EBA5004"],
+        sub_module_filter=["UI"]
+    )
+    results6 = manager.retrieve_lecture_slides_by_topic(
+        topic="how to implement langchain?"
+    )
+
+    # 2. DOWNLOAD ALL FILES (Uncomment to run)
+    # manager.download_all_files_parallel(base_dir="files")
+
+    # 3. TIMETABLE
     print("\n=== TIMETABLE ===")
     manager.get_timetable(True, 2024, "AIS06")
 
-    # 2. ASSIGNMENTS & DEADLINES
+    # 4. ASSIGNMENTS & DEADLINES
     print("\n=== ASSIGNMENTS & DEADLINES ===")
     manager.list_upcoming_assignments(hide_older_than=0)
-    # Fuzzy search for assignment details; returns matches with at least 70% confidence,
-    # showing only due_at and description (with HTML removed).
     manager.get_assignment_detail("CNI Day 4 Workshop")
 
-    # 3. ANNOUNCEMENTS & NOTIFICATIONS
+    # 5. ANNOUNCEMENTS & NOTIFICATIONS
     print("\n=== ANNOUNCEMENTS & NOTIFICATIONS ===")
     manager.list_announcements(hide_older_than=7, only_unread=False)
-    # Fuzzy search for announcement details; returns matches with at least 70% confidence,
-    # showing only created_at and description (with HTML removed).
     manager.get_announcement_detail("Internship Announcement")
-
-    # 4. DOWNLOAD ALL FILES
-    print("\n=== DOWNLOADING FILES ===")
-    # manager.download_all_files_parallel(base_dir="files")
-
-    manager.retrieve_lecture_slides_by_topic(
-        topic="object detection",
-        allowed_dirs=[
-            "Vision Systems (6-10Jan 2025)",
-            "Spatial Reasoning from Sensor Data (13-15Jan 2025)",
-            "Real-time Audio-Visual Sensing and Sense Making (20-23Jan 2025)"
-        ]
-    )
-
-    manager.retrieve_lecture_slides_by_topic(
-        topic="sentiment analysis",
-        allowed_dirs=[
-            "[PLP] Text Analytics (2025-02-10)",
-            "EBA5004 Practical Language Processing [2420]"
-        ]
-    )
-
