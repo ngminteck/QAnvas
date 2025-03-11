@@ -18,7 +18,6 @@ class CanvasManager:
     def handleIntent(self, intent: str, **kwargs):
         """
         Dispatch the operation based on the given intent.
-
         Supported intents (all in small letters without underscores):
           - "timetable": expects parameters "fulltime" (bool), "intake" (int), "course" (str)
           - "exam date": (same as timetable; you might process the timetable output to extract exam date)
@@ -26,7 +25,6 @@ class CanvasManager:
           - "assignment detail": expects "assignmentname" (str) and optionally "threshold" (float)
           - "announcement list": can optionally pass "hideolderthan" (int) and "onlyunread" (bool)
           - "announcement detail": expects "announcementtitle" (str) and optionally "threshold" (float)
-
         If the intent is not recognized, the default action is to try retrieving lecture slides.
         In that case, it expects parameters "topic" (str) and optionally "filterterms" (list).
         If no lecture slides are found, a general default response is returned.
@@ -85,15 +83,32 @@ class CanvasManager:
                                          k: int = 5,
                                          filter_terms: list = None):
         """
-        Retrieve lecture slides related to a given topic using semantic search with Chroma.
-        (The rest of the docstring remains unchanged.)
+        Retrieve lecture slides related to a given topic using semantic search with Chroma,
+        scanning all subfolders for PDF, PPTX, and TXT files.
         """
-        from langchain.embeddings import OpenAIEmbeddings
-        from langchain.vectorstores import Chroma
-        from langchain.document_loaders import UnstructuredFileLoader
+        # Use updated imports for community libraries for document loading and vectorstore
+        from langchain_community.vectorstores import Chroma
+        from langchain_community.document_loaders import UnstructuredFileLoader
         from langchain.text_splitter import CharacterTextSplitter
 
-        # Define alias mappings.
+        # --- Step 0: Determine number of workers ---
+        max_workers = os.cpu_count() or 4
+
+        # --- Step 1: Resolve filter terms with fuzzy matching ---
+        def resolve_filter(filter_list, alias_mapping, threshold=0.7):
+            resolved = []
+            for item in filter_list:
+                item_lower = item.lower()
+                for canonical, aliases in alias_mapping.items():
+                    if CanvasManager.get_match_score(item_lower, canonical.lower()) >= threshold:
+                        resolved.append(canonical)
+                        break
+                    elif any(CanvasManager.get_match_score(item_lower, alias.lower()) >= threshold
+                             for alias in aliases):
+                        resolved.append(canonical)
+                        break
+            return resolved
+
         course_aliases = {
             "ISY5004": ["Intelligent Sensing Systems", "Computer Vision", "CV", "ISS"],
             "EBA5004": ["Practical Language Processing", "NLP", "Nature Language Processing", "PLP"]
@@ -108,7 +123,16 @@ class CanvasManager:
             "CUI": ["Conversational Uls", "CNI"]
         }
 
-        # Hard-coded folder paths.
+        resolved_course = resolve_filter(filter_terms, course_aliases, threshold=0.7) if filter_terms else []
+        resolved_submodule = resolve_filter(filter_terms, sub_module_aliases, threshold=0.7) if filter_terms else []
+
+        if filter_terms:
+            print("Resolved course filter:", resolved_course)
+            print("Resolved sub-module filter:", resolved_submodule)
+        else:
+            print("No filter terms provided; processing all courses and sub-modules.")
+
+        # --- Step 2: Choose paths based on specificity ---
         file_paths = {
             "ISY5004": {
                 "VSD": {"path": "files\\Vision Systems (6-10Jan 2025)"},
@@ -123,39 +147,15 @@ class CanvasManager:
             }
         }
 
-        # --- Step 1: Resolve filter terms with fuzzy matching ---
-        def resolve_filter(filter_list, alias_mapping, threshold=0.7):
-            resolved = []
-            for item in filter_list:
-                item_lower = item.lower()
-                for canonical, aliases in alias_mapping.items():
-                    if CanvasManager.get_match_score(item_lower, canonical.lower()) >= threshold:
-                        resolved.append(canonical)
-                        break
-                    elif any(
-                            CanvasManager.get_match_score(item_lower, alias.lower()) >= threshold for alias in aliases):
-                        resolved.append(canonical)
-                        break
-            return resolved
-
-        resolved_course = resolve_filter(filter_terms, course_aliases, threshold=0.7) if filter_terms else []
-        resolved_submodule = resolve_filter(filter_terms, sub_module_aliases, threshold=0.7) if filter_terms else []
-
-        if filter_terms:
-            print("Resolved course filter:", resolved_course)
-            print("Resolved sub-module filter:", resolved_submodule)
-        else:
-            print("No filter terms provided; processing all courses and sub-modules.")
-
-        # --- Step 2: Choose paths based on specificity ---
         courses_to_process = {}
         for course, submodules in file_paths.items():
-            matching_submodules = {sm: details["path"] for sm, details in submodules.items() if
-                                   sm in resolved_submodule}
+            matching_submodules = {sm: details["path"] for sm, details in submodules.items()
+                                   if sm in resolved_submodule}
             if matching_submodules:
                 courses_to_process[course] = matching_submodules
             elif course in resolved_course:
                 courses_to_process[course] = {sm: details["path"] for sm, details in submodules.items()}
+
         if not filter_terms:
             courses_to_process = {course: {sm: details["path"] for sm, details in submodules.items()}
                                   for course, submodules in file_paths.items()}
@@ -164,7 +164,7 @@ class CanvasManager:
             print("No courses/sub-modules match the provided filter terms.")
             return []
 
-        # --- Step 3: Gather files ---
+        # --- Step 3: Recursively gather files ---
         selected_paths = []
         for course, submodules in courses_to_process.items():
             for sub_module, folder_path in submodules.items():
@@ -172,27 +172,37 @@ class CanvasManager:
                     print(f"Warning: Folder '{folder_path}' does not exist.")
                     continue
                 try:
-                    for file in os.listdir(folder_path):
-                        if file.lower().endswith(('.pdf', '.txt', '.pptx')):
-                            selected_paths.append(os.path.join(folder_path, file))
+                    # Walk all subfolders for PDF/PPTX/TXT files
+                    for root, dirs, files in os.walk(folder_path):
+                        for file in files:
+                            if file.lower().endswith(('.pdf', '.txt', '.pptx')):
+                                selected_paths.append(os.path.join(root, file))
                 except Exception as e:
                     print(f"Error accessing folder {folder_path}: {e}")
+
         if not selected_paths:
             print("No files found in the selected hard-coded paths.")
             return []
         print(f"Found {len(selected_paths)} file(s) from hard-coded paths.")
 
-        # --- Step 4: Load and process documents ---
+        # --- Step 4: Concurrently load and process documents ---
         documents = []
-        for fp in selected_paths:
+        def load_file(fp):
             try:
                 loader = UnstructuredFileLoader(fp)
                 docs = loader.load()
                 for doc in docs:
                     doc.metadata["file_path"] = fp
-                documents.extend(docs)
+                return docs
             except Exception as e:
                 print(f"Error loading file {fp}: {e}")
+                return []
+
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            futures = {executor.submit(load_file, fp): fp for fp in selected_paths}
+            for future in as_completed(futures):
+                documents.extend(future.result())
+
         if not documents:
             print("No documents could be loaded from the selected files.")
             return []
@@ -200,7 +210,23 @@ class CanvasManager:
         # --- Step 5: Split and index documents ---
         text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
         docs = text_splitter.split_documents(documents)
-        embeddings = OpenAIEmbeddings()
+
+        # Detect GPU availability and set device for embeddings accordingly.
+        try:
+            import torch
+            use_cuda = torch.cuda.is_available()
+        except ImportError:
+            use_cuda = False
+
+        if use_cuda:
+            print("CUDA is available. Using GPU for embeddings.")
+            from langchain.embeddings import HuggingFaceEmbeddings
+            embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", device="cuda")
+        else:
+            print("CUDA not available. Using CPU for embeddings.")
+            from langchain.embeddings import HuggingFaceEmbeddings
+            embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", device="cpu")
+
         try:
             if os.path.exists(index_dir):
                 print("Loading existing Chroma index...")
@@ -240,17 +266,20 @@ class CanvasManager:
             print("File Path:", file_info)
             print("Page Info:", page_info)
             print("Additional Metadata:", res.metadata)
+
         return final_results
 
     # ======================================================
     # DOWNLOAD FILES FUNCTIONS
     # ======================================================
-
-    def download_all_files_parallel(self, base_dir: str = "files", max_workers: int = 5):
+    def download_all_files_parallel(self, base_dir: str = "files", max_workers: int = None):
         """
         Download all files for accessible courses concurrently while preserving the subfolder structure.
         Files are saved to: base_dir/{course_name}/{subfolder(s)}/{filename}.
         """
+        if max_workers is None:
+            max_workers = os.cpu_count() or 4
+
         courses = list(self.canvas.get_courses())
 
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
@@ -304,7 +333,6 @@ class CanvasManager:
     # ======================================================
     # TIMETABLE FUNCTIONS
     # ======================================================
-
     def get_timetable(self, full_time: bool, intake: int, course: str):
         """
         Retrieve and display timetable files for the specified parameters.
@@ -379,13 +407,15 @@ class CanvasManager:
     # ======================================================
     # ASSIGNMENTS FUNCTIONS
     # ======================================================
-
-    def get_assignments_due_dates(self, hide_older_than: int = 90, max_workers: int = 5):
+    def get_assignments_due_dates(self, hide_older_than: int = 90, max_workers: int = None):
         """
         Retrieve assignments from all accessible courses concurrently that have a due date,
         skipping assignments without a due date or those due before (now - hide_older_than days).
         Returns a list of assignments sorted by due date.
         """
+        if max_workers is None:
+            max_workers = os.cpu_count() or 5
+
         assignments_list = []
         now = datetime.now(timezone.utc)
         cutoff = now - timedelta(days=hide_older_than)
@@ -488,13 +518,15 @@ class CanvasManager:
     # ======================================================
     # ANNOUNCEMENTS FUNCTIONS
     # ======================================================
-
-    def get_announcements(self, hide_older_than: int = 7, only_unread: bool = False, max_workers: int = 5):
+    def get_announcements(self, hide_older_than: int = 7, only_unread: bool = False, max_workers: int = None):
         """
         Retrieve announcements from all accessible courses concurrently and sort them by creation date.
         Announcements older than (now - hide_older_than days) are skipped. If only_unread is True,
         only include announcements marked as unread.
         """
+        if max_workers is None:
+            max_workers = os.cpu_count() or 5
+
         announcements_list = []
         now = datetime.now(timezone.utc)
         cutoff = now - timedelta(days=hide_older_than)
@@ -603,7 +635,6 @@ class CanvasManager:
     # ======================================================
     # HELPER / UTILITY FUNCTIONS
     # ======================================================
-
     @staticmethod
     def get_match_score(query: str, title: str) -> float:
         """
@@ -696,11 +727,11 @@ if __name__ == "__main__":
     manager = CanvasManager(API_URL, api_key)
 
     # 1. RETRIEVE LECTURE SLIDES
-    # Example 1: Using filter term "EBA5004" (matches the course)
-    print("\nExample 1: Using filter term 'EBA5004'")
+    # Example 1: Using alias filter term "CNI" (matches the sub-module 'CUI')
+    print("\nExample 1: Using alias filter term 'CNI'")
     results1 = manager.retrieve_lecture_slides_by_topic(
         topic="how to implement langchain?",
-        filter_terms=["EBA5004"]
+        filter_terms=["CNI"]
     )
     print("\nFinal top results from Example 1:", results1)
 
@@ -710,6 +741,7 @@ if __name__ == "__main__":
         topic="how to implement langchain?",
         filter_terms=["UI"]
     )
+    print("\nFinal top results from Example 2:", results2)
 
     # Example 3: Using filter terms 'EBA5004' and 'CUI' (EBA5004 ignored)
     print("\nExample 3: Using filter terms 'EBA5004' and 'CUI'")
@@ -717,26 +749,38 @@ if __name__ == "__main__":
         topic="how to implement langchain?",
         filter_terms=["EBA5004", "CUI"]
     )
+    print("\nFinal top results from Example 3:", results3)
 
-    # Example 4: No filter terms provided (process all courses and sub-modules)
-    print("\nExample 4: Using no filter terms")
+    # Example 4: Using filter terms 'TPML' and 'CUI' (should return both TPML and CUI from EBA5004)
+    print("\nExample 4: Using filter terms 'TPML' and 'CUI'")
     results4 = manager.retrieve_lecture_slides_by_topic(
-        topic="how to implement langchain?"
-    )
-
-    # Example 5: Using filter terms 'TPML' and 'CUI' (should return both TPML and CUI from EBA5004)
-    print("\nExample 5: Using filter terms 'TPML' and 'CUI'")
-    results5 = manager.retrieve_lecture_slides_by_topic(
         topic="how to implement langchain?",
         filter_terms=["TPML", "CUI"]
     )
+    print("\nFinal top results from Example 4:", results4)
 
-    # Example 6: Using filter terms 'ISS' and 'CUI' (should return all sub-modules for ISY5004 and CUI for EBA5004)
-    print("\nExample 6: Using filter terms 'ISS' and 'CUI'")
+    # Example 5: Using filter term "CUI" (matches the course 'EBA5004')
+    print("\nExample 5: Using filter term 'CUI'")
+    results5 = manager.retrieve_lecture_slides_by_topic(
+        topic="how to implement langchain?",
+        filter_terms=["EBA5004"]
+    )
+    print("\nFinal top results from Example 5:", results5)
+
+    # Example 6: Using filter terms 'EBA5004' and 'VSD' (should return all sub-modules for EBA5004 and VSD for ISY5004)
+    print("\nExample 6: Using filter terms 'EBA5004' and 'VSD'")
     results6 = manager.retrieve_lecture_slides_by_topic(
         topic="how to implement langchain?",
-        filter_terms=["ISS", "CUI"]
+        filter_terms=["EBA5004", "VSD"]
     )
+    print("\nFinal top results from Example 6:", results6)
+
+    # Example 7: No filter terms provided (process all courses and sub-modules)
+    print("\nExample Y: Using no filter terms")
+    results7 = manager.retrieve_lecture_slides_by_topic(
+        topic="how to implement langchain?"
+    )
+    print("\nFinal top results from Example 7:", results7)
 
     # 2. DOWNLOAD ALL FILES (Uncomment to run)
     # manager.download_all_files_parallel(base_dir="files")
