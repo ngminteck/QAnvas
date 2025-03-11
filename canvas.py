@@ -86,9 +86,9 @@ class CanvasManager:
         Retrieve lecture slides related to a given topic using semantic search with Chroma,
         scanning all subfolders for PDF, PPTX, and TXT files.
         """
-        # Use updated imports for community libraries for document loading and vectorstore
+        # Updated imports:
         from langchain_community.vectorstores import Chroma
-        from langchain_community.document_loaders import UnstructuredFileLoader
+        from langchain_unstructured import UnstructuredLoader
         from langchain.text_splitter import CharacterTextSplitter
 
         # --- Step 0: Determine number of workers ---
@@ -189,7 +189,7 @@ class CanvasManager:
         documents = []
         def load_file(fp):
             try:
-                loader = UnstructuredFileLoader(fp)
+                loader = UnstructuredLoader(fp)
                 docs = loader.load()
                 for doc in docs:
                     doc.metadata["file_path"] = fp
@@ -220,13 +220,14 @@ class CanvasManager:
 
         if use_cuda:
             print("CUDA is available. Using GPU for embeddings.")
-            from langchain.embeddings import HuggingFaceEmbeddings
-            embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", device="cuda")
+            from langchain_huggingface import HuggingFaceEmbeddings
+            embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", model_kwargs={"device": "cuda"})
         else:
             print("CUDA not available. Using CPU for embeddings.")
-            from langchain.embeddings import HuggingFaceEmbeddings
-            embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", device="cpu")
+            from langchain_huggingface import HuggingFaceEmbeddings
+            embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", model_kwargs={"device": "cpu"})
 
+        from langchain_community.vectorstores import Chroma
         try:
             if os.path.exists(index_dir):
                 print("Loading existing Chroma index...")
@@ -735,7 +736,8 @@ if __name__ == "__main__":
     )
     print("\nFinal top results from Example 1:", results1)
 
-    # Example 2: Using partial filter term "UI" (matches sub-module 'CUI')
+    """
+    # Additional examples:
     print("\nExample 2: Using filter term 'UI'")
     results2 = manager.retrieve_lecture_slides_by_topic(
         topic="how to implement langchain?",
@@ -743,7 +745,6 @@ if __name__ == "__main__":
     )
     print("\nFinal top results from Example 2:", results2)
 
-    # Example 3: Using filter terms 'EBA5004' and 'CUI' (EBA5004 ignored)
     print("\nExample 3: Using filter terms 'EBA5004' and 'CUI'")
     results3 = manager.retrieve_lecture_slides_by_topic(
         topic="how to implement langchain?",
@@ -751,7 +752,6 @@ if __name__ == "__main__":
     )
     print("\nFinal top results from Example 3:", results3)
 
-    # Example 4: Using filter terms 'TPML' and 'CUI' (should return both TPML and CUI from EBA5004)
     print("\nExample 4: Using filter terms 'TPML' and 'CUI'")
     results4 = manager.retrieve_lecture_slides_by_topic(
         topic="how to implement langchain?",
@@ -759,42 +759,26 @@ if __name__ == "__main__":
     )
     print("\nFinal top results from Example 4:", results4)
 
-    # Example 5: Using filter term "CUI" (matches the course 'EBA5004')
-    print("\nExample 5: Using filter term 'CUI'")
+    print("\nExample 5: Using no filter terms")
     results5 = manager.retrieve_lecture_slides_by_topic(
-        topic="how to implement langchain?",
-        filter_terms=["EBA5004"]
+        topic="how to implement langchain?"
     )
     print("\nFinal top results from Example 5:", results5)
 
-    # Example 6: Using filter terms 'EBA5004' and 'VSD' (should return all sub-modules for EBA5004 and VSD for ISY5004)
-    print("\nExample 6: Using filter terms 'EBA5004' and 'VSD'")
-    results6 = manager.retrieve_lecture_slides_by_topic(
-        topic="how to implement langchain?",
-        filter_terms=["EBA5004", "VSD"]
-    )
-    print("\nFinal top results from Example 6:", results6)
-
-    # Example 7: No filter terms provided (process all courses and sub-modules)
-    print("\nExample Y: Using no filter terms")
-    results7 = manager.retrieve_lecture_slides_by_topic(
-        topic="how to implement langchain?"
-    )
-    print("\nFinal top results from Example 7:", results7)
-
     # 2. DOWNLOAD ALL FILES (Uncomment to run)
     # manager.download_all_files_parallel(base_dir="files")
+    """
 
     # 3. TIMETABLE
-    print("\n=== TIMETABLE ===")
-    manager.get_timetable(True, 2024, "AIS06")
+    #print("\n=== TIMETABLE ===")
+    #manager.get_timetable(True, 2024, "AIS06")
 
     # 4. ASSIGNMENTS & DEADLINES
-    print("\n=== ASSIGNMENTS & DEADLINES ===")
-    manager.list_upcoming_assignments(hide_older_than=0)
-    manager.get_assignment_detail("CNI Day 4 Workshop")
+    #print("\n=== ASSIGNMENTS & DEADLINES ===")
+    #manager.list_upcoming_assignments(hide_older_than=0)
+    #manager.get_assignment_detail("CNI Day 4 Workshop")
 
     # 5. ANNOUNCEMENTS & NOTIFICATIONS
-    print("\n=== ANNOUNCEMENTS & NOTIFICATIONS ===")
-    manager.list_announcements(hide_older_than=7, only_unread=False)
-    manager.get_announcement_detail("Internship Announcement")
+    #print("\n=== ANNOUNCEMENTS & NOTIFICATIONS ===")
+    #manager.list_announcements(hide_older_than=7, only_unread=False)
+    #manager.get_announcement_detail("Internship Announcement")
