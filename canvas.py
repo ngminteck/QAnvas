@@ -18,21 +18,23 @@ class CanvasManager:
     # ======================================================
     # RETRIEVE LECTURE SLIDES FUNCTIONS
     # ======================================================
-
     def retrieve_lecture_slides_by_topic(self,
                                          topic: str,
                                          index_dir: str = "hnswlib_index",
                                          k: int = 5,
-                                         course_filter: list = None,
-                                         sub_module_filter: list = None):
+                                         filter_terms: list = None):
         """
-        Retrieve lecture slides related to a given topic using semantic search with HNSWLib,
-        using hard-coded folder paths and alias mappings for both courses and sub-modules.
-        The logic is:
-          1. Resolve the provided course and sub-module filters using alias mappings.
-             If no course filter is provided, attempt to infer one from the query.
-          2. Use the canonical course and sub-module values to select the appropriate hard-coded folders.
-          3. Load files from those folders, process them, build (or load) an index, and run a semantic search.
+        Retrieve lecture slides related to a given topic using semantic search with HNSWLib.
+
+        A single list of filter terms (which can be partial) is used. For each course:
+          - If any sub-module (via its aliases) matches a filter term, only those sub-modules are used.
+          - Otherwise, if the course name (via its aliases) matches a filter term, all its sub-modules are used.
+          - If no filter terms are provided, all courses and sub-modules are processed.
+
+        After building (or loading) the vector index and performing semantic search,
+        the function returns the top 3 best matching results. Each result contains a content
+        preview and file information (e.g. file path and page number if available).
+
         Hard-coded file structure:
           ISY5004 (Graduate Certificate in Intelligent Sensing Systems):
             • Vision Systems -> "files\\Vision Systems (6-10Jan 2025)"
@@ -43,16 +45,21 @@ class CanvasManager:
             • New Media and Sentiment Mining -> "files\\EBA5004 Practical Language Processing [2420]\\01_NMSM"
             • Text Processing Using Machine Learning -> "files\\EBA5004 Practical Language Processing [2420]\\02_TPML"
             • Conversational Uls -> "files\\EBA5004 Practical Language Processing [2420]\\03_CNI"
+
         Parameters:
           - topic (str): The semantic query.
           - index_dir (str): Where to save or load the HNSWLib index.
-          - k (int): Number of top matching chunks to retrieve.
-          - course_filter (list, optional): List of course identifiers or aliases.
-          - sub_module_filter (list, optional): List of sub-module identifiers or aliases.
+          - k (int): Number of top matching chunks to retrieve (used to build the index/search).
+          - filter_terms (list, optional): List of filter terms (course or sub-module identifiers or aliases).
+
         Returns:
-          List of document chunks matching the topic query.
+          A list of dictionaries (up to 3 items) with keys:
+             "result_rank": rank of the result,
+             "content_preview": a preview of the text,
+             "file_path": file where the text comes from,
+             "page": page information if available (or "N/A"),
+             "metadata": the complete metadata.
         """
-        import os
         from langchain.embeddings import OpenAIEmbeddings
         from langchain.vectorstores import HNSWLib
         from langchain.document_loaders import UnstructuredFileLoader
@@ -63,7 +70,6 @@ class CanvasManager:
             "ISY5004": ["Intelligent Sensing Systems", "Computer Vision", "CV", "ISS"],
             "EBA5004": ["Practical Language Processing", "NLP", "Nature Language Processing", "PLP"]
         }
-
         sub_module_aliases = {
             "VSD": ["Vision Systems", "VS"],
             "SRSD": ["Spatial Reasoning from Sensor Data"],
@@ -77,33 +83,19 @@ class CanvasManager:
         # Hard-coded folder paths using canonical identifiers.
         file_paths = {
             "ISY5004": {
-                "VSD": {
-                    "path": "files\\Vision Systems (6-10Jan 2025)"
-                },
-                "SRSD": {
-                    "path": "files\\Spatial Reasoning from Sensor Data (13-15Jan 2025)"
-                },
-                "RTAVS": {
-                    "path": "files\\Real-time Audio-Visual Sensing and Sense Making (20-23Jan 2025)"
-                }
+                "VSD": {"path": "files\\Vision Systems (6-10Jan 2025)"},
+                "SRSD": {"path": "files\\Spatial Reasoning from Sensor Data (13-15Jan 2025)"},
+                "RTAVS": {"path": "files\\Real-time Audio-Visual Sensing and Sense Making (20-23Jan 2025)"}
             },
             "EBA5004": {
-                "TA": {
-                    "path": "files\\[PLP] Text Analytics (2025-02-10)"
-                },
-                "NMSM": {
-                    "path": "files\\EBA5004 Practical Language Processing [2420]\\01_NMSM"
-                },
-                "TPML": {
-                    "path": "files\\EBA5004 Practical Language Processing [2420]\\02_TPML"
-                },
-                "CUI": {
-                    "path": "files\\EBA5004 Practical Language Processing [2420]\\03_CNI"
-                }
+                "TA": {"path": "files\\[PLP] Text Analytics (2025-02-10)"},
+                "NMSM": {"path": "files\\EBA5004 Practical Language Processing [2420]\\01_NMSM"},
+                "TPML": {"path": "files\\EBA5004 Practical Language Processing [2420]\\02_TPML"},
+                "CUI": {"path": "files\\EBA5004 Practical Language Processing [2420]\\03_CNI"}
             }
         }
 
-        # --- Step 1: Resolve/Infer Filters ---
+        # --- Step 1: Resolve Filters (with partial fuzzy matching) ---
         def resolve_filter(filter_list, alias_mapping, threshold=0.7):
             resolved = []
             for item in filter_list:
@@ -112,48 +104,37 @@ class CanvasManager:
                     if CanvasManager.get_match_score(item_lower, canonical.lower()) >= threshold:
                         resolved.append(canonical)
                         break
-                    elif any(CanvasManager.get_match_score(item_lower, alias.lower()) >= threshold for alias in aliases):
+                    elif any(
+                            CanvasManager.get_match_score(item_lower, alias.lower()) >= threshold for alias in aliases):
                         resolved.append(canonical)
                         break
             return resolved
 
-        def infer_course_filter(query, alias_mapping, threshold=0.7):
-            inferred = []
-            query_lower = query.lower()
-            for canonical, aliases in alias_mapping.items():
-                for alias in aliases:
-                    if CanvasManager.get_match_score(query_lower, alias.lower()) >= threshold:
-                        inferred.append(canonical)
-                        break
-            return inferred
+        resolved_course = resolve_filter(filter_terms, course_aliases, threshold=0.7) if filter_terms else []
+        resolved_submodule = resolve_filter(filter_terms, sub_module_aliases, threshold=0.7) if filter_terms else []
 
-        if course_filter:
-            resolved_course_filter = resolve_filter(course_filter, course_aliases, threshold=0.7)
+        if filter_terms:
+            print("Resolved course filter:", resolved_course)
+            print("Resolved sub-module filter:", resolved_submodule)
         else:
-            resolved_course_filter = infer_course_filter(topic, course_aliases, threshold=0.7)
-            if not resolved_course_filter:
-                resolved_course_filter = list(file_paths.keys())
-            print("Using course filter (inferred):", resolved_course_filter)
+            print("No filter terms provided; processing all courses and sub-modules.")
 
-        if sub_module_filter:
-            resolved_sub_module_filter = resolve_filter(sub_module_filter, sub_module_aliases, threshold=0.7)
-        else:
-            resolved_sub_module_filter = None
-            print("No sub-module filter provided; including all sub-modules.")
-
-        # --- Step 2: Select Hard-Coded Paths Based on Filters ---
+        # --- Step 2: Select Hard-Coded Paths Based on Specificity ---
         courses_to_process = {}
         for course, submodules in file_paths.items():
-            if course not in resolved_course_filter:
-                continue
-            courses_to_process[course] = {}
-            for sub_module, details in submodules.items():
-                if resolved_sub_module_filter and sub_module not in resolved_sub_module_filter:
-                    continue
-                courses_to_process[course][sub_module] = details["path"]
+            # Check for specific sub-module matches.
+            matching_submodules = {sm: details["path"] for sm, details in submodules.items() if
+                                   sm in resolved_submodule}
+            if matching_submodules:
+                courses_to_process[course] = matching_submodules
+            elif course in resolved_course:
+                courses_to_process[course] = {sm: details["path"] for sm, details in submodules.items()}
+        if not filter_terms:
+            courses_to_process = {course: {sm: details["path"] for sm, details in submodules.items()}
+                                  for course, submodules in file_paths.items()}
 
         if not courses_to_process:
-            print("No courses/sub-modules match the provided filters.")
+            print("No courses/sub-modules match the provided filter terms.")
             return []
 
         # --- Step 3: Gather Files from the Selected Paths ---
@@ -169,11 +150,9 @@ class CanvasManager:
                             selected_paths.append(os.path.join(folder_path, file))
                 except Exception as e:
                     print(f"Error accessing folder {folder_path}: {e}")
-
         if not selected_paths:
             print("No files found in the selected hard-coded paths.")
             return []
-
         print(f"Found {len(selected_paths)} file(s) from hard-coded paths.")
 
         # --- Step 4: Load and Process Documents ---
@@ -183,11 +162,10 @@ class CanvasManager:
                 loader = UnstructuredFileLoader(fp)
                 docs = loader.load()
                 for doc in docs:
-                    doc.metadata["file_path"] = fp
+                    doc.metadata["file_path"] = fp  # store source file path
                 documents.extend(docs)
             except Exception as e:
                 print(f"Error loading file {fp}: {e}")
-
         if not documents:
             print("No documents could be loaded from the selected files.")
             return []
@@ -195,7 +173,6 @@ class CanvasManager:
         # --- Step 5: Split Documents and Build/Load Index ---
         text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
         docs = text_splitter.split_documents(documents)
-
         try:
             if os.path.exists(index_dir):
                 print("Loading existing HNSWLib index...")
@@ -209,20 +186,35 @@ class CanvasManager:
             print(f"Error building/loading index: {e}")
             return []
 
-        # --- Step 6: Perform Semantic Search ---
+        # --- Step 6: Perform Semantic Search and Return Top 3 Results with File Info ---
         try:
             results = vector_store.similarity_search(topic, k=k)
         except Exception as e:
             print(f"Error during similarity search: {e}")
             return []
         print(f"Found {len(results)} relevant slide chunk(s) for topic: '{topic}'")
-        for idx, res in enumerate(results, start=1):
-            preview = res.page_content[:200] + "..." if len(res.page_content) > 200 else res.page_content
-            print(f"--- Result {idx} ---")
-            print("Content Preview:", preview)
-            print("Metadata:", res.metadata)
 
-        return results
+        # Limit to top 5 results.
+        top_results = results[:5]
+        final_results = []
+        for idx, res in enumerate(top_results, start=1):
+            # Retrieve file info from metadata.
+            file_info = res.metadata.get("file_path", "Unknown file")
+            page_info = res.metadata.get("page", "N/A")  # if page info exists, else "N/A"
+            final_results.append({
+                "result_rank": idx,
+                "content_preview": res.page_content,
+                "file_path": file_info,
+                "page": page_info,
+                "metadata": res.metadata
+            })
+            print(f"--- Result {idx} ---")
+            print("Content Preview:",
+                  res.page_content[:200] + "..." if len(res.page_content) > 200 else res.page_content)
+            print("File Path:", file_info)
+            print("Page Info:", page_info)
+            print("Additional Metadata:", res.metadata)
+        return final_results
 
     # ======================================================
     # DOWNLOAD FILES FUNCTIONS
@@ -678,31 +670,30 @@ if __name__ == "__main__":
     manager = CanvasManager(API_URL, api_key)
 
     # 1. RETRIEVE LECTURE SLIDES
+    # Example 1: Using filter term "EBA5004" (matches the course)
+    print("\nExample 1: Using filter term 'EBA5004'")
     results1 = manager.retrieve_lecture_slides_by_topic(
         topic="how to implement langchain?",
-        course_filter=["EBA5004"],
-        sub_module_filter=["CUI"]
+        filter_terms=["EBA5004"]
     )
+
+    # Example 2: Using partial filter term "CUI" (matches sub-module 'CUI')
+    print("\nExample 2: Using filter term 'CUI'")
     results2 = manager.retrieve_lecture_slides_by_topic(
         topic="how to implement langchain?",
-        course_filter=["EBA5004"],
-        sub_module_filter=["CNI"]
+        filter_terms=["UI"]
     )
+
+    # Example 3: Using both "EBA5004" and partial "CUI" (sub-module takes precedence)
+    print("\nExample 3: Using filter terms 'EBA5004' and 'CUI'")
     results3 = manager.retrieve_lecture_slides_by_topic(
         topic="how to implement langchain?",
-        course_filter=["PLP"],
-        sub_module_filter=["CUI"]
+        filter_terms=["EBA5004", "CUI"]
     )
+
+    # Example 4: No filter terms provided (process all courses and sub-modules)
+    print("\nExample 4: Using no filter terms")
     results4 = manager.retrieve_lecture_slides_by_topic(
-        topic="how to implement langchain?",
-        course_filter=["EBA5004"]
-    )
-    results5 = manager.retrieve_lecture_slides_by_topic(
-        topic="how to implement langchain?",
-        course_filter=["EBA5004"],
-        sub_module_filter=["UI"]
-    )
-    results6 = manager.retrieve_lecture_slides_by_topic(
         topic="how to implement langchain?"
     )
 
