@@ -460,6 +460,84 @@ class CanvasManager:
         except Exception as e:
             print(f"Error downloading file {f.display_name}: {e}")
 
+    def retrieve_lecture_slides_by_topic(self,
+                                         topic: str,
+                                         files_dir: str = "files",
+                                         index_dir: str = "hnswlib_index",
+                                         k: int = 5,
+                                         allowed_dirs: list = None):
+        """
+        Retrieve lecture slides related to a given topic using semantic search with HNSWLib,
+        restricting indexing to specific subdirectories if allowed_dirs is provided.
+
+        Parameters:
+            topic (str): The topic or query to search for.
+            files_dir (str): The root directory where lecture slide files are stored.
+            index_dir (str): The directory to save/load the HNSWLib index.
+            k (int): The number of top matching chunks to retrieve.
+            allowed_dirs (list, optional): A list of allowed top-level subdirectory names (relative to files_dir)
+                                           to restrict indexing. Files outside these directories will be skipped.
+
+        Returns:
+            List of document chunks that best match the query.
+        """
+        from langchain.embeddings import OpenAIEmbeddings
+        from langchain.vectorstores import HNSWLib
+        from langchain.document_loaders import UnstructuredFileLoader
+        from langchain.text_splitter import CharacterTextSplitter
+        import os
+
+        # Check if the HNSWLib index already exists
+        if os.path.exists(index_dir):
+            print("Loading existing HNSWLib index...")
+            vector_store = HNSWLib.load_local(index_dir, OpenAIEmbeddings())
+        else:
+            print("Building HNSWLib index from lecture slides...")
+            documents = []
+            # Recursively traverse the files directory
+            for root, dirs, files in os.walk(files_dir):
+                # If allowed_dirs is provided, check the top-level folder of the current root
+                if allowed_dirs:
+                    # Compute the relative path from files_dir to the current folder
+                    rel_root = os.path.relpath(root, files_dir)
+                    # Extract the top-level directory name
+                    top_level = rel_root.split(os.path.sep)[0]
+                    if top_level not in allowed_dirs:
+                        continue
+
+                for file in files:
+                    if file.lower().endswith(('.pdf', '.txt', '.pptx')):
+                        file_path = os.path.join(root, file)
+                        try:
+                            loader = UnstructuredFileLoader(file_path)
+                            docs = loader.load()
+                            # Store the file path in metadata for later reference
+                            for doc in docs:
+                                doc.metadata["file_path"] = file_path
+                            documents.extend(docs)
+                        except Exception as e:
+                            print(f"Error loading file {file}: {e}")
+            if not documents:
+                print("No lecture slides found in the specified directories.")
+                return []
+
+            # Split documents into manageable chunks
+            text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+            docs = text_splitter.split_documents(documents)
+            embeddings = OpenAIEmbeddings()
+            vector_store = HNSWLib.from_documents(docs, embeddings)
+            vector_store.save_local(index_dir)
+
+        # Perform semantic search on the HNSWLib index
+        results = vector_store.similarity_search(topic, k=k)
+        print(f"Found {len(results)} relevant slide chunk(s) for topic: '{topic}'")
+        for idx, res in enumerate(results, start=1):
+            preview = res.page_content[:200] + "..." if len(res.page_content) > 200 else res.page_content
+            print(f"--- Result {idx} ---")
+            print("Content Preview:", preview)
+            print("Metadata:", res.metadata)
+        return results
+
 
 if __name__ == "__main__":
     # Example usage:
@@ -490,3 +568,21 @@ if __name__ == "__main__":
     # 4. DOWNLOAD ALL FILES
     print("\n=== DOWNLOADING FILES ===")
     # manager.download_all_files_parallel(base_dir="files")
+
+    manager.retrieve_lecture_slides_by_topic(
+        topic="object detection",
+        allowed_dirs=[
+            "Vision Systems (6-10Jan 2025)",
+            "Spatial Reasoning from Sensor Data (13-15Jan 2025)",
+            "Real-time Audio-Visual Sensing and Sense Making (20-23Jan 2025)"
+        ]
+    )
+
+    manager.retrieve_lecture_slides_by_topic(
+        topic="sentiment analysis",
+        allowed_dirs=[
+            "[PLP] Text Analytics (2025-02-10)",
+            "EBA5004 Practical Language Processing [2420]"
+        ]
+    )
+
