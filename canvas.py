@@ -1,5 +1,6 @@
 import os
 import re
+import difflib
 from datetime import datetime, timedelta, timezone
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from canvasapi import Canvas
@@ -15,6 +16,32 @@ class CanvasManager:
         self.canvas = Canvas(api_url, api_key)
 
     # ========================
+    # HELPER FUNCTIONS FOR FUZZY MATCHING AND HTML STRIPPING
+    # ========================
+
+    @staticmethod
+    def get_match_score(query: str, title: str) -> float:
+        """
+        Normalize both strings and compute a similarity ratio using difflib.
+        If the normalized query is found as a substring in the normalized title,
+        returns 1.0 (i.e. 100% confidence).
+        """
+        query_norm = re.sub(r'\W+', ' ', query).strip().lower()
+        title_norm = re.sub(r'\W+', ' ', title).strip().lower()
+        if query_norm in title_norm:
+            return 1.0
+        return difflib.SequenceMatcher(None, query_norm, title_norm).ratio()
+
+    @staticmethod
+    def strip_html(text: str) -> str:
+        """
+        Remove HTML tags from the given text and decode HTML entities.
+        """
+        import html
+        text = re.sub(r'<[^>]+>', '', text)
+        return html.unescape(text)
+
+    # ========================
     # TIMETABLE FUNCTIONS
     # ========================
 
@@ -24,15 +51,8 @@ class CanvasManager:
         The expected folder structure is:
           course files\Timetable\MTech Full Time\Aug <intake> FT Intake  (for full-time)
           course files\Timetable\MTech Part Time\Jan <intake> PT Intake  (for part-time)
-
         Then, using the course code, only the matching timetable file(s) are shown.
-
-        Parameters:
-          full_time (bool): True for full-time, False for part-time.
-          intake (int): The intake year (e.g., 2024 or 2022).
-          course (str): The course code (e.g., "AIS06").
         """
-        # Build folder names based on full_time flag.
         if full_time:
             mode_folder = "MTech Full Time"
             intake_folder = f"Aug {intake} FT Intake"
@@ -40,7 +60,6 @@ class CanvasManager:
             mode_folder = "MTech Part Time"
             intake_folder = f"Jan {intake} PT Intake"
 
-        # Define the timetable course name (the course that holds timetable files)
         target_course_name = "MTech in EBAC/IS/SE (Thru-train)".lower()
 
         try:
@@ -49,7 +68,6 @@ class CanvasManager:
             print("Error retrieving courses:", e)
             return
 
-        # Locate the timetable course.
         found_course = next(
             (c for c in courses if not getattr(c, "access_restricted_by_date", False)
              and target_course_name in c.name.lower()),
@@ -74,11 +92,9 @@ class CanvasManager:
             print("Error building folder mapping:", e)
             folder_map = {}
 
-        # Build the target folder path as stored in Canvas.
         target_folder = f"course files\\Timetable\\{mode_folder}\\{intake_folder}"
         print(f"Looking for files in folder: {target_folder}")
 
-        # Filter files in the target folder.
         files_in_target = []
         for f in files:
             folder_id = getattr(f, "folder_id", None)
@@ -90,7 +106,6 @@ class CanvasManager:
             print(f"No files found in folder {target_folder}.")
             return
 
-        # Further filter by course code.
         course_code = course.upper()
         files_for_course = [fname for fname in files_in_target if course_code in fname.upper()]
 
@@ -123,7 +138,7 @@ class CanvasManager:
 
             try:
                 for assignment in course.get_assignments():
-                    due_date_str = assignment.due_at  # ISO formatted string or None
+                    due_date_str = assignment.due_at
                     if not due_date_str:
                         continue
                     parsed_due_date = self._parse_date(due_date_str)
@@ -158,34 +173,58 @@ class CanvasManager:
         if assignments:
             print("\nUpcoming Assignments:")
             for idx, a in enumerate(assignments, start=1):
-                print(f"{idx}. {a['due_at_str']} - {a['course_name']}: {a['assignment_name']}")
+                print(f"{idx}. {a['due_at_str']}")
+                print(f"    Course    : {a['course_name']}")
+                print(f"    Assignment: {a['assignment_name']}")
         else:
             print("No upcoming assignments found.")
         return assignments
 
-    def get_assignment_detail(self, assignment_name: str):
+    def get_assignment_detail(self, assignment_name: str, threshold: float = 0.7):
         """
-        Retrieve detailed information for a specific assignment by name.
-        This may include the due date and additional details available in the assignment object.
+        Retrieve detailed information for assignments that match the given name.
+        Uses fuzzy matching to compute a confidence score for each assignment.
+        All assignments with a confidence score equal to or above the threshold are printed,
+        showing only the 'due_at' and 'description' fields (with HTML tags removed).
         """
         courses = list(self.canvas.get_courses())
+        matches = []
         for course in courses:
             if getattr(course, "access_restricted_by_date", False):
                 continue
             try:
                 for assignment in course.get_assignments():
-                    if assignment.name.lower() == assignment_name.lower():
-                        print("\nAssignment Details:")
-                        print(f"Course: {course.name}")
-                        print(f"Assignment: {assignment.name}")
-                        print(f"Due: {assignment.due_at}")
-                        print("Full Details:")
-                        pprint.pprint(assignment.__dict__)
-                        return assignment
+                    score = self.get_match_score(assignment_name, assignment.name)
+                    if score >= threshold:
+                        matches.append((score, course, assignment))
             except Exception as e:
                 print(f"Error retrieving assignments for course {course.name}: {e}")
-        print("Assignment not found.")
-        return None
+        if matches:
+            matches.sort(key=lambda x: x[0], reverse=True)
+            print("\nMatching Assignments (showing due_at and description):")
+            results = []
+            for idx, (score, course, assignment) in enumerate(matches, start=1):
+                desc = getattr(assignment, "description", None)
+                if desc:
+                    desc = self.strip_html(desc)
+                print("-" * 50)
+                print(f"Assignment {idx}:")
+                print(f"  Course     : {course.name}")
+                print(f"  Assignment : {assignment.name}")
+                print(f"  Due Date   : {assignment.due_at}")
+                print("  Description:")
+                if desc:
+                    for line in desc.splitlines():
+                        print("    " + line)
+                else:
+                    print("    No description available")
+                print(f"  Confidence : {score * 100:.1f}%")
+                print("-" * 50)
+                results.append({"due_at": assignment.due_at, "description": desc})
+            return results
+        else:
+            print("Assignment not found.")
+            return []
 
     # ========================
     # ANNOUNCEMENTS FUNCTIONS
@@ -246,41 +285,64 @@ class CanvasManager:
         if announcements:
             print("\nRecent Announcements:")
             for idx, ann in enumerate(announcements, start=1):
-                print(f"{idx}. {ann['created_at_str']} - {ann['course_name']}: {ann['announcement_title']}")
+                print(f"{idx}. Created at: {ann['created_at_str']}")
+                print(f"    Course : {ann['course_name']}")
+                print(f"    Title  : {ann['announcement_title']}")
         else:
             print("No announcements found.")
         return announcements
 
-    def get_announcement_detail(self, announcement_title: str):
+    def get_announcement_detail(self, announcement_title: str, threshold: float = 0.7):
         """
-        Retrieve detailed content for a specific announcement by title.
+        Retrieve detailed content for announcements that match the given title.
+        Uses fuzzy matching to compute a confidence score and prints all announcements
+        with a score equal to or above the threshold.
+        Only the 'created_at' and the description (from message or description, with HTML removed)
+        fields are shown.
         """
         courses = list(self.canvas.get_courses())
+        matches = []
         for course in courses:
             if getattr(course, "access_restricted_by_date", False):
                 continue
             try:
                 for ann in course.get_discussion_topics(only_announcements=True):
-                    if ann.title.lower() == announcement_title.lower():
-                        print("\nAnnouncement Detail:")
-                        print(f"Course: {course.name}")
-                        print(f"Title: {ann.title}")
-                        print(f"Created at: {getattr(ann, 'created_at', 'N/A')}")
-                        detail = getattr(ann, 'message', None)
-                        if not detail:
-                            detail = getattr(ann, 'description', None)
-                        if detail:
-                            print("Content:")
-                            print(detail)
-                        else:
-                            print("No additional content available.")
-                        print("Full Details:")
-                        pprint.pprint(ann.__dict__)
-                        return ann
+                    score = self.get_match_score(announcement_title, ann.title)
+                    if score >= threshold:
+                        matches.append((score, course, ann))
             except Exception as e:
                 print(f"Error retrieving announcements for course {course.name}: {e}")
-        print("Announcement not found.")
-        return None
+        if matches:
+            matches.sort(key=lambda x: x[0], reverse=True)
+            print("\nMatching Announcements (showing created_at and description):")
+            results = []
+            for idx, (score, course, ann) in enumerate(matches, start=1):
+                desc = getattr(ann, "message", None) or getattr(ann, "description", None)
+                if desc:
+                    desc = self.strip_html(desc)
+                created_at = getattr(ann, "created_at", None)
+                print("-" * 50)
+                print(f"Announcement {idx}:")
+                print(f"  Course     : {course.name}")
+                print(f"  Title      : {ann.title}")
+                print(f"  Created at : {created_at}")
+                print("  Description:")
+                if desc:
+                    for line in desc.splitlines():
+                        print("    " + line)
+                else:
+                    print("    No description available")
+                print(f"  Confidence : {score * 100:.1f}%")
+                print("-" * 50)
+                results.append({
+                    "created_at": created_at,
+                    "description": desc,
+                    "full_details": ann.__dict__
+                })
+            return results
+        else:
+            print("Announcement not found.")
+            return []
 
     # ========================
     # DOWNLOAD FILES FUNCTIONS
@@ -413,16 +475,18 @@ if __name__ == "__main__":
 
     # 2. ASSIGNMENTS & DEADLINES
     print("\n=== ASSIGNMENTS & DEADLINES ===")
-    manager.list_upcoming_assignments(hide_older_than=90)
-    # Uncomment and replace with an actual assignment title to view details:
-    # manager.get_assignment_detail("Assignment Name")
+    manager.list_upcoming_assignments(hide_older_than=0)
+    # Fuzzy search for assignment details; returns matches with at least 70% confidence,
+    # showing only due_at and description (with HTML removed).
+    manager.get_assignment_detail("CNI Day 4 Workshop")
 
     # 3. ANNOUNCEMENTS & NOTIFICATIONS
     print("\n=== ANNOUNCEMENTS & NOTIFICATIONS ===")
     manager.list_announcements(hide_older_than=7, only_unread=False)
-    # Uncomment and replace with an actual announcement title to view details:
-    # manager.get_announcement_detail("Announcement Title")
+    # Fuzzy search for announcement details; returns matches with at least 70% confidence,
+    # showing only created_at and description (with HTML removed).
+    manager.get_announcement_detail("Internship Announcement")
 
     # 4. DOWNLOAD ALL FILES
     print("\n=== DOWNLOADING FILES ===")
-    #manager.download_all_files_parallel(base_dir="files")
+    # manager.download_all_files_parallel(base_dir="files")
