@@ -15,6 +15,67 @@ class CanvasManager:
     def __init__(self, api_url: str, api_key: str):
         self.canvas = Canvas(api_url, api_key)
 
+    def handleIntent(self, intent: str, **kwargs):
+        """
+        Dispatch the operation based on the given intent.
+
+        Supported intents (all in small letters without underscores):
+          - "timetable": expects parameters "fulltime" (bool), "intake" (int), "course" (str)
+          - "exam date": (same as timetable; you might process the timetable output to extract exam date)
+          - "assignment list": can optionally pass "hideolderthan" (int)
+          - "assignment detail": expects "assignmentname" (str) and optionally "threshold" (float)
+          - "announcement list": can optionally pass "hideolderthan" (int) and "onlyunread" (bool)
+          - "announcement detail": expects "announcementtitle" (str) and optionally "threshold" (float)
+
+        If the intent is not recognized, the default action is to try retrieving lecture slides.
+        In that case, it expects parameters "topic" (str) and optionally "filterterms" (list).
+        If no lecture slides are found, a general default response is returned.
+        """
+        i = intent.lower().strip()
+
+        if i == "timetable":
+            fullTime = kwargs.get("fulltime", True)
+            intake = kwargs.get("intake", 0)
+            course = kwargs.get("course", "")
+            self.get_timetable(full_time=fullTime, intake=intake, course=course)
+            return f"Timetable for {course} displayed."
+
+        elif i == "exam date":
+            fullTime = kwargs.get("fulltime", True)
+            intake = kwargs.get("intake", 0)
+            course = kwargs.get("course", "")
+            self.get_timetable(full_time=fullTime, intake=intake, course=course)
+            return f"Exam date for {course} displayed (via timetable)."
+
+        elif i == "assignment list":
+            hideOlderThan = kwargs.get("hideolderthan", 90)
+            return self.list_upcoming_assignments(hide_older_than=hideOlderThan)
+
+        elif i == "assignment detail":
+            assignmentName = kwargs.get("assignmentname", "")
+            threshold = kwargs.get("threshold", 0.7)
+            return self.get_assignment_detail(assignment_name=assignmentName, threshold=threshold)
+
+        elif i == "announcement list":
+            hideOlderThan = kwargs.get("hideolderthan", 7)
+            onlyUnread = kwargs.get("onlyunread", False)
+            return self.list_announcements(hide_older_than=hideOlderThan, only_unread=onlyUnread)
+
+        elif i == "announcement detail":
+            announcementTitle = kwargs.get("announcementtitle", "")
+            threshold = kwargs.get("threshold", 0.7)
+            return self.get_announcement_detail(announcement_title=announcementTitle, threshold=threshold)
+
+        else:
+            # Default: try retrieving lecture slides.
+            topic = kwargs.get("topic", "")
+            filterTerms = kwargs.get("filterterms", None)
+            result = self.retrieve_lecture_slides_by_topic(topic=topic, filter_terms=filterTerms)
+            if result:
+                return result
+            else:
+                return "Process with normal LLM Response."
+
     # ======================================================
     # RETRIEVE LECTURE SLIDES FUNCTIONS
     # ======================================================
