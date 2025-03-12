@@ -1,0 +1,6 @@
+canvasapi
+langchain_community
+langchain_unstructured
+langchain
+langchain_huggingface
+chromadb

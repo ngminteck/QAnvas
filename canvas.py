@@ -5,6 +5,15 @@ from datetime import datetime, timedelta, timezone
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from canvasapi import Canvas
 import pprint
+import html
+import torch
+
+# Imports previously inside functions
+from langchain_community.vectorstores import Chroma
+from langchain_unstructured import UnstructuredLoader
+from langchain.text_splitter import CharacterTextSplitter
+from langchain_huggingface import HuggingFaceEmbeddings
+
 
 class CanvasManager:
     """
@@ -86,11 +95,6 @@ class CanvasManager:
         Retrieve lecture slides related to a given topic using semantic search with Chroma,
         scanning all subfolders for PDF, PPTX, and TXT files.
         """
-        # Updated imports:
-        from langchain_community.vectorstores import Chroma
-        from langchain_unstructured import UnstructuredLoader
-        from langchain.text_splitter import CharacterTextSplitter
-
         # --- Step 0: Determine number of workers ---
         max_workers = os.cpu_count() or 4
 
@@ -187,6 +191,7 @@ class CanvasManager:
 
         # --- Step 4: Concurrently load and process documents ---
         documents = []
+
         def load_file(fp):
             try:
                 loader = UnstructuredLoader(fp)
@@ -212,22 +217,15 @@ class CanvasManager:
         docs = text_splitter.split_documents(documents)
 
         # Detect GPU availability and set device for embeddings accordingly.
-        try:
-            import torch
-            use_cuda = torch.cuda.is_available()
-        except ImportError:
-            use_cuda = False
+        use_cuda = torch.cuda.is_available()
 
         if use_cuda:
             print("CUDA is available. Using GPU for embeddings.")
-            from langchain_huggingface import HuggingFaceEmbeddings
             embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", model_kwargs={"device": "cuda"})
         else:
             print("CUDA not available. Using CPU for embeddings.")
-            from langchain_huggingface import HuggingFaceEmbeddings
             embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", model_kwargs={"device": "cpu"})
 
-        from langchain_community.vectorstores import Chroma
         try:
             if os.path.exists(index_dir):
                 print("Loading existing Chroma index...")
@@ -338,8 +336,8 @@ class CanvasManager:
         """
         Retrieve and display timetable files for the specified parameters.
         The expected folder structure is:
-          course files\Timetable\MTech Full Time\Aug <intake> FT Intake  (for full-time)
-          course files\Timetable\MTech Part Time\Jan <intake> PT Intake  (for part-time)
+          course files/Timetable/MTech Full Time/Aug <intake> FT Intake  (for full-time)
+          course files/Timetable/MTech Part Time/Jan <intake> PT Intake  (for part-time)
         Then, using the course code, only the matching timetable file(s) are shown.
         """
         if full_time:
@@ -381,7 +379,7 @@ class CanvasManager:
             print("Error building folder mapping:", e)
             folder_map = {}
 
-        target_folder = f"course files\\Timetable\\{mode_folder}\\{intake_folder}"
+        target_folder = f"course files/Timetable/{mode_folder}/{intake_folder}"
         print(f"Looking for files in folder: {target_folder}")
 
         files_in_target = []
@@ -654,7 +652,6 @@ class CanvasManager:
         """
         Remove HTML tags from the given text and decode HTML entities.
         """
-        import html
         text = re.sub(r'<[^>]+>', '', text)
         return html.unescape(text)
 
@@ -770,15 +767,15 @@ if __name__ == "__main__":
     """
 
     # 3. TIMETABLE
-    #print("\n=== TIMETABLE ===")
-    #manager.get_timetable(True, 2024, "AIS06")
+    # print("\n=== TIMETABLE ===")
+    # manager.get_timetable(True, 2024, "AIS06")
 
     # 4. ASSIGNMENTS & DEADLINES
-    #print("\n=== ASSIGNMENTS & DEADLINES ===")
-    #manager.list_upcoming_assignments(hide_older_than=0)
-    #manager.get_assignment_detail("CNI Day 4 Workshop")
+    # print("\n=== ASSIGNMENTS & DEADLINES ===")
+    # manager.list_upcoming_assignments(hide_older_than=0)
+    # manager.get_assignment_detail("CNI Day 4 Workshop")
 
     # 5. ANNOUNCEMENTS & NOTIFICATIONS
-    #print("\n=== ANNOUNCEMENTS & NOTIFICATIONS ===")
-    #manager.list_announcements(hide_older_than=7, only_unread=False)
-    #manager.get_announcement_detail("Internship Announcement")
+    # print("\n=== ANNOUNCEMENTS & NOTIFICATIONS ===")
+    # manager.list_announcements(hide_older_than=7, only_unread=False)
+    # manager.get_announcement_detail("Internship Announcement")
