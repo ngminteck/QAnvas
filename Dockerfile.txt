@@ -1,5 +1,5 @@
-# Use Python 3.11 slim as the base image
-FROM python:3.11-slim
+# Use Python 3.11.0 slim as the base image
+FROM python:3.11.0-slim
 
 # Set environment variables to prevent .pyc files and enable output buffering
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -15,10 +15,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 # Upgrade pip
 RUN pip install --upgrade pip
 
-# Install PyTorch with CUDA 12.6 support, along with torchvision and torchaudio.
+# Install PyTorch with CUDA 12.6 support, along with torchvision and torchaudio
 RUN pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
 
-# Copy your additional requirements file and install other dependencies.
+# Copy your additional requirements file and install other dependencies
 # Ensure your requirements.txt includes packages like canvasapi, chromadb, langchain packages, etc.
 COPY requirements.txt /app/requirements.txt
 RUN pip install -r /app/requirements.txt
@@ -29,5 +29,5 @@ WORKDIR /app
 # Copy the rest of your project files into the container
 COPY . /app
 
-# Default command: replace "canvas.py" with your main entry point if different.
+# Default command: replace "canvas.py" with your main entry point if different
 CMD ["python", "canvas.py"]
