@@ -96,6 +96,19 @@ class CanvasManager:
         splits them, filters out complex metadata, computes embeddings,
         and persists the Chroma index for future retrieval.
         """
+
+        # Print the current working directory and the absolute path for the index directory
+        print(f"\n[DEBUG] Current working directory: {os.getcwd()}")
+        print(f"[DEBUG] Will store Chroma index in: {os.path.abspath(index_dir)}")
+
+        # Print the number of CPU cores available
+        cpu_cores = os.cpu_count() or 4
+        print(f"[DEBUG] CPU cores available: {cpu_cores}")
+
+        # Measure total time for building the index
+        import time
+        start_time = time.time()
+
         # Hard-coded file paths for lecture slides.
         file_paths = {
             "ISY5004": {
@@ -121,7 +134,7 @@ class CanvasManager:
                 try:
                     for root, dirs, files in os.walk(folder_path):
                         for file in files:
-                            if file.lower().endswith(('.pdf', '.txt', '.pptx')):
+                            if file.lower().endswith(('.pdf', '.pptx')):
                                 selected_paths.append(os.path.join(root, file))
                 except Exception as e:
                     print(f"Error accessing folder {folder_path}: {e}")
@@ -130,16 +143,20 @@ class CanvasManager:
             print("No files found in the selected hard-coded paths.")
             return None
 
-        print(f"Found {len(selected_paths)} file(s) for building the index.")
+        print(f"Found {len(selected_paths)} file(s) for building the index.\n")
 
         # --- Concurrently load and process documents ---
         documents = []
         max_workers = os.cpu_count() or 4
 
         def load_file(fp):
+            # Print which file we're loading
+            print(f"[DEBUG] Loading file: {fp}")
             try:
                 loader = UnstructuredLoader(fp)
                 docs = loader.load()
+                if docs:
+                    print(f"[DEBUG]   -> Loaded {len(docs)} document(s) from {os.path.basename(fp)}")
                 for doc in docs:
                     doc.metadata["file_path"] = fp
                 return docs
@@ -150,31 +167,37 @@ class CanvasManager:
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
             futures = {executor.submit(load_file, fp): fp for fp in selected_paths}
             for future in as_completed(futures):
-                documents.extend(future.result())
+                docs_from_file = future.result()
+                documents.extend(docs_from_file)
 
         if not documents:
             print("No documents could be loaded from the selected files.")
             return None
 
         # --- Split documents and filter metadata ---
+        print(f"\n[DEBUG] Splitting {len(documents)} total documents into chunks...")
         text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
         docs = text_splitter.split_documents(documents)
+        print(f"[DEBUG]   -> After splitting, we have {len(docs)} chunks total.")
+
         docs = [filter_complex_metadata(doc) for doc in docs]
 
         # --- Compute embeddings ---
         use_cuda = torch.cuda.is_available()
         if use_cuda:
-            print("CUDA is available. Using GPU for embeddings.")
+            print("\nCUDA is available. Using GPU for embeddings.")
             embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", model_kwargs={"device": "cuda"})
         else:
-            print("CUDA not available. Using CPU for embeddings.")
+            print("\nCUDA not available. Using CPU for embeddings.")
             embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", model_kwargs={"device": "cpu"})
 
         try:
-            print("Building Chroma index from lecture slides...")
+            print("\n[DEBUG] Building Chroma index from lecture slides...")
             vector_store = Chroma.from_documents(docs, embeddings, persist_directory=index_dir)
             vector_store.persist()
-            print("Embedding index built and persisted.")
+            print("[DEBUG] Embedding index built and persisted.")
+            elapsed_time = time.time() - start_time
+            print(f"[DEBUG] Index building took {elapsed_time:.2f} seconds.")
             return vector_store
         except Exception as e:
             print(f"Error building index: {e}")
@@ -781,12 +804,12 @@ if __name__ == "__main__":
 
     # 1. RETRIEVE LECTURE SLIDES
     # Example 1: Using alias filter term "CNI" (matches the sub-module 'CUI')
-    print("\nExample 1: Using alias filter term 'CNI'")
-    results1 = manager.retrieve_lecture_slides_by_topic(
-        topic="how to implement langchain?",
-        filter_terms=["CNI"]
-    )
-    print("\nFinal top results from Example 1:", results1)
+    #print("\nExample 1: Using alias filter term 'CNI'")
+    #results1 = manager.retrieve_lecture_slides_by_topic(
+    #    topic="how to implement langchain?",
+    #    filter_terms=["CNI"]
+    #)
+    #print("\nFinal top results from Example 1:", results1)
 
     """
     # Additional examples:
