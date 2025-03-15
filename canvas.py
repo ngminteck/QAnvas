@@ -14,6 +14,9 @@ from langchain_unstructured import UnstructuredLoader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
 
+# Import the metadata filtering utility
+from langchain_community.vectorstores.utils import filter_complex_metadata
+
 
 class CanvasManager:
     """
@@ -84,6 +87,100 @@ class CanvasManager:
                 return "Process with normal LLM Response."
 
     # ======================================================
+    # EMBEDDING INDEX BUILDING
+    # ======================================================
+    def build_embedding_index(self, index_dir: str = "chroma_index"):
+        """
+        Build the embedding index for all lecture slides first.
+        This method scans all hard-coded file paths, loads the documents,
+        splits them, filters out complex metadata, computes embeddings,
+        and persists the Chroma index for future retrieval.
+        """
+        # Hard-coded file paths for lecture slides.
+        file_paths = {
+            "ISY5004": {
+                "VSD": {"path": "files\\Vision Systems (6-10Jan 2025)"},
+                "SRSD": {"path": "files\\Spatial Reasoning from Sensor Data (13-15Jan 2025)"},
+                "RTAVS": {"path": "files\\Real-time Audio-Visual Sensing and Sense Making (20-23Jan 2025)"}
+            },
+            "EBA5004": {
+                "TA": {"path": "files\\[PLP] Text Analytics (2025-02-10)"},
+                "NMSM": {"path": "files\\EBA5004 Practical Language Processing [2420]\\01_NMSM"},
+                "TPML": {"path": "files\\EBA5004 Practical Language Processing [2420]\\02_TPML"},
+                "CUI": {"path": "files\\EBA5004 Practical Language Processing [2420]\\03_CNI"}
+            }
+        }
+
+        selected_paths = []
+        for course, submodules in file_paths.items():
+            for sub_module, folder_info in submodules.items():
+                folder_path = folder_info["path"]
+                if not os.path.exists(folder_path):
+                    print(f"Warning: Folder '{folder_path}' does not exist.")
+                    continue
+                try:
+                    for root, dirs, files in os.walk(folder_path):
+                        for file in files:
+                            if file.lower().endswith(('.pdf', '.txt', '.pptx')):
+                                selected_paths.append(os.path.join(root, file))
+                except Exception as e:
+                    print(f"Error accessing folder {folder_path}: {e}")
+
+        if not selected_paths:
+            print("No files found in the selected hard-coded paths.")
+            return None
+
+        print(f"Found {len(selected_paths)} file(s) for building the index.")
+
+        # --- Concurrently load and process documents ---
+        documents = []
+        max_workers = os.cpu_count() or 4
+
+        def load_file(fp):
+            try:
+                loader = UnstructuredLoader(fp)
+                docs = loader.load()
+                for doc in docs:
+                    doc.metadata["file_path"] = fp
+                return docs
+            except Exception as e:
+                print(f"Error loading file {fp}: {e}")
+                return []
+
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            futures = {executor.submit(load_file, fp): fp for fp in selected_paths}
+            for future in as_completed(futures):
+                documents.extend(future.result())
+
+        if not documents:
+            print("No documents could be loaded from the selected files.")
+            return None
+
+        # --- Split documents and filter metadata ---
+        text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+        docs = text_splitter.split_documents(documents)
+        docs = [filter_complex_metadata(doc) for doc in docs]
+
+        # --- Compute embeddings ---
+        use_cuda = torch.cuda.is_available()
+        if use_cuda:
+            print("CUDA is available. Using GPU for embeddings.")
+            embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", model_kwargs={"device": "cuda"})
+        else:
+            print("CUDA not available. Using CPU for embeddings.")
+            embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", model_kwargs={"device": "cpu"})
+
+        try:
+            print("Building Chroma index from lecture slides...")
+            vector_store = Chroma.from_documents(docs, embeddings, persist_directory=index_dir)
+            vector_store.persist()
+            print("Embedding index built and persisted.")
+            return vector_store
+        except Exception as e:
+            print(f"Error building index: {e}")
+            return None
+
+    # ======================================================
     # RETRIEVE LECTURE SLIDES FUNCTIONS
     # ======================================================
     def retrieve_lecture_slides_by_topic(self,
@@ -92,13 +189,14 @@ class CanvasManager:
                                          k: int = 5,
                                          filter_terms: list = None):
         """
-        Retrieve lecture slides related to a given topic using semantic search with Chroma,
-        scanning all subfolders for PDF, PPTX, and TXT files.
+        Retrieve lecture slides related to a given topic using semantic search with Chroma.
+        This method first checks for an existing precomputed index; if not found, it builds
+        the index (i.e. precomputes all embeddings) before performing the search.
         """
         # --- Step 0: Determine number of workers ---
         max_workers = os.cpu_count() or 4
 
-        # --- Step 1: Resolve filter terms with fuzzy matching ---
+        # --- Optional: Resolve filter terms with fuzzy matching ---
         def resolve_filter(filter_list, alias_mapping, threshold=0.7):
             resolved = []
             for item in filter_list:
@@ -136,7 +234,7 @@ class CanvasManager:
         else:
             print("No filter terms provided; processing all courses and sub-modules.")
 
-        # --- Step 2: Choose paths based on specificity ---
+        # --- Choose paths based on specificity ---
         file_paths = {
             "ISY5004": {
                 "VSD": {"path": "files\\Vision Systems (6-10Jan 2025)"},
@@ -168,57 +266,8 @@ class CanvasManager:
             print("No courses/sub-modules match the provided filter terms.")
             return []
 
-        # --- Step 3: Recursively gather files ---
-        selected_paths = []
-        for course, submodules in courses_to_process.items():
-            for sub_module, folder_path in submodules.items():
-                if not os.path.exists(folder_path):
-                    print(f"Warning: Folder '{folder_path}' does not exist.")
-                    continue
-                try:
-                    # Walk all subfolders for PDF/PPTX/TXT files
-                    for root, dirs, files in os.walk(folder_path):
-                        for file in files:
-                            if file.lower().endswith(('.pdf', '.txt', '.pptx')):
-                                selected_paths.append(os.path.join(root, file))
-                except Exception as e:
-                    print(f"Error accessing folder {folder_path}: {e}")
-
-        if not selected_paths:
-            print("No files found in the selected hard-coded paths.")
-            return []
-        print(f"Found {len(selected_paths)} file(s) from hard-coded paths.")
-
-        # --- Step 4: Concurrently load and process documents ---
-        documents = []
-
-        def load_file(fp):
-            try:
-                loader = UnstructuredLoader(fp)
-                docs = loader.load()
-                for doc in docs:
-                    doc.metadata["file_path"] = fp
-                return docs
-            except Exception as e:
-                print(f"Error loading file {fp}: {e}")
-                return []
-
-        with ThreadPoolExecutor(max_workers=max_workers) as executor:
-            futures = {executor.submit(load_file, fp): fp for fp in selected_paths}
-            for future in as_completed(futures):
-                documents.extend(future.result())
-
-        if not documents:
-            print("No documents could be loaded from the selected files.")
-            return []
-
-        # --- Step 5: Split and index documents ---
-        text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
-        docs = text_splitter.split_documents(documents)
-
-        # Detect GPU availability and set device for embeddings accordingly.
+        # --- If an index is already built, load it; otherwise build it first ---
         use_cuda = torch.cuda.is_available()
-
         if use_cuda:
             print("CUDA is available. Using GPU for embeddings.")
             embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", model_kwargs={"device": "cuda"})
@@ -226,19 +275,19 @@ class CanvasManager:
             print("CUDA not available. Using CPU for embeddings.")
             embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", model_kwargs={"device": "cpu"})
 
-        try:
-            if os.path.exists(index_dir):
+        if os.path.exists(index_dir):
+            try:
                 print("Loading existing Chroma index...")
                 vector_store = Chroma(persist_directory=index_dir, embedding_function=embeddings)
-            else:
-                print("Building Chroma index from lecture slides...")
-                vector_store = Chroma.from_documents(docs, embeddings, persist_directory=index_dir)
-                vector_store.persist()
-        except Exception as e:
-            print(f"Error building/loading index: {e}")
-            return []
+            except Exception as e:
+                print(f"Error loading index: {e}")
+                return []
+        else:
+            vector_store = self.build_embedding_index(index_dir=index_dir)
+            if vector_store is None:
+                return []
 
-        # --- Step 6: Perform semantic search and return top 3 results ---
+        # --- Perform semantic search and return top results ---
         try:
             results = vector_store.similarity_search(topic, k=k)
         except Exception as e:
@@ -723,6 +772,12 @@ if __name__ == "__main__":
 
     API_URL = "https://canvas.nus.edu.sg/"
     manager = CanvasManager(API_URL, api_key)
+
+    #Download all file
+    #manager.download_all_files_parallel(base_dir="files")
+
+    # Pre-build the embedding index (build all embeddings first)
+    manager.build_embedding_index(index_dir="chroma_index")
 
     # 1. RETRIEVE LECTURE SLIDES
     # Example 1: Using alias filter term "CNI" (matches the sub-module 'CUI')

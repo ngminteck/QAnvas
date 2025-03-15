@@ -5,3 +5,4 @@ langchain
 langchain_huggingface
 chromadb
 unstructured[all-docs]
+python-magic-bin
