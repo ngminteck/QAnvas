@@ -1,21 +1,22 @@
 import os
 import re
 import difflib
+import time
+import html
 from datetime import datetime, timedelta, timezone
 from concurrent.futures import ThreadPoolExecutor, as_completed
-from canvasapi import Canvas
 import pprint
-import html
-import torch
 
-# Imports previously inside functions
+import torch
+from canvasapi import Canvas
+
+# Third-party libraries
 from langchain_community.vectorstores import Chroma
 from langchain_unstructured import UnstructuredLoader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
-
-# Import the metadata filtering utility
 from langchain_community.vectorstores.utils import filter_complex_metadata
+from langchain.docstore.document import Document
 
 
 class CanvasManager:
@@ -93,20 +94,17 @@ class CanvasManager:
         """
         Build the embedding index for all lecture slides first.
         This method scans all hard-coded file paths, loads the documents,
-        splits them, filters out complex metadata, computes embeddings,
+        splits them, converts any tuple into Document objects,
+        filters out complex metadata, computes embeddings,
         and persists the Chroma index for future retrieval.
         """
 
-        # Print the current working directory and the absolute path for the index directory
         print(f"\n[DEBUG] Current working directory: {os.getcwd()}")
         print(f"[DEBUG] Will store Chroma index in: {os.path.abspath(index_dir)}")
 
-        # Print the number of CPU cores available
         cpu_cores = os.cpu_count() or 4
         print(f"[DEBUG] CPU cores available: {cpu_cores}")
 
-        # Measure total time for building the index
-        import time
         start_time = time.time()
 
         # Hard-coded file paths for lecture slides.
@@ -134,7 +132,8 @@ class CanvasManager:
                 try:
                     for root, dirs, files in os.walk(folder_path):
                         for file in files:
-                            if file.lower().endswith(('.pdf', '.pptx')):
+                            # Process PDFs, PPTX, and Microsoft Word documents (.doc and .docx)
+                            if file.lower().endswith(('.pdf', '.pptx', '.doc', '.docx')):
                                 selected_paths.append(os.path.join(root, file))
                 except Exception as e:
                     print(f"Error accessing folder {folder_path}: {e}")
@@ -145,12 +144,10 @@ class CanvasManager:
 
         print(f"Found {len(selected_paths)} file(s) for building the index.\n")
 
-        # --- Concurrently load and process documents ---
         documents = []
         max_workers = os.cpu_count() or 4
 
         def load_file(fp):
-            # Print which file we're loading
             print(f"[DEBUG] Loading file: {fp}")
             try:
                 loader = UnstructuredLoader(fp)
@@ -174,15 +171,24 @@ class CanvasManager:
             print("No documents could be loaded from the selected files.")
             return None
 
-        # --- Split documents and filter metadata ---
         print(f"\n[DEBUG] Splitting {len(documents)} total documents into chunks...")
         text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
         docs = text_splitter.split_documents(documents)
         print(f"[DEBUG]   -> After splitting, we have {len(docs)} chunks total.")
 
-        docs = [filter_complex_metadata(doc) for doc in docs]
+        # Convert any tuple that may have been returned into a Document object,
+        # then filter complex metadata. Note: filter_complex_metadata returns a list.
+        new_docs = []
+        for doc in docs:
+            if isinstance(doc, tuple) or not hasattr(doc, "metadata"):
+                try:
+                    doc = Document(page_content=doc[0], metadata=doc[1])
+                except Exception as e:
+                    print("Skipping document due to conversion error:", e)
+                    continue
+            new_docs.extend(filter_complex_metadata([doc]))
+        docs = new_docs
 
-        # --- Compute embeddings ---
         use_cuda = torch.cuda.is_available()
         if use_cuda:
             print("\nCUDA is available. Using GPU for embeddings.")
@@ -206,20 +212,15 @@ class CanvasManager:
     # ======================================================
     # RETRIEVE LECTURE SLIDES FUNCTIONS
     # ======================================================
-    def retrieve_lecture_slides_by_topic(self,
-                                         topic: str,
-                                         index_dir: str = "chroma_index",
-                                         k: int = 5,
+    def retrieve_lecture_slides_by_topic(self, topic: str, index_dir: str = "chroma_index", k: int = 5,
                                          filter_terms: list = None):
         """
         Retrieve lecture slides related to a given topic using semantic search with Chroma.
         This method first checks for an existing precomputed index; if not found, it builds
         the index (i.e. precomputes all embeddings) before performing the search.
         """
-        # --- Step 0: Determine number of workers ---
         max_workers = os.cpu_count() or 4
 
-        # --- Optional: Resolve filter terms with fuzzy matching ---
         def resolve_filter(filter_list, alias_mapping, threshold=0.7):
             resolved = []
             for item in filter_list:
@@ -228,8 +229,8 @@ class CanvasManager:
                     if CanvasManager.get_match_score(item_lower, canonical.lower()) >= threshold:
                         resolved.append(canonical)
                         break
-                    elif any(CanvasManager.get_match_score(item_lower, alias.lower()) >= threshold
-                             for alias in aliases):
+                    elif any(
+                            CanvasManager.get_match_score(item_lower, alias.lower()) >= threshold for alias in aliases):
                         resolved.append(canonical)
                         break
             return resolved
@@ -257,7 +258,6 @@ class CanvasManager:
         else:
             print("No filter terms provided; processing all courses and sub-modules.")
 
-        # --- Choose paths based on specificity ---
         file_paths = {
             "ISY5004": {
                 "VSD": {"path": "files\\Vision Systems (6-10Jan 2025)"},
@@ -274,22 +274,21 @@ class CanvasManager:
 
         courses_to_process = {}
         for course, submodules in file_paths.items():
-            matching_submodules = {sm: details["path"] for sm, details in submodules.items()
-                                   if sm in resolved_submodule}
+            matching_submodules = {sm: details["path"] for sm, details in submodules.items() if
+                                   sm in resolved_submodule}
             if matching_submodules:
                 courses_to_process[course] = matching_submodules
             elif course in resolved_course:
                 courses_to_process[course] = {sm: details["path"] for sm, details in submodules.items()}
 
         if not filter_terms:
-            courses_to_process = {course: {sm: details["path"] for sm, details in submodules.items()}
-                                  for course, submodules in file_paths.items()}
+            courses_to_process = {course: {sm: details["path"] for sm, details in submodules.items()} for
+                                  course, submodules in file_paths.items()}
 
         if not courses_to_process:
             print("No courses/sub-modules match the provided filter terms.")
             return []
 
-        # --- If an index is already built, load it; otherwise build it first ---
         use_cuda = torch.cuda.is_available()
         if use_cuda:
             print("CUDA is available. Using GPU for embeddings.")
@@ -310,7 +309,6 @@ class CanvasManager:
             if vector_store is None:
                 return []
 
-        # --- Perform semantic search and return top results ---
         try:
             results = vector_store.similarity_search(topic, k=k)
         except Exception as e:
@@ -318,7 +316,6 @@ class CanvasManager:
             return []
         print(f"Found {len(results)} relevant slide chunk(s) for topic: '{topic}'")
 
-        # Return top 3 with file info.
         top_results = results[:3]
         final_results = []
         for idx, res in enumerate(top_results, start=1):
@@ -785,7 +782,6 @@ class CanvasManager:
 
 
 if __name__ == "__main__":
-    # Example usage:
     try:
         with open("keys/canvas.txt", "r") as file:
             api_key = file.read().strip()
@@ -796,22 +792,21 @@ if __name__ == "__main__":
     API_URL = "https://canvas.nus.edu.sg/"
     manager = CanvasManager(API_URL, api_key)
 
-    #Download all file
-    #manager.download_all_files_parallel(base_dir="files")
+    # Uncomment the following line to download all files
+    # manager.download_all_files_parallel(base_dir="files")
 
     # Pre-build the embedding index (build all embeddings first)
     manager.build_embedding_index(index_dir="chroma_index")
 
-    # 1. RETRIEVE LECTURE SLIDES
-    # Example 1: Using alias filter term "CNI" (matches the sub-module 'CUI')
-    #print("\nExample 1: Using alias filter term 'CNI'")
-    #results1 = manager.retrieve_lecture_slides_by_topic(
-    #    topic="how to implement langchain?",
-    #    filter_terms=["CNI"]
-    #)
-    #print("\nFinal top results from Example 1:", results1)
-
     """
+    # Example 1: Retrieve lecture slides using alias filter term "CNI"
+    print("\nExample 1: Using alias filter term 'CNI'")
+    results1 = manager.retrieve_lecture_slides_by_topic(
+        topic="how to implement langchain?",
+        filter_terms=["CNI"]
+    )
+    print("\nFinal top results from Example 1:", results1)
+
     # Additional examples:
     print("\nExample 2: Using filter term 'UI'")
     results2 = manager.retrieve_lecture_slides_by_topic(
@@ -840,20 +835,17 @@ if __name__ == "__main__":
     )
     print("\nFinal top results from Example 5:", results5)
 
-    # 2. DOWNLOAD ALL FILES (Uncomment to run)
+    # 2. DOWNLOAD ALL FILES
     # manager.download_all_files_parallel(base_dir="files")
-    """
 
     # 3. TIMETABLE
-    # print("\n=== TIMETABLE ===")
     # manager.get_timetable(True, 2024, "AIS06")
 
     # 4. ASSIGNMENTS & DEADLINES
-    # print("\n=== ASSIGNMENTS & DEADLINES ===")
     # manager.list_upcoming_assignments(hide_older_than=0)
     # manager.get_assignment_detail("CNI Day 4 Workshop")
 
     # 5. ANNOUNCEMENTS & NOTIFICATIONS
-    # print("\n=== ANNOUNCEMENTS & NOTIFICATIONS ===")
     # manager.list_announcements(hide_older_than=7, only_unread=False)
     # manager.get_announcement_detail("Internship Announcement")
+    """
