@@ -16,7 +16,6 @@ venv/
 
 # Logs and database files
 *.log
-*.sqlite3
 
 # Ignore system files
 .DS_Store
