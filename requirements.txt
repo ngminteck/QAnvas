@@ -4,3 +4,4 @@ langchain_unstructured
 langchain
 langchain_huggingface
 chromadb
+unstructured[all-docs]
