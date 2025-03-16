@@ -321,6 +321,23 @@ class CanvasManager:
             return []
         print(f"Found {len(results)} relevant slide chunk(s) for topic: '{topic}'")
 
+        # --- Additional Filtering Step Based on Filter Terms ---
+        if filter_terms:
+            allowed_paths = []
+            for course, submodules in courses_to_process.items():
+                for submodule, allowed_path in submodules.items():
+                    allowed_paths.append(allowed_path.lower())
+            print("Allowed paths based on filter:", allowed_paths)
+
+            filtered_results = []
+            for res in results:
+                file_path = res.metadata.get("file_path", "").lower()
+                if any(allowed_path in file_path for allowed_path in allowed_paths):
+                    filtered_results.append(res)
+            results = filtered_results
+            print(f"After filtering, found {len(results)} result(s) based on filter terms.")
+        # --- End Filtering Step ---
+
         top_results = results[:3]
         final_results = []
         for idx, res in enumerate(top_results, start=1):
@@ -840,11 +857,19 @@ if __name__ == "__main__":
     )
     print("\nFinal top results from Example 4:", results4)
 
-    print("\nExample 5: Using no filter terms")
+    print("\nExample 5: Using filter terms 'VSD' and 'EBA5004'")
     results5 = manager.retrieve_lecture_slides_by_topic(
-        topic="how to implement langchain?"
+        topic="how to implement langchain?",
+        filter_terms=["VSD", "EBA5004"]
     )
     print("\nFinal top results from Example 5:", results5)
+
+    print("\nExample 6 : Using no filter'")
+    results6 = manager.retrieve_lecture_slides_by_topic(
+        topic="how to implement langchain?",
+
+    )
+    print("\nFinal top results from Example 6:", results6)
 
 
     # 2. TIMETABLE
