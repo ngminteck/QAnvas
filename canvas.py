@@ -848,13 +848,13 @@ if __name__ == "__main__":
 
 
     # 2. TIMETABLE
-    # manager.get_timetable(True, 2024, "AIS06")
+    manager.get_timetable(True, 2024, "AIS06")
 
     # 3. ASSIGNMENTS & DEADLINES
-    # manager.list_upcoming_assignments(hide_older_than=0)
-    # manager.get_assignment_detail("CNI Day 4 Workshop")
+    manager.list_upcoming_assignments(hide_older_than=0)
+    manager.get_assignment_detail("CNI Day 4 Workshop")
 
     # 4. ANNOUNCEMENTS & NOTIFICATIONS
-    # manager.list_announcements(hide_older_than=7, only_unread=False)
-    # manager.get_announcement_detail("Internship Announcement")
+    manager.list_announcements(hide_older_than=7, only_unread=False)
+    manager.get_announcement_detail("Internship Announcement")
 
