@@ -23,7 +23,7 @@ C:\Program Files\Tesseract-OCR
 ```
 
 ### 2. Set Path for Poppler
-Download and install **Tesseract OCR** from [UB Mannheim Tesseract](https://github.com/UB-Mannheim/tesseract/wiki). After installation, add the installation path to your system environment variables.
+Download and install **Poppler Packaged for Windows** from [Poppler Packaged for Windows](https://github.com/oschwartz10612/poppler-windows) or use the ones in this repo. After installation, add the installation path to your system environment variables.
 
 #### Steps:
 - Add the bin directory to your system environment variable.
