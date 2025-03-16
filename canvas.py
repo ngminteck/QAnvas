@@ -27,6 +27,8 @@ class CanvasManager:
 
     def __init__(self, api_url: str, api_key: str):
         self.canvas = Canvas(api_url, api_key)
+        # Store API URL for use in building canvas links
+        self.api_url = api_url
 
     def handleIntent(self, intent: str, **kwargs):
         """
@@ -155,7 +157,10 @@ class CanvasManager:
                 if docs:
                     print(f"[DEBUG]   -> Loaded {len(docs)} document(s) from {os.path.basename(fp)}")
                 for doc in docs:
+                    # Store the local file path
                     doc.metadata["file_path"] = fp
+                    # Add a placeholder Canvas link based on the API URL and file name
+                    doc.metadata["canvas_link"] = f"{self.api_url}/files/{os.path.basename(fp)}"
                 return docs
             except Exception as e:
                 print(f"Error loading file {fp}: {e}")
@@ -321,18 +326,24 @@ class CanvasManager:
         for idx, res in enumerate(top_results, start=1):
             file_info = res.metadata.get("file_path", "Unknown file")
             page_info = res.metadata.get("page", "N/A")
+            canvas_link = res.metadata.get("canvas_link", "Not available")
+            filename = os.path.basename(file_info) if file_info != "Unknown file" else file_info
             final_results.append({
                 "result_rank": idx,
                 "content_preview": res.page_content,
                 "file_path": file_info,
+                "filename": filename,
                 "page": page_info,
+                "canvas_link": canvas_link,
                 "metadata": res.metadata
             })
             print(f"--- Result {idx} ---")
             preview = res.page_content[:200] + "..." if len(res.page_content) > 200 else res.page_content
             print("Content Preview:", preview)
             print("File Path:", file_info)
+            print("Filename:", filename)
             print("Page Info:", page_info)
+            print("Canvas Link:", canvas_link)
             print("Additional Metadata:", res.metadata)
 
         return final_results
@@ -793,12 +804,12 @@ if __name__ == "__main__":
     manager = CanvasManager(API_URL, api_key)
 
     # Uncomment the following line to download all files
-    # manager.download_all_files_parallel(base_dir="files")
+    manager.download_all_files_parallel(base_dir="files")
 
     # Pre-build the embedding index (build all embeddings first)
     manager.build_embedding_index(index_dir="chroma_index")
 
-    """
+
     # Example 1: Retrieve lecture slides using alias filter term "CNI"
     print("\nExample 1: Using alias filter term 'CNI'")
     results1 = manager.retrieve_lecture_slides_by_topic(
@@ -835,17 +846,15 @@ if __name__ == "__main__":
     )
     print("\nFinal top results from Example 5:", results5)
 
-    # 2. DOWNLOAD ALL FILES
-    # manager.download_all_files_parallel(base_dir="files")
 
-    # 3. TIMETABLE
+    # 2. TIMETABLE
     # manager.get_timetable(True, 2024, "AIS06")
 
-    # 4. ASSIGNMENTS & DEADLINES
+    # 3. ASSIGNMENTS & DEADLINES
     # manager.list_upcoming_assignments(hide_older_than=0)
     # manager.get_assignment_detail("CNI Day 4 Workshop")
 
-    # 5. ANNOUNCEMENTS & NOTIFICATIONS
+    # 4. ANNOUNCEMENTS & NOTIFICATIONS
     # manager.list_announcements(hide_older_than=7, only_unread=False)
     # manager.get_announcement_detail("Internship Announcement")
-    """
+
