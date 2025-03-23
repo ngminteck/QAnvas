@@ -7,6 +7,7 @@ from langchain.memory import ConversationSummaryMemory
 from langchain_core.prompts import ChatPromptTemplate
 from canvas import CanvasManager
 from langchain_community.chat_models import ChatDeepSeekAI
+from functools import partial
 
 # Load DeepSeek API key
 deepseek_api_key = ""
@@ -32,34 +33,33 @@ manager = CanvasManager(API_URL, canvas_api_key)
 tools = [
     Tool(
         name="Retrieve Lecture Slides",
-        func=lambda topic, filter_terms=None: manager.retrieve_lecture_slides_by_topic(topic,
-                                                                                       filter_terms=filter_terms),
-        description="Retrieve lecture slides related to a topic."
+        func=partial(manager.retrieve_lecture_slides_by_topic),
+        description="Retrieve lecture slides related to a topic. Inputs: topic (str), filter_terms (optional)."
     ),
     Tool(
         name="Get Timetable",
-        func=lambda full_time, intake, course: manager.get_timetable(full_time, intake, course),
-        description="Retrieve the timetable for a course."
+        func=partial(manager.get_timetable),
+        description="Retrieve the timetable for a course. Inputs: full_time (bool), intake (str), course (str)."
     ),
     Tool(
         name="List Upcoming Assignments",
-        func=lambda hide_older_than: manager.list_upcoming_assignments(hide_older_than),
-        description="List upcoming assignments."
+        func=partial(manager.list_upcoming_assignments),
+        description="List upcoming assignments. Input: hide_older_than (int, days)."
     ),
     Tool(
         name="Get Assignment Detail",
-        func=lambda assignment_name, threshold=0.7: manager.get_assignment_detail(assignment_name, threshold),
-        description="Retrieve details of a specific assignment."
+        func=partial(manager.get_assignment_detail),
+        description="Retrieve details of a specific assignment. Inputs: assignment_name (str), threshold (optional, default=0.7)."
     ),
     Tool(
         name="List Announcements",
-        func=lambda hide_older_than, only_unread=False: manager.list_announcements(hide_older_than, only_unread),
-        description="List recent announcements."
+        func=partial(manager.list_announcements),
+        description="List recent announcements. Inputs: hide_older_than (int, days), only_unread (optional, default=False)."
     ),
     Tool(
         name="Get Announcement Detail",
-        func=lambda announcement_title, threshold=0.7: manager.get_announcement_detail(announcement_title, threshold),
-        description="Retrieve details of a specific announcement."
+        func=partial(manager.get_announcement_detail),
+        description="Retrieve details of a specific announcement. Inputs: announcement_title (str), threshold (optional, default=0.7)."
     )
 ]
 
