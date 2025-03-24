@@ -12,6 +12,7 @@ from canvasapi import Canvas
 
 # Third-party libraries
 from langchain_community.vectorstores import Chroma
+from langchain_community.document_loaders import PyPDFLoader
 from langchain_unstructured import UnstructuredLoader
 from langchain.text_splitter import CharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
@@ -30,118 +31,37 @@ class CanvasManager:
         # Store API URL for use in building canvas links
         self.api_url = api_url
 
-    def handleIntent(self, intent: str, **kwargs):
-        """
-        Dispatch the operation based on the given intent.
-        Supported intents (all in small letters without underscores):
-          - "timetable": expects parameters "fulltime" (bool), "intake" (int), "course" (str)
-          - "exam date": (same as timetable; you might process the timetable output to extract exam date)
-          - "assignment list": can optionally pass "hideolderthan" (int)
-          - "assignment detail": expects "assignmentname" (str) and optionally "threshold" (float)
-          - "announcement list": can optionally pass "hideolderthan" (int) and "onlyunread" (bool)
-          - "announcement detail": expects "announcementtitle" (str) and optionally "threshold" (float)
-        If the intent is not recognized, the default action is to try retrieving lecture slides.
-        In that case, it expects parameters "topic" (str) and optionally "filterterms" (list).
-        If no lecture slides are found, a general default response is returned.
-        """
-        i = intent.lower().strip()
-
-        if i == "timetable":
-            fullTime = kwargs.get("fulltime", True)
-            intake = kwargs.get("intake", 0)
-            course = kwargs.get("course", "")
-            self.get_timetable(full_time=fullTime, intake=intake, course=course)
-            return f"Timetable for {course} displayed."
-
-        elif i == "exam date":
-            fullTime = kwargs.get("fulltime", True)
-            intake = kwargs.get("intake", 0)
-            course = kwargs.get("course", "")
-            self.get_timetable(full_time=fullTime, intake=intake, course=course)
-            return f"Exam date for {course} displayed (via timetable)."
-
-        elif i == "assignment list":
-            hideOlderThan = kwargs.get("hideolderthan", 90)
-            return self.list_upcoming_assignments(hide_older_than=hideOlderThan)
-
-        elif i == "assignment detail":
-            assignmentName = kwargs.get("assignmentname", "")
-            threshold = kwargs.get("threshold", 0.7)
-            return self.get_assignment_detail(assignment_name=assignmentName, threshold=threshold)
-
-        elif i == "announcement list":
-            hideOlderThan = kwargs.get("hideolderthan", 7)
-            onlyUnread = kwargs.get("onlyunread", False)
-            return self.list_announcements(hide_older_than=hideOlderThan, only_unread=onlyUnread)
-
-        elif i == "announcement detail":
-            announcementTitle = kwargs.get("announcementtitle", "")
-            threshold = kwargs.get("threshold", 0.7)
-            return self.get_announcement_detail(announcement_title=announcementTitle, threshold=threshold)
-
-        else:
-            # Default: try retrieving lecture slides.
-            topic = kwargs.get("topic", "")
-            filterTerms = kwargs.get("filterterms", None)
-            result = self.retrieve_lecture_slides_by_topic(topic=topic, filter_terms=filterTerms)
-            if result:
-                return result
-            else:
-                return "Process with normal LLM Response."
-
     # ======================================================
     # EMBEDDING INDEX BUILDING
     # ======================================================
-    def build_embedding_index(self, index_dir: str = "chroma_index"):
+    def build_embedding_index(self, index_dir: str = "chroma_index", base_dir: str = "files"):
         """
-        Build the embedding index for all lecture slides first.
-        This method scans all hard-coded file paths, loads the documents,
-        splits them, converts any tuple into Document objects,
-        filters out complex metadata, computes embeddings,
-        and persists the Chroma index for future retrieval.
+        Build the embedding index for all lecture slides by scanning the given base directory
+        recursively for PDF, PPTX, DOC, and DOCX files. For PDF files, each page is treated
+        as a separate document (i.e. embedding per page). Non-PDF files are split into chunks.
         """
-
         print(f"\n[DEBUG] Current working directory: {os.getcwd()}")
         print(f"[DEBUG] Will store Chroma index in: {os.path.abspath(index_dir)}")
+        print(f"[DEBUG] Processing all directories under base directory: {os.path.abspath(base_dir)}")
 
         cpu_cores = os.cpu_count() or 4
         print(f"[DEBUG] CPU cores available: {cpu_cores}")
 
         start_time = time.time()
 
-        # Hard-coded file paths for lecture slides.
-        file_paths = {
-            "ISY5004": {
-                "VSD": {"path": "files\\Vision Systems (6-10Jan 2025)"},
-                "SRSD": {"path": "files\\Spatial Reasoning from Sensor Data (13-15Jan 2025)"},
-                "RTAVS": {"path": "files\\Real-time Audio-Visual Sensing and Sense Making (20-23Jan 2025)"}
-            },
-            "EBA5004": {
-                "TA": {"path": "files\\[PLP] Text Analytics (2025-02-10)"},
-                "NMSM": {"path": "files\\EBA5004 Practical Language Processing [2420]\\01_NMSM"},
-                "TPML": {"path": "files\\EBA5004 Practical Language Processing [2420]\\02_TPML"},
-                "CUI": {"path": "files\\EBA5004 Practical Language Processing [2420]\\03_CNI"}
-            }
-        }
-
+        # Recursively scan the base directory for files with supported extensions.
         selected_paths = []
-        for course, submodules in file_paths.items():
-            for sub_module, folder_info in submodules.items():
-                folder_path = folder_info["path"]
-                if not os.path.exists(folder_path):
-                    print(f"Warning: Folder '{folder_path}' does not exist.")
-                    continue
-                try:
-                    for root, dirs, files in os.walk(folder_path):
-                        for file in files:
-                            # Process PDFs, PPTX, and Microsoft Word documents (.doc and .docx)
-                            if file.lower().endswith(('.pdf', '.pptx', '.doc', '.docx')):
-                                selected_paths.append(os.path.join(root, file))
-                except Exception as e:
-                    print(f"Error accessing folder {folder_path}: {e}")
+        if not os.path.exists(base_dir):
+            print(f"Warning: Base directory '{base_dir}' does not exist.")
+            return None
+
+        for root, dirs, files in os.walk(base_dir):
+            for file in files:
+                if file.lower().endswith(('.pdf', '.pptx', '.doc', '.docx')):
+                    selected_paths.append(os.path.join(root, file))
 
         if not selected_paths:
-            print("No files found in the selected hard-coded paths.")
+            print("No files found in the base directory.")
             return None
 
         print(f"Found {len(selected_paths)} file(s) for building the index.\n")
@@ -152,14 +72,18 @@ class CanvasManager:
         def load_file(fp):
             print(f"[DEBUG] Loading file: {fp}")
             try:
-                loader = UnstructuredLoader(fp)
-                docs = loader.load()
+                # For PDF files, use PyPDFLoader which returns one document per page
+                if fp.lower().endswith('.pdf'):
+                    loader = PyPDFLoader(fp)
+                    docs = loader.load()
+                else:
+                    loader = UnstructuredLoader(fp)
+                    docs = loader.load()
                 if docs:
                     print(f"[DEBUG]   -> Loaded {len(docs)} document(s) from {os.path.basename(fp)}")
                 for doc in docs:
-                    # Store the local file path
+                    # Store the local file path and add a placeholder Canvas link
                     doc.metadata["file_path"] = fp
-                    # Add a placeholder Canvas link based on the API URL and file name
                     doc.metadata["canvas_link"] = f"{self.api_url}/files/{os.path.basename(fp)}"
                 return docs
             except Exception as e:
@@ -176,13 +100,27 @@ class CanvasManager:
             print("No documents could be loaded from the selected files.")
             return None
 
-        print(f"\n[DEBUG] Splitting {len(documents)} total documents into chunks...")
-        text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
-        docs = text_splitter.split_documents(documents)
-        print(f"[DEBUG]   -> After splitting, we have {len(docs)} chunks total.")
+        # Separate PDF documents (which are already per page) from others
+        pdf_docs = []
+        non_pdf_docs = []
+        for doc in documents:
+            if doc.metadata.get("file_path", "").lower().endswith(".pdf"):
+                pdf_docs.append(doc)
+            else:
+                non_pdf_docs.append(doc)
+
+        # Apply text splitting only to non-PDF files
+        if non_pdf_docs:
+            print(f"\n[DEBUG] Splitting {len(non_pdf_docs)} non-PDF document(s) into chunks...")
+            text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+            non_pdf_docs = text_splitter.split_documents(non_pdf_docs)
+            print(f"[DEBUG]   -> After splitting, we have {len(non_pdf_docs)} chunk(s) from non-PDF files.")
+
+        # Combine PDF docs (by page) and non-PDF chunks
+        docs = pdf_docs + non_pdf_docs
 
         # Convert any tuple that may have been returned into a Document object,
-        # then filter complex metadata. Note: filter_complex_metadata returns a list.
+        # then filter complex metadata.
         new_docs = []
         for doc in docs:
             if isinstance(doc, tuple) or not hasattr(doc, "metadata"):
@@ -217,16 +155,17 @@ class CanvasManager:
     # ======================================================
     # RETRIEVE LECTURE SLIDES FUNCTIONS
     # ======================================================
-    def retrieve_lecture_slides_by_topic(self, topic: str, index_dir: str = "chroma_index", k: int = 5,
-                                         filter_terms: list = None):
+    def retrieve_lecture_slides_by_topic(self, topic: str, index_dir: str = "chroma_index", k: int = 10,
+                                           filter_terms: list = None):
         """
         Retrieve lecture slides related to a given topic using semantic search with Chroma.
         This method first checks for an existing precomputed index; if not found, it builds
         the index (i.e. precomputes all embeddings) before performing the search.
         """
+        # (Existing implementation remains unchanged)
         max_workers = os.cpu_count() or 4
 
-        def resolve_filter(filter_list, alias_mapping, threshold=0.7):
+        def resolve_filter(filter_list, alias_mapping, threshold=0.8):
             resolved = []
             for item in filter_list:
                 item_lower = item.lower()
@@ -254,8 +193,8 @@ class CanvasManager:
             "CUI": ["Conversational Uls", "CNI"]
         }
 
-        resolved_course = resolve_filter(filter_terms, course_aliases, threshold=0.7) if filter_terms else []
-        resolved_submodule = resolve_filter(filter_terms, sub_module_aliases, threshold=0.7) if filter_terms else []
+        resolved_course = resolve_filter(filter_terms, course_aliases, threshold=0.8) if filter_terms else []
+        resolved_submodule = resolve_filter(filter_terms, sub_module_aliases, threshold=0.8) if filter_terms else []
 
         if filter_terms:
             print("Resolved course filter:", resolved_course)
@@ -338,7 +277,7 @@ class CanvasManager:
             print(f"After filtering, found {len(results)} result(s) based on filter terms.")
         # --- End Filtering Step ---
 
-        top_results = results[:3]
+        top_results = results[:k]
         final_results = []
         for idx, res in enumerate(top_results, start=1):
             file_info = res.metadata.get("file_path", "Unknown file")
@@ -364,7 +303,6 @@ class CanvasManager:
             print("Additional Metadata:", res.metadata)
 
         return final_results
-
     # ======================================================
     # DOWNLOAD FILES FUNCTIONS
     # ======================================================
@@ -565,7 +503,7 @@ class CanvasManager:
             print("No upcoming assignments found.")
         return assignments
 
-    def get_assignment_detail(self, assignment_name: str, threshold: float = 0.7):
+    def get_assignment_detail(self, assignment_name: str, threshold: float = 0.8):
         """
         Retrieve detailed information for assignments that match the given name.
         Uses fuzzy matching to compute a confidence score for each assignment.
@@ -676,7 +614,7 @@ class CanvasManager:
             print("No announcements found.")
         return announcements
 
-    def get_announcement_detail(self, announcement_title: str, threshold: float = 0.7):
+    def get_announcement_detail(self, announcement_title: str, threshold: float = 0.8):
         """
         Retrieve detailed content for announcements that match the given title.
         Uses fuzzy matching to compute a confidence score and prints all announcements
@@ -821,11 +759,12 @@ if __name__ == "__main__":
     manager = CanvasManager(API_URL, api_key)
 
     # Uncomment the following line to download all files
-    manager.download_all_files_parallel(base_dir="files")
+    #manager.download_all_files_parallel(base_dir="files")
 
     # Pre-build the embedding index (build all embeddings first)
-    manager.build_embedding_index(index_dir="chroma_index")
+    #manager.build_embedding_index(index_dir="chroma_index")
 
+    """
 
     # Example 1: Retrieve lecture slides using alias filter term "CNI"
     print("\nExample 1: Using alias filter term 'CNI'")
@@ -856,10 +795,11 @@ if __name__ == "__main__":
         filter_terms=["TPML", "CUI"]
     )
     print("\nFinal top results from Example 4:", results4)
+    """
 
     print("\nExample 5: Using filter terms 'VSD' and 'EBA5004'")
     results5 = manager.retrieve_lecture_slides_by_topic(
-        topic="how to implement langchain?",
+        topic="what is transformer?",
         filter_terms=["VSD", "EBA5004"]
     )
     print("\nFinal top results from Example 5:", results5)
