@@ -1,3 +1,4 @@
+#agent.py
 import json
 from typing import List, Dict
 import os
@@ -7,6 +8,7 @@ from langchain.memory import ConversationSummaryMemory
 from langchain_core.prompts import ChatPromptTemplate
 from canvas import CanvasManager
 from langchain_deepseek import ChatDeepSeek
+import difflib
 
 # Load DeepSeek API key
 deepseek_api_key = ""
@@ -94,10 +96,35 @@ llm = ChatDeepSeek(
 memory = ConversationSummaryMemory(llm=llm, return_messages=True)
 
 
-def process_agent_response(response_text: str):
-    # Debug: print raw response received from the agent
-    print("Debug: Raw agent response:", response_text)
+def get_best_tool_mapping(action: str, mapping: dict, threshold: float = 0.8):
+    """
+    Returns the best matching key from the mapping dictionary based on the similarity score.
+    If the highest score is above the threshold, returns the key and the confidence; otherwise, returns (None, score).
+    """
+    best_match = None
+    best_score = 0.0
+    for key in mapping:
+        score = difflib.SequenceMatcher(None, action.lower(), key.lower()).ratio()
+        if score > best_score:
+            best_score = score
+            best_match = key
+    if best_score >= threshold:
+        return best_match, best_score
+    return None, best_score
 
+
+# Example tool mapping without duplicate keys.
+tool_mapping = {
+    "Retrieve Lecture Slides": manager.retrieve_lecture_slides_by_topic,
+    "Get Timetable": manager.get_timetable,
+    "List Upcoming Assignments": manager.list_upcoming_assignments,
+    "Get Assignment Detail": manager.get_assignment_detail,
+    "List Announcements": manager.list_announcements,
+    "Get Announcement Detail": manager.get_announcement_detail,
+}
+
+
+def process_agent_response(response_text: str):
     # Remove markdown code fences if present.
     if response_text.startswith("```"):
         lines = response_text.splitlines()
@@ -106,41 +133,26 @@ def process_agent_response(response_text: str):
 
     try:
         response_json = json.loads(response_text)
-        # Debug: print parsed JSON for tool call decision
-        print("Debug: Parsed JSON:", response_json)
     except json.JSONDecodeError:
-        # No JSON tool call; return the plain text response.
-        print("Debug: Response is not a JSON tool call. Returning plain text.")
         return response_text
 
     action = response_json.get("action")
     action_input = response_json.get("action_input", {})
 
-    # Debug: print the tool action and its input
-    print("Debug: Action to call:", action)
-    print("Debug: Action input:", action_input)
+    mapped_action, confidence = get_best_tool_mapping(action, tool_mapping, threshold=0.8)
+    print("Debug: Action received:", action)
+    print("Debug: Best mapping candidate:", mapped_action, "with confidence:", confidence)
 
-    # Map action names to their corresponding functions.
-    tool_mapping = {
-        "Retrieve Lecture Slides": manager.retrieve_lecture_slides_by_topic,
-        "Get Timetable": manager.get_timetable,
-        "List Upcoming Assignments": manager.list_upcoming_assignments,
-        "Get Assignment Detail": manager.get_assignment_detail,
-        "Retrieve details of a specific assignment": manager.get_assignment_detail,
-        "List Announcements": manager.list_announcements,
-        "Get Announcement Detail": manager.get_announcement_detail,
-        "Retrieve details of a specific announcement": manager.get_announcement_detail,
-    }
-
-    if action in tool_mapping:
-        tool_func = tool_mapping[action]
+    if mapped_action:
+        tool_func = tool_mapping[mapped_action]
         try:
             tool_result = tool_func(**action_input)
             return tool_result
         except Exception as e:
-            return f"Error while executing tool '{action}': {e}"
+            return f"Error while executing tool '{mapped_action}': {e}"
     else:
-        return f"Unknown action: {action}"
+        # If no suitable mapping is found, return the original DeepSeek response.
+        return response_text
 
 
 def ask_canvas_agent(query: str):
