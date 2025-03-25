@@ -1,0 +1,98 @@
+Page,Summary
+Page 1,NUS-ISSPattern Recognition using Machine Learning System 2024 National University of Singapore. All Rights Reserved.Module 6 - Case studies on using convolutional neural networks for machine learning systemsby Dr. Gary
+Page 2,The long march to the deepest network
+Page 3,"the deeper a net, the better it performs, the harder totrain . deep learning came so late?"
+Page 4,p1p2p3p4p5q1q2q7q8q9q10 r1r2r3r4r5r6r7r8r9r10 s1s2
+Page 5,p1 p2 p3 p4 p5 q1 q2 q3 q4 q6 q7 q8 q9 q10 r1 r2
+Page 6,weight connect neuron sand ts t1 1Backpropagation Weight connection at the last layer p1 p2 p3 p4 p5 q1 q2 q3
+Page 7,"error ats11(1) [[REDACTED_PHONE]]s=f′zstws t++ts . f’is the derivative of the activation function,zi"
+Page 8,"error ats11(1) [[REDACTED_PHONE]]s=f′zstws t+ts . t is the derivative of the activation function,zis the output"
+Page 9,p1 p2 p3 p4 p5 q1 q6 q7 q8 q9 q10r1 r2 r3 r4 r5 r
+Page 10,p1 p2 p3 p4 p5q1 q2 q6 q7 q8 q9 q10r1r2r3rr5r6r7r
+Page 11,the earliear layers will have even more multiplications among derivatives of activation function for each item . the equationf′(zq1)r1wq1r1=f′ (zr1)f
+Page 12,the earlier layers learn very slowlyBackpropagationImplicationf′(zq1)r1wq1r1=f′ (zq1f′)(zs1) . if the chosen activation
+Page 13,f′(zq1)r1wq1r1=f′ (zr1)f(zs1) [t1ws2t1+t4ws1t4]wr1
+Page 14,"first, pick the right activation function•Second, give the weights proper values to start•Third, restrict the weight 14of 96 ."
+Page 15,"First, pick the right activation function"
+Page 16,"the problem with SigmoidSmall gradient . when sigmoid function value either too high or two low, its derivative very small 1 ."
+Page 17,the problem with SigmoidSmall gradient is that weights initialize nicely . the largest derivative value is still around 0.25 .
+Page 18,"no matter how many times you multiply, always 1•Consequence: Good for update and prevent gradient vanish18of 96 ."
+Page 19,2024 National University of Singapore . 19of [REDACTED_PHONE] of 96.
+Page 20,"Second, give the weights proper values"
+Page 21,"weights are too small, signal shrinks as it passes through each layer . at later stage, neurons are 'dead', almost no activation coming out from neurons ."
+Page 22,"weight is drawn randomly from the distributionnwU,1 1n Source: https://towardsdatascience.com/nns-aynk-c34efe37f15a 2024"
+Page 23,Xavier initializationUniform distribution: a distribution that has a constant probability . source: https://www.mathsisfun.com/data/random-variables-continuous.
+Page 24,"in literature the number of inputs to a neuron in a layer is called fan-in . in literature, the number is 'fan-in'"
+Page 25,what is the number of inputs to a neuron in the layer that has 18 channels? Source: https://towardsdatascience.com .
+Page 26,he initializationproposed in 2015•Designed for ReLU•n is the number of inputs to a neuron in the layer•N is a normal distribution with a zero mean and a variance of 2/n
+Page 27,the normaldistribution is truncated to avoidunnecessary large values –2nSource: doi: 10.3141/[REDACTED_PHONE]n 2024 .
+Page 28,2024 National University of Singapore.prumls/y2024/v1.0 Xavier init.22-layer large model 28of 96.
+Page 29,"Default in KerasInitialization uses Xavier initialization for weights, and zero initialization in bias . many times it really needs to try to see which setup works better ."
+Page 30,"Third, restrict the weights"
+Page 31,"the longer we train, the weights will become more adapted to training data . but large weights make net unstable . minor variation in values or addition of noise will result in big differences in output ."
+Page 32,regularization is also called 'weight decay' in the field of neural networks . the penalty should be proportional to the magnitude of the weight .
+Page 33,"L2 regularizationThe math•LetJbe the loss function,Jrthe loss function with regularization,w the weight,the learning rate, and the parameter to control . the updated loss functionThe derivativeThe"
+Page 34,"the penalty is applied on per layer basis . not all types of layer support regularization, and not all support in the same way ."
+Page 35,'Deep learning with python' by Francois Chollet 2024 National University of Singapore . used in Keraskeras.regularizers>fromtensorflow.
+Page 36,"even with these, we still have problems .... ... ... and we have a lot of problems . ..."
+Page 37,"overfittingthe pain, always 2024 National University of Singapore. All rights Reserved.prumls/y2024/v1.0 . to perform classification, do average on prediction from each model (ensemble)"
+Page 38,dropoutproposed in 2014•Randomly dropping out neurons in training phase . 'dropping out' can be performed by setting activation output from neuron to zero .
+Page 39,"the idea came out by Geoffrey Hinton, inspired by a fraud-prevention mechanism used by banks . I figured it must be because it would require cooperation between employees to successfully defraud the bank . randomly"
+Page 40,"the zeros will be applied to different neurons in different training epoch . but they are applied only during training phase, not in testing/ validation ."
+Page 41,"dropout in Kerascomparison>fromtensorflow.keras.layersimportDropout>model = models.Sequential()>model.add(Dense(16,activation"
+Page 42,the training of a deep neural net is a long march to fight overfitting . use the appropriate initialization3. Regularize the weights4 .
+Page 43,"we check the mean and the standard deviation, and getx = 0.54x= 0.69 . for each value in the above vector, we performiy=ixxx ."
+Page 44,"fromx=[1.6, 0.5, 0.3, 0.4, 0.9]•toy=[1.53,1.50,0.35,0.20, 0.52]•What's the big deal?"
+Page 45,"data setcat non-cat 2024 National University of Singapore . adapation can help, a bit ."
+Page 46,"gradients are used to update parameters, under the assumption the other layers do not change . layers’ output distribution can change as a consequence ."
+Page 47,"uiis the normalized output B=[v1,v2,,vi,,vm]The batch size ism 47of 96 ."
+Page 48,the batch normalization is performed channel by channel sample 1 2024 National University of Singapore . all the elements in channel 1 (of 4 samples) form theviand normalized accordingly48of 96 .
+Page 49,used in Keraskeras.layers.BatchNormalization 2024 National University of Singapore . no additional argument is needed (usually)
+Page 50,used in Keraskeras.layers.BatchNormalization 2024 National University of Singapore. All rights reserved.prumls/y2024/v1.0.
+Page 51,Time for exercise
+Page 52,build the wBNRg modelfor cifar 10 2024 National University of Singapore . all rights reserved.prumls/y2024/v1.0 •Build the model based on the model plot
+Page 53,2024 National University of Singapore. All Rights Reserved.prumls/y2024/v1.0 •Techniques available:1. Choose the right activation function2. Use the appropriate initialization3. Regularize the weight
+Page 54,"in deep deep network,degradation happens: accuracy gets saturated and then degrades . the deep modelsimply just has higher training error . but the testing error is higher ."
+Page 55,deep net should perform the belowy=H(x)=xshallow deepadded layersH (x) 2024 National University of Singapore .
+Page 56,layers that can be trained to perform identity mapping are very difficult to get to deeper net . xshallow deepadded layersH(x) 2024 National University of Singapore .
+Page 57,anH(x) can perform identity mapping . the bottom structure won't work . but he et al. proposed that the top structure shoud works .
+Page 58,this implies thatF(x)is doing a residual mapping . we havey=H (x)=F(X) +x•Re-arrange the equation .
+Page 59,"let's build the parts and parcel required to form a very deep neural net . if you haven't built a neural net, you'll need to build a deep neural network ."
+Page 60,the Conv2D solely performs convolution with padding . no activation function involvesConv2DBatchNormconv2BatchNormReLUConv 2D 2024 .
+Page 61,"default kernel size is 3 x 3 for 2D convolution>def resLyr(inputs,numFilters=16, kernelSz=3, strides=1, activation='rel"
+Page 62,2024 National University of Singapore. All rights reserved.prumls/y2024/v1.0 resLyrType of layer arrangments . whenconvFirstbatchNormisTrueis
+Page 63,"2024 National University of Singapore. All rights reserved.prumls/y2024/v1.0 . convLyrx= Conv2D(numFilters,kernel_size="
+Page 64,2024 National University of Singapore. All rights reserved.prumls/y2024/v1.0 . convFirstbatchNormisTrueisFalseactivationisNone 64of 96
+Page 65,"resLyr(inputs,numFilters=16, kernelSz=3, strides=1, activation='relu', batchNorm=true, convFirst=True,"
+Page 66,Residual blocksMix and match•Two types of residual blocks in resnet . v1Conv2Dstride 1BatchNormReLUconv2dstrid 1B
+Page 67,"Resnet v1The full structureConv2Dstride 1BatchNormReLUSimp ResBlkDown Resblkx(m,n,3)simp RelkSi"
+Page 68,"resBlkV1 (inputs,numFilters=16, numBlocks=3, downsampleOnFirst=True, names=None):x = inputsfor run"
+Page 69,"the function creates the below 3 blocksDown ResBlkSimp . resblkV1(inputs,numFilters=16, numBlocks=3, downsa"
+Page 70,"the function creates the below 3 blocksSimp ResBlk>def resblkV1(inputs,numFilters=16, numBlocks=3, downsample"
+Page 71,"whendownsampleOnFirstisTrue numBlocksis5Down ResBlkSimp .def resblkV1(inputs,numFilters=16"
+Page 72,"resBlkV1 (inputs,numFilters=16, numBlocks=3, downsampleOnFirst=True, names=None):x = inputsfor run"
+Page 73,"whenrun == 0anddownsampleOnFirst == False 2024 National University of Singapore . resBlkV1(inputs,numFilters=16,"
+Page 74,'Down ResBlk' is created prumls/y2024/v1.0 2024 National University of Singapore .
+Page 75,"strides = 1blkStr = str(run+1)if downsampleOnFirst and run == 0:strides =2= resLyr(inputs=x,numF"
+Page 76,"resBlkV1(inputs,numFilters=16, numBlocks=3, downsampleOnFirst=True, names=None):x = inputsfor run"
+Page 77,"resBlkV1(inputs,numFilters=16, numBlocks=3, downsampleOnFirst=True, names=None):x = inputsfor run"
+Page 78,"resBlkV1(inputs,numFilters=16, numBlocks=3, downsampleOnFirst=True, names=None):x = inputsfor run"
+Page 79,"prumls/y2024/v1.0 2024 National University of Singapore, all rights reserved.79of 96 of 96 ."
+Page 80,"strides =1blkStr = str(run+1)if downsampleOnFirst and run == 0:strides = 2= resLyr(inputs=x,numF"
+Page 81,"resBlkV1(inputs,numFilters=16, numBlocks=3, downsampleOnFirst=True, names=None):x = inputsfor run"
+Page 82,"resBlkV1(inputs,numFilters=16, numBlocks=3, downsampleOnFirst=True, names=None):x = inputsfor run"
+Page 83,"resnet v1(inputShape=(32,32,3),numClasses=10):inputs v= Input(shape =input Shape)="
+Page 84,trainingWith Adam>seed =29>np.random.seed(seed)optimizers.Adam(lr=0.001)=>optmz'cifar10ResV1Cf
+Page 85,training testingAccuracy: 78.32% 2024 National University of Singapore . all rights reserved.prumls/y2024/v1.085of 96 .
+Page 86,how to unleash the power of a deep net? how to create a powerful net? . . how can you unleash a deeper net?
+Page 87,trainingSolution to improve? 2024 National University of Singapore. All Rights Reserved.prumls/y2024/v1.0 •Learning rate: the amount that the weights are updated during training .
+Page 88,trainingSolution to improve? 2024 National University of Singapore . all rights reserved.prumls/y2024/v1.0 •Try learning scheduler>from tensorflow.keras
+Page 89,training testingAccuracy: 81.02% 2024 National University of Singapore . all rights Reserved.prumls/y2024/v1.089of 96 .
+Page 90,the net sees the same set of images every epoch . augmentationSource: https://medium.com/nanonets/how-to-use-deep-learning-when-you-have-
+Page 91,trainingImage augmentation Source: https://medium.com/nanonets/how-to-use-deep-learning-when-you-have-limited-data-augmentation-c26971dc8ce
+Page 92,image generator 2024 National University of Singapore . all rights reserved.prumls/y2024/v1.0 •Build image generator and use fit_generator to train .
+Page 93,trainingThis looks good training testingAccuracy:90.91% 2024 National University of Singapore . all rights reserved.prumls/y2024/v1.093of 96 .
+Page 94,"training gets noisy, offering regularizing effect and lower generalization•GPU may not have sufficient memory to hold large batch ."
+Page 95,fit_generator 2024 National University of Singapore . all rights reserved.prumls/y2024/v1.095of 96 .
+Page 96,trainingThe finale training testingAccuracy:91.67% 2024 National University of Singapore . all rights reserved.prumls/y2024/v1.096of 96 .
+Overall Summary,"p1p2p3p4p5q1q2q3q4q6q7q8q9q9s9s10t1t2t3t4 2024 National University of Singapore. All Rights Reserved.prumls/y2024/v1.03of 96 BackpropagationFrom the last layer•For an input to the net, we get an output ."

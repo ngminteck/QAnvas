@@ -1,0 +1,94 @@
+Page,Summary
+Page 1,NUS-ISSPattern Recognition using Machine Learning SystemModule 4 - Deep neural networks and deep learning systemsby Dr. Gary Leung 2024 National University of Singapore .
+Page 2,The rise of machine-learned features
+Page 3,AI time lineA broad overview 4of 93 2024 National University of Singapore . all rights reserved.prumls/y2024/v1.0 .
+Page 4,rules engineKnowledge BasedUser Interfacea series of if-then-else rules5of 93 2024 National University of Singapore .
+Page 5,expert system Rule behind choosing mini gun 6of 93 2024 National University of Singapore . all rights reserved.prumls/y2024/v1.0Rule behind choosing defensive pulseRole behind selecting defensive pulser
+Page 6,7of 93 2024 National University of Singapore . all rights reserved.prumls/y2024/v1.0 .
+Page 7,"experts are never cheap•Bad in handling sophisticated sensory inputs (like signals, images)•Possible to make dumb decision since it just goes through rules; no common sense in the system ."
+Page 8,features + classifierA new solution to the rescue•Feature: a number or a vector that describes something about the input•Classifer figures out (by itself) the underlying pattern between features and output.
+Page 9,Filtering ..... or feature extraction
+Page 10,FilteringIt's all about convolution Source: https://towardsdatascience.com/intuitively-understanding-convolutions-for-deep-learning-1f6f42faee1 11
+Page 11,wikipedia.org/wiki/Kernel_(image_processing) [REDACTED_PHONE] National University of Singapore .
+Page 12,features + classifierGabor filtering 13of 93 2024 . all rights reserved.prumls/y2024/v1.0 .
+Page 13,features + classifier Plethora of features for scene recognition Feature vectors14of 93 2024 National University of Singapore .
+Page 14,face recognition 15of 93 2024 National University of Singapore . all rights reserved.prumls/y2024/v1.0 .
+Page 15,"features + classifierChallenge? not working well for unstructureddata, i.e. signals, audios, images,videos and etc. We need to design features manually, through much trial and error, with"
+Page 16,"features + classifierConclusion?•Progress in recognition accuracy powered by better features•Plethora hand-crafted features proposed and used, such as HOG, SIFT, LBP and etc."
+Page 17,"learning the featuresBetter performance?•Get algorithm to learn the most appropriate features by itself?•Series of feature extractors?•All the way from pixels to classifier, layer by layer?•Train all the layers together"
+Page 18,all rights reserved.prumls/y2024/v1.0 . convreLUconvReLUpool convRLU 19of 93 2024 National University of Singapore.
+Page 19,all rights reserved.prumls/y2024/v1.0 ReLUpoolshipplanecaraircktruirdb FC
+Page 20,convnet Source: https://commons.wikimedia.org/wiki/File:Typical_cnn.png Classification 21of 93 2024 National University of Singapore .
+Page 21,national university of Singapore. All rights reserved.prumls/y2024/v1.0 From then on on . ILSVRC 2012TeamAlgorithmError - 5RankUniversity of TorontoDe
+Page 22,all rights reserved.prumls/y2024/v1.0 From then on on . ILSVRC 2013TeamAlgorithmError - 5RankClarifaiDeep con
+Page 23,the progressA not so short summary TweetOutputFeature learning + Classification TweetoutputFeature Extraction . all rights reserved.prumls/y2024/v1.0 .
+Page 24,guru99.com/machine-learning-vs-deep-learning.html25of 93 2024 National University of Singapore. All rights Reserved.prumls/y2024/v1.0 ComparisonM
+Page 25,Components in deep learning
+Page 26,2D convolutionThe original[REDACTED_PHONE]InputKernelOutput 27of 93 2024 National University of Singapore .
+Page 27,2D convolutionThe process in 4 steps[REDACTED_PHONE]InputKernel*Step . Inputkernel *Step 428of 93 2024 National University of Singapore.
+Page 28,inputKernelOutput =1l132+23+Calculationinput kerne131+30++211+1229of 93 2024 National University of Singapore . all the multipli
+Page 29,inputKernelOutput =3l122+13+Calculationinput kerne331+10++111+3230of 93 2024 National University of Singapore . all the
+Page 30,inputKernelOutput =1l132+33+Calculationinput kerne211+10++321+3231of 93 2024 National University of Singapore . all the
+Page 31,inputKernelOutput =3l132+13+Calculationinput kerne111+30++231+3232of 93 2024 National University of Singapore . all the
+Page 32,2D convolution with padding[REDACTED_PHONE]Padded inputKernelOutput 33of 93 2024 National University of Singapore .
+Page 33,2D convolution with padding16 Steps are needed 2024 National University of Singapore . all rights reserved.prumls/y2024/v1.034of [REDACTED_PHONE]Padded
+Page 34,2D convolution with padding16 Steps are needed[REDACTED_PHONE]Padded inputKernel*Step [REDACTRED_PHone]Paldded inputkernel *Step 835
+Page 35,2D convolution with padding16 Steps are needed[REDACTED_PHONE]Padded inputKernel*Step [REDACTRED_PHone]Paldded inputkernel *Step 1236
+Page 36,2D convolution with padding16 Steps are needed[REDACTED_PHONE]Step . lKerneKerneOutput of 93 2024 National University of Singapore .
+Page 37,2D convolutionThe effect of stride is (1stride along row direction 38of 93 2024 National University of Singapore .
+Page 38,stride 39of 93 2024 National University of Singapore . 2D convolution The effect of stride is 2stride along row direction .
+Page 39,"2D convolution with paddingwith Strides(2 , [REDACTED_PHONE]InputKernelOutput*Step . 2long rowdirection40of 93 2024 National University of Singapore"
+Page 40,stride 41of 93 2024 National University of Singapore . 2D convolutionThe effect of stride[REDACTED_PHONE]InputKernelOutput .
+Page 41,[REDACTED_PHONE]D convolutionwith Strides(2 . Step 2stride 1 along column direction 42of 93 2024 .
+Page 42,[REDACTED_PHONE]D convolution with paddingwith Strides(2 . step 6stride 1 along columndirectionstride 2long rowdirection 43of 93 2024 National University of Singapore
+Page 43,"2D convolution Determine the output size•Mr, Mc: Output size in rows and columns respectively•Wr, Wc: Input size ."
+Page 44,"the filter / kernel size for the layer is 7 x 7 and the stride is 2 x 2, no padding is applied, calculate the output size of the 2D convolutionMr=Mc=128 +"
+Page 45,2D convolutionMulti-channel Source: https://medium.com/apache-mxnet/convolutions-explained-with-msexcel-465d6649831c [REDACT
+Page 46,Max poolingThe original[REDACTED_PHONE]InputStep 1Step [REDACTRED_PHone]InitOutputStepe 447of 93 2024 National University of Singapore .
+Page 47,"Maxpooling Determine the output size M=Wr Fr Sr+ 1cM=Fc Sc+ .Mr, Mc: Output size in rows and columns respectively•Fr,"
+Page 48,the kernel size for the layer is 4 x 4 and the stride is 2 x 2 . calculate the output size of the 2D pooling layerMr=Mc=6142 .
+Page 49,Time for exercise!
+Page 50,conv lyr (1st) 51of 93 2024 National University of Singapore . inputlayer of neuralnetwork (5th)hidden layer (6th)output layer (7th)
+Page 51,the first convolutional layer (part 1) input 16161616 * * *•Performs 3 separate 2D convolutions (with padding) to generate 3 intermediate outputs .
+Page 52,convolutional layer+ = activationconv lyr (1st) 53of 93 2024 National University of Singapore .
+Page 53,the pooling layer 16input16161688 is the first convolutional layer 54of 93 2024 National University of Singapore . it is a pool layer that is based on the outputs from the first pool
+Page 54,pool lyr (2nd)8** * ** * * ** 55of 93 2024 National University of Singapore .
+Page 55,the second convolutional layer (part 2)•Performs 6 separate multi-channel 2D convolutions (with padding) to generate 6 convolution outputs* ** * ** ** pool lyr (2nd) 56of
+Page 56,convolutional layer+=activation conv lyr (3rd) 57of 93 2024 National University of Singapore .
+Page 57,conv lyr (1st) 58of 93 2024 National University of Singapore . inputlayer of neuralnetwork (5th)hidden layer (6th)output layer (7th) input .
+Page 58,the first convolutional layer + = activationconv lyr (1st) (3 x 3) x 3 + 3 = 3059of 93 2024 National University of Singapore .
+Page 59,the second convolutional layer+=activation conv lyr (3rd) number of parameters = 16860of 93 2024 national university of Singapore .
+Page 60,"the number of trainable parameters in this case is ( Ir, Ic, Ci) and a filter kernel size of ( Fr, Fc) it involves Cix D number of feature maps . number of parameters ispt"
+Page 61,"the kernel size for the layer is 7 x 7, the stride is 2 x 2, and the number of channels in the output of this layer is 18ptr=[3(77) + 1]18the"
+Page 62,conv lyr (1st) 63of 93 2024 National University of Singapore . all rights Reserved.prumls/y2024/v1.0 pool lyre (2nd) .
+Page 63,Another exercise!
+Page 64,"Convolutional neural networkCalculate the necessaryOutput size No. of parametersInput sizeNo. of feature maps / neuronsStrideKernelTypeLayer(32,32,3)16(1,1)(3,3)"
+Page 65,"the size of an input to a layer is ( 32, 32, 3 ) 66of 93 2024 National University of Singapore ."
+Page 66,What are the things happening in training
+Page 67,conv lyr (1st) 68of 93 2024 National University of Singapore . inputlayer of neuralnetwork (5th)hidden layer (6th)output layer (7th) input[REDACTED
+Page 68,"6MaxPooling2D | (2, 2)(8,8,6) 69of 93 2024 National University of Singapore . all rights reserved.prumls/y2024/v1.0(4,4,6)"
+Page 69,all rights reserved.prumls/y2024/v1.0 is a registered trademark of the national university of singapur .
+Page 70,Time for coding
+Page 71,"60,000 32 x 32 colour images in 10 distinct classesAirplane Automobile BirdCat Deer Dog Frog Horse Ship Trucks•Each class has 6,000 images Before we start ."
+Page 72,"dataset collected by Alex Krizhevsky, Vinod Nair, and Geoffrey Hinton . one of the most widely used datasets for machine learning research ."
+Page 73,"Keras has become officially the preferred higher level API to build deep learning model . since Tensorflow r1.13, the default way to build model is to build a deeper learning model in a higher level ."
+Page 74,1.Import libraries 75of 93 2024 National University of Singapore . all rights reserved.prumls/y2024/v1.0 2.Matplotlib setup3.Data preparation4.Define model5.Tra
+Page 75,"import libraries, part 1>importnumpyasnp . importsklearn for measuring performance•matplotlib to show image ."
+Page 76,"all rights reserved.prumls/y2024/v1.0 1. Import libraries, part 2>fromtensorflow .keras.callbacksimportModelCheckpoint,CSVLogger>from"
+Page 77,Matplotlib setup uses 'ggplot' style for plot . labels and ticks put on right rather than left>plt.style.use .
+Page 78,"data preparation, part 1>data>(trDat, trLbl)= cifar10.load_data()= data[0] = data[1]trdat.astype"
+Page 79,"the data must be in the form of (sample, row, clm, channel) 80of 93 2024 National University of Singapore ."
+Page 80,"some frameworks prefer 'channel first' format, which is(sample, channel, row, clm, channel)"
+Page 81,"data preparation, part 2to_categorical(trLbl)=>trlto_categogorical (tsLbL) . num_classes•One-hot encode train and"
+Page 82,"Data preparation, part 2•One-hot encoding Before 83of 93 2024 National University of Singapore ."
+Page 83,"define model, part 1>seed =29>np.random.seed(seed)>optmz = optimizers.RMSprop(lr=0.0001)>modelname ='wks"
+Page 84,"define model, part 2Input image(32,32,3)Conv2D | (3, 3) | 32MaxPooling 2D | (2, 2)FlattenDenseDense(8,8,64"
+Page 85,"define model, part 2>defcreateModel():model = Sequential() model .add(Conv2D(32,(3,3),input_shape=(imgrows,img"
+Page 86,"define model, part 2•'model' for training . 'modelGo' for final evaluation>model>modelGo= createModel()=model.summary()Layer (type) Output Shape Param #"
+Page 87,"'monitor' can be 'val_acc' or ‘val_loss’ . ‘mode’ must be ‘min’>filepath>checkpoint= modelname +"".keras""= ModelCheck"
+Page 88,"train model is only a single line>model.fit(trDat, tsLbl), epochs=100,batch_size=128, shuffle=True, callback"
+Page 89,"test model, part 1Use a new object to load the weights and re-compile again>modelGo.load_weights ."
+Page 90,"test model, part 2•Test the model, calculate the accuracy and confusion matrixmodelGo.predict(tsDat)=>predictsnp.argmax(predictses,axis=1)=>testout"
+Page 91,"test model, part 3•Test the model, calculate the accuracy and confusion matrix>print(""best accuracy (on testing dataset): %.2f%%""% (testScores*100))>print"
+Page 92,"test model, part 4•Plot the result>importpandasaspd= pd.read_csv(modelname +'.csve')>records>plt."
+Overall Summary,the rise of machine-learned features Source: https://blogs.nvidia.com/blog/2016/07/29/whats-difference-artificial-intelligence-machine-learning-deep learning-ai/ The AI time lineThe starting point ... Rules EngineKnowledge BasedUser Interfacea series of if-then-else rules5of 93 2024 National University of Singapore .

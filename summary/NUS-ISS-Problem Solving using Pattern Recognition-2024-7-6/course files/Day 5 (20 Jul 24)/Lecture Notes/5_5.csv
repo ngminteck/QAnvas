@@ -1,0 +1,45 @@
+Page,Summary
+Page 1,NUS-ISS Problem Solving Using Pattern Recognition 2024 National University of Singapore. All Rights Reserved.
+Page 2,2D convolution The original Source: https://medium.com/apache-mxnet/convolutions-explained- with-ms-execel-465d6649831c 2D
+Page 3,2D convolution The padded Source: https://medium.com/apache-mxnet/convolutions-explained- with-ms- excel-465d6649831c 3D
+Page 4,2D convolution Multi-channel Source: https://medium.com/apache-mxnet/convolutions-explained- with-ms-execel-465d6649831c 4
+Page 5,Max pooling The original Source: http://cs231n.github.io/convolutional-networks/ 5 .
+Page 6,max pooling With situation Source: https://software.intel.com/en-us/daal-programming-guide-2d- max-pooling-forward-layer 6 .
+Page 7,conv lyr (1st) 7 pool LYr (2nd) flatten / input layer of neural network (5th) hidden layer (6th) output layer (7th) input (REDACTED_PHONE] con
+Page 8,the first convolutional layer (part 1) input [REDACTED_PHONE] * * *Performs 3 separate 2D convolutions (with padding) to generate 3 intermediate outputs 8 outputs .
+Page 9,"the first convolutional layer (part 2) •Add bias to each convolution output, and apply activation function to get the final output ."
+Page 10,pooling layer 16 inputs from first convolutional layer 10 of37 psupr/m5.5/v1.0 pool lyr (1st) pool .
+Page 11,the second convolutional layer (part 1) 8 * •Performs 6 separate multi-channel 2D convolutions (with padding) to generate 6 convolution outputs pool lyr (2nd) 8 * * ** *
+Page 12,the second convolutional layer (part 2) •Performs 6 separate multi-channel 2D convolutions to generate 6 convolution outputs .
+Page 13,"the first convolutional layer (part 3) •Add bias to each intermediate output, and apply activation function to get the final output ."
+Page 14,conv lyr (1st) 14 pool LYr (2nd) flatten / input layer of neural network (5th) hidden layer (6th) output layer (7th) input (REDACTED_PHONE] con
+Page 15,convolutional neural network Dropout Source: https://stats.stackexchange.com/questions/201569 .
+Page 16,convolutional neural network Dropout Source: https://towardsdatascience.com/preventing-deep- neural-network-from-overfitting-953458db800a 16 .
+Page 17,Any fans of Japan?
+Page 18,2024 National University of Singapore. All Rights Reserved . Cursive Kuzushiji Automated solution?
+Page 19,Kuzushiji MNIST Another 'MNIST' alternative [REDACTED_PHONE] Source: https://github.com/rois-codh/kmnist/blob/master/images
+Page 20,"Kuzushiji MNIST The basic model, part [REDACTED_PHONE] National University of Singapore. All Rights Reserved."
+Page 21,"Kuzushiji MNIST The basic model, part [REDACTED_PHONE] National University of Singapore. All Rights Reserved."
+Page 22,2024 National University of Singapore. All Rights Reserved. 24 1. Import libraries 2. Matplotlib setup 3. Data preparation 4. Define model 5. Train model 6. T estmodel Kuzushiji MNIST The main layout
+Page 23,import numpy as np > import sklearn.metrics as metrics > import matplotlib.pyplot as plt . import os for matrix manipulation .
+Page 24,"tensorflow.keras.callbacks import ModelCheckpoint,CSVLogger > from tensumu .layers import Dropout . we are using the Keras function under the ten"
+Page 25,"matplotlib setup, part 1 > import font_manager as fm > fpath > prop = os.path.join . ffontProperties(fname=fpath) >"
+Page 26,2024 National University of Singapore. All Rights Reserved . Kuzushiji MNIST 28 2.
+Page 27,"2024 National University of Singapore. All Rights Reserved . Kuzushiji MNIST 29 3. Data preparation, part 1 > trDat > . tsLbl = = = n"
+Page 28,"the current shape for tsDat is (60000, 28, 28) trDat needs to be reshaped into the form of (samples, width, height, channel) to fit into Keras"
+Page 29,trLbl = to_categorical(trlbl) > num_classes = tsLbbl.shape[1] •One-hot encode train and test
+Page 30,"define model, part 1 > seed = 29 > np.random.seed(seed) > modelname = 'wks5_1a' def createModel(): model = Sequential()"
+Page 31,2024 National University of Singapore. All Rights Reserved . FAQs 33 1. Where to put the Dropouts? 2. Max Pooling size strictly 2x2? 3. Bigger vs Smaller Kernel size
+Page 32,"define model, part 1 > seed = 29 > np.random.seed(seed) > modelname = 'wks5_1a' def createModel(): model = Sequential()"
+Page 33,"define model, part 1 > seed = 29 > np.random.seed(seed) > modelname = 'wks5_1a' def createModel(): model = Sequential()"
+Page 34,"define model, part 1 > seed = 29 > np.random.seed(seed) > modelname = 'wks5_1a' def createModel(): model = Sequential()"
+Page 35,"2024 National University of Singapore. All Rights Reserved. Kuzushiji MNIST 4. Define model, part 2 •'model' for training; 'modelGo' for final evaluation > model > createModel()"
+Page 36,"2024 National University of Singapore. All Rights Reserved . Kuzushiji MNIST 38 4. Define model, part 3 ."
+Page 37,"trainmodel is only a single line > model.fit(trDat, trLbl, validation_data=(tsDat), epochs=60, batch_size=128,"
+Page 38,2024 National University of Singapore. All Rights Reserved . Kuzushiji MNIST 40 6.
+Page 39,"2024 National University of Singapore. All Rights Reserved. Kuzushiji MNIST 6. T est model, part 2 •T est the model, calculate the accuracy and confusion matrix > predicts = modelGo.predict"
+Page 40,"2024 National University of Singapore. All Rights Reserved. Kuzushiji MNIST 42 6. T est model, part 3 •T est the model, calculate the accuracy and confusion matrix > print(""best accuracy (on"
+Page 41,2024 National University of Singapore. All Rights Reserved. Kuzushiji MNIST 6. Plot the result > import pandas as pd .
+Page 42,"the original model, given previously, will serve as the base for the rest 2. Add 1x CNN and 1x MaxPooling layer . step 2 plus add 2 more Dropout layers of 20%; decide where to put them"
+Page 43,"from the original model, add 3x additional CNN layers; decide on the channels and sizes for all CNN layers 8. Steps 7 and 8 together WITHOUT any additional Dropout layers 10 ."
+Overall Summary,2D convolution The padded Source: https://medium.com/apache-mxnet/convolutions-explained- with-ms excel-465d6649831c 3 2024 National University of Singapore . All Rights Reserved. the making of ... The first convolutional layer (part 1) input [REDACTED_PHONE] * * * •Performs 3 separate 2d convolutions (with padding) to generate 3 intermediate outputs 8.

@@ -1,0 +1,42 @@
+Page,Summary
+Page 1,S-SRSD/Spatial sensing/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 1 SPATIAL SENSING 3D SCENE MODELLING Dr TIAN Jing [REDACT
+Page 2,S-SRSD/Spatial sensing/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 2 Agenda • Introduction to spatial sensing and reasoning from sensor data • Camera modeling for 3D vision • Key
+Page 3,S-SRSD/Spatial sensing/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 3 Introduction Question: How to define the position?
+Page 4,Kinect 3D Passive Infrared sensor Reference: https://www.sensorsmag.com/components/smartphone-sensor-evolution-rolls-rapidly-forward Ultrasonic
+Page 5,s-SRSD/Spatial sensing/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 5 Introduction • Proprioceptive sensors (internal) • Measure values internally to the system
+Page 6,positioning positioning system consists of Navigation sources (at known locations) and Users (their locations need to be determined) information from location sensors Positioning principle Binary information if communication is possible or not Proximity Quality of communication
+Page 7,S-SRSD/Spatial sensing/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 7 Positioning: Proximity: User’s position = position of closest navigation source Reference: https
+Page 8,use an nn-dimensional space containing received signal strength (RSS) vectors . find reference point for which the RSS is the largest . Interpolation: find three “closest” reference points.
+Page 9,"S-SRSD/Spatial sensing/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 9 Positioning: Trilateration With three measurements, we have xx xx1 2 +"
+Page 10,travel time of a signal from a reference station to the current position is given by the distance divided by the signal propagation speed vv . we can obtain the time difference of arrival ccAAAA (between source
+Page 11,base station measures angle to mobile terminal . derive angle from RSS values of individual antennas in an antenna array .
+Page 12,S-SRSD/Spatial sensing/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 12 Positioning: Acoustic Reference: Towards End-to-End Acoustic Localization using Deep Learning
+Page 13,"a visual map: A representation of appearance, geometry, description of the scene, including a set of mapping images with camera poses + calibration ."
+Page 14,S-SRSD/Spatial sensing/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 14 Positioning: Vision Reference: https://labs.imaginea.com/post/mea
+Page 15,S-SRSD/Spatial sensing/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 15 Agenda • Introduction to spatial sensing and reasoning from sensor data • Camera modeling for 3D vision • Key
+Page 16,S-SRSD/Spatial sensing/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 16 Q1: Distance estimation (between physical point to camera) Any point on the ray can be projected
+Page 17,S-SRSD/Spatial sensing/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 17 Stereo vision: Camera system Parallel stereo camera system General stereo camera systems Reference: http://www.cs
+Page 18,camera modelling Coordinate system Origin Dimension Unit Camera reference system Camera center point 3D Physical (meter) Image reference system Center point of image plane (charge-coupled device (CCD) Pixel reference system Top left point of the image 2D
+Page 19,S-SRSD/Spatial sensing/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 19 Pinhole camera model .
+Page 20,yycc zzcc 1 Pinhole camera model . it depends on camera model focal length rr .
+Page 21,"the intrinsic matrix could be KK = [REDACTED_PHONE] Suppose for the CMOS/CCD sensor, each pixel has a physical size of ddxx, ddyy, the image plane"
+Page 22,S-SRSD/Spatial sensing/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 22 Appendix: Homogeneous coordinate PP = xx yy
+Page 23,"cs.toronto.edu/fidler/slides/2015/CSC420/lecture12_hres.pdf Given two calibrated parallel cameras, i.e., the"
+Page 24,"image patch centered at xxuu, yyuu should be similar to the one in the left image . the matching cost can be defined as SSD (sum of squared differences)"
+Page 25,S-SRSD/Spatial sensing/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 25 Example: Disparity estimation from stereo images Right imageLeft image Disparities map Reference:
+Page 26,s-SRSD/Spatial sensing/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 26 Q2: Distance estimation between two pixel positions in the image.
+Page 27,S-SRSD/Spatial sensing/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 27 Intuition: Transform the CCTV view to a bird-view (top-view)
+Page 28,"S-SRSD/Spatial sensing/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 28 Transformation Preserves Translation Orientation Euclidean (rotation, translation) Leng"
+Page 29,"a Homography matrix is a transformation matrix (3 3) maps the point located at (xx1, yy1) in one image . it is true for all sets of corresponding points as long as they lie on"
+Page 30,"S-SRSD/Spatial sensing/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 30 Homography: Perspective correction • Collect four corners of the object plane (e.g.,"
+Page 31,matched pairs of keypoints in multiple-view images can help to estimate distance between two pixel positions in the image .
+Page 32,S-SRSD/Spatial sensing/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 32 Agenda . Keypoint-based feature extraction from multiple images .
+Page 33,xx1 XX2 Detection: Compute distance between feature vectors to find correspondence based on user-defined threshold TT .
+Page 34,"EEuu,vv is the difference between the original patch centered at II(xx, yy) and that covered by the shifted window . ww(xx) is the mask function at position (xx"
+Page 35,the step-by-step tutorial is available at http://aishack.in/tutorials/sift-scale-invariant-feature-transform-introduction/ .
+Page 36,S-SRSD/Spatial sensing/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 36 SIFT (scale-invariant feature transform): Feature extraction • Detect keypoints
+Page 37,"pp, qq = pp pp1 qq1 2 + + ppnn Qqnn 2 Feature matching using similarity . given features are illustrated as squares in"
+Page 38,"a database of 40,000 keypoints shows the probability density function of this ratio for correct matches . the dotted line is for matches that were incorrect ."
+Page 39,S-SRSD/Spatial sensing/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 39 Workshop 3D sensor data representation and modelling .
+Page 40,S-SRSD/Spatial sensing/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 40 Thank you!
+Overall Summary,all Rights Reserved Page 1 SPATIAL SENSING 3D SCENE MODELLING Dr TIAN Jing [REDACTED_EMAIL] S-SRSD/Spatial sensing/V[REDACTED_PHONE] National University of Singapore . all rights reserved Page 2 Agenda • Introduction to spatial sensing and reasoning from sensor data .

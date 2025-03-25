@@ -1,0 +1,43 @@
+Page,Summary
+Page 1,[REDACTED_PHONE] NUS. All rights reserved. Page 1 Text Analytics Module 1: Introduction to Text Analytics Dr. Fan Zhenzhen NUS-ISS National University of Singapore.
+Page 2,"[REDACTED_PHONE] NUS. All rights reserved. Page 2 Objectives of this module At the end of the module, you can: Describe the tasks in text analytics with examples . Define the process"
+Page 3,[REDACTED_PHONE] NUS. All rights reserved. Page 3 What is Text Analytics .
+Page 4,text analytics transforming unstructured text data into structured (numerical) data . automatic algorithms can be applied to extract out information in an understandable structure for further use .
+Page 5,unstructured to structured Cust ID Date:tim e Model Comments [REDACTED_PHONE] Doesn’t work – may have dropped. Out of warranty. Sent to svc. [RED
+Page 6,text analytics works – most information in the world is not in structured data form . text is being created in digital format and available – Formal documents: word processing .
+Page 7,[REDACTED_PHONE] NUS. All rights reserved. Page 7 What can Text Analytics Do?
+Page 8,"customer experience management: to analyze customer feedback, measure customer satisfaction, identify issues and improve customer experience . Fraud detection: to detect fraudulent activities by analyzing text data in claims/reports ."
+Page 9,[REDACTED_PHONE] NUS. All rights reserved. Page 9 What can text analytics do?
+Page 10,[REDACTED_PHONE] NUS. All rights reserved. Page 10 From: http://www.youtube.com/watch?v=PSq7hZ0shLs Example 1
+Page 11,[REDACTED_PHONE] NUS. All rights reserved. Page 11 Things to Note This does the hard work .
+Page 12,[REDACTED_PHONE] NUS. All rights reserved. Page 12 Things to Note Decides sentiment based on lists of built-in keywords.
+Page 13,[REDACTED_PHONE] NUS. All rights reserved. Page 13 From: http://www.youtube.com/watch?v=OlQpm8qTog4 Example 2
+Page 14,[REDACTED_PHONE] NUS. All rights reserved. Page 14 Things to Note Text converted into numbers .
+Page 15,[REDACTED_PHONE] NUS. All rights reserved. Page 15 Things to Note Most of the “lift” provided by data mining on structured data .
+Page 16,[REDACTED_PHONE] NUS. All rights reserved. Page 16 Other tasks dealing with natural language text .
+Page 17,[REDACTED_PHONE] NUS. All rights reserved. Page 17 The Text Analytics Process .
+Page 18,cross-industry standard process for data mining from: http://en.wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining Note the Arrows
+Page 19,"the data understanding phase starts with an initial data collection and proceeds with activities in order to get familiar with the data, to identify data quality problems, to discover first insights into the data . the data preparation phase covers all activities to construct the final"
+Page 20,[REDACTED_PHONE] NUS. All rights reserved. Page 20 1. Business Understanding • Determine business objectives • Assess situation • Determine data mining goals • Produce project plan • Understand the business case • Determine the purpose of
+Page 21,data Understanding • Collect initial data • Describe data • Explore data • Verify data quality • Identify the text data sources (digitized or paper-based; internal or external to the organization) • Assess the accessibility and usability of
+Page 22,[REDACTED_PHONE] NUS. All rights reserved. Page 22 3. Data Preparation • Select data • Construct new data • Integrate data • Format data • Establish the text corpus • Preprocess the
+Page 23,[REDACTED_PHONE] NUS. All rights reserved. Page 23 4. Modeling • Select modeling techniques • Generate test design • Build model • Assess model • Modeling techniques to use depend on the text mining task
+Page 24,[REDACTED_PHONE] NUS. All rights reserved. Page 24 5. Evaluation • Evaluate results • Review process • Determine next steps • Verify and validate the proper execution .
+Page 25,[REDACTED_PHONE] NUS. All rights reserved. Page 25 6. Deployment • Plan deployment • Plan monitoring and maintenance • Produce final report and presentation • Review project • Models should be updated periodically
+Page 26,[REDACTED_PHONE] NUS. All rights reserved. Page 26 About Linguistic Resources .
+Page 27,[REDACTED_PHONE] NUS. All rights reserved. Page 27 Dictionaries • Machine readable resources to improve TA systems .
+Page 28,"Often labelled or annotated, to provide examples for statistical methods and machine learning algorithms to work . quality of corpora is critical for the resulting models ."
+Page 29,"[REDACTED_PHONE] NUS. All rights reserved. Page 29 Corpus Annotation • Objective tasks . easier, subjective tasks - much harder . Define task and guidelines ."
+Page 30,agreement between multiple annotators (assumption: consistency implies validity) Common measures: Cohen’s Kappa .
+Page 31,the agreement rate for qualitative items taking into account the possibility of chance agreement kk = ppoo ppee 1 – observed agreement – ppee . nnkkii: number of times annotator
+Page 32,[REDACTED_PHONE] NUS. All rights reserved. Page 32 Example of Kappa .
+Page 33,"if a threshold needs to be set, 0.8 is a good value . artstein and Poesio, 2008: ""if an average threshold is set, it's a great value"""
+Page 34,[REDACTED_PHONE] NUS. All rights reserved. Page 34 F-Measure . IAA is commonly quantified using the average positive specific agreement .
+Page 35,[REDACTED_PHONE] NUS. All rights reserved. Page 35 Tools & Solutions for text mining .
+Page 36,[REDACTED_PHONE] NUS. All rights reserved. Page 36 Various Commercial and Open-Source Tools .
+Page 37,"a Business Question is one, where you would act differently if you knew the answer . how much time do you have? How often are you going to do this? – Ad hoc usage? Unique data? ."
+Page 38,[REDACTED_PHONE] NUS. All rights reserved. Page 38 Factors to decide on the tool(s)
+Page 39,large language models are very powerful models trained to interact with user . follow instructions in a prompt and give detailed response . Flourishing applications based on LLMs .
+Page 40,all rights reserved. Page 40 LLMs Source: https://artificialanalysis.ai/index.php .
+Page 41,"[REDACTED_PHONE] NUS. All rights reserved. Page 41 Reference & Resources . MIT Press, 1999 ."
+Overall Summary,"Page 1 Text Analytics Module 1: Introduction to Text Analytics Dr. Fan Zhenzhen NUS-ISS National University of Singapore [REDACTED_PHONE] NUS. All rights reserved. Page 2 Objectives of this module At this module, you can: Describe the tasks in text analytics with examples ."

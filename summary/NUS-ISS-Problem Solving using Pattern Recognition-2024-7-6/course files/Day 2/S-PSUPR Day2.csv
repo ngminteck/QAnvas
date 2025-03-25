@@ -1,0 +1,76 @@
+Page,Summary
+Page 1,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 1 PROBLEM SOLVING USING PATTERN RECOGNITION DAY 2
+Page 2,2 DAY 2 AGENDA 2.1 Solving Pattern Recognition Problems Using Supervised Learning Techniques (II) 2.2 Pattern Recognition Workshop 2 .
+Page 3,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore .
+Page 4,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All rights Reserved 4 supervised learning techniques (II)
+Page 5,decision tree is a flow-chart-like tree structure . an internal node performs a test on an attribute . a leaf node represents a class label .
+Page 6,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore.
+Page 7,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 7 Applications of Decision Trees .
+Page 8,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 8 Basic Algorithm: Quinlan’s ID3/C4.5/C5.0 .
+Page 9,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] . all training data are at the root . a goodness function is used for this purpose .
+Page 10,"ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore . heuristics: at a node, select the attribute that is most useful for classifying examples"
+Page 11,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 11 Weather Data: Play tennis or not? Outlook Temperature Humidity Windy Play? sunny
+Page 12,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore .
+Page 13,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 13 Criteria for Selecting an Attribute . choose attribute that produces the “pur
+Page 14,"ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 14 Entropy • S - training set, C1,...,CN - classes •"
+Page 15,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore . Information gain measure is aimed to minimize the number of tests needed for the classification of a new object .
+Page 16,"ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 16 Which Attribute to Select? 247.0)Outlook""gain("" = 02"
+Page 17,"ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 17 Continuing to Split 570.0)e""Temperaturgain("" = 97"
+Page 18,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore .
+Page 19,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 19 Computing Information-Gain for Continuous-Valued Attributes . attribute
+Page 20,"if all examples belong to same class Cj, label the leaf with Cj . min_samples_leaf - The minimum number of samples required to be at a leaf node ."
+Page 21,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore . subsets are more likely to be pure if there is a large number of values .
+Page 22,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 22 Split for ID Code Attribute Entropy of split = 0 .
+Page 23,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 23 Gain Ratio • Gain ratio takes number and size of branches into account when choosing an attribute
+Page 24,gini index is defined as where pj is the relative frequency of class j in n classes . the attribute providing smallest giinisplit(T) is chosen to split the node
+Page 25,"ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore . overfitting: Too many branches, some may reflect anomalies due to noise ."
+Page 26,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 26 Overfitting and Tree Pruning • Pre-pruning: stop growing the tree
+Page 27,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore.
+Page 28,decision tree modeling using Scikit-learn import numpy as np from sklearn.model_selection import train_test_split . decisionTreeClassifier iris
+Page 29,"decision tree summary • splits – binary, multi-way • splitting criteria – info gain, gain ratio, gini, ... • pruning • rule extraction from trees • Avoid overfitting ."
+Page 30,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All rights reserved.
+Page 31,Neural Networks (NN) are biologically inspired and attempt to build computational models that operate like a human brain . these networks can “learn” from the data and recognize patterns .
+Page 32,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore .
+Page 33,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] . All Rights Reserved 33 From Biological Neuron to Artificial Neuron .
+Page 34,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 34 general architecture of Neural Networks .
+Page 35,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All rights reserved. 35 general architecture of Neural Networks (cont.)
+Page 36,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore .
+Page 37,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore . training can be slow!
+Page 38,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 38 Neural Network Learning /Training Training samples are shown to the network as input and
+Page 39,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore . weights in hidden layers are adjusted to reduce aggregate errors in the output layer FORWARD SIGNAL FLOW
+Page 40,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore . nodes in second hidden layer represent hyperplanes . too many nodes or layers can be very hard
+Page 41,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 41 Steps of Backpropagation Algorithm 1. Initialize the weights to small
+Page 42,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 42 Gradient Descent Learning ()t t ww jiji w
+Page 43,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore . ... Training Error Number of training cycles MSE=0.01 .
+Page 44,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore . NNs generalize when they recognize patterns not previously trained on . networks can be overtrained
+Page 45,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore . All Rights Reserved 45 Building NN & Pre-processing Data .
+Page 46,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 46 Testing / Evaluation • Testing the Generalization ability of a trained NN • Look for
+Page 47,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 47 Applications of Neural Networks .
+Page 48,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 48 NN Modeling with Scikit-learn import numpy as np
+Page 49,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore . support vector machine can be used for pattern classification and non-linear regression .
+Page 50,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 50 Support Vector Machines (SVM) support vectors (essential) training tup
+Page 51,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 51 SVM: Optimal hyperplane for separable or non-separ
+Page 52,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 52 SVM: Separation Margin & Support Vector .
+Page 53,linear hyperplane exists to place instances of one class on one side and those of the other class on the other side . linearly separable not linearly separable .
+Page 54,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore . the goal of a support vector machine for linearly separable patterns is to find the particular hyper-plan
+Page 55,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 55 Learning SVM as Optimization 1for 1 =+ +=++
+Page 56,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All rights Reserved 56 Learning SVM as Optimization .
+Page 57,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 57 Learning SVM as Optimization • Linear SVM • decision hypersurface is given by Inner
+Page 58,"the goal of a support vector machine for not linearly separable patterns is to find an optimal hyperplane that minimizes the misclassification error, averaged over the training set ."
+Page 59,59 SVM: Soft margin solution to classify data sets that are not linearly separable . ll = 0 if there is no error for xi ii T i by +
+Page 60,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore . there are optimization functions proposed for the case with soft margin .
+Page 61,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore . higher value of C implies you want lesser errors on the training data .
+Page 62,"the multidimensional input space is transformed to a new feature space where the patterns are linearly separable with high probability . a subset of training samples x1, x2, ...xm1 will be"
+Page 63,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All rights reserved 63 SVM with Non-linear Kernels .
+Page 64,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore . 64 SVM with non-linear Kernels .
+Page 65,"ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore . apply a kernel function K(Xi, Xj) to the original data ."
+Page 66,"ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore . we use the polynomial kernel K(xi, xj+1)2 and C is set"
+Page 67,"ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore . the support vectors are x2=2, x4=5, x5=6"
+Page 68,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 68 SVM in Practice • Prepare the dataset • Select the kernel function to use . select
+Page 69,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 69 Multi-class SVM Classifier • One vs. others • Training: Learn
+Page 70,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore . 70 applications of SVM have been widely applied in bioinformatics .
+Page 71,"71 SVM with Scikit-learn import numpy as np from sklearn.model_selection . iris.target X_train, x_test, y"
+Page 72,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 72 Support Vector Machines: Summary • The SVM is an elegant and highly principled learning method
+Page 73,ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore .
+Page 74,"74 Workshop 2 • Open the jupyter notebook provided for workshop 2 . you will build decision tree, neural network and SVM models in this workshop ."
+Overall Summary,"ATAS-PSUPRDay2.pptV[REDACTED_PHONE] National University of Singapore . All Rights Reserved 1 PROBLEM SOLVING USING PATTERN RECOGNITION DAY 2 Dr Zhu Fangming NUS-ISS national university of Singapore [REDACTED_EMAIL] not be reproduced in any form or by any means, without the written permission of ISS, NUS ."

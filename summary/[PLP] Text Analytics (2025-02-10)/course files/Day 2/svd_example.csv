@@ -1,0 +1,4 @@
+Page,Summary
+Page 1,the characteristic polynomial is det(AAT I) = 2 34 + 225 = ( 25) so the singular values are 1 = 25 = 5 and
+Page 2,"ui = Avi, or ui= 1 Avi, computes U by the formula . this gives U = ( 1/ 2 1 / 2/ 2 1/"
+Overall Summary,"the characteristic polynomial is det(AAT I) = 2 34 + 225 = ( 25) so the singular values are 1 = 25 = 5 . it is also possible to proceed by finding the left singular vectors (columns of U) instead . the eigenvectors of AT A are 25, 9, and 0, ."

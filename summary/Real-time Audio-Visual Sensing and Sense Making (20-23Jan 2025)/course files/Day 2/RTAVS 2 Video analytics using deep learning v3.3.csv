@@ -1,0 +1,58 @@
+Page,Summary
+Page 1,S-RTAVS/Video analytics using deep learning/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 1 VIDEO ANALYTICS USING DEEP LEARNING CNN-BASED
+Page 2,S-RTAVS/Video analytics using deep learning/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 2 Agenda • Introduction to video analytics .
+Page 3,"video analytics applications typically address information needs that are typically referred to as four “W” questions: Who (people detection and identification); What (object, action, activity, event, and relationship analysis); and When (date/day, time"
+Page 4,S-RTAVS/Video analytics using deep learning/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 4 Video analytics: Applications • Intelligent assisted living • Crowd analysis in surveillance .
+Page 5,"action: Atomic motion patterns, gesture-like, single clear-cut trajectory, single nameable behavior . event: Combination of activities or actions (e.g., interactions between people) action recognition: Given an input video clip"
+Page 6,"S-RTAVS/Video analytics using deep learning/V[REDACTED_PHONE] National University of Singapore . All Rights Reserved Page 6 Action video recognition Reference: Video Action Understanding, https://ieeexplore.ie"
+Page 7,S-RTAVS/Video analytics using deep learning/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 7 Action video recognition Example: UCF11 .
+Page 8,microsoft.com/en-us/research/wp-content/uploads/2017/10/Tao-Mei-Intelligent-Video- Analysis-ACMMM-2017-Pub.pdf
+Page 9,"action video recognition dataset Dataset examples: human (H) and/or non-human (N), annotations: Action class (C), temporal markers (T), spatiotemporal bounding boxes/masks (S)"
+Page 10,S-RTAVS/Video analytics using deep learning/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 10 Augmentation for action video .
+Page 11,"RandAugment-T randomly takes NN augmentations from a list of KK operations, applies on TT frames with the magnitudes (control degree of augmentation) of MM1 and MM2 placed at"
+Page 12,"S-RTAVS/Video analytics using deep learning/V[REDACTED_PHONE] National University of Singapore . Temporally varying photometric augmentations (Top: increasing brightness, Bottom: clockwise rotation)"
+Page 13,the horse in motion is a series of cabinet cards by Eadweard Muybridge . each showing a sequential series of photos depicting the movement of a horse .
+Page 14,"action video recognition in history original background foreground A study in 1992 J. Yamato, et al., Recognizing human action in time-sequential images using hidden Markov model ."
+Page 15,single image classification Idea 1 (single frame based method) . 410 actions and 40000 instances .
+Page 16,S-RTAVS/Video analytics using deep learning/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 16 Reuse single image classification Idea 2 based method .
+Page 17,"a single binary cumulative motion image, where the brighter region (location of the motion) can be used to suggest the movement . the recognition of human movement using temporal templates ."
+Page 18,s-RTAVS/Video analytics using deep learning/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 18 Motion energy image (feature extraction) Hand-crafted shape representation for motion energy map Contour-
+Page 19,S-RTAVS/Video analytics using deep learning/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 19 Agenda • Introduction to video analytics .
+Page 20,"S-RTAVS/Video analytics using deep learning/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 20 Action video recognition: Overview A comprehensive tutorial on video modelling, in CVPR 2020 and 2021."
+Page 21,S-RTAVS/Video analytics using deep learning/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 21 Action video recognition: Overview Assumption • Treat video sequence as a bag of fixed-
+Page 22,"non-deeply learned features Sparse feature HoF I. Laptev, et al., “Learning realistic human actions from movies,” CVPR 2008, https://www.di.ens.fr/"
+Page 23,"an additional bin is added for histogram of optical flow . it accounts for pixels whose optical flow magnitudes are lower than a threshold (i.e., static, no motion)."
+Page 24,"we compute descriptor in each cuboid of the spatial-temporal grid . orientations are quantized into 8 bins, magnitudes are used for weighting . an additional zero bin is added for HO"
+Page 25,"the MBH descriptor encodes the relative motion between pixels . the camera motion, which is same for all pixels, is somehow excluded ."
+Page 26,"CCCCnnCCCDD Class cores: CC categories Reference: A. Karpathy, et al., Large-scale video classification with convolutional neural networks . multi-layer perceptron ("
+Page 27,CC categories CCCCnnCCCDD CCcnnccdd ccncdcd . cs.stanford.edu/people/karpathy/deepvideo TT
+Page 28,"two-stream video: Appearance + Motion • Single RGB frame: Static appearance • Spatial stream: Operates on (randomly) individual video frames, effectively performing action recognition from still images ."
+Page 29,two-stream fusion: fusion after the fourth conv-layer . only a single network tower is used from the point of fusion .
+Page 30,"two-stream network fusion: Computes the sum of two feature maps at the same spatial locations ii, jj and feature channel dd: yyi,jj,dd sum = xx"
+Page 31,convolutional 3D: Convolve not only on the spatial dimensions but also on temporal dimensions . jointly model spatiotemporal information .
+Page 32,S-RTAVS/Video analytics using deep learning/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 32 C3D Method Model architecture example Size (CC TT - HH
+Page 33,S-RTAVS/Video analytics using deep learning/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 33 C3D Other possible model architectures.
+Page 34,"X. Wang, et al., Non-local neural networks, CVPR 2018, https://arxiv.org/abs/[REDACTED_PHONE] Idea: Add spatial-temporal self-attention"
+Page 35,"long video sequence LRCN processes the (possibly) variable-length visual input with a CNN . both the CNN and LSTM weights are shared across time, resulting in a representation that scales to arbitr"
+Page 36,"long video sequence TSN models long-range temporal structure with a segment-based sampling and aggregation scheme . it divides an input video into segments, sample from those segments, and creates video-level prediction by"
+Page 37,SS clips represented the entire video are fed into the shared 3D-CNNs respectively . the feature maps or class scores of different clips are fused by an aggregation function to yield video-level prediction .
+Page 38,slow pathway: It operates a low frame rate and low temporal resolution to capture motion information . fast pathway: it operates high frame rate to capture semantic information that can be given by sparse frames .
+Page 39,"#parameters: The parameter (weight) count of the given neural network . the common units for model size are: MB (megabyte), KB (kilobyte), bits ."
+Page 40,"S-RTAVS/Video analytics using deep learning/V[REDACTED_PHONE] National University of Singapore . Page 40 Challenge: Model efficiency Reference: Z. Qiu et al., Learning Spatio-Temp"
+Page 41,"is it important that we convolve jointly over time and space? if so, what layers should we make 3D, and what layers can be 2D? et al., Rethinking spatiotemporal feature learning"
+Page 42,S-RTAVS/Video analytics using deep learning/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 42 Agenda • Introduction to video analytics .
+Page 43,"ICCV 2021, https://arxiv.org/abs/[REDACTED_PHONE] Question: How to extend image transformers to video? MViT H. Fan, et al."
+Page 44,nnh nww non-overlapping patches are extracted from each TT frame . tt h ww is a tubelet of dimension of XX RTT
+Page 45,"the input video clip XX RTTHHWW3, each frame is decomposed into NN non-overlapping patches, each of size PP PP, N = HW/PP2"
+Page 46,"S-RTAVS/Video analytics using deep learning/V[REDACTED_PHONE] National University of Singapore . Page 46 Attention mechanism for video To perform axial attention on QQ, KK, V tensors with"
+Page 47,a self attention operator enables flexible resolution modeling in a transformer block that operates at progressively changing spatiotemporal resolution . it has fine spacetime (and coarse channel) resolution in early layers that is up-/downs
+Page 48,S-RTAVS/Video analytics using deep learning/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 48 VideoSwin Idea: Extend the idea of Swin Transformer to video by introduce 3D
+Page 49,"dataset: UCF11 Dataset, https://www.crcv.ucf.edu/data/UCF_YouTube_Action.php contains 11 action categories ."
+Page 50,S-RTAVS/Video analytics using deep learning/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 50 What is next?
+Page 51,S-RTAVS/Video analytics using deep learning/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 51 Paradigm shift: Case study .
+Page 52,"AI foundation models (FM) Abbreviation: LR (linear regression), DT (decision tree), SVM (support vector machine), CS (clustering), LLM (large language model), V (vision"
+Page 53,S-RTAVS/Video analytics using deep learning/V[REDACTED_PHONE] National University of Singapore . Page 53 Foundation models (vision) Reference: Towards the Unification of Generative and Discriminative Visual Foundation
+Page 54,S-RTAVS/Video analytics using deep learning/V[REDACTED_PHONE] National University of Singapore . Page 54 Foundation models (language + vision) Reference: A survey on multimodal Large Language Models .
+Page 55,"S-RTAVS/Video analytics using deep learning/V[REDACTED_PHONE] National University of Singapore . Page 55 Foundation models (a computer vision perspective) Hand-crafted feature (e.g., color, shape, texture"
+Page 56,S-RTAVS/Video analytics using deep learning/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 56 Thank you!
+Overall Summary,S-RTAVS/Video analytics using deep learning/V[REDACTED_PHONE] National University of Singapore . All Rights Reserved Page 1 Agenda • Introduction to video analytics . applications typically address information needs that are typically referred to as four “W” questions .

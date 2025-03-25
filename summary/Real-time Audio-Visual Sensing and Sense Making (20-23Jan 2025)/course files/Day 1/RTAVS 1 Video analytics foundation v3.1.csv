@@ -1,0 +1,54 @@
+Page,Summary
+Page 1,VIDEO ANALYTICS FOUNDATIONS MOTION AND TRACKING Dr TIAN Jing [REDACTED_EMAIL]
+Page 2,S-RTAVS/Video analytics foundation/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 2 Agenda • Introduction to video analytics .
+Page 3,S-RTAVS/Video analytics foundation/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 3 Audio and video data Source: Ericsson Mobility Visualizer https://www.ericsson.com
+Page 4,changi airport pilots a multi-Signal Surveillance Platform . the platform combines audio and video analytics to monitor security incidents .
+Page 5,a digitalized rating process where a facial recognition system is used to verify the identity of applicants automatically . facial expressions of applicants are also analyzed to determine their willingness to repay loans .
+Page 6,motivation: multimodal deception detection Reference . photo: https://paperswithcode.com/task/deception-detection/codeless .
+Page 7,"V-F: given an audio clip of a voice and two or more face images/videos, select the face image/video that corresponds to the voice . V-f F-V: given a video of"
+Page 8,S-RTAVS/Video analytics foundation/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 8 Key video sensing tasks • Processing • Analytics • Compression • Search and retrieval • Applications for error conceal
+Page 9,"it is recommended that 5 seconds of pre alarm footage and 10 seconds of post alarm footage are displayed automatically on the generation of an alarm . when used in real-time mode, each frame of the video stream is analysed as soon as it"
+Page 10,real-time in the perceptual sense is used mainly to describe the interaction between a human and a computer device . the result of processing appears effectively ‘instantaneously’ once the input becomes available .
+Page 11,S-RTAVS/Video analytics foundation/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 11 Agenda • Introduction to video analytics .
+Page 12,"data (intensity) II is a function of space (xx, yy) and time (tt). frame rate: The number of frames that are captured per second ."
+Page 13,S-RTAVS/Video analytics foundation/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 13 Why do we need video (compared with static image) Reference: Abandoned Object Detecti
+Page 14,"S-RTAVS/Video analytics foundation/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 14 Static camera, moving scene Moving camera, static scene moving camera ."
+Page 15,motion vector The motion vector describes the 2D displacement at the pixel location between the reference image and the other target image . you also can set right image as target and the left image as reference .
+Page 16,"S-RTAVS/Video analytics foundation/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 16 Motion representation Block-based: Entire frame is divided into blocks, each block is represented by a constant"
+Page 17,"each image has a size of 10 8 pixels, each block has 3 3 pixels (row coordinate, column coordinate) Motion vector Block center in current frame (6, 9) Either method is okay ."
+Page 18,S-RTAVS/Video analytics foundation/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 18 Block-based motion feature (2) Searching strategy • Full (slow) search • Sub-optimal (
+Page 19,"S-RTAVS/Video analytics foundation/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 19 Block-based motion feature (3) Searching precision . Motion vector Block center in current frame (6, 9)"
+Page 20,"S-RTAVS/Video analytics foundation/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 20 Optical flow (1) Example: Given two subsequent frames at tt and tv+ 1, estimate"
+Page 21,"image brightness in a small region remain the same although location may change . uu, vv are smaller than 1 pixel and smoothly varying over the time ."
+Page 22,"a 5 5 window centered at the pixel location gives us 25 equations at 25 pixel locations pp1, pp2, , pp25 . a small block of neighboring pixels have similar or"
+Page 23,pp1 pp2 pp3 pp4 pp5 pp6 pp7 pp8 pp9 pp10 pp11 pp12 pp13 pp14 pp15 pp16
+Page 24,image Iimage J Pyramid of image at (tt + 1) image II(tt+ 11)image II(Tt) Optical flow calculation (3) Estimate optical flow .
+Page 25,"dd should be invertible, eigenvalues 1 and 2 of AATTAA should not be too small . a texture image region: Yes ."
+Page 26,"FlowNet: Stack two sequentially adjacent input images together and feed them into the network . first produce representations of two images separately, then combine them together in the “correlation layer” ."
+Page 27,S-RTAVS/Video analytics foundation/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 27 Supervised learning for optical flow (FlowNet)
+Page 28,"optical flow (MotionNet) is a fully convolutional network, consisting of a contracting part and an expanding part . the reconstructed frame is FF1 and FF2 ."
+Page 29,S-RTAVS/Video analytics foundation/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 29 Usages of motion features • Identify/Segment objects based on motion cues •
+Page 30,S-RTAVS/Video analytics foundation/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 30 Agenda • Introduction to video analytics .
+Page 31,"S-RTAVS/Video analytics foundation/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 31 Detection vs tracking tracking Applied on static image, or independently on each frame of the"
+Page 32,S-RTAVS/Video analytics foundation/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 32 Challenges in tracking Illumination changes Rotation Low-resolution Heavy occlusions Abrupt
+Page 33,a module holding the object representation: We need to learn the visual appearance of the object . the object might change its appearance during tracking .
+Page 34,Object tracking benchmark https://github.com/foolwood/benchmark_results .
+Page 35,"the function slides through the image II . compares the patch of size ww h, against the object template TT . cv2.TM_SQDIFF: Absolute difference Target object (spec"
+Page 36,"the function slides through the image II . compares the patch of size ww h, against the object template . cv2.TM_CCORR: Cross correlation Target object (specified by users)"
+Page 37,template matching challenge in template matching . time consuming: Perform checking in the search region only (not the whole image) correlation function relies on intensity .
+Page 38,"MOSSE, KCF • Idea: Learn an “optimized correlation filter” when correlated with a target template, produces a strong peak at the location of the object and low (or even zero) values at all the"
+Page 39,S-RTAVS/Video analytics foundation/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 39 Correlation filter Search region Response map .
+Page 40,GOTURN: Generic Object Tracking Using Regression Networks . the network’s output consists of the coordinates of the top left and bottom right corners of the bounding box .
+Page 41,"input: a target (in the previous frame, zz) and a search region (candidates, xx) centered at the previous position of the target . the dimensions (e.g., 127"
+Page 42,"Transformer-based tracker: TransT A Siamese-like feature extraction backbone . Classification and regression head Reference: Transformer Tracking, CVPR 2021 ."
+Page 43,S-RTAVS/Video analytics foundation/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 43 Transformer-based tracker: TrackerVit Reference: Joint Feature Learning and Relation Modeling for Track
+Page 44,S-RTAVS/Video analytics foundation/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 44 Agenda • Introduction to video analytics .
+Page 45,"Detection: For each frame, first localize all objects using an object detector . make multiple object tracking to be a association problem, instead of a tracking problem ."
+Page 46,S-RTAVS/Video analytics foundation/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 46 Association: Location model Idea: The location similarity between the detected object bounding box in current frame with detected
+Page 47,"state XX: actual state of the moving object, such as center position of the object (xx, yy), width ww, height h and vvvviittiivvVvv"
+Page 48,appearance model Idea: The appearance similarity between the detected object bounding box in current frame with detected object binding box in the previous frame . techniques in single object tracking like cross correlation and SiamFC can be used here .
+Page 49,page 49 association: matching current frame X Y Z U V Previous frame A [REDACTED_PHONE] B (REDACTRED_PHone) C (RED_ACTED-PHONE) E (redACT
+Page 50,the tracker will handle object tracking in an online mode . speed is extremely important requirement for real-time tracker .
+Page 51,S-RTAVS/Video analytics foundation/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 51 Workshop .
+Page 52,S-RTAVS/Video analytics foundation/V[REDACTED_PHONE] National University of Singapore. All Rights Reserved Page 52 Thank you!
+Overall Summary,"S-RTAVS/Video analytics foundation/V[REDACTED_PHONE] National University of Singapore . All Rights Reserved Page 1 Agenda • Introduction to video analytics . fundamentals of video data modelling, and motion feature representation ."

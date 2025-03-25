@@ -1,0 +1,67 @@
+Page,Summary
+Page 1,"ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore . ISS, NUS, is not reproduced in any form or by any means ."
+Page 2,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore .
+Page 3,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 3 Topics . Introduction to neural networks .
+Page 4,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved .
+Page 5,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 5 Example: Character Recognition by Human Brain and NN (Black box) 2 Neural Network
+Page 6,a neural network is a massively parallel distributed processor . it has a natural propensity for storing experiential knowledge and making it available for use . the network is composed of many simple processing elements operating in parallel .
+Page 7,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 7 From Biological Neuron to Artificial Neuron This extremely small computer is a multiple signal
+Page 8,"a biological neuron is a small cell that receives electrochemical stimuli from multiple sources and responds by generating electrical impulses . about 10% of the neurons are input and output, the remaining 90% are interconnected with other"
+Page 9,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 9 From Biological Neuron to Artificial Neuron . signals are added to produce a
+Page 10,"the bias input is a fixed positive signal . the weight w0 is also adjustable . if x 0 f(x) = 1 otherwise, the activation function is hard-limiting"
+Page 11,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore . NN can learn by changing weights to reduce the difference between the target output and the NN output
+Page 12,NNs are good at difficult perception tasks like vision or speech understanding . they can mimic many intelligent traits found in humans . parallel processing more powerful and faster than sequential processing .
+Page 13,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 13 Applications of Neural Networks . some of the successful applications of neural networks .
+Page 14,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore . von Neumann used idealized switch-delay elements derived from the McCulloch-Pitt
+Page 15,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 15 Some of Pioneering Research Work of Neural Networks .
+Page 16,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore . all rights reserved 16 Pioneering research work of Neural Networks .
+Page 17,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 17 Pioneering Research Work of Neural Networks .
+Page 18,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore . construction of a neural network involves the following tasks: • determine the network properties .
+Page 19,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore. all rights reserved 19 general architecture of Neural Networks (cont.)
+Page 20,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore . all connections point in one direction (input output)
+Page 21,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 21 General Architecture of Neural Networks (cont.)
+Page 22,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore . weight initialisation scheme is specific to the particular neural network model chosen .
+Page 23,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 23 Category of Neural Network Learning — by Learning Methods .
+Page 24,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore . the activation function employed is a hard-limiting function . I = ixiwi
+Page 25,"ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore . if the output is ONE and should be ZERO (no error), do nothing (n"
+Page 26,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore . examples of pattern classification on x1-x2 space class A .
+Page 27,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 27 Example: Learning in single perceptron • I = ixiwi
+Page 28,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore. All rights Reserved .
+Page 29,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 29 single perceptron and linear separability .
+Page 30,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 30 single perceptron and linear separability . a neuron can
+Page 31,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 31 single perceptron and linear separability ... XOR Problem •
+Page 32,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 32 single perceptron and linear separability .
+Page 33,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore . a single perceptron will converge only when the problem is linearly separable .
+Page 34,"ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore . ADALINE (ADAptive LINear Element) (Widrow, 1959) has"
+Page 35,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 35 Widrow-Hoff Delta Rule .
+Page 36,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore . Each node in the first layer can combine hyperplanes to create convex decision regions .
+Page 37,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 37 Multilayer Perceptron and Backpropagation Learning .
+Page 38,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 38 Steps of Backpropagation Algorithm 1. Initialize the weights to
+Page 39,ATAS-PRMLSDay1b.pptV5.0 2024 National University of Singapore. All Rights Reserved 39 BP Errors and Weight Updates .
+Page 40,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 40 BP Errors and Weight Updates (cont.)
+Page 41,"weights initialization Set all weights to random numbers following Uniform distribution in the range (-1,1) . the activation level Oj of a hidden and output unit is determined by Oj = f( W"
+Page 42,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 42 Summary of Backpropagation Algorithm (cont.)
+Page 43,43 Typical Activation Functions https://www.codeproject.com/Articles/1200392/Neural-Network SIGMOID FUNCTION ===
+Page 44,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore .
+Page 45,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore . they serve as a multinomial probability distribution .
+Page 46,"ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore . initial weights W12 = -0.02, W13 = 0, W14 = 0.03,"
+Page 47,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore . BP is never assured of finding a global minimum .
+Page 48,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore . NNs generalize when they recall full patterns from partial or noisy input patterns . networks can be
+Page 49,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 49 Avoid Overtraining & Achieving Good Generalization . introducing noise directly into
+Page 50,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore . BP training is based on gradient descent computations . this process iteratively searches for
+Page 51,the chosen error measure (or LOSS function) should be differentiable and tends to zero as the collective differences between the target and computed patterns decrease over the entire training set . the search process depends on the shape of the error
+Page 52,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore . it has been shown that setting the initial weights to small random values is an effective way to avoid shallow
+Page 53,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 53 Improving the Rate of Convergence Source: Stanford Course .
+Page 54,a momentum term has the effect of smoothing the descent down the error curve by adding an averaging of the weight adjustments (exponential smoothing) this can prevent overshooting off the minimum . where is
+Page 55,L2 regularization L1 regularization • Dropout • Randomly omit a certain percentage of the hidden neurons during training .
+Page 56,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore. All rights reserved.
+Page 57,"ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore . choose a large, reliable training set and divide it into appropriate training, testing and validation sets for use in"
+Page 58,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] . Workshop: Building Multi-Layer Perceptron Neural Networks using Weka and Python .
+Page 59,"we are given a data set of 150 samples (patterns) of Iris flowers each with 4 different feature variables representing petal length, petal width, sepal length and sepal width . each pattern falls into one"
+Page 60,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 60 Workshop – Weka - MLP Launch Weka Explorer Open
+Page 61,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 61 Workshop – Weka - MLP .
+Page 62,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore . 62 Workshop- Python- Scikit-Learn & Keras .
+Page 63,63 run Jupyter notebook in Anaconda . conda create -n prmls python=3.7 . now you can open .ipynb files within your
+Page 64,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore . the aim of the dataset is to diagnostically predict whether a patient has diabetes .
+Page 65,ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore . jupyter notebook provided for workshop . check and compare model performance .
+Overall Summary,"ATAS-PRMLSDay1b.pptV[REDACTED_PHONE] National University of Singapore . All Rights Reserved 1 PATTERN RECOGNITION AND MACHINE LEARNING SYSTEMS DAY 1B Dr Zhu Fangming NUS-ISS is not reproduced without the written permission of ISS, NUS ."

@@ -1,0 +1,29 @@
+Page,Summary
+Page 1,pLSA and LDA Andrew Levandoski and Jonathan Lobo CS 3750 Advanced Topics in Machine Learning 2 October 2018 Outline • Topic Models • LSA • Model • Fitting via EM • pH
+Page 2,"topic proportion is useful for several applications including document classification, discovery of semantic structures, sentiment analysis, object localization in images, etc. Topic proportions and assignments 3 Topic Models: Importance ."
+Page 3,"document is a collection of words (not a sequence) document is represented by (latent) mixture of topics . p w1,...,wN = p(w 1 ,... w N"
+Page 4,learning from text and natural language . learning meaning and usage of words without prior linguistic knowledge . Difference between what is said and what is meant 8 .
+Page 5,"vector space model: want to represent documents and terms as vectors in a lower- dimensional space . SVD: d1,...,dN W = w1...,wM"
+Page 6,"noise removal and robustness due to dimensionality reduction • Can capture synonymy . can easily perform queries, clustering, and comparisons ."
+Page 7,"Words are observable • Topics are not, they are latent • Aspect Model • Associates an unobserved latent class variable zZ= z1,...,zKwith each observation •"
+Page 8,pLSA Model Formulation • Basic Generative Model • Select document d with probability P(z|d) • Generate a word w with probability p(w|z)
+Page 9,"pLSA Joint Probability Model P d,w = Pd w d P w|d = z Z P . d . P z d L = d"
+Page 10,"document represented by probability distribution over topics 19 zi =(w1,...,wm) z1 = (0.3,0.1,0.2,0.3,0.2),0.1 dj = (z1,... zn) d1"
+Page 11,"problem of polysemy is better addressed 22 pLSA Strengths . problem of multinomial distributions better addressed 21 . a mixture model, not a clustering model ."
+Page 12,"latent Dirichlet Allocation 23 pLSA Model Fitting Revisited • Tempered EM • Goals: maximize performance on unseen data, accelerate fitting process . Modified E-step P"
+Page 13,"set to 1 3) Perform EM on training set until performance on validation set decreases . Decrease by setting it to , where 1 and go back to step 3 5) Stop when"
+Page 14,each webpage has an authority score x and a hub score y . authority – value of content on the page to a community . likelihood of being cited .
+Page 15,"pHITS P d,c = z P c z . P(d|z) . a document d contains a reference to community z."
+Page 16,"model can use evidence about link structure to make predictions about document content, and vice versa . generative model of document content (pLSA) and connectivity (pHITS)"
+Page 17,the alpha hyperparameter controls the distribution of words per topic . alpha and beta are typically set below one .
+Page 18,"a k-dimensional Dirichlet random variable can take values in the (k-1)-simplex if i 0,i=1 ki = 1) and has the following probability"
+Page 19,"is the parameter of the Dirichlet prior on the per-document topic distribution . M is the topic distribution for document M, zMN is the subject for the N-th word in document M ."
+Page 20,"39 controls the mixture of topics controls the distribution of words per topic LDA: Model (cont’d) Given the parameters and , the joint distribution of a topic mixture . a set of N topics"
+Page 21,"a finite set of random variables x1,...,xNis said to be exchangeable if the joint distribution is invariant to permutation . an infinite sequence of random numbers is infinitely exchangeable"
+Page 22,corners of the word simplex correspond to the three distributions where each word has probability one . pLSI induces an empirical distribution on the topic simplex denoted by diamonds .
+Page 23,"LDA: Variational Inference 45 The key inferential problem we need to solve with LDA is that of computing the posterior distribution of the hidden variables given a document . p ,z w,"
+Page 24,"the optimization problem is found by minimizing the KL divergence between the variational distribution and the true posterior p ,z w,, . the expectation in the multinomial update can be compute"
+Page 25,"a corpus of documents D = w1,w2 ...,wM, we want to find and that maximize the marginal log likelihood of the data . l , ="
+Page 26,"computer vision • Document = image, word = “visual word” • bioinformatics • Genomic features, gene sequencing, diseases • Modeling networks • cities, social networks 51 pLSA / LDA Libraries • gens"
+Page 27,"ICML, 2000. David Cohn and Thomas Hoffman. The Missing Link - A Probabilistic Model of Document Content and Hypertext Connectivity ."
+Overall Summary,"pLSA and LDA Andrew Levandoski and Jonathan Lobo CS 3750 Advanced Topics in Machine Learning 2 October 2018 Outline • Topic Models • LSA • Model • Fitting via EM • LDA • Dirichlet distribution • Generative process . Topic proportion is useful for several applications including document classification, discovery of semantic structures, sentiment analysis, object localization in images, etc."

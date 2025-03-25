@@ -1,0 +1,5 @@
+Page,Summary
+Page 1,"team Hinton entered the ILSVRC and used AlexNet to achieve an error rate of 15.3%, far far better than the next closest: 26.2% . deep learning can learn complex function, but for decades we did not manage"
+Page 2,"compute output of a 2D convolution operation (no padding) with the below 5x5 input matrix and a 3x3 kernel (assume stride is (1,1)) after convolution, [REDACT"
+Page 3,dropout is a very popular method to regularize neural networks . it is effective in preventing overfitting . use some examples to explain how the dropout method works .
+Overall Summary,"team Hinton entered the ILSVRC and used AlexNet to achieve an error rate of 15.3%, far far better than the next closest: 26.2% . the key event that revived the interest in neural networks was the first AI winter:XOR affair in 1969 ."

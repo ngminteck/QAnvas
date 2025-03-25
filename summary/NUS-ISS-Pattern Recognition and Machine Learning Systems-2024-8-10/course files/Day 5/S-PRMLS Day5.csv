@@ -1,0 +1,68 @@
+Page,Summary
+Page 1,"ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore . ISS, NUS, cannot be reproduced in any form or by any means ."
+Page 2,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore .
+Page 3,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] . Ensemble and Hybrid Machine Learning Techniques .
+Page 4,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved .
+Page 5,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 5 What are Ensembles?
+Page 6,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore .
+Page 7,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] . assume one model and 5 test cases .
+Page 8,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 8 Vote 1- 5 Motivation . Usually more reliable/robust than individual models
+Page 9,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore . the term ensemble is usually reserved for methods that generate multiple hypotheses using the same base learner .
+Page 10,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore . train many models with different random samples .
+Page 11,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 11 Bagging: Bootstrap Aggregating • Draw N (say 100) bootstrap samples (
+Page 12,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore .
+Page 13,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore.
+Page 14,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore. 50 models should work well and often 25 is adequate .
+Page 15,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore.
+Page 16,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 16 Why does it work?
+Page 17,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 17 Model Error: Bias versus Variance . Errror due to
+Page 18,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 18 Model Error: Bias versus Variance • Models that under-fit the
+Page 19,19 Model Error: Bias versus Variance • Models that over-fit the data tend to have: • Low bias the model fits the training data very well • High variance – removing/changing
+Page 20,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore.
+Page 21,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 21 tradeoff between Bias and Variance . bias vs. variance is important for
+Page 22,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] . variance of models trained on fewer training cases is usually larger .
+Page 23,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore . each base classifier is trained on less data . only about 67% of the data points are in any bootstrap
+Page 24,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved .
+Page 25,randomisation occurs in two places: random sampling of training data + Random sampling of feature set . train trees on each sample/attribute set -> 1000+ trees .
+Page 26,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore . Variance of RF trees is higher than Bagged Trees . trees should be (generally) unpru
+Page 27,"ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 27 Random Forests in Vision (including many others...) [Lepetit et al., 06"
+Page 28,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 28 Kinect’s Decision Forest.
+Page 29,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore . training just 3 trees using 1 million test images took a day .
+Page 30,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 30 Testing Random Forests .
+Page 31,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 31 Measuring Variable Importance .
+Page 32,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 32 Measuring Variable Importance • Permutation Method • Randomly shuffle
+Page 33,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore. All rights Reserved 33 Boosting • Can a set of weak learners create a single strong learner? •
+Page 34,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore .
+Page 35,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 35 Basic Boosting Algorithm 1. Weight all training samples equally 2. Train model on train set
+Page 36,the training examples Train a model (build a classifier) Re-weight the examples The “final” prediction is the weighted average of all of the weak classifiers Goal of classifier is to reduce weightee error
+Page 37,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore .
+Page 38,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 38 AdaBoost Classifications (colors) and Weights (size) after 1 iter
+Page 39,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 39 AdaBoost .
+Page 40,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 40 Gradient Boosting • Treat learning as Gradient Descent optimisation .
+Page 41,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] . XGBoost has become a widely used and popular tool .
+Page 42,42 Boosting versus Bagging/RF helps in practice bagging . boosting helps more than bagging and RF might help .
+Page 43,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore . Usually refers to multiple models to reduce variance and increase accuracy .
+Page 44,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 44 Ensembles Summary • Ensemble Creation Approaches • A good goal is to get less correlated errors
+Page 45,"ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore . hybrid models combine different, heterogeneous machine learning approaches ."
+Page 46,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore . each model type has different strengths and weaknesses . allows for more model combination methods apart from averaging .
+Page 47,47 Multiple Classifier Systems Example NEAREST NEIGHBOR GAUSSIAN QUADRATIC NAIVE BAYES MULTILAYER NEURAL NETWORK SUPPORT VECTOR MACHINE SIMPLE
+Page 48,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved .
+Page 49,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore . the arbitrator helps decide which to use and when Route Airline Hours to takeoff Current price Time Series Forecast Buy
+Page 50,"ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 50 Self-Tuning Systems • One technique is used to tune or learn the architecture for another,"
+Page 51,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 51 Self-Tuning Systems Example: Neuro-Fuzzy Systems .
+Page 52,the chromosome F1 F2 Class [REDACTED_PHONE] Represents the rule If F1 = small or medium and F2 = tube then widgets .
+Page 53,"chromosome represents NN topology, hidden nodes and number of links and/or weights . GA can avoid local minima more than back-prop ."
+Page 54,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore . NN has developed an air-con controlled by an NN .
+Page 55,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] . NN provides input to Fuzzy System NN Fuzzy User Solution Sensor inputs .
+Page 56,NN recognises the shape of the pile from (edge) image and passes to the Fuzzy system . shape of pile in boiler influences the efficiency of recovery process (deoxidisation)
+Page 57,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] Bagging & Boosting in R & Rattle .
+Page 58,some model nodes implement bagging & boosting in SPSS Modeler . 58 Bagging and boosting .
+Page 59,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore.
+Page 60,60 Random Forest using Scikit-Learn from sklearn.ensemble import RandomForestClassifier clf . random_state=0 .
+Page 61,61 AdaBoosting Using Scikit-Learn from sklearn import datasets . all rights reserved . ATAS-PRMLSDay5.pptV4.0 .
+Page 62,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore .
+Page 63,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved.
+Page 64,ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore.
+Page 65,jupyter notebooks provided for Random Forest and Boosting . compare the performance of these models with different parameter settings .
+Page 66,66 NN Ensembles – Averaging and Stacking . open the jupyter notebooks provided for the two ensembles . compare the performance of these models .
+Overall Summary,"ATAS-PRMLSDay5.pptV[REDACTED_PHONE] National University of Singapore. All Rights Reserved 1 PATTERN RECOGNITION AND MACHINE LEARNING SYSTEMS DAY 5 Dr Zhu Fangming NUS-ISS [REDACTED_EMAIL] not be reproduced in any form or by any means, without the written permission of ISS, NUS, other than for the purpose for which it has been supplied."

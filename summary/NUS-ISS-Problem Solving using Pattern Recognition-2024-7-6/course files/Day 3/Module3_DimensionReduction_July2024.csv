@@ -1,0 +1,77 @@
+Page,Summary
+Page 1,National University of Singapore 1 Problem Solving Using Pattern Recognition 3 Dimensionality Reduction . Dimensionality reduction 3 .
+Page 2,national university of Singapore 2 Topics • What is Dimensionality? • Problems with High Dimension • Approaches to Dimensionality Reduction • Feature Selection Methods • Introduction to Principal Component Analysis method .
+Page 3,"the dimension of a dataset is given as n-rows by p-columns . healthcare data: 600x5; Height, Weight, Blood Pressure, Glucose, Cholesterol;"
+Page 4,National University of Singapore 4 Problems with high dimensionality . takes up storage space and hard to visualise . risk of model overfitting -poor predictions .
+Page 5,the curse of dimensionality refers to the phenomenon that many types of data analysis become significantly harder as the dimensionalities of the data increases . this can mean that there are not enough data objects to allow the creation of a model
+Page 6,"a reduction of dimensionality can lead to a more understandable model because the model may involve fewer attributes . also, a reduced dimensionalness reduction may allow the data to be more easily visualized ."
+Page 7,Feature Subset Selection Methods: Remove all features that do not bring much information or add no new information . Feature Extraction methods: Keep all original features by extracting them to form new independent variables .
+Page 8,the best set of features is one that does not contain redundant and irrelevant features (i.e. less noise). the best sets of features are one that doesn't contain redundant features .
+Page 9,"National University of Singapore 9 Feature Selection Methods Tan, Steinbach & Kumar, Introduction to data mining (2nd Ed), Addison-Wesley ."
+Page 10,Filter methods select features from a dataset based on intrinsic characteristics of the features . Statistical techniques are often used to evaluate the relationship between a predictor and the target variable .
+Page 11,"f test is a statistical method used to determine if there’s a significant association between two categorical variables . if the feature is highly associated to the target variable, then we retain it ."
+Page 12,wrapper methods work by systematically evaluating a subset of features using a machine learning algorithm . this method employs a greedy search strategy aimed to find the best possible combination of features that results in the best machine
+Page 13,a greedy search that iteratively finds the best new feature to add to the set of selected features . start with zero feature and find the one feature that maximizes a cross-validated score when an estimator is
+Page 14,"Joe Bemister-Buffington, Alex J. Wolf, Sebastian Raschka, and Leslie A. Kuhn (2020) Machine Learning to Identify Flexibility Signatures of Class A GPCR Inhibition Biomolecule"
+Page 15,a popular technique that iteratively selects the best number of features through a given supervised learning model (estimator) the goal of RFE is to select features by recursively considering smaller sets of features
+Page 16,train a machine learning model using a model that output list of feature importance . remove the least important feature . Repeat 2 to 4 until the desired number of features is reached .
+Page 17,Embedded methods perform the feature selection within the machine learning algorithm itself during the model training . train a machine learning model 2. Derive feature importance from the model when making prediction 3. Remove non-important features .
+Page 18,Embedded techniques are implemented using algorithms that have their own feature selection methods . some of the most popular examples of these methods are LASSO and RIDGE regression which have inbuilt penalization functions .
+Page 19,random forests are useful for feature selection . some features contain the most informative subset used to predict a target class . important features are those with higher scores .
+Page 20,features are selected independent of the analytical task using univariate analysis . n_features_to_select • Embedded Method • Feature selection occurs intrinsically as part of model building .
+Page 21,selection is done by observing each iteration of model training Computation Speed Fast Very High Computation time with many features Somewhere between Filter and Wrapper methods Overfitting problem Avoids overfitting but sometimes may fail to select
+Page 22,Feature Extraction Method was developed by the national university of Singapore 22 . Feature extraction method was used to extract the Feature . the method is based on a Feature-extraction method .
+Page 23,"PCA was invented in 1901 by Karl Pearson, as an analogue of the principal axis theorem in mechanics . it was later independently developed and named by Harold Hotelling in the 1930s."
+Page 24,"Using Linear Algebra, find a linear combination of all the features such that it captures as much of the original information as possible . we hope that we can use less features to represent the original data Lower DimensionHigh Dimension"
+Page 25,PCA uses a vector space transform to project the data from a high- dimensional space into a lower-dimensional space . it's main purpose is to reduce a correlated multidimensional data set (xi)
+Page 26,"ys principal component xs original Feature aij coefficients capture the maximum amount of variance . 1st component captures the most, followed by 2nd, 3rd, etc."
+Page 27,National University of Singapore 27 Principal Component Analysis Method Feature 1 Feature 2 Feature 3 Feature 4 Feature 5 Feature 6 Feature 7 Feature 8 Feature Feature 9 Feature 10 Feature 12 Feature 11
+Page 28,PCA tries to find a new axis that captures the maximum variance within the data once it is projected onto the new axes .
+Page 29,national university of Singapore 29 Concept of eigenvectors and eigevalues . created by the u.s. university of singapur .
+Page 30,the new axes are called principal components (PCs) the 1st PC accounts for the maximum variance in the data .
+Page 31,"the principal components are considered new variables, and they are all uncorrelated . one can use these fewer no. of variables for further investigation instead of original features ."
+Page 32,national university of Singapore 32 PCA EXAMPLE . copyrighted by the u.s. university of singapore .
+Page 33,national university of Singapore 33 PCA Example: Loan Application Income: Yearly Income Education: no. of years Age: years Residence: years at current address Employ: years in current coy Savings: current saving Debt: current debts
+Page 34,nsa 34 Approach for this Example 1. Basic Data understanding • Summary statistics • Correlation Matrix/Heatmap 2. Check for appropriateness of PCA Method • Bartlett’s Sphericity test •
+Page 35,national university of Singapore 35 1.Basic Data Understanding Summary statistics Frequency Distributions Correlation Matrix/Heatmap .
+Page 36,national university of Singapore 36 Summary Statistics . copyright national University of singapur 36 Summary statistics .
+Page 37,national university of Singapore 37 Correlation Matrix . copyrighted by nasa's national university .
+Page 38,national university of Singapore 38 Scatter Plots . copyrighted by the national University of Singapore .
+Page 39,national university of Singapore 39 Correlation Heatmap . copyrighted by national University of Singapore . the heatmap has been compiled by the u.s.
+Page 40,check for appropriateness for PCA Kaiser-Meyer-Olkin Test Bartlett’s Sphericity Test .
+Page 41,the Kaiser-Meyer-Olkin (KMO) test is a statistical measure that helps to determine how suitable your data is for PCA . the measure returns values between 0 and 1. KMO value closer to 1
+Page 42,"bartlett’s test of Sphericity tests the hypothesis that your correlation matrix is an identity matrix . if true, it implies the existence of redundancies between the variables such that PCA can summarize this with less"
+Page 43,the KMO and Bartlett’s tests provide a minimum standard which should be passed before a Principal Component analysis can be conducted successfully .
+Page 44,Principal Components Interpretation of PC (Loading matrix) Loads Plot .
+Page 45,PCA Transformation Principal Components of the PCA - PCA transformation - are based at the u.s. university of Singapore.
+Page 46,Copyright National University of Singapore 46 Principal Components extracted from a copyright collection by the national university of Singapore .
+Page 47,Principal Components can be interpreted to see how much each original variable contributes (i.e. correlates) to each PC . we can compute this correlation by taking the square root of the eigenvalues and multiply
+Page 48,"it is analogous to Pearson's r, and the squared loading is the percent of variance in that variable explained by the component ."
+Page 49,the Loading Plot graphs the loadings of Principal components . the variable has a weak influence on the component .
+Page 50,Eigenvalues (Kaiser Rule) Total variance explained Scree Plot Communalities Matrix .
+Page 51,eigenvalues represent the total amount of variance that is explained by a given principal component . Eigenvalues are the sum of squared component loading across all items .
+Page 52,the Kaiser rule is perhaps the most widely used criterion for selecting which components to keep . based on the idea that a component should be considered insignificant if it does worse than a single field .
+Page 53,the second row of the table denotes the proportion of the variance attributable to each component . the next row denoted the proportion . of the variation jointly explained by all components .
+Page 54,"Scree Plot test Look for a large drop, followed by a “plateau” in the eigenvalues . beyond the elbow point, the variances explained tapers off ."
+Page 55,Communality represents the total amount of variance of a specific field that is jointly accounted for by all the components . low communality implies an insignificant contribution to the formation of the PCA Solution .
+Page 56,national university of Singapore 56 5.Proceeding to the next step . .proceed a step forward . to the . next step.
+Page 57,eigenvectors are the linear combinations of the original variables that account for the variance in the data . the coefficients indicate the relative weight of each variable in the component .
+Page 58,the scores are standardized values with mean=0 and SD=1 . the scores represent the number of standard deviations above or below the overall mean where each customer lies .
+Page 59,"this score plot graphs the scores of the first PC versus the second PC . if the first two components account for most of the variance in the data, you can use the score plot to assess the data structure ."
+Page 60,the Kaiser-Meyer-Olkin (KMO) test is a guideline . there should be a ratio of at least five cases for each variable . PCA assumes linear relationship between features .
+Page 61,the goal of PCA is to extract the smallest number of components which account for as much as possible of the information of the original features . we will reconstruct the original data using only the saved principal components .
+Page 62,"data loss in image compression 75%, 9 PC 85%, 18 PC 95%, 60 PC 100%, 3800 ."
+Page 63,the process of performing PCA is as follows (like we did earlier): Read in the dataset 2. Basic Data Understanding and Preparation 3. Check appropriateness of data for PCA 4. Call the PCA algorithm (from sklear
+Page 64,national university of Singapore 64 LINEAR DISCRIMINANT ANALYSIS (LDA) .
+Page 65,we reduce the number of features but at the same time create class separability . this is most useful for multi-variate classification-type problems .
+Page 66,national university of Singapore 66 Linear Discriminant Analysis developed in 1936 by R.A. Fisher . aims to find directions that maximize the separation (or discrimination) between different classes .
+Page 67,LDA finds a new dimension that yields maximum separation between the class means . minimum variance within class means within class .
+Page 68,"the data contains two classes, shown in red and black . similar to PCA, the data points are being projected onto a new dimensional line ."
+Page 69,LDA method for more than 2 variables d1 d2 d3 = Mean value of the projected data .
+Page 70,data set contains 178 examples from three classes . each example consists of 13 real-valued features .
+Page 71,National University of Singapore 71 Results of LDA vs PCA . the results of lDA and PCA have been viewed by 71 people .
+Page 72,PCA maximizes the variation explained in the data . both rank the components according to their importance . PCA ranks them according to the largest amount of variance explained between the classes .
+Page 73,the data is uni-modal gaussian (normally distributed) LDA will fail if the discriminatory information is not in the mean but in the variance of the data .
+Page 74,"National University of Singapore 74 Demo, Exercises and Workshop . 74 demo, exercises and workshop courtesy of the national university of Singapore."
+Page 75,national university of Singapore 75 Thank You! Copyright 2014 neo-singaporenn.com .
+Overall Summary,the dimension of a dataset is given as n-rows by p-columns . data with a small p is referred to as low dimensional data . the curse of dimensionality refers to the phenomenon that many types of data analysis become significantly harder .
