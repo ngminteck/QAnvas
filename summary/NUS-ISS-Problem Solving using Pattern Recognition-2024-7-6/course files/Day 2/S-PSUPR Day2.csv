@@ -1,76 +1,76 @@
 Page,Summary
-Page 1, AtA\S-PSUPR\Day2.ppt\V4.0 © 2024 National University of Singapore. All Rights Reserved .
-Page 2," 2.1 Solving Pattern Recognition Problems Using Supervised Learning Techniques (II):Decision Trees, Decision Trees, Neural networks and Support Vector Machines ."
-Page 3, AtA\S-PSUPR\Day2.ppt\V4.0 © 2024 National University of Singapore . All Rights Reserved .
-Page 4, AtA\S-PSUPR\Day2.ppt\V4.0 © 2024 National University of Singapore. All Rights Reserved .
-Page 5," A decision tree is a flow-chart-like tree structure . An internal node performs a test on an attribute. A branch represents a result of the test. A leaf node represents a class label . At each node, one feature is"
-Page 6, ATA\S-PSUPR\Day2.ppt\V4.0 © 2024 National University of Singapore. All Rights Reserved .
-Page 7, AtA\S-PSUPR\Day2.ppt\V4.0 © 2024 National University of Singapore. All Rights Reserved 7.0 .
-Page 8," Basic Algorithm: Quinlan’s ID3/C4.5/C5.0 . If all examples from S belong to the same class Cj, then label the root with Cj- if all examples belong"
-Page 9," At each node, available attributes are evaluated on the basis of  separating the classes of the training examples . A goodness function is used for this purpose ."
-Page 10," Search bias: Search the space of decision trees from simplest to increasingly complex (greedy search, no  backtracking, prefer small trees) At a node, select the attribute that is  most useful for classifying examples"
-Page 11, AtA\S-PSUPR\Day2.ppt\V4.0 © 2024 National University of Singapore .
-Page 12, ATA\S-PSUPR\Day2.ppt\V4.0 © 2024 National University of Singapore. All Rights Reserved 12.0 .
-Page 13, AtA\S-PSUPR\Day2.ppt\V4.0 © 2024 National University of Singapore .
-Page 14, Entropy in binary classification problems is a binary classification problem . Entropy is the result of a binary analysis of the entropy of a set of problems .
-Page 15," Information gain measure is aimed to minimize the number of tests needed for the classification of a new object . Gain(S,A) - expected reduction in entropy of S due to sorting on A. The most informative attribute: max Gain("
-Page 16, AtA\S-PSUPR\Day2.ppt\V4.0 © 2024 National University of Singapore . All Rights Reserved .
-Page 17, AtA\S-PSUPR\Day2.ppt\V4.0 © 2024 National University of Singapore. All Rights Reserved .
-Page 18, AtA\S-PSUPR\Day2.ppt\V4.0 © 2024 National University of Singapore. All Rights Reserved .
-Page 19, AtA\S-PSUPR\Day2.ppt\V4.0 © 2024 National University of Singapore. All Rights Reserved .
-Page 20, The minimum number of samples required to  split an internal node is min_samples_split . The maximum depth of the tree is max_depth .
-Page 21, Information gain biased towards choosing features with a large number of values . This may result in overfitting (selection of a feature that is non-optimal for prediction)
-Page 22, AtA\S-PSUPR\Day2.ppt\V4.0 © 2024 National University of Singapore .
-Page 23, Gain ratio: a modification of the information gain that reduces its bias on highly -branching attributes . Gain ratio takes number and size of branches into account when choosing an attribute .
-Page 24, Gini Index: Splitting Criteria in CART (Classification And Regression Trees) Gini index is minimized if the classes in T are skewed . The attribute providing smallest ginisplit(T) is chosen to split
-Page 25," An induced tree may overfit training data . Too many branches, some may reflect anomalies due to noise or outliers . Poor accuracy for unseen samples ."
-Page 26, Pre-pruning (forward pruning): stop growing the tree . Postpruning: Remove branches from a “fully grown” tree . Using validation data to decide which is the “best pruned tree”
-Page 27, AtA\S-PSUPR\Day2.ppt\V4.0 © 2024 National University of Singapore .
-Page 28, Decision Tree Modeling using Scikit-learn using numpy as numpy and DecisionTree-learn . The results are based on data from the National University of Singapore's DecisionTreeClassifier .
-Page 29, AtA\S-PSUPR\Day2.ppt\V4.0 © 2024 National University of Singapore. All Rights Reserved .
-Page 30, Decision Trees are simple to understand and interpret . They are not guaranteed to produce an optimal decision tree . Over-complex trees do not generalise well from the training data .
-Page 31, Neural Networks (NN) are biologically inspired and attempt to build computational models that operate like a human brain . These networks can “learn” from the data and recognize patterns .
-Page 32, AtA\S-PSUPR\Day2.ppt\V4.0 © 2024 National University of Singapore. All Rights Reserved .
-Page 33, AtA\S-PSUPR\Day2.ppt\V4.0 © 2024 National University of Singapore. All Rights Reserved .
-Page 34," General Architecture of Neural Networks (in general, but not for all NNs) Input layer + Hidden Layer + Output Layer = X1*W1 + X2*W2 +...+ Xn*Wnnet = X"
-Page 35, General Architecture of Neural Networks (cont.) encompasses the architecture of neural networks . Weights are randomised to small real numbers to optimise the network .
-Page 36, ATA\S-PSUPR\Day2.ppt\V4.0 © 2024 National University of Singapore. All Rights Reserved .
-Page 37, AtA\S-PSUPR\Day2.ppt\V4.0 © 2024 National University of Singapore .
-Page 38, The weights are adjusted to minimize the error in its outputs . Training samples are shown to the network as input and the weights were adjusted . ATA\S-PSUPR\Day2.ppt\V4.0 ©
-Page 39, Multilayer Perceptron (MLP) with Backpropagation Learning Learning Learning . Propagate signals forward and then errors backward . Weights in hidden layers are adjusted to reduce aggregate errors in the output layer .
-Page 40, The first hidden layer represents hyperplanes . Nodes in second hidden layer can combine hyperplanes into complex non-linear surfaces . Too many nodes or layers can be very hard to train (requiring many samples & long training time)
-Page 41," Initialize the weights to small random numbers . Randomly select a training pattern pair (xp, tp) and present the input pattern xp to the network . Compute the corresponding network output pattern zp . Backpropagate the errors"
-Page 42, AtA\S-PSUPR\Day2.ppt\V4.0 © 2024 National University of Singapore . All Rights Reserved .
-Page 43, AtA\S-PSUPR\Day2.ppt\V4.0 © 2024 National University of Singapore .
-Page 44, Generalization is the ability of a network to correctly classify a pattern it has not seen (not been trained on) Networks can be overtrained . It means that they memorize the training set and are unable to generalize well .
-Page 45," Building NN & Pre-processing Data: Data Coding, Data Smoothing and Data Transformation . Data Transformation: Log y=log(x) and Delta ∆xi = xi - xi-1 ."
-Page 46, The performance varies with training/ solution procedures . Network optimization should be performed after training/testing (eliminate unneeded nodes and the corresponding weights – is called ‘pruning’)
-Page 47, AtA\S-PSUPR\Day2.ppt\V4.0 © 2024 National University of Singapore . All Rights Reserved .
-Page 48, The National University of Singapore has developed a framework for modeling with Scikit-learn using numpy and MLP-NNNN .
-Page 49, Support Vector Machines (SVM) can be used for pattern classification and non-linear regression – but uses statistical learning theory .
-Page 50, Support Vector Machines (SVM) transforms training data into a higher dimension using nonlinear mapping . Training can be slow but accuracy is high owing to their ability to model complex nonlinear decision boundaries .
-Page 51," The decision surface for the separation is a hyperplane . A training pattern can be represented as a vector from the problem space . Consider a group of training patterns: {(xi, yi) i = 1, 2, …,"
-Page 52," The separation between the decision surface hyperplane and the closest data points is called the separation margin . Support Vectors are called small margins, small margins and large margins ."
-Page 53," When a linear hyperplane exists to place instances of one class on one side and those of the other class on the other side, the instances of the two classes are separated . AtA\S-PSUPR\Day2"
-Page 54, The goal of a support vector is to find the optimal hyperplane for which the margin of separation is maximized . Support vectors are those data  that lie closest to the  decision surface and are the most difficult to classify .
-Page 55, AtA\S-PSUPR\Day2.ppt\V4.0 © 2024 National University of Singapore .
-Page 56," The solutions to the above dual optimization are a set of optimal  αi.otypes for support vectors (SVs) xi,  . α* determine the optimal parameters w* and b* . The solutions are a"
-Page 57, AtA\S-PSUPR\Day2.ppt\V4.0 © 2024 National University of Singapore. All Rights Reserved 57.0 .
-Page 58," The goal of a support vector is to find an optimal hyperplane that minimizes the misclassification error, averaged over the training set . At a set of not linearly separable training patterns, it is not possible"
-Page 59," SVM: Soft margin solution . To classify data sets that are not linearly separable, the SVM is extended by introducing soft margin ."
-Page 60, AtA\S-PSUPR\Day2.ppt\V4.0 © 2024 National University of Singapore. All Rights Reserved 60.0 .
-Page 61, SVM: Soft margin solution - C value . A higher value of C implies you want lesser errors on the training data . ATA\S-PSUPR\Day2.ppt\V4.0 © 2024 National
-Page 62," To construct a SVM for classification with an input space made up of non-linearly separable patterns, form Inner-product kernels . The multidimensional input space is transformed to a new feature space where the"
-Page 63," The original non-linearly separable problem becomes linearlyseparable in the feature space(x1, x2, x1x2) The original 2-dimensional input space becomes a 3-dimensional feature space (x1"
-Page 64, The target of learning is to achieve a minimized error of classification with  apologetic decision surface . Using dual representation we can rewrite                 bd T +φ= (()())()()()( xwx.
-Page 65," SVM : Typical Kernel Functions for Nonlinear Classification . Apply a kernel function K(Xi, Xj) to the original data ."
-Page 66," SVM Example: Classification for 1-D data . We use the polynomial kernel K(xi, xj) = (xi· xj+1)2 and C is set to 100 . We  need to find"
-Page 67," The support vectors are {x2=2, x4=5, x5=6} The discriminant function is  apologetic - for a new point z ."
-Page 68, 68SVM in Practice: Prepare the dataset using the kernel function to use . Select the values suggested by the SVM software . Execute the training algorithm and obtain the  𝑙�’  receive
-Page 69, Multi-class SVM Classifier is a multi-SVM classifier . Training: Learn an SVM for each pair of classes . Testing: Apply each SVM to test example and assign to it the class of the SVM
-Page 70, AtA\S-PSUPR\Day2.ppt\V4.0 © 2024 National University of Singapore. All Rights Reserved 70.0 .
-Page 71, SVM with Scikit-learn is an attempt to mimic the work done by the University of Singapore . It is the result of the two-year collaboration between the university of Singapore and the National Institute of Technology Singapore . The University of
-Page 72, The SVM is an elegant and highly principled learning method for the design of a feedforward network with a single hidden layer of nonlinear units . Design hinges on extraction of a subset of the training data that serves as a stable characteristic of
-Page 73, AtA\S-PSUPR\Day2.ppt\V4.0 © 2024 National University of Singapore. All Rights Reserved .
-Page 74," You will build decision tree, neural network and SVM models in this workshop . Make sure you understand how each different model is built . Compare the performance of these models ."
-Overall Summary," A decision tree is a flow-chart-like tree structure . An internal node performs a test on an attribute and a branch represents a result of the test . A leaf node represents a class label . At each node, one feature is"
+Page 1,Dr Zhu Fangming NUS-ISS National University of Singapore fangming@nus.edu.sg .
+Page 2,DAY 2 AGENDA 2.1 Solving Pattern Recognition Problems Using Supervised Learning Techniques (II): Decision Trees Neural networks Support Vector Machines 2.2 Pattern Recognition Workshop 2
+Page 3,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved .
+Page 4,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved 4 Supervised Learning Techniques (II)
+Page 5,decision tree is a flow-chart-like tree structure . internal node performs a test on an attribute . leaf node represents a class label .
+Page 6,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved 6 Decision Tree .
+Page 7,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved.
+Page 8,Basic Algorithm: Quinlan’s ID3/C4.5/C5.0 - create a root node for the tree . if all examples from S belong to the same class Cj - then label the root
+Page 9,"ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. At start, all training data are at the root."
+Page 10,ATAS-PSUPRDay2.pptV4.0 . All Rights Reserved 10 Heuristic Search .
+Page 11,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore .
+Page 12,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved 12
+Page 13,heuristic: choose attribute that produces the “purest” nodes . popular impurity criterion: information gain increases with the average purity of the subsets .
+Page 14,"All Rights Reserved 14 Entropy • S - training set, C1,...,CN - classes . entropy in binary classification problems E(S) = - p+ log2p+ -"
+Page 15,"Gain(S,A) - expected reduction in entropy of S due to sorting on A . aims to minimize the number of tests needed to classify a new object ."
+Page 16,"ATAS-PSUPRDay2.pptV4.0 . All Rights Reserved 16 Which Attribute to Select? 247.0)Outlook""gain("" = 029.0)e""Temper"
+Page 17,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved.
+Page 18,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved 18 Continuing to Split Finally .
+Page 19,ATAS-PSUPRDay2.pptV4.0 . All Rights Reserved . achieving maximum information gain for A is selected as the split-point for A .
+Page 20,ATAS-PSUPRDay2.pptV4.0 . All Rights Reserved 20 Stopping Criteria .
+Page 21,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved.
+Page 22,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore . Information gain is maximal for ID code ID Outlook Temperature Humidity Windy Play?
+Page 23,Gain ratio is a modification of the information gain that reduces its bias on highly -branching attributes . it takes number and size of branches into account when choosing an attribute .
+Page 24,"gini(T) is defined as where pj is the relative frequency of class j in T . if a data set T contains examples from n classes, the class in T is skewed"
+Page 25,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved 25 Overfitting / Overtraining .
+Page 26,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. all rights reserved.
+Page 27,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved 27 Overfitting and Tree Pruning.
+Page 28,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved.
+Page 29,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved 29 Decision Tree Summary.
+Page 30,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved.
+Page 31,Neural Networks (NN) are biologically inspired and attempt to build computational models that operate like a human brain . these networks can “learn” from the data and recognize patterns .
+Page 32,Neural Networks http://www.asimovinstitute.org/neural-network-zoo/ .
+Page 33,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved.
+Page 34,"ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved 34 General Architecture of Neural Networks • Framework (in general, but not for all NNs"
+Page 35,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved 35 General Architecture of Neural Networks.
+Page 36,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved 36 Activation functions.
+Page 37,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved.
+Page 38,ATAS-PSUPRDay2.pptV4.0 . All Rights Reserved 38 Neural Network Learning /Training .
+Page 39,Multilayer Perceptron (MLP) with Backpropagation Learning . Propagate signals forward and then errors backward . Weights in hidden layers adjusted to reduce aggregate errors .
+Page 40,too many nodes or layers can be very hard to train (requiring many samples & long training time) LOW RISK 0 o o 1 o 2 o 3 0 1 0 2 0 3
+Page 41,"backpropagation algorithm is a weight-adjustment algorithm . it is based on a training pattern pair (xp, tp) and a network output pattern (zp) backpropagate"
+Page 42,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved 42 Gradient Descent Learning ( )
+Page 43,MLP Networks 0.32 0.36 0.77 0.35 0.54 0.80 X1 X2 Y1 0.28 0.30 0.63 0.21 0.65 0.91 ... Training Error Number of training cycles MSE
+Page 44,generalization is the ability of a network to correctly classify a pattern it has not seen (not been trained on) NNs generalize when they recognize patterns not previously trained on or when they predict new outcomes from past behaviors
+Page 45,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved 45 Building NN & Pre-processing Data.
+Page 46,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved 46 Testing / Evaluation • Testing the Generalization ability of a trained NN .
+Page 47,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved.
+Page 48,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved.
+Page 49,support vector machines (SVMs) can be used for pattern classification and non-linear regression – but uses statistical learning theory .
+Page 50,training can be slow but accuracy is high owing to their ability to model complex nonlinear decision boundaries (margin maximization)
+Page 51,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved.
+Page 52,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved 52 .
+Page 53,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved 53 Linear Separability.
+Page 54,the goal of a support vector machine for linearly separable patterns is to find the particular hyper-plane for which the margin of separation is maximized . SVM searches for the optimal hyperplane .
+Page 55,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore . All Rights Reserved 55 Learning SVM as Optimization .
+Page 56,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved 56 Learning SVM as Optimization .
+Page 57,Learning SVM as Optimization is given by Inner product bybd ii l i i T +=+= = xxxx .
+Page 58,"goal of a support vector machine for not linearly separable patterns is to find an optimal hyperplane that minimizes the misclassification error, averaged over the training set ."
+Page 59,ll = 0 if there is no error for xi ii T i by + 1)( subject to xw)
+Page 60,"there are optimization functions proposed for the case with soft margin, such as CC is a penalty parameter . hard margin minimizes 1 2 wwTTww+ CC ii ii subject to y"
+Page 61,higher value of C implies you want lesser errors on the training data . https://blog.statsbot.co/support-vector-machines- tutorial-c1618e635e93 .
+Page 62,"a subset of training samples x1, x2, ...xm1 will be used as support vectors . define the separating hyperplane as a linear function of vector drawn from the feature space"
+Page 63,"Map the original 2-dimensional input space to a 3-dimensional feature space x = (x1, x2) (x1 x2, x1x2) The original non-linearly separable problem becomes linear"
+Page 64,"the target of learning is to achieve a minimized error of classification with decision surface . a function that performs this direct computation of inner product is known as a kernel function, which is equivalent to the distance between x and"
+Page 65,"Apply a kernel function K(Xi, Xj) to the original data . Typical Kernel Functions for Nonlinear Classification ."
+Page 66,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved 66 SVM Example .
+Page 67,"a new point z is solved by solving f(2)=1 or f(5)=-1 or by f(6)=1, all three give b=9 . all rights reserved ."
+Page 68,"all rights reserved 68 SVM in Practice . you can use the values suggested by the SVM software, or you can set apart a validation set ."
+Page 69,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved 69 Multi-class SVM Classifier .
+Page 70,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved 70 Applications of SVM .
+Page 71,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore . all rights reserved .
+Page 72,SVM is an elegant and highly principled learning method . design hinges on the extraction of a subset of the training data that serves as support vectors . learning algorithm operates only in a batch mode .
+Page 73,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore. All Rights Reserved.
+Page 74,"you will build decision tree, neural network and SVM models in this workshop . save your notebook with the cell output and upload it to Canvas ."
+Overall Summary,ATAS-PSUPRDay2.pptV4.0 2024 National University of Singapore . all Rights Reserved 61 SVM with non-linear kernels . 'simple' sVMs can be used to build a decision tree based on training data .

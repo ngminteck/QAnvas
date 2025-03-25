@@ -1,53 +1,53 @@
 Page,Summary
-Page 1, At a.S-PSUPR\Day1b.ppt\V3.0 © 2024 National University of Singapore. All Rights Reserved .
-Page 2," AtA\S-PSUPR\Day1bb.ppt\V3.0 © 2024 National University of Singapore . All Rights Reserved 21.2: How to ANALYSE, MODEL AND SOL"
-Page 3," Aims to solve pattern recognition problems: data pre-processing,  feature selection, model evaluation . Data pre-processes, feature selection and model evaluation are important issues for pattern recognition ."
-Page 4, Pattern Recognition Process with Supervised Learning . ATA\S-PSUPR\Day1b.ppt\V3.0 © 2024 National University of Singapore. All Rights Reserved .
-Page 5," A pattern is represented by a set of d features, or attributes,  viewed as a d-dimensional feature vector ."
-Page 6, AtA\S-PSUPR\Day1b.ppt\V3.0 © 2024 National University of Singapore .
-Page 7, Normalization & feature scaling techniques are important  for many machine learning algorithms . Use the same parameters on the test dataset and new  unseen data .
-Page 8," Feature Selection: Retain only ""useful"" (discriminatory) information and avoid  overfitting . Computational complexity: 'Curse of dimensionality'"
-Page 9," Principal Component Analyses (PCA) and Linear Discriminant Analysis (LDA) can be used . LDA, in contrast to PCA, is a supervised method, using class labels ."
-Page 10, Data Partition and Preparation: Training set vs test set vs. validation set . Cross-validation set: ATA\S-PSUPR\Day1b.ppt\V3.0 .
-Page 11, ATA\S-PSUPR\Day1b.ppt\V3.0 © 2024 National University of Singapore. All Rights Reserved .
-Page 12, Z=0 Z=1: Learning from Imbalanced Data. AtA\S-PSUPR\Day1b.ppt\V3.0 © 2024 National University of Singapore. All Rights Reserved 12 .
-Page 13, ATA\S-PSUPR\Day1b.ppt\V3.0 © 2024 National University of Singapore . All Rights Reserved .
-Page 14," Complex models are tuned to the particular training samples, rather than on the  characteristics of the true model . We can get perfect classification performance on the training data by choosing a more complex model ."
-Page 15," Generalization is defined as the ability of a classifier to produce correct results on  novel patterns . More training examples (i.e., better model estimates)"
-Page 16, AtA\S-PSUPR\Day1b.ppt\V3.0 © 2024 National University of Singapore .
-Page 17, AtA\S-PSUPR\Day1b.ppt\V3.0 © 2024 National University of Singapore .
-Page 18, ATA\S-PSUPR\Day1b.ppt\V3.0 © 2024 National University of Singapore. All Rights Reserved 18Gain Chart and Lift Chart .
-Page 19," Hyperparameter are parameters that are not directly learnt within estimators . For example, C, kernel and gamma for Support Vector machine ."
-Page 20, ATA\S-PSUPR\Day1b.ppt\V3.0 © 2024 National University of Singapore . All Rights Reserved .
-Page 21, AtA\S-PSUPR\Day1b.ppt\V3.0 © 2024 National University of Singapore .
-Page 22, AtA\S-PSUPR\Day1b.ppt\V3.0 © 2024 National University of Singapore .
-Page 23, AtA\S-PSUPR\Day1b.ppt\V3.0 © 2024 2024 National University of Singapore . Least squares estimation gave us  a line (β) that minimized   that
-Page 24, AtA\S-PSUPR\Day1b.ppt\V3.0 © 2024 National University of Singapore. All Rights Reserved 24 .
-Page 25, Logistic Regression is a good match for many T/F prediction situations . The transformation ln(p/1-p) turns this into a straight line (p = prob(target) P(Target) and P(
-Page 26, Multinomial Logistic Regression generalizes logistic regression to multiclass problems . Predict the probabilities of the different possible  outcomes .
-Page 27, K- Nearest Neighbour: Assign a new pattern to the most represented class in the K nearest neighbours (e.g. K = 5)
-Page 28," K- Nearest Neighbour requires 3 things: Feature Space(Training Data) Distance metric, number of nearest neighbors and class labels ."
-Page 29, AtA\S-PSUPR\Day1b.ppt\V3.0 © 2024 National University of Singapore. All Rights Reserved .
-Page 30," If k is too small, sensitive to noise points, neighborhood may include points from other classes . Choose an odd value for k, to eliminate ties between neighbors ."
-Page 31, Nearest Neighbour classifiers are lazy learners. Attributes may have to be scaled to prevent distance measures from being dominated by one of the attributes .
-Page 32," Naive Bayes is a probabilistic machine learning algorithm based on the Bayes Theorem . Typical applications include filtering spam, classifying documents, sentiment prediction, recommendation systems, etc."
-Page 33," Bayesian Classification performs probabilistic prediction, i.e., predicts class membership probabilities, based on Bayes’ Theorem . P(H|X) (prior probability): the initial probability that sample data is"
-Page 34," Bayes’ theorem, maximize P(Ci|X) is equivalent to maximize  P(P(X) for all classes . Since Bayes' theorem, maximizing P(P) is constant . Since P("
-Page 35, A naïve Bayes classifier is a simple probabilistic classifier based on applying Bayes’  theorem with strong (naïve) independence assumptions . It assumes that attributes are conditionally independent .
-Page 36," Fruit Prediction Problem: predict if a given fruit is a 'Banana' or 'Orange' or ‘Other’ based on three features:  long (0/1), sweet (1/1) and yellow ("
-Page 37," Naïve Bayes Classifier Example: Long (1), Sweet (1) and Yellow(1) Can you predict what fruit it is? Can you tell a fruit that is: Long, Sweet and Yellow?"
-Page 38, AtA\S-PSUPR\Day1b.ppt\V3.0 © 2024 National University of Singapore. All Rights Reserved 38Naïve Bayes Classifier Example .
-Page 39, Bayes Classifier Example: P(x1=Long) = 500 / 1000 = 0.50/1000 . (optional) Compute the probability of evidence that goes in the denominator .
-Page 40, P(x1=Long | C=Banana) = 400 / 500 = 0.80%; P(X2=Sweet | C = Banana) = 350 / 500; P3.0/V3 . The overall
-Page 41," Substitute all the values into the Naive Bayes formula to get the probability for “banana” P(C=Banana | X1=Long, X2=Sweet and X3=Yellow)"
-Page 42," P(C=Orange | X1=Long, X2=Sweet and X3=Yellow) = 0/ (C=Other) Repeat Step 3 and Step 4 to get the probability for ‘Orange’ and �"
-Page 43," The Banana has the highest probability among the three classes of Bayes Bayes Classifier Example . The Banana is the most likely to be Banana, Orange, Long and Yellow ."
-Page 44," When having a model with many features, the entire probability will become zero because one of the feature’s value was zero . To avoid this, we increase the count of the variable with zero to a small value (usually"
-Page 45, A Naive Bayes classifier performs better  than other models like logistic regression and needs less training data . It performs well in case of categorical input variables compared to numerical variables .
-Page 46, Researchers at the National University of Singapore are using Scikit-learn to test accuracy and predict accuracy . The results are based on a model that is being used by the National Institute of Singapore . At a cost of $3.0 per
-Page 47, AtA\S-PSUPR\Day1b.ppt\V3.0 © 2024 National University of Singapore . All Rights Reserved .
-Page 48," You may install and create your own Anaconda environment and run Jupyter Notebooks using Google Colab . Alternatively, you can run JupYter Notebook using Google colab . At a.S-PS"
-Page 49, Download and install latest Anaconda for Python 3.7:  https://www.anaconda.com/download/
-Page 50," The objective of the dataset is to diagnostically predict whether or not a patient has diabetes, based on certain diagnostic measurements . The datasets consists of several medical predictor variables and one target,Outcome . Predictor variables includes the number of"
-Page 51, AtA\S-PSUPR\Day1b.ppt\V3.0 © 2024 National University of Singapore .
-Overall Summary," Dr Zhu Fangming: How to ANALYSE, MODEL AND SOLVE PATTERN RECOGNITION PROBLEMS . Not be reproduced in any form or by any means ."
+Page 1,Dr Zhu Fangming NUS-ISS National University of Singapore fangming@nus.edu.sg .
+Page 2,"All Rights Reserved 2 1.2 HOW TO ANALYSE, MODEL AND SOLVE PATTERN RECOGNITION PROBLEMS ."
+Page 3,ATAS-PSUPRDay1b.pptV3.0 2024 National University of Singapore. All Rights Reserved.
+Page 4,ATAS-PSUPRDay1b.pptV3.0 2024 National University of Singapore. All Rights Reserved 4 Pattern Recognition Process with Supervised Learning.
+Page 5,"a pattern is represented by a set of d features, or attributes, viewed as a d-dimensional feature vector . x: input vector (pattern with features) y: class label /re"
+Page 6,"ATAS-PSUPRDay1b.pptV3.0 2024 National University of Singapore. All Rights Reserved 6 Data Pre-processing Data cleaning . Fill in missing values,"
+Page 7,ATAS-PSUPRDay1b.pptV3.0 2024 National University of Singapore. Use the same parameters on the test dataset and new unseen data.
+Page 8,ATAS-PSUPRDay1b.pptV3.0 2024 National University of Singapore. All Rights Reserved.
+Page 9,Principal Component Analyses (PCA) and Linear Discriminant Analysis (LDA) can be used . LDA tries to identify attributes that account for most variance between classes .
+Page 10,ATAS-PSUPRDay1b.pptV3.0 2024 National University of Singapore. All Rights Reserved 10 Data Partition and Preparation Training set vs. test set
+Page 11,ATAS-PSUPRDay1b.pptV3.0 2024 National University of Singapore. All Rights Reserved 11 Cross Validation.
+Page 12,ATAS-PSUPRDay1b.pptV3.0 2024 National University of Singapore. All Rights Reserved 12 Learning from imbalanced data .
+Page 13,ATAS-PSUPRDay1b.pptV3.0 2024 National University of Singapore. Error Measures • Overtraining/overfitting • Confusion Matrix.
+Page 14,ATAS-PSUPRDay1b.pptV3.02024 National University of Singapore. All Rights Reserved 14 Overfitting .
+Page 15,generalization is defined as the ability of a classifier to produce correct results on novel patterns . simpler models usually yield better performance .
+Page 16,ATAS-PSUPRDay1b.pptV3.0 2024 National University of Singapore . all rights reserved .
+Page 17,"the higher the AUC, the better is the model . true positive rate 0 % 100% False Positive Rate 0 100% 100 % AUC = 90% ."
+Page 18,Gain Chart and Lift Chart - ATAS-PSUPRDay1b.pptV3.0 2024 National University of Singapore.
+Page 19,ATAS-PSUPRDay1b.pptV3.02024 National University of Singapore . hyperparameters are parameters that are not directly learnt within estimators .
+Page 20,ATAS-PSUPRDay1b.pptV3.0 2024 National University of Singapore. All Rights Reserved 20 1.3 Solving Pattern Recognition Problems Using Supervised Learning Techniques
+Page 21,ATAS-PSUPRDay1b.pptV3.0 2024 National University of Singapore. All Rights Reserved 21 Supervised Learning Techniques • Linear Regression & Logistic Regression
+Page 22,ATAS-PSUPRDay1b.pptV3.0 2024 National University of Singapore. age income Minimises the sum of squared error .
+Page 23,least squares estimation gave us the line () that minimized C2 += ii xy y . SSreg Distance from regression line to nave mean of y
+Page 24,ATAS-PSUPRDay1b.pptV3.0 2024 National University of Singapore. All Rights Reserved 24 Logistic Regression.
+Page 25,ln(p/1-p) turns this into a straight line (p = prob(target)) P(Target) is a good match for many T/F prediction situations .
+Page 26,ATAS-PSUPRDay1b.pptV3.02024 National University of Singapore. All Rights Reserved 26 Multinomial Logistic Regression.
+Page 27,ATAS-PSUPRDay1b.pptV3.0 2024 National University of Singapore.
+Page 28,ATAS-PSUPRDay1b.pptV3.0 2024 National University of Singapore. All Rights Reserved 28 K- Nearest Neighbour.
+Page 29,ATAS-PSUPRDay1b.pptV3.0 2024 National University of Singapore. All Rights Reserved 29 29 K-nearest neighbor .
+Page 30,"ICDM: Top Ten Data Mining Algorithms, k nearest neighbor classification,2006 . k = 1: Belongs to square class ?"
+Page 31,ATAS-PSUPRDay1b.pptV3.02024 National University of Singapore. All Rights Reserved 31 K- Nearest Neighbour Advantages .
+Page 32,"Naive bayes is a probabilistic machine learning algorithm based on the Bayes Theorem . Typical applications include filtering spam, classifying documents, sentiment prediction, recommendation systems ."
+Page 33,"Bayesian Classification performs probabilistic prediction, i.e., predicts class membership probabilities, based on Bayes’ Theorem . the probability that the hypothesis holds given the observed sample X"
+Page 34,ATAS-PSUPRDay1b.pptV3.02024 National University of Singapore. All Rights Reserved 34 Bayesian Classification.
+Page 35,"nave Bayes classifier assumes that attributes are conditionally independent (i.e., no dependence relation between attributes)"
+Page 36,ATAS-PSUPRDay1b.pptV3.02024 National University of Singapore. All Rights Reserved 36 Nave Bayes Classifier Example .
+Page 37,ATAS-PSUPRDay1b.pptV3.0 2024 National University of Singapore. All Rights Reserved 37 Nave Bayes Classifier Example Let’s say you are given
+Page 38,ATAS-PSUPRDay1b.pptV3.02024 National University of Singapore. All Rights Reserved 38 Nave Bayes Classifier Example .
+Page 39,"the denominator is the same for all the classes and so will not affect the probabilities . if a class is long, the probability of evidence goes in the same direction ."
+Page 40,the overall probability of Likelihood of evidence for Banana = 0.8 * 0.7 * 0.9 = 0.504 .
+Page 41,Nave Bayes Classifier Example . Substitute all the values into the Naive Bayesian formula to get the probability for “banana”.
+Page 42,ATAS-PSUPRDay1b.pptV3.0 2024 National University of Singapore. All Rights Reserved.
+Page 43,Banana Orange has the highest probability among the three classes . 0.252/pp(SSeeeeeSSLLeesSS) 0/pp (Sseeee SSlleeS)
+Page 44,"to avoid this, we increase the count of the variable with zero to a small value (usually 1) in the numerator, so that the overall probability doesn’t become zero ."
+Page 45,"a Naive Bayes classifier performs better when assumption of independence holds . it performs well in case of categorical input variables compared to numerical variables . in real life, it is almost impossible that we get"
+Page 46,ATAS-PSUPRDay1b.pptV3.0 2024 National University of Singapore. All Rights Reserved 46 Modeling with Scikit-learn.
+Page 47,All Rights Reserved 47 1.4 WORKSHOP 1 SOLVING PATTERN RECOGNITION PROBLEMS USING PYTHON AND SCIKIT .
+Page 48,"you may install and create your own Anaconda environment and run Jupyter Notebooks . you can also use Google colab to run your own . to start working with colab, you first need to log in to"
+Page 49,download and install latest Anaconda for Python 3.7 . .ipynb files can be opened within your browser .
+Page 50,"the objective of the dataset is to diagnostically predict whether or not a patient has diabetes . the datasets consists of several medical predictor variables and one target variable, Outcome . Predictor variables includes the number of"
+Page 51,jupyter notebook helps you understand how each different model is built . compare the performance of these models . save your notebook with the cell output and upload it to Canvas .
+Overall Summary,ATAS-PSUPRDay1b.pptV3.0 2024 National University of Singapore . All Rights Reserved 31 Nave Bayes Classifier Example . all rights reserved . a naive bayes classifier is a probabilistic machine learning algorithm based on the . Bayesian theorem .

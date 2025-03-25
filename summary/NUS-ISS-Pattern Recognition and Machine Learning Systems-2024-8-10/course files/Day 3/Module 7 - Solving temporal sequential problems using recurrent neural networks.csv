@@ -1,31 +1,31 @@
 Page,Summary
-Page 1,Module 7 - Solving temporal sequential problems using recurrent neural networks . NUS-ISSPattern Recognition using Machine Learning System.
+Page 1,All Rights Reserved.Module 7 - Solving temporal sequential problems using recurrent neural networks by Dr. Gary Leung .
 Page 2,When time is a factor
-Page 3, The other applicationwith time is the other application with time. Source: Cvisiontech.com.com/resources/ocr-primer .
-Page 4," The related inputs are not independent from each other . If you want to predict which word to come in a sentence, you better know what have been typed/ said before ."
-Page 5, Recurrent neural network is a net that perform the same calculation on elements/segments from a sequence . The output of a current element/ segment depends on the outputs from the previous elements/ segments .
-Page 6, CNN is less powerful and slower in calculation than RNN . LSTMCNN is considered more powerful than CNN . CNN can handle arbitrary input/output lengths and generate fixed size outputs .
-Page 7," Time stepPrediction: Assume we have a series of 13 values, and we would like to predict the next value0, 1, 1.1.2.3.4.5. Time step: Time step. Time"
-Page 8," We chop the series into segments, each segment with a fixed amount of time steps, called length . Time step make segments . We don’t feed in the entire series into the net ."
-Page 9, The preprocessed input:© 2024 National University of Singapore. All Rights Reserved. makeStepsThe procedure .
-Page 10, The preprocessed input:segment 3not sufficient length to form segmentmakeSteps. The procedure© 2024 National University of Singapore. All Rights Reserved.
-Page 11, Write a function that can generate the desired preprocessed input from a 1D series/signals with the below signature .
-Page 12, The workingW⋅ x=w11w12⋯w1nx1 w21w22 ⋮ ⋬w2nx2⋬ . The working W⋉x=
-Page 13, The workingW=1 0 0 0 1 −1[2 0 0 −1 1]x1= [01 1 32]
-Page 14, WorkingW=1 0 0 0 1 −1[2 0 0 −1 1]W⋅x1= [01 1 32]x1 = [01 13 of 29 of 29 .
-Page 15, The output of element-wise multiplication is the length ofvandx must be equal . The length of vandxmust be equal to equal . Element-wisev�’x=v1 v1 v2 v
-Page 16," For RNN, the we feed the input segment by segment or row by row . The workingx1x2x3Ws1=W⋅x1activationx1h1= tanh(s1+b"
-Page 17," The same U and W forx1,x2, x3 are changedonlyduring updating phase of training . The workingWs1=W⋅x1activationx1h1= tanh(s1+b"
-Page 18," In rnn, the more we perform recurrent operation,mathematically, that is equivalent to adding more layers to the net . So vanishing gradient§comes in ...RNN ."
-Page 19, RNN how to build rnn in Keras>fromtensorflow.keras.layersimportSimpleRNN . How many segments in a single sample? what is the length of each segment? What is the size of
-Page 20, RNNHow to build rnn in KerasInputimporttensorflow.keras.layers>fromSimpleRNN importtensor.flow.models>from>inputs>y>y= Input(shape)
-Page 21, Francois Chollet’s perspective 20 of 29 of his 29-year-old LSTM project was created by the National University of Singapore . The project is based on the work done by the Singapore Institute of Technology .
-Page 22, The internal working of 'carry' is defined as 'carrying' The Sigmoid function has been defined as the 'carry function' and 'sigmoid functions'
-Page 23, A single LSTM cell was created by the National University of Singapore . A single cell was used to make a single cell . The cell is the result of a single microchip .
-Page 24," LSTMHow to build lstm in KerasInput importtensorflow.keras.layers>fromLSTM import .model.layer (type) Output Shape Param #================================================064)16,"
-Page 25, It is possible to stack recurrent layers and make the net deeper . Superscript denotes LSTM layer; Subscript denote time stepStacking .
-Page 26, Superscript denotes LSTM layer; Subscript denotes time stepStackingTime step 2.1.1h11.2h2024/v1.prumls/y2024 .
-Page 27, Superscript denotes LSTM layer; Subscript denotes time stepStackingTime step 3.1.1h12LSTM 2x2c12h22c22 .
-Page 28," On the output to Dense, only the final output sequence fed into Dense layer . LSTM 1h11.2h22h22g.2gg.3ggg: Densey . Dense"
-Page 29," To stack lstm, return_sequences must be set to True . The output shape is(None, 3, 7) because of returned sequences . The number of rowsof the output is always equal to the number of"
-Overall Summary, Module 7 - Solving temporal sequential problems using recurrent neural networks . NUS-ISSPattern Recognition using Machine Learning System .
+Page 3,ocr-neural-networks-and-other-machine-learning-techniques.html 2024 National University of Singapore.
+Page 4,http://www.androidpolice.com/2015/11/06/swiftkey-update-to-v6-0-with-redesigned-settings-menu-double-word-prediction-and
+Page 5,Recurrent neural network: a net that perform the same calculation on elements/segments from a sequence .
+Page 6,CNN vs RNNComparison 2024 National University of Singapore. All Rights Reserved.
+Page 7,"time stepPrediction•Suppose we have a series of 13 values, and we would like to predict the next value0, 1, 1, 3, 2, 2, 4, 5, 4, 7, 8, 8, 9."
+Page 8,"we chop the series into segments, each segment with a fixed amount of time steps, called length 2024 National University of Singapore ."
+Page 9,"makeStepsAssume we want to have a lengthof 4, and a distance of 30, 1, 1, 2, 2,4, 5, 4,segment 3segement 47, 8, 8, 931,1,0,"
+Page 10,"if we want to have a length of 5, and a distance of 34, 5, 4, 7, 8, 8, 9segment . 20, 1, 1, 3, 2, 2,23,1,0,54,2,2,3,87,4,5"
+Page 11,"Write a function that can generate the desired preprocessed input from a 1D series/signals with the below signature . the procedure>defmakeSteps(dat, length, dist):•"
+Page 12,the workingW x=w11w12w1nx1 w21w22w2nx2 wm1wm2wmnxn =w11x1
+Page 13,2024 National University of Singapore. All Rights Reserved.prumls/y2024/v1.1 Wx1•Assume•and we knowDot productThe workingW=1 0
+Page 14,all rights reserved.prumls/y2024/v1.11=[20 + 01 + (1)3 + 12] 14of 29 students at the national university of Singapore have
+Page 15,the output of element-wise multiplication is: v1 v2vn x1 x2xn =v1x1v2x2 2024 National University of Singapore.
+Page 16,"•For RNN, the we feed the input segment by segment or row by row0, 1, 1, 3, 23, 2, 2, 4, 54, 5, 4, 7, 8RNNThe workingx1x2x3Ws1=Wx"
+Page 17,"the same U and W forx1,x2, x3•U and W are changedonly during updating phase of training . rnn 2024 National University of Singapore."
+Page 18,"rnn's vanishing gradient is equivalent to adding more layers to the net . the more we perform recurrent operation, the more layers we add . all rights reserved ."
+Page 19,rnn is a web-based programming language developed by the national university of singapore . it can be used to build a single layer of a multi-layer RNN framework .
+Page 20,"rnn can be built in kerasInputimporttensorflow .layers from SimpleRNN . simpleRNN (32)(inputs)= Dense(1, activation"
+Page 21,'Deep Learning with Python' by Francois Chollet . source: https://y2024/v1.1Source: LSTM 2024 National University of Singapore .
+Page 22,"the internal working of 'carry' carryci is the sigmoid function . let's denoteas element-wise multiplication, and we have 2024 National University of Singapore ."
+Page 23,https://medium.com/analytics-vidhya/lstms-explained-a-complete-technically-accurate-conceptual-guide-with-ker
+Page 24,LSTMHow to build lstm in KerasInputimporttensorflow.keras.layers>fromLstmpimporttense.ker.models> fromModelim
+Page 25,it is possible to stack recurrent layers and make the net deeper . Dense y 2024 National University of Singapore.
+Page 26,Dense y 2024 National University of Singapore. All Rights Reserved. LSTM 1 26of 29 .
+Page 27,•Superscript denotes LSTM layer; Subscript denots time stepStackingTime step 3 . •LSTM 1 27of 29 .
+Page 28,LSTM layer 1h11 c11 h21 c21 lstm 2x2 c12 h22 c22 LStm 1h13 ssm2x3h23
+Page 29,"lstm output shape is(none, 3, 7) because of returned sequences, otherwise it will simply be(None, 7)"
+Overall Summary,all Rights Reserved.prumls/y2024/v1.14of 29 LSTM vs recurrent neural network . a lstm that returns sequences is always equal to the number of rows of the input to the unit .

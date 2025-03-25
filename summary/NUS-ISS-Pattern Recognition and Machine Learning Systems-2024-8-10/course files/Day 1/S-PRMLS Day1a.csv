@@ -1,23 +1,23 @@
 Page,Summary
-Page 1, AtA\S-PRMLS\Day1a.ppt\V2.0 © 2024 National University of Singapore. All Rights Reserved .
-Page 2, Aims to build multi-layer Perceptron networks using Weka and Python . Machine Learning and Pattern Recognition and Machine Learning are discussed in this article .
-Page 3, ATA\S-PRMLS\Day1a.ppt\V2.0 © 2024 National University of Singapore. All Rights Reserved .
-Page 4, AtA\S-PRMLS\Day1a.ppt\V2.0 © 2024 National University of Singapore . All Rights Reserved .
-Page 5," Pattern is in everything around us in this digital world. Visual, audio, text, temporal… and visual patterns are in everything . ATA\S-PRMLS\Day1a.ppt\V2.0 ©"
-Page 6, Machine Learning Basics: Pattern Recognition is a type of problem while Machine Learning is a solution . ATA\S-PRMLS\Day1a.ppt\V2.0 © 2024 National University of Singapore .
-Page 7, Spam email classification - classify emails as legitimate or spam . Unsupervised: Discover patterns in unlabeled data . Reinforcement learning: learn to act based on reinforcement learning .
-Page 8," Machine Learning Techniques: Regression Algorithms (eg. Linear Regression, Logistic Regression) and Instance-based Al algorithms: k-Nearest Neighbor . Decision Tree Algorithm: Decision Tree, Bayesian Algorith"
-Page 9, AtA\S-PRMLS\Day1a.ppt\V2.0 © 2024 National University of Singapore. All Rights Reserved .
-Page 10, Deep Learning (DL) is a machine learning subfield of learning representations of data . Exceptional effective at learning patterns .
-Page 11, National University of Singapore courses are being taught by Nvidia's deep-learning software . The courses will be taught by the University of Singapore .
-Page 12, Deep learning provides a very flexible and learnable framework for representing information . Can learn both unsupervised and supervised and supervised learning . Can also learn from large amounts of training data .
-Page 13, AtA\S-PRMLS\Day1a.ppt\V2.0 © 2024 National University of Singapore .
-Page 14, AtA\S-PRMLS\Day1a.ppt\V2.0 © 2024 National University of Singapore. All Rights Reserved 14 .
-Page 15, 15PR and ML Systems: Image Classification . ATA\S-PRMLS\Day1a.ppt\V2.0 © 2024 National University of Singapore .
-Page 16, ATA\S-PRMLS\Day1a.ppt\V2.0 © 2024 National University of Singapore . All Rights Reserved 16PR and ML Systems: Image Classification .
-Page 17, 17PR and ML Systems: Object Detection . ATA\S-PRMLS\Day1a.ppt\V2.0 © 2024 National University of Singapore .
-Page 18, Encoder-decoder architecture for machine translation . Encoder: An RNN to code the input  into a hidden  state (feature) The output is a sequence of words in target language .
-Page 19, AtA\S-PRMLS\Day1a.ppt\V2.0 © 2024 National University of Singapore. All Rights Reserved 19PR and ML Systems: Image Captioning .
-Page 20, National University of Singapore: Active Random Forests: An application to Autonomous Unfolding of Clothes (ECCV 2014)
-Page 21, AtA\S-PRMLS\Day1a.ppt\V2.0 © 2024 National University of Singapore. All Rights Reserved 21 .
-Overall Summary, PATTERN RECOGNITION AND MACHINE LEARNING SYSTEMSDAY 1: Introduction to Pattern Recognition and Machine Learning . Day 1: Building  Multi-Layer Perceptron using Weka and Python .
+Page 1,"Dr Zhu Fangming NUS-ISS fangming@nus.edu.sg Not be reproduced in any form, without the written permission of ISS, NUS ."
+Page 2,ATAS-PRMLSDay1a.pptV2.0 2024 National University of Singapore. All Rights Reserved 2 DAY 1 AGENDA 1.1 Introduction to Pattern Recognition and Machine Learning Systems 1.2
+Page 3,ATAS-PRMLSDay1a.pptV2.0 2024 National University of Singapore. All Rights Reserved .
+Page 4,ATAS-PRMLSDay1a.pptV2.0 2024 National University of Singapore. All Rights Reserved.
+Page 5,Pattern is in everything around us in this digital world . https://www.analyticsvidhya.com/patternrecognition/ .
+Page 6,ATAS-PRMLSDay1a.pptV2.0 2024 National University of Singapore.
+Page 7,ATAS-PRMLSDay1a.pptV2.0 2024 National University of Singapore. All Rights Reserved 7 Types of Machine Learning.
+Page 8,ATAS-PRMLSDay1a.pptV2.0 National University of Singapore. All Rights Reserved 8 Machine Learning Techniques.
+Page 9,ATAS-PRMLSDay1a.pptV2.0 2024 National University of Singapore. All Rights Reserved 9 Neural Networks.
+Page 10,https://www.xenonstack.com/blog/static/public/uploads/media/machine-learning-vs-deep-learning.png .
+Page 11,developer.nvidia.com/deep---learning---courses . all rights reserved . deep learning courses are available at developer.deeplearning.com .
+Page 12,"o Manually designed features are often over-specified, incomplete and take a long time to design and validate o Learned Features are easy to adapt, fast to learn o Deep learning provides a very flexible and learn"
+Page 13,"machine translation, Sentiment Analysis, Dialogue Agents, Question Answering, Text Classification ... Leverage different levels of representation o words & characters o syntax & semantics Deep Learning ."
+Page 14,ATAS-PRMLSDay1a.pptV2.0 2024 National University of Singapore. All Rights Reserved 14 Applications of Machine Learning / Deep Learning.
+Page 15,ATAS-PRMLSDay1a.pptV2.0 2024 National University of Singapore. All Rights Reserved.
+Page 16,ATAS-PRMLSDay1a.pptV2.0 2024 National University of Singapore. All Rights Reserved.
+Page 17,"Object Detection Systems, ATAS-PRMLSDay1a.pptV2.0 2024 National University of Singapore. All Rights Reserved."
+Page 18,ATAS-PRMLSDay1a.pptV2.0 2024 National University of Singapore.
+Page 19,ATAS-PRMLSDay1a.pptV2.0 2024 National University of Singapore. All Rights Reserved.
+Page 20,ATAS-PRMLSDay1a.pptV2.0 2024 National University of Singapore. All Rights Reserved 20 PR and ML Systems: Ensemble.
+Page 21,"ATAS-PRMLSDay1a.pptV2.0 2024 National University of Singapore . MIT Press, 2016. http://www.deeplearningbook.org/"
+Overall Summary,ATAS-PRMLSDay1a.pptV2.0 2024 National University of Singapore . all rights reserved 9 Neural Networks (DL) - a machine learning subfield of learning representations of data . DL can learn (multiple levels of) representation by using a hierarchy of multiple layers .

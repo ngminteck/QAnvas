@@ -31,8 +31,8 @@ class CanvasManager:
     # Initialize the summarization pipeline with T5 (for summarization)
     _summarizer = pipeline(
         "summarization",
-        model="t5-base",   # you can change to "t5-small" if desired
-        tokenizer="t5-base"
+        model="t5-small",   # you can change to "t5-small" if desired
+        tokenizer="t5-small"
     )
 
     def __init__(self, api_url: str, api_key: str):

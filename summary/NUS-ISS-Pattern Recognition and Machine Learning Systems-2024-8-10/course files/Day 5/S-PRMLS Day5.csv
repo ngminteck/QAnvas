@@ -1,68 +1,68 @@
 Page,Summary
-Page 1, AtA\S-PRMLS\Day5.ppt\V4.0 © 2024 National University of Singapore . All Rights Reserved .
-Page 2, Ensemble and Hybrid Machine Learning Techniques are discussed in a workshop by the National University of Singapore . The workshop will focus on how to use machine learning techniques in the ensemble .
-Page 3, AtA\S-PRMLS\Day5.ppt\V4.0 © 2024 National University of Singapore. All Rights Reserved .
-Page 4, AtA\S-PRMLS\Day5.ppt\V4.0 © 2024 National University of Singapore . All Rights Reserved 4 .
-Page 5, Ensembles are committees of multiple models . Each model makes a prediction or “vote” The final prediction is average/majority of votes .
-Page 6, AtA\S-PRMLS\Day5.ppt\V4.0 © 2024 National University of Singapore. All Rights Reserved .
-Page 7, AtA\S-PRMLS\Day5.ppt\V4.0 © 2024 National University of Singapore. All Rights Reserved 7.0 .
-Page 8," An ensemble outperforms individuals, usually more reliable/robust than individual models . Add another 4 models, each with same accuracy, but with variance (models do not give identical predictions)"
-Page 9, The term ensemble is usually reserved for methods that generate multiple hypotheses using the same base . An ensemble of classifiers is more accurate and diverse than individual members .
-Page 10," Ensembles tend to yield better results when there is a significant diversity among the models . Bagging is one way of introducing diversity, and can be applied to decision trees ."
-Page 11," Bagging:  Bootstrap Aggregating . Draw N (say 100) bootstrap samples (sampling with replacement) from the  training data, Train models (eg. NN, decision trees) on each sample . Repeat"
-Page 12, AtA\S-PRMLS\Day5.ppt\V4.0 © 2024 National University of Singapore .
-Page 13, AtA\S-PRMLS\Day5.ppt\V4.0 © 2024 National University of Singapore .
-Page 14," Around 50 models should work well and often, < 50 models are required . 25 is adequate . ATA\S-PRMLS\Day5.ppt\V4.0 © 2024 National University of Singapore ."
-Page 15, ATA\S-PRMLS\Day5.ppt\V4.0 © 2024 National University of Singapore. All Rights Reserved .
-Page 16," Prediction error at point x is: ""Noise, cannot be  reduced by the model,"" says National University of Singapore . ATA\S-PRMLS\Day5.ppt\V4.0 © 2024 National"
-Page 17, AtA\S-PRMLS\Day5.ppt\V4.0 © 2024 National University of Singapore .
-Page 18," Models that under-fit the data tend to have: high bias, low variance, high variance and low variance . Move three data points slightly and  the model changes slightly ."
-Page 19," Models that over-fit the data tend to have: low bias, low variance and high variance . Move  same three data points as in last slide (shown  in red)…"
-Page 20, ATA\S-PRMLS\Day5.ppt\V4.0 © 2024 National University of Singapore. All Rights Reserved .
-Page 21, Reducing bias & variance is important for prediction accuracy for accuracy . Tradeoff: bias vs. variance vs. high complexity models vs. low complexity models . Can we reduce over-fitting without under-fitting? YES!
-Page 22," Reducing Variance Without Increasing Bias reduces variance: Average models to reduce model variance . For large N, residual model error mainly due to bias!"
-Page 23," Each base classifier is trained on less data . E.g. only about 67% of the data points are in any one bootstrap . Bagging usually helps, but sometimes not much…"
-Page 24, AtA\S-PRMLS\Day5.ppt\V4.0 © 2024 National University of Singapore .
-Page 25, Randomisation (hence model diversity) now occurs in two places:Random sampling of training data + Random sampling of feature set . Training speed increases due to less computation .
-Page 26," Random Forests are robust to noise, easy to use, surprisingly high accuracy . But lots of trees means hard to interpret (becomes a black box)"
-Page 27, Researchers at the National University of Singapore have been working on Forests in Singapore . Their findings show that Forests can be found to be part of the world's most complex plant systems .
-Page 28," Kinect uses ""structured light“ to create a 3D image . Kinect uses a light source offset from a detector by a small distance then the projected spot of light is shifted according to the distance it is reflected back from . Kinect"
-Page 29, Each tree was trained on features that  were pre-labeled with the target body  parts . Training just 3 trees using 1 million test images took a day using a 1000 core cluster .
-Page 30," Test each tree against data left over after the bootstrap sample was taken; this is called the OOB(out-of-bag) data . For each training example, take the majority vote of all T/3 test predictions to"
-Page 31, For a single tree the order in which the variables occur in the tree is a measure of  their relative importance to the prediction. For a forest? For a tree? The order of the variables occurs in the order of  their
-Page 32, The model accuracy of the model accuracy before and after shuffling is a measure of how important the variable is for predicting the response . The method is called the ShuffledCorrectVotese method .
-Page 33, A weakly learned model is only slightly better than random guessing . Strongly learned models are arbitrarily well-correlated with the truth . Boosting essentials: Build a model (but don’t 100% over-fit the data
-Page 34, AtA\S-PRMLS\Day5.ppt\V4.0 © 2024 National University of Singapore. All Rights Reserved .
-Page 35, AtA\S-PRMLS\Day5.ppt\V4.0 © 2024 National University of Singapore .
-Page 36, AtA\S-PRMLS\Day5.ppt\V4.0 © 2024 National University of Singapore .
-Page 37, ATA\S-PRMLS\Day5.ppt\V4.0 © 2024 National University of Singapore. All Rights Reserved .
-Page 38, AtA\S-PRMLS\Day5.ppt\V4.0 © 2024 National University of Singapore. All Rights Reserved .
-Page 39, AtA\S-PRMLS\Day5.ppt\V4.0 © 2024 National University of Singapore .
-Page 40," Like Adaboost, models are learned and added to the ensemble sequentially . Gradient Descent Optimisation aims to minimise the loss-function using gradient descent method ."
-Page 41, XGBoost has become a widely used and popular tool which implements the gradient boosting algorithm . The algorithm is designed by the National University of Singapore .
-Page 42," In practice bagging/RF almost always helps . Bagging doesn’t work as well with stable models . Often, boosting helps more than bagging ."
-Page 43, Using multiple models reduces variance and increase accuracy . Bagging & Boosting are the most popular generic methods . Random Forest increasingly popular .
-Page 44," Ensembles Summary: A good goal is to get less correlated errors between models . Ensemble Creation Approaches: Injecting randomness – initial weights, different learning parameters, etc. Different Training sets – Bagging, different features"
-Page 45," Hybrid Machine Learning Models combine different, heterogeneous machine learning approaches . Ensemble models and hybrid models make use of the information fusion concept but in slightly different way . Both have found applications in numerous real world problems ."
-Page 46," In “Multiple Classifier Systems’ approach, each classifier is an expert in certain situations . Each model type has different strengths and weaknesses. Usually have relatively small number of experts. Allows for more model combination methods apart from"
-Page 47, AtA\S-PRMLS\Day5.ppt\V4.0 © 2024 National University of Singapore. All Rights Reserved .
-Page 48, Multiple Classifier Systems architecture is also known as stacking* Arbitrator Solution . Stacking involves training a learning algorithm to combine predictions of several algorithms .
-Page 49, The arbitrator helps decide which to use and when . Airfare Price prediction is based on multiple classifier systems . ATA\S-PRMLS\Day5.ppt\V4.0 © 2024 National University of
-Page 50," One technique is used to tune or learn the architecture for another, e.g: Neural network is . used to learn a Fuzzy System . Genetic algorithm is used . to optimise neural network topology: nodes, layers"
-Page 51," Neuro-Fuzzy Systems is used to represent and ‘learn’ a Fuzzy System . Nodes represent rule inputs, conditions, actions etc ."
-Page 52, If F1 = small or medium and F2 = tube then widget then widget is widget . At aA\S-PRMLS\Day5.ppt\V4.0 © 2024 National University of Singapore .
-Page 53, GA chromosome represents NN topology . NNs are generated/tuned  by GAs . GA can avoid local minima more than back-prop . Size of chromosome gets prohibitively large if topology gets learned .
-Page 54, GA-Neural is used to change the number of neurons and weights . LG Electric developed an air-con controlled by an NN to adapt to their preferences .
-Page 55, AtA\S-PRMLS\Day5.ppt\V4.0 © 2024 National University of Singapore .
-Page 56, Fuzzy system controls the temp. of liquid waste and air before input to recovery boiler . Shape of pile in boiler influences the efficiency of the recovery process . NN recognises the shape of the pile from (edge) image and
-Page 57, AtA\S-PRMLS\Day5.ppt\V4.0 © 2024 National University of Singapore . 57Bagging & Boosting in R & Rattle .
-Page 58, Some model nodes implement bagging & boosting in SPSS Modeler . ATA\S-PRMLS\Day5.ppt\V4.0 © 2024 National University of Singapore .
-Page 59, Building Ensembles in SPSS Modeler . ATA\S-PRMLS\Day5.ppt\V4.0 © 2024 National University of Singapore .
-Page 60, Random Forest is Random Forest using Scikit-Learn . RandomForestClassifier is a Random Forest Forest using a random forest of trees .
-Page 61," AdaBoosting Using Scikit-Learn is based on data from the National University of Singapore . The AdaBoostClassifier is called AdaBoost Classifier . In this article, we use the AdaBoost classifier to test our knowledge"
-Page 62, AtA\S-PRMLS\Day5.ppt\V4.0 © 2024 National University of Singapore. All Rights Reserved 62.0 .Application Examples: Deep Neural Network Ensembles for Time Series Classification.
-Page 63, Application Examples: Ensembling ConvNets using Keras and Pooled Flood Frequency Analysis . AtA\S-PRMLS\Day5.ppt\V4.0 © 2024 National University of Singapore. All Rights
-Page 64, AtA\S-PRMLS\Day5.ppt\V4.0 © 2024 National University of Singapore. All Rights Reserved 64.2 .
-Page 65, Open the jupyter notebooks provided for Random Forest and Boosting . Make sure you understand how each ensemble method is implemented . Compare the performance of these models .
-Page 66, Open notebooks provided for the two NN ensembles: AverageNNEnsemble and StackingnnEnsemble . Make sure you understand how each ensemble method is implemented .
-Overall Summary, Ensembles are committees of multiple models that make a prediction or “vote” The term ensemble is usually reserved for methods thatgenerate multiple hypotheses using the same base . Bagging is one way of introducing diversity among the models
+Page 1,"Dr Zhu Fangming NUS-ISS fangming@nus.edu.sg Not be reproduced in any form or by any means without the written permission of ISS, NUS ."
+Page 2,5.1 Ensemble and Hybrid Machine Learning Techniques 5.2 Ensemble Workshop . All Rights Reserved 2 DAY 5 AGENDA .
+Page 3,ATAS-PRMLSDay5.pptV4.0 2024 National University of Singapore. All Rights Reserved. Ensemble and Hybrid Machine Learning Techniques.
+Page 4,ATAS-PRMLSDay5.pptV4.0 2024 National University of Singapore. All Rights Reserved.
+Page 5,Ensembles are committees of multiple models . each model makes a prediction or “vote” . Final prediction is average/majority of votes .
+Page 6,ATAS-PRMLSDay5.pptV4.0 2024 National University of Singapore. All Rights Reserved .
+Page 7,ATAS-PRMLSDay5.pptV4.0 2024 National University of Singapore. All Rights Reserved.
+Page 8,ATAS-PRMLSDay5.pptV4.0 2024 National University of Singapore. All Rights Reserved 8 Vote 1- 5 Motivation.
+Page 9,"the term ensemble is usually reserved for methods that generate multiple hypotheses using the same base learner . ""a necessary and sufficient condition for an ensemble of classifiers to be more accurate than any of its individual members is if the"
+Page 10,"ensembles tend to yield better results when there is a significant diversity among the models . bagging is one way of introducing diversity . Usually applied to decision trees, but can be used with any method ."
+Page 11,ATAS-PRMLSDay5.pptV4.0 2024 National University of Singapore. All Rights Reserved 11 Bagging: Bootstrap Aggregating.
+Page 12,ATAS-PRMLSDay5.pptV4.0 2024 National University of Singapore. All Rights Reserved 12 Examples of Bagging.
+Page 13,"ATAS-PRMLSDay5.pptV4.0 2024 National University of Singapore. Ensemble of 10 regression smoothers built from 10 bootstrap samples, each drawing 100 training data."
+Page 14,50 models should work well and often 25 is adequate . 50 models should be adequate and often 25 is sufficient .
+Page 15,ATAS-PRMLSDay5.pptV4.0 2024 National University of Singapore. All Rights Reserved.
+Page 16,ATAS-PRMLSDay5.pptV4.0 2024 National University of Singapore. All Rights Reserved 16
+Page 17,ATAS-PRMLSDay5.pptV4.0 . All Rights Reserved 17 Model Error: Bias versus Variance .
+Page 18,ATAS-PRMLSDay5.pptV4.0 2024 National University of Singapore. All Rights Reserved 18 Model Error: Bias versus Variance .
+Page 19,0 1 2 3 4 5 6 7 8 0 2 4 6 8 10 12 14 Move same three data points as in last slide .
+Page 20,ATAS-PRMLSDay5.pptV4.0 2024 National University of Singapore. Tradeoff between Bias and Variance.
+Page 21,ATAS-PRMLSDay5.pptV4.0 2024 National University of Singapore. All Rights Reserved.
+Page 22,ATAS-PRMLSDay5.pptV4.0 2024 National University of Singapore. All Rights Reserved 22 Reduce variance without increasing bias.
+Page 23,ATAS-PRMLSDay5.pptV4.0 2024 National University of Singapore. All Rights Reserved 23 Can Bagging Hurt?
+Page 24,ATAS-PRMLSDay5.pptV4.0 2024 National University of Singapore. 24 Ways to create Model Diversity.
+Page 25,training speed increases due to less computation at each tree split . use un-weighted voting to get final prediction (as with bagging)
+Page 26,Variance of RF trees is higher than Bagged Trees . trees should be (generally) unpruned (to encourage diversity) RF is for decision trees only .
+Page 27,ATAS-PRMLSDay5.pptV4.0 2024 National University of Singapore . all rights reserved .
+Page 28,if you have a light source offset from a detector by a small distance then the projected spot of light is shifted according to the distance it is reflected back from . if difference is small then they likely belong to
+Page 29,training just 3 trees using 1 million test images took a day using a 1000 core cluster . each tree was trained on features that were pre-labeled with the target body parts .
+Page 30,"if each bootstrap sample takes 67% of the training data, then every training example will have been OOB (out-of-bag) data for about T/3 times ."
+Page 31,the order in which the variables occur in a tree is a measure of their relative importance to the prediction . the better method: sum the total reduction in impurity (eg. the decreases in the Gini index)
+Page 32,Randomly shuffle the values of a given input variable to “break” the bond of the variable to the response . the difference of the model accuracy before and after the shuffling is a measure of how important the variable
+Page 33,can a set of weak learners create a single strong learner? A weakly learned model is only slightly better than random guessing . a strong learning model is arbitrarily well-correlated with the truth .
+Page 34,ATAS-PRMLSDay5.pptV4.0 2024 National University of Singapore. All Rights Reserved 34 Boosting www.datacamp.com
+Page 35,ATAS-PRMLSDay5.pptV4.0 2024 National University of Singapore. All Rights Reserved 35 Basic Boosting Algorithm.
+Page 36,all rights reserved 36 AdaBoost* (Adaptive Boosting) The training examples Train a model (build a classifier) Re-weight the examples The “final” prediction is the weighted average of all of the
+Page 37,ATAS-PRMLSDay5.pptV4.0 2024 National University of Singapore. All Rights Reserved 37 AdaBoost - Conceptual .
+Page 38,ATAS-PRMLSDay5.pptV4.0 2024 National University of Singapore. All Rights Reserved 38 AdaBoost Classifications (colors) and Weights (size) after 1 iteration
+Page 39,ATAS-PRMLSDay5.pptV4.0 . All Rights Reserved 39 AdaBoost .
+Page 40,ATAS-PRMLSDay5.pptV4.0 2024 National University of Singapore. All Rights Reserved 40 Gradient Boosting.
+Page 41,XGBoost is a tool which implements the gradient boosting algorithm . it was introduced in 2014 and has become a widely used and popular tool .
+Page 42,"in practice bagging/RF almost always helps . Boosting and RF might still help . in practice, boosting helps more than bagging ."
+Page 43,ATAS-PRMLSDay5.pptV4.0 2024 National University of Singapore. All Rights Reserved 43 Ensembles Summary .
+Page 44,ATAS-PRMLSDay5.pptV4.0 2024 National University of Singapore. All Rights Reserved 44 Ensembles Summary .
+Page 45,"both ensemble models and hybrid models make use of the information fusion concept but in slightly different way . they both have found applications in numerous real world problems ranging from person recognition, medical diagnosis, bioinformatics, recommender systems"
+Page 46,ATAS-PRMLSDay5.pptV4.0 2024 National University of Singapore. All Rights Reserved 46 Multiple Classifier Systems .
+Page 47,All Rights Reserved 47 Multiple Classifier Systems Example NEAREST NEIGHBOR GAUSSIAN QUADRATIC NAIVE BAYES MULTILAYER NEURAL NETWORK SUPPORT VECTOR M
+Page 48,Stacking (sometimes called stacked generalization) involves training a learning algorithm to combine the predictions of several other learning algorithms .
+Page 49,ATAS-PRMLSDay5.pptV4.0 National University of Singapore. All Rights Reserved 49 Multiple Classifier Systems Example .
+Page 50,"one technique is used to tune or learn the architecture for another, e.g., a neural network to learn a Fuzzy System . another technique uses genetic algorithm to learn rules . all rights reserved ."
+Page 51,All Rights Reserved 51 Self-Tuning Systems Example: Neuro-Fuzzy Systems . Neural Network is used to represent and “learn” a Fuzzy System .
+Page 52,"All Rights Reserved 52 Self-Tuning Systems Example: GA-ML . Let F1 and F2 be the input variables with F1 taking values small, medium large F2 taking value sphere, cu"
+Page 53,All Rights Reserved 53 Self-Tuning Systems Example: GA-Neural . Pros: GA can avoid local minima more than back-prop . Cons: size of chromosome gets prohibitively large if
+Page 54,LG Electric developed an air-con controlled by an NN . a GA is used to change the number of neurons and weights .
+Page 55,Different techniques work together as a team to produce a single solution . NN provides input to Fuzzy System NN Fuzzy User Solution Sensor inputs .
+Page 56,shape of pile in boiler influences the efficiency of the recovery process . NN recognises the shape of the pile from (edge) image and passes to the Fuzzy system .
+Page 57,All Rights Reserved 57 Bagging & Boosting in R & Rattle . ATAS-PRMLSDay5.pptV4.0 2024 National University of Singapore.
+Page 58,58 model nodes implement bagging & boosting in SPSS Modeler . ATAS-PRMLSDay5.pptV4.0 2024 National University of Singapore.
+Page 59,59 Building Ensembles in SPSS Modeler . ATAS-PRMLSDay5.pptV4.0 . All Rights Reserved .
+Page 60,"All Rights Reserved 60 Random Forest using Scikit-Learn from sklearn . clf = RandomForestClassifier(n_estimators=200, random_state=0)"
+Page 61,all rights reserved . 61 AdaBoosting Using Scikit-Learn from sklearn .
+Page 62,62 Application Examples • Deep Neural Network Ensembles for Time Series Classification . https://github.com/hfawaz/ijcnn19ensemble/ .
+Page 63,https://towardsdatascience.com/ensembling-convnets-using-keras- 237d429157eb .
+Page 64,Ensemble Workshop 5.2 Ensemble WorkshopDay5.pptV4.0 2024 National University of Singapore. All Rights Reserved 64
+Page 65,jupyter notebooks provide for Random Forest and Boosting . compare the performance of these models .
+Page 66,jupyter notebooks provide for the two NN ensembles: AverageNNEnsemble and StackingNNEndemble . compare the performance of these models and experiment with different parameter settings .
+Overall Summary,ATAS-PRMLSDay5.pptV4.0 2024 National University of Singapore . all Rights Reserved 61 NN ensembles – averaging and Stacking . a neural network is used to train a neural network to combine the predictions of several other algorithms .
