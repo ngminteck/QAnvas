@@ -1,0 +1,82 @@
+Page,Summary
+Page 1,TEXT PROCESSING WITH MACHINE LEARNING MODULE 2: Advanced DNN systems Dr Wang Aobo [REDACTED_EMAIL]
+Page 2,Seq2Seq models • Advanced DNN systems • Attention • Transformer • Workshop • Sentence/ Document representation • Workshop .
+Page 3,Sequence to Sequence
+Page 4,RNN starts with a random state (vector) hh00 . what if it is something non-random?
+Page 5,RNN starts with a random state (vector) hh00 . what if it is something non-random?
+Page 6,"any object A to any object B French English English Image Text Audio Text Document Summary Question Answers . if you have a question, please contact us ."
+Page 7,training requires the paired condition and target generation . but training requires a huge amount of data to train well .
+Page 8,"NLP counterparts of ""ImageNet"" should be sufficiently large with labels . Language Modeling is capturing – long-term dependencies ."
+Page 9,ELMo (2017) LSTM for Language Modelling Starting from WordVec Given “Let’s stick to” Predict “improvisation” Two layers stacked Single direction?
+Page 10,ELMoAlways Bi-LSTM vec(“stick”) is a 'stick' . it's the first time the LSTM has been vetted .
+Page 11,LEGO Arts - Have Fun with it.... Have fun with it . LEGO - have fun with the LEGO arts .
+Page 12,before and After the Moment Oct 2018 Jun 2014 GloVe Language Modelling LSTMTransformer 2018 .
+Page 13,workshop LSTM AND SEQ2SEQ2sEQ is a workshop based on workshop ltst and lst .
+Page 14,"Turing Award to ""NVIDIA"" Oct 2018 LSTMTransformer [REDACTED_PHONE] Attention 2012 ."
+Page 15,"the “ImageNet” Moment for NLP (*Image from Jay Alammar’s blog) 24 Transformer blocks 1024 hidden layers, and 340M parameters 16 TPU pods for training . 12 blocks 37-layer 1"
+Page 16,"Attention Mechanism Copyright National University of Singapore . many of the new advances in NLP starts from attention - transformer, BERT ."
+Page 17,Attention Mechanism Copyright National University of Singapore. All Rights Reserved 1 7 • A neural network to mimic human brain actions in a simplified manner .
+Page 18,the attention mechanism introduced by bahdanau et al in 2015 . 'C' does not sufficiently capture the prior information .
+Page 19,the weights provide the necessary attention in Bahhadau . the next word 'French' is the word most important .
+Page 20,"the decoder allocates a set of attention weights – , aligned to input words . additive attention is also known as additive attention . all hidden states of the encoder(forward and backward)"
+Page 21,"any object A to any object B CC00CCRR should be translate to Sequence . if the object is not translate, it would be better to translate the object ."
+Page 22,hhii Attention based Sequence to Sequence . CC11 CC22 CCtthh11 htt11 .
+Page 23,hhii tanh WWRR AAttteeewweeiiiaaahhttww hheeeaeeEee CCii
+Page 24,tanh box Attention based Sequence to Sequence based . tansh box attention based sequence to sequence .
+Page 25,the Bahdanau attention paper take concatenation to pass to the decoder . the hidden vectors are multiplied to form the ‘scores’ with 3 alternatives .
+Page 26,"the Bahdanau use a global attention model, in which all the words in the sentence are weighted . a key issue is the length of the ‘sentence’ – or the attention span ."
+Page 27,BE TRANSFORMED Copyright National University of Singapore . All Rights Reserved 27 times .
+Page 28,the Transformer in NLP is a novel architecture that aims to solve sequence-to-sequence tasks while handling long-range dependencies .
+Page 29,"speech recognition, biological sequence analysis, machine translation, abstract summarization, natural language generation . natural language production, speech recognition and machine translation all rights reserved ."
+Page 30,"the transformer is used for machine translation, translating from French to English . the original paper is a seq2seq model ."
+Page 31,Transformer architecture Copyright National University of Singapore All Rights Reserved 31 21 .
+Page 32,Stackable Encoders and Decoder boxes will not be RNNs but Self-Attentioned layers .
+Page 33,Transformer architecture Last output of encoder feed into all the decoders . Copyright National University of Singapore .
+Page 34,34 Decoder One single Encoder Box has 2 layers – multi-head attention layer feed forward layer One single Decoder box has 2 attention layers .
+Page 35,inside the encoder Copyright National University of Singapore . all rights Reserved 35 years ago . .
+Page 36,inside the decoder Self attention – novel feature of transformer Copyright National University of Singapore . all rights Reserved 36 times .
+Page 37,self-attention is an attention mechanism relating different positions of a single sequence in order to compute a representation of the sequence .
+Page 38,we want to know how the word 'kicked' relates to different words in the sentence . Copyright National University of Singapore .
+Page 39,"39 I Kicked The ball I kicked the ball I Kicking The ball . all rights Reserved . I kick the ball, I kick The ball and the ball."
+Page 40,Summary of Attention Copyright National University of Singapore All Rights Reserved 40 years after the publication of this article .
+Page 41,"the original paper has 8 attention heads, with each set of encoder/decoder . it gives the attention layer we have not only one, but multiple sets of Query/Key/Value weight matrices"
+Page 42,Multi-headed attention Attention is computed multiple times independently and in parallel . these attentions are concatenated by a Wo weighting matrix .
+Page 43,Memory Wall
+Page 44,Speed Up Attention Flash Attention reduces the number of times data is read from DRAM memory when computing Softmax .
+Page 45,Speed Up Attention MQA MHA GQA 30%-40% faster with performance drop Trade off . speed up Attention MHA MHA gQA 30-30% faster .
+Page 46,lower the Memory usage & Speed up the inference . lower the memory usage and speed up the memory inferences .
+Page 47,"DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model low-rank joint compression for key and value to reduce the KV cache."
+Page 48,LLAMA2 – Grouped Query – Speed Up Attention . lma2 .
+Page 49,"the order of the words also matters, thence each word will have a vector for positional encoding . this results in a new vector – ‘embedding with time signal’ ."
+Page 50,Residuals summing There is also some residuals that directly ‘by-pass’ the attention layer .
+Page 51,each of the words goes through the decoder and decoded in the process . each word is only affected by the words before it . future positions are 'masked' by giving them an inf weight .
+Page 52,the linear layer is a FFN that projects the vector produced by the stack of decoders into a much larger vector called a logits vector . the word with the highest probabilities is then chosen as the translated
+Page 53,Decoding Progress
+Page 54,Decoding Progress
+Page 55,"Copyright National University of Singapore . 56 paying a complexity tax . 8Head Attention + Transformers 8 GPU + 3.5 day Google Research, 2017 ."
+Page 56,"57 Single Head Attention + LSTMs Single GPU + 1 day Stephen Merity, 2019 8Head Attention + Transformers 8 GPU + 3.5 day Google Research, 2017 ."
+Page 57,"""Perhaps we were too quick to throw away the past era of models simply due to a new flurry of progress,"" he says . ""we’re too committed to our existing stepping stones to backtrack"
+Page 58,Continue with Transformers Transformer s
+Page 59,Continue with Transformers
+Page 60,BERT MASK LM 15% of the words in each sequence are replaced with a [MASK] token .
+Page 61,BERT MASK LM & Next Sentence Prediction S . senate prediction .
+Page 62,GPT 2/3 Transformer Decoders
+Page 63,no Silver Bullet (2020) https://arxiv.org/pdf/[REDACTED_PHONE]v2.pdf .
+Page 64,original seminal paper on transformer/ attention https://arxiv.org/abs/[REDACTED_PHONE] .
+Page 65,Seq2Seq models • Advanced DNN systems • Attention • Transformer • Workshop • Sentence/ Document representation • Workshop .
+Page 66,"Doc2Vec vectors represent the theme or overall meaning of a document . the documents here can refer to paragraphs, articles or whole documents ."
+Page 67,"document comparison can be done by a similarity measure . in our workshop, we use the gensim (also in Tensorflow)"
+Page 68,"Word Movers Distance is based on WordVectors such as GLOVE, W2V . uses a ‘transport matrix’ –T that determines how many of such word vectors to ‘transport/move"
+Page 69,Paragraph To Vectors Copyright National University of Singapore . two main training methods of these Paragraph Vectors are Self-supervised methods .
+Page 70,PVs are obtained by training FFN on the task of predicting a next word based an average of both context word-vectors and the full document's paragraph vector . similar to CBOW Word2Ve
+Page 71,PVs obtained by training a neural network on the task of predicting a target word just from the paragraph vector .
+Page 72,Sentence to Vectors Copyright National University of Singapore . Skip thoughts to generate the previousand nextsentences .
+Page 73,Sentence to Vectors to vectors . quick thoughts to predict/classify the nextsentences.
+Page 74,Quick thoughts Copyright National University of Singapore 78 . skip thoughts more for word/sentence vectors .
+Page 75,Sentence-Bert 2018 Senstence to Vectors . senate-bert is the latest in a series of re-elections in the world .
+Page 76,Sentence to Vectors BertScore 2020 . Vectors will be able to send a video to vectors .
+Page 77,QA with Knowledge Base • Retrieval Augmented Generation . https://www.baeldung.com/java-langchain-basics Framework - LangChain .
+Page 78,Calling openAI API • Embeddings and vector storage . Calling pre-trained models .
+Page 79,"word vectors can be generated from word2vec, GLOVE, BERT, ELMO etc . performance also a key consideration ."
+Page 80,84 https://towardsdatascience.com/word-embeddings-and-document-vectors-part-2-order-reduction- 2d11c3b5139c https://www.
+Overall Summary,TEXT PROCESSING WITH MACHINE LEARNING MODULE 2: Advanced DNN systems Dr Wang Aobo . All rights reserved 2 • Seq2Seq models • Attention • Transformer • Workshop • Sentence/ Document representation • Workshop Sequence to Sequence • RNN starts with a random state (vector) hh00 .

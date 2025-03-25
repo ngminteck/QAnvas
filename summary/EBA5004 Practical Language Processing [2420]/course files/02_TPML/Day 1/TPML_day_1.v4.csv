@@ -1,0 +1,64 @@
+Page,Summary
+Page 1,2022 NUS. All rights reserved. Page 1 Dr Wang Aobo [REDACTED_EMAIL] Text Processing Using Machine Learning Day 1 .
+Page 2,2022 NUS. All rights reserved. Page 2 • Day 1. Classic DNN for Text Processing . Day 2. Attention & Transformers • Day 3. Transfer Learning with Pre-trained Models .
+Page 3,2022 NUS. All rights reserved. Page 3 What can NLP do? 2 basic Use Cases: 1. Automatically put text into categories- Classification • Sentiment detection • Spam email detection • Emotion detection
+Page 4,Object Classification/Clustering & Recommendation 2. Search Engine 3. Question Answering System 4. Voice Assistant 5. Machine Translation 6. Grammar Error Correction & Language Learning 7. Chatting robots 8. “Fake
+Page 5,2022 NUS. All rights reserved. Page 5 The moment when NLP became useful • Summary • GPT-3 .
+Page 6,2022 NUS. All rights reserved. Page 6 The moment when NLP became useful • MicroSoft/OpenAI/GitHub – Copilot 2021.
+Page 7,2022 NUS. All rights reserved. Page 7 The moment when NLP became useful • Open-AI (Microsoft) 2022 – DALLE-2 An astronaut + riding a horse + in a
+Page 8,the moment when NLP became useful • Reasoning • Google [REDACTED_PHONE] – LaMDA 2 – PaLM .
+Page 9,2022 NUS. All rights reserved. Page 9 What can NLP do now? Without Reasoning .
+Page 10,2022 NUS. All rights reserved. Page 10 Today’s Agenda • Data Splits and Evaluation • Evaluation and Optimization – Over-/Underfitting – Regularization and Dropout • CNN for Text Classification
+Page 11,"Page 11 Data Splits DNN are always Supervised, except for Reinforcement Learning . all rights reserved ."
+Page 12,Page 12 Hold-out Evaluation Training set Held-out validation set Total available labelled data Train on this Evaluate during training Held out test set Evaluate after training .
+Page 13,2022 NUS. All rights reserved. Page 13 K-Fold Cross Validation Evaluation Train Data Split into 3 parts Test Evaluate after training Train Valid Train Valid train Valid Train Train Fold 0 Fold 1 Fold 2 Fold 2
+Page 14,2022 NUS. All rights reserved. page 14 K-Fold Cross Validation Evaluation . cross validation evaluation is based on a cross validation test .
+Page 15,page 15 Evaluation & Optimization REGULARIZATION AND DROPOUT . 2022 NUS. All rights reserved.
+Page 16,over-/Underfitting Image from https://towardsdatascience.com/understanding-the-bias-variance-tradeoff-165e6942b229. Latest Deep Learning methods have no such problems
+Page 17,optimization and generalization optimization generalization generalization . page 17 Optimization and Generalization Optimization Generalization Generalization 2022 NUS .
+Page 18,2022 NUS. All rights reserved. Page 18 Overcoming Underfitting • What to do when model is underfitting (not optimal)?
+Page 19,weights regularization puts constraints on complexity of the model . dropping out (i.e. randomly setting activated outputs to zero) is effective in regularizing the model.
+Page 20,"a network with large network weights can be a sign of an unstable network . small changes in the input can lead to large changes in output . encourage the network to keep the weights small f X,W ="
+Page 21,"weights regularization: Cost function = Loss (say, binary cross entropy) + Regularization term . weights may be reduced to zero ."
+Page 22,page 22 Weights regularization . When w=2 we get the minimum loss . w =2 .
+Page 23,iterations weights regularization • Apply L1: • Apply delta rule wnew =wold . dL dw L = w2 4w+6+2w = 2w
+Page 24,2022 NUS. All rights reserved. Page 24 Weights regularization • Word level classification – let n=26 vocabulary_size – If wb=0 by L1 – Model Complexity
+Page 25,2022 NUS. All rights reserved. Page 25 • Iterations Weights regularization • Apply L2: • Apply delta rule wnew =wold 4w+6+w2 d
+Page 26,weights regularization – forcing weights to take small values – reduces no. of units per layer . dropping out (i.e. randomly setting activated outputs to zero) is effective in regularizing the model
+Page 27,page 27 Dropout Layer • Prevent from Overfitting Image from jamesmccaffrey .
+Page 28,2022 NUS. All rights reserved. Page 28 Dropout Layer • Prevent from Overfitting [REDACTED_PHONE] P=3/6=0.5 .
+Page 29,2022 NUS. All rights reserved. Page 29 Agenda • Data Splits and Evaluation • Evaluation and Optimization • CNN for Text Classification – Convolutional Kernels for Text .
+Page 30,"2022 NUS. All rights reserved . to be learned (ngram, wordEmb) k times = (k,1) To be learned ."
+Page 31,2022 NUS. All rights reserved. Page 31 CNN for Text Classification • Kernel (Ngram feature extractor) – Sliding window towards the (1-D) direction of Text – Weights to
+Page 32,2022 NUS. All rights reserved. Page 32 CNN for Text Classification • Kernel (Ngram feature extractor) – Sliding window towards the (1-D) direction of Text .
+Page 33,"2022 NUS. All rights reserved . Concatenate (Flatten) results from different (Ngram) Kernels (1, # of Kernels) flatten ."
+Page 34,"Multi-Kernels – Concatenate (Flatten) results from different (Ngram) Kernels – Add Dropout layer . Add Softmax to obtain Probs (1, 3) Dens"
+Page 35,page 35 Workshop OPTIMIZATION AND CNN . 2022 NUS. All rights reserved .
+Page 36,2022 NUS. All rights reserved. Page 36 Agenda • Data Splits and Evaluation • Evaluation and Optimization • CNN for Text Classification • Workshop • RNN and LSTM – RNN text Encoder –
+Page 37,2022 NUS. All rights reserved. Page 37 Recurrent Neural Networks • Texts are always in Sequence .
+Page 38,w1 w2 w3 is a better way to represent word/sentence . Encode the sequence of word tokens (which CNN lacks of)
+Page 39,w1 w2 w3 the good the movie the good . Encode the sequence of word tokens (which CNN lacks of)
+Page 40,w1 w2 w3 R R R the good movie . 2022 NUS. All rights reserved.
+Page 41,page 41 Bi-RNN Encoder • A better ( than Ngram) way to represent word/sentence • Encode the sequence of word tokens (which CNN lacks of)
+Page 42,page 42 Vanilla RNN • What’s inside A? w3 the good the good movie the good .
+Page 43,2022 NUS. All rights reserved . A=tanh the good the good movie .
+Page 44,"Dense and Softmax Classification (1,Classes) SoftMAX (hid_dim,C) (1, hid-dim) Density Layer R R R Predict ."
+Page 45,"2022 NUS. All rights reserved. Page 45 Recurrent Neural Networks • Sequence Labelling SoftMAX softMAX (1,classes)(1,Classes). Predict R R R Predict"
+Page 46,2022 NUS. All rights reserved. Page 46 Bi-Directional RNN • Text Classification RNN language RNN is RNN never random RNN RNN Predict Neutral .
+Page 47,2022 NUS. All rights reserved. Page 47 Bi-Directional RNN • Text Classification RNN language RNN is RNN never random RNN RNN Predict Neutral .
+Page 48,2022 NUS. All rights reserved. Page 48 Agenda • Data Splits and Evaluation • Evaluation and Optimization • CNN for Text Classification • Workshop • RNN and LSTM – RNN text Encoder –
+Page 49,RNN Vanishing Gradients RNN language RNN h3 RNN never random RNN Predict Loss is h4h2h1h0 d(loss) dh4d(lose
+Page 50,2022 NUS. All rights reserved. Page 50 • RNN Vanishing Gradients Long Term Memory historical words are less influential to represent the future words . Gates control the strengths of the memory .
+Page 51,page 51 LSTM Gallery From Neubig (2019) CMU NN4NLP Course From Olah (2015) blogpost From Schmidhuber (2017) .
+Page 52,2022 NUS. All rights reserved. Page 52 What ‘s inside LSTM • Some preparations: – Element Wise Product or – Different from dot Product – Similar to Conv without
+Page 53,Tanh annotation W3_h (hidden_dim) . annotation - Tanh . the good .
+Page 54,"2022 NUS. All rights reserved. Page 54 What’s inside LSTM • Some preparations: – Element Wise Product . Sigmod (1,hidden_dim)"
+Page 55,LSTM • What’s inside A for LSt? – Introduce one Empty/Random Matrix C to hold memory . tanh 1 2 ht-1
+Page 56,LSTM • What’s inside A for LSt? – Introduce one Empty/Random Matrix C to hold memory – Calculate the strengths/weights of the current memory of C .
+Page 57,LSTM • What’s inside A for LSt? – Introduce one Empty/Random Matrix C to hold memory – Calculate the strengths/weights of the current memory of C .
+Page 58,vanishing gradient is just an RNN problem . functions and gradients get multiplied in a nested manner .
+Page 59,LSTM/GRU doesn’t guarantee no gradient vanishing . it’s just better than the vanilla RNN .
+Page 60,2022 NUS. All rights reserved. Page 60 LSTM with Dropout • Nave Dropout RNN [REDACTED_PHONE]Dropout P1=0.5 Dropout P2=0.5 drop
+Page 61,2022 NUS. All rights reserved. Page 61 LSTM with Dropout • Variational RNN .
+Page 62,page 62 LSTM with Dropout • Variational RNN https://arxiv.org/pdf/[REDACTED_PHONE].pdf .
+Overall Summary,2022 NUS. All rights reserved. Page 1 Dr Wang Aobo [REDACTED_EMAIL] Text Processing Using Machine Learning Day 1. Classic DNN for Text Processing Day 2. Attention & Transformers • Day 3. Transfer Learning with Pre-trained Models . Page 3 What can NLP do? 2 basic Use Cases: 1. Automatically put text into categories- Classification • Sentiment detection • Spam email detection • Emotion detection . Extract specific information from the text- Extraction • Name

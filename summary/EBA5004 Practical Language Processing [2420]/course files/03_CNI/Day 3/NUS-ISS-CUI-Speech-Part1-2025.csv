@@ -1,0 +1,141 @@
+Page,Summary
+Page 1,1: Speech processing basics• 2: Speech recognition (Speech-to-text)• 3: Case studies: Integrating speech recognition and NLP solutions• Day 4• 4: Speech synthesis . 5: Voice conversion and
+Page 2,3
+Page 3,4
+Page 4,5
+Page 5,6
+Page 6,7
+Page 7,8
+Page 8,9
+Page 9,10
+Page 10,11
+Page 11,12
+Page 12,13
+Page 13,14
+Page 14,15
+Page 15,16
+Page 16,17
+Page 17,18
+Page 18,indoor / outdoor- Quiet / Noisy19 information as well- Indoor / Outdoor .
+Page 19,20
+Page 20,21
+Page 21,22
+Page 22,23
+Page 23,24
+Page 24,25
+Page 25,26
+Page 26,27
+Page 27,28
+Page 28,29
+Page 29,30
+Page 30,31
+Page 31,32
+Page 32,33
+Page 33,34
+Page 34,"askChatGPT (or Gemini inColab) code segmentsfor specific operations.35 . if you want to ask a code segment, you can ask the code segments for specific operations ."
+Page 35,36
+Page 36,37
+Page 37,38
+Page 38,39
+Page 39,40
+Page 40,41
+Page 41,automatic speech recognition (ASR) is the process of automatically converting speech into writtentext . it provides a natural way to input information into computer .
+Page 42,E.g. “Read” in English*Further Reading: Read vs Spontaneous Speech (https://languagelog.ldc.upenn.edu/nll/?p
+Page 43,44
+Page 44,45
+Page 45,"Accelerating Digital ExcellenceCopyright National University of Singapore ASR in recent Years 46 Source: D. Jurafsky and J.H. Martin, Speech and Language Processing ."
+Page 46,47
+Page 47,"AI systems perform better than humansAI systems perform worse Source: Kielaet al., Dynabench: Rethinking Benchmarking in NLPSpeech recognitionHandwriting recognitionImage recognitionReadingcomprehensi"
+Page 48,Accelerating Digital ExcellenceCopyright National University of Singapore Evolution of ASR methods 49 Source: Labellerr .
+Page 49,50
+Page 50,51
+Page 51,52
+Page 52,53
+Page 53,a certain word sequence is correctEvaluate how likely a given speech signal corresponds to a sequence of sound units .
+Page 54,55
+Page 55,56
+Page 56,57
+Page 57,58
+Page 58,59
+Page 59,60
+Page 60,61
+Page 61,62
+Page 62,63
+Page 63,64
+Page 64,65
+Page 65,66
+Page 66,67
+Page 67,68
+Page 68,69
+Page 69,70
+Page 70,71
+Page 71,or Transformer Transducer 72
+Page 72,or Transformer Transducer73
+Page 73,74
+Page 74,tutorial: https://towardsdatascience.com/transformers-explained-visually-part-1-overview-of-functionality-95a6dd .
+Page 75,76
+Page 76,PART 4 EMERGING ADVANCED SPEECH PROCESSING77 - PARTIE 4 .
+Page 77,a foundational layer upon which specialized applications are built . involves extensive training data . being adapted to wide range of downstream tasks .
+Page 78,79
+Page 79,"#model parameters: 39M, 74M, 244M, 769M, 1550M Source: https://openai.com/research/whisper80 ."
+Page 80,Accelerating Digital ExcellenceCopyright National University of Singapore Wav2Vec2.0: Self Supervised Learning 81 .
+Page 81,82
+Page 82,83
+Page 83,84
+Page 84,85
+Page 85,86
+Page 86,Accelerating Digital ExcellenceCopyright National University of Singapore ChatGPT: LLM with Speech Capabilities 87 .
+Page 87,88
+Page 88,combine external LMs with E2E models via shallow fusion for domain adaptation89 . fusion is a fusion of LM and LM models .
+Page 89,letter-based or byte pair encoding (BPE) based acoustic modeling is effective . it is recommended to use pronunciation dictionary to map words to modeling units .
+Page 90,huggingface.co/blog/fine-tune-whisper• Espnet: End-to-end speech processing• https://kaldi-asr.org//espnet• Kal
+Page 91,LM training with SRILM https://cmusphinx.github.io/wiki/tutoriallmadvanced/ LM linear interpolation/Building large n-gram LMs with
+Page 92,93
+Page 93,94
+Page 94,character Error Rate (CER) or Syllableerror rate (SER) may be used for some languages.95 .
+Page 95,96
+Page 96,97
+Page 97,98
+Page 98,99
+Page 99,100
+Page 100,101
+Page 101,102
+Page 102,103
+Page 103,104
+Page 104,105
+Page 105,106
+Page 106,"Python Speech Recognition is a free tool for speech recognition . it's supported engines: CMU Sphinx, google Cloud Speech API, Wit.ai ."
+Page 107,Python Speech Recognition is an open-source Python speech recognition tool . a microphone is able to recognize speech input from the microphone .
+Page 108,"topic 3: Case studies: Integrating speech recognition and NLP solutions109 . topics include integrating speech recognition, nLP and speech recognition ."
+Page 109,speech recognition and NLP possible applications:1. Voice Search2 Customer Service Analysis3. Speech Translation4. Meeting Transcription and SummaryPunctuation and capitalization restorationInverse text normalization and capitalisation restorationInverted text normalisation
+Page 110,goal: segment and cluster the audio so that all segments from the same speaker are grouped together . 111: the process of determining who spoke when in an audio recording .
+Page 111,112
+Page 112,113
+Page 113,114
+Page 114,text output from ASR often needs to be transformed or normalized to match the input format expected by an existing text-based search system . e.g. iphone sixteen sixty four g b => iPhone 16 64GB
+Page 115,"Customer and agent sentiment analysis on voice characteristics such as pitch, loudness, etc. Text sentiment analysis• Non-talk time• Interruptions – Still challenging!"
+Page 116,"speech translation enables users to watch foreign videos, such as films and lectures, in their own language . mdpi.com/[REDACTED_PHONE]/13/15/8900 ."
+Page 117,118 Source: https://medium.com/free-code-camp/ahistory-of-machine-translation-from-the-cold-war-to-deep-learning-f1d335
+Page 118,Accelerating Digital ExcellenceCopyright National University of Singapore Evolution of Machine Translation Methods 119 exemplaires .
+Page 119,BLEU scores may decrease as sentence lengths increase . n-grams of machine-translated sentences represent better MT performances .
+Page 120,offensive language is not limited to specific words . removing words that appear in language-specific offensive word list . Mistranslation of proper names.
+Page 121,MT systems for low-resource languages often exhibit poor accuracy . inaccurate segmentation can confuse the MT model and reduce translation quality .
+Page 122,"i am going to talk todayabout energy and climate . i will talk today about ios, climate and energy ."
+Page 123,"real time translation: start while sentence is spoken Source: R. Zhang et al, Dynamic Sentence Boundary Detection for Simultaneous Translation ."
+Page 124,"translation: start while sentence is spoken Source: S. Zhang et al, Wait-info Policy: Balancing Source and Target at Information Level for Simultaneous Machine Translation, EMNLP 2022."
+Page 125,126
+Page 126,127
+Page 127,128
+Page 128,translation of pronouns may require co-reference 129 . the translation may require a reference of 129.
+Page 129,Accelerating Digital ExcellenceCopyright National University of Singapore Meeting Transcription Otter.ai . .
+Page 130,"Accelerating Digital ExcellenceCopyright National University of Singapore Meeting Summarization Evaluation metrics for summarization: BLEU, ROUGE ."
+Page 131,"business, medical, or legal meetings contain domain-specific terms that need accurate recognition and summarization . identifying and diffusing speakers correctly is crucial for attributing statements accurately ."
+Page 132,133
+Page 133,134
+Page 134,135
+Page 135,136
+Page 136,137
+Page 137,token per second (TPS) = (input tokens + Output Tokens) / Total Turnaround Time • Time To First Token . consider quantization and distillation of models .
+Page 138,Accelerating Digital ExcellenceCopyright National University of Singapore Gartner Hype Cycle 139 . .
+Page 139,facebook.com/iss.nus instagram.com . www.iss-nus.edu.sgThank you .
+Overall Summary,speech recognition is the process of automatically converting speech into writtentext . it transforms digital signal (a continuous sequence of values)into text (discrete symbol representations) it is the first step in processing speech and does not interpretmeaning at this stage .

@@ -1,0 +1,111 @@
+Page,Summary
+Page 1,[REDACTED_PHONE] National University of Singapore. All rights reserved. Page 1 Text Processing Using Machine Learning Transfer Learning & Pre-trained Models .
+Page 2,national university of Singapore. All rights reserved . LMs – auto-encoding – BERT – Auto-regressive – GPT & GPT2 – Seq2Seq –
+Page 3,[REDACTED_PHONE] National University of Singapore. All rights reserved. Page 3 Transfer learning .
+Page 4,the national university of Singapore has a copyright . 1.2m examples of computer vision are available . image classification accuracy has improved dramatically .
+Page 5,"pre-trained models useful for a variety of tasks like text classification, sequence labelling, coreference resolution, question answering, machine translation, natural language inference, constituency parsing ."
+Page 6,Language modeling is the task of assigning a probability to sentences in a language . the language models also assigns a probability for the likelihood of a given word to follow a sequence of words .
+Page 7,page 7 Masked Language Model: to predict the original vocabulary id of the masked word based on its context . Enables training of bi-directional representation .
+Page 8,Embeddings from Language Models (ELMo) – Universal Language Model Fine-tuning (ULMFiT) . Transformer – BERT – OpenAI GPT/GPT-2/GP
+Page 9,"the weights in the pre-trained model are not updated during training, aka “frozen” Input text Pretrained Model Task Model Output Embeddings ."
+Page 10,"fine-tune parameters of all or some layers for not-so-large models . a small portion of the model parameters or extra parameters, for larger models, can be fine tuning ."
+Page 11,National University of Singapore . All rights reserved. Page 11 Recall the DL training routine? - Initialize weights vector – Random – One-hot encoding .
+Page 12,[REDACTED_PHONE] National University of Singapore. All rights reserved. Page 12 Transfer Learning Approaches • Domain adaptation – To address the challenge of domain shift .
+Page 13,a model (Large Language Model) trained on one set of classes/tasks is used for an unseen task without additional training . a single model is trained to perform multiple related tasks simultaneously .
+Page 14,[REDACTED_PHONE] National University of Singapore. All rights reserved. Page 14 The Evolution of Pre- trained language models .
+Page 15,"Word2Vec (2013), GloVe (2014) - pre-trained embeddings – One vector per word – Can capture some syntactic and semantic relations of words . ELMo (2018) -"
+Page 16,[REDACTED_PHONE] National University of Singapore. All rights reserved. Page 16 The recent path...
+Page 17,"LLaMA (feb [REDACTED_PHONE]B to 65B, open foundation and fine-tuned chat models, by Meta -> Alpaca, Vicuna, Koala, etc"
+Page 18,"LLaMA 3 (Apr [REDACTED_PHONE]B and 70B, by Meta • GPT-4o (May 2024) – by OpenAI, multimodal capabilities, efficiency; later GPT"
+Page 19,[REDACTED_PHONE] National University of Singapore . all rights reserved . arXiv e-prints (2023)
+Page 20,[REDACTED_PHONE] National University of Singapore . All rights reserved. Page 20 Getting larger and larger .
+Page 21,[REDACTED_PHONE] National University of Singapore . All rights reserved. page 21 .
+Page 22,current LLMs https://informationisbeautiful.net/visualizations/the-rise-of-generative-ai- large-language-models-llms-like-chatgpt/
+Page 23,[REDACTED_PHONE] National University of Singapore . All rights reserved. Page 23 Assessing Pretrained Language Models .
+Page 24,not_entailment_duplicate] National University of Singapore. All rights reserved. Page 24 Early Benchmark datasets on NLU GLUE Benchmark: a collection of 9 task datasets (sentence or sentence-
+Page 25,"extractive QA: – SQuAD 1.1: Stanford Question Answering Dataset, 100k QA pairs, longer context, not limited to span prediction . superGLUE: A harder version of GLUE for more"
+Page 26,"MMLU: Massive Multitask Language Understanding • to evaluate general knowledge and reasoning abilities of large language models across multiple domains . 16k MCQs covering 57 diverse subjects across STEM, humanities, social sciences, and"
+Page 27,"MBPP: Mostly Basic Python Programming, 1000 crowd-sourced Python programming problems, for entry-level programmers . APPS: Automated Programming Progress Standard, 10K problems collected from coding websites"
+Page 28,"math – GSM8K: Grade School Math 8K, is a dataset of 8,500 high-quality, linguistically diverse grade school math word problems . Reasoning – ARC Easy/Challenge:"
+Page 29,multilingual – MMMLU: Multilingual Grade School Mach Benchmark . 250 problems from GSM8K translated into 10 languages . NIAH: Needle In A Haystack to test in-context retriev
+Page 30,"lmarena.ai, platform for community-driven human evaluation of LLMs and chatbots . chatbot arena LLM Leaderboard is a tool for community driven human evaluation ."
+Page 31,new multi-modal benchmark by Scale AI and the Center for AI Safety . 3000 questions across various subjects by 1000 subject experts .
+Page 32,[REDACTED_PHONE] National University of Singapore. All rights reserved. Page 32 Auto-encoding Model: BERT .
+Page 33,"the evolution tree of modern LLMs Yang, Jingfeng et al. ""Harnessing the power of llms in practice: A survey on chatgpt and beyond"" arXiv preprint"
+Page 34,[REDACTED_PHONE] National University of Singapore. All rights reserved. Page 34 Pre-trained Transformer Models • Autoregressive models . Pretrained by corrupting the input tokens and trying to
+Page 35,"[REDACTED_PHONE] National University of Singapore. All rights reserved. Page 35 The differences... Jay Alammar, The Illustrated GPT-2 ."
+Page 36,"BERT: 12 encoder layers, 768 hidden units, 12 attention heads, 110M total parameters . BERT Large: 24 layers, 1024 hidden units and16 attention heads ."
+Page 37,"BERT Jay Alammar, The Illustrated BERT, ELMo, and co. (How NLP Cracked Transfer Learning) Classifier (Feed-forward NN + softmax)"
+Page 38,"[REDACTED_PHONE] National University of Singapore. All rights reserved. Page 38 BERT vs OpenAI GPT . ""Pre-training of deep bidirectional transformers for language understanding"""
+Page 39,"masked tokens mask 15% of all WordPiece tokens in each sequence . task #2: Next Sentence Prediction (NSP) – Given two sentences A and B, predict whether B is the next"
+Page 40,page 40 Pre-training data -- 3.3 billion words in total . took 4 days to train each model – base model: 4 Cloud TPUs in Pod configuration .
+Page 41,"30,000 most common words or subwords from the training corpora . Subwords occurring alone or at the beginning of words preceded by “##” ."
+Page 42,[REDACTED_PHONE] National University of Singapore. All rights reserved. Page 42 BERT Input Representation My dog is cute .
+Page 43,"page 43 BERT for Feature Extraction Jay Alammar, The Illustrated BERT, ELMo, and co."
+Page 44,"BERT Devlin, Jacob, et al. ""Bert: Pre-training of deep bidirectional transformers for language understanding"""
+Page 45,"BERT: model the tasks Devlin, Jacob, et al. ""Bert: Pre-training of deep bidirectional transformers for language understanding"""
+Page 46,"[REDACTED_PHONE] National University of Singapore. All rights reserved . some suggested ranges of hyperparameters: – Batch size; 16, 32 – Learning rate (Adam): 5e-5"
+Page 47,[REDACTED_PHONE] National University of Singapore. All rights reserved. Page 47 Performance of BERT . results on eleven NLP tasks (using fine-tuning approach)
+Page 48,"scale to extreme model sizes also leads to large improvements on small scale tasks . how to use large scale models in production, under low latency constraints? how to reduce size of such models?"
+Page 49,Knowledge Distillation is a tradition in the u.s. . the knowledge distillation process is based on the knowledge distillation process . it is the first time knowledge is distilled in the world .
+Page 50,"page 50 Smaller, faster, lighter • DistilBERT (HuggingFace) - reduce size of a BERT base model by 40% . retaining 97% of its language understanding capabilities ."
+Page 51,XLM-RoBERTa by Facebook – 15 languages – MLM + translation language modelling . DistilmBERT by HuggingFace – “reaches 92% of Multilingual BERT’s performance
+Page 52,[REDACTED_PHONE] National University of Singapore. All rights reserved . page 52 Encoders Strike Back! - modernBERT .
+Page 53,[REDACTED_PHONE] National University of Singapore. All rights reserved. Page 53 Auto-regressive Model: GPT & GPT-2.
+Page 54,a decoder-based language model with 117M parameters . epochs - Batch size - 64 sequences (512 tokens each)
+Page 55,"124M, 355M, 774M, 1.5B (released from Feb to Nov 2019) byte Pair Encoding (BPE) for preprocessing, vocab size - 50,257"
+Page 56,[REDACTED_PHONE] National University of Singapore . All rights reserved. Page 56 Input .
+Page 57,[REDACTED_PHONE] National University of Singapore. All rights reserved. Page 57 Output – one token at a time decoding .
+Page 58,[REDACTED_PHONE] National University of Singapore. All rights reserved. Page 58 Different Decoding Methods • Strong influence on generated output .
+Page 59,"[REDACTED_PHONE] National University of Singapore . at each step, select the token with the highest probability . Pros: Fast and efficient, deterministic (no randomness)"
+Page 60,[REDACTED_PHONE] National University of Singapore. All rights reserved. Page 60 Beam Search • Keep multiple top-k sequences at each time step . Eventually choose the full sequence that has the overall highest
+Page 61,Sampling! Randomly pick the next word based on its conditional probability . Cons: generated text could be incoherent .
+Page 62,"the K most likely next words are filtered, and the probability mass is redistributed among only those K next words ."
+Page 63,the smallest possible set of words whose cumulative probability exceeds the probability p . a nucleus sampling method is used to measure diversity and coherence .
+Page 64,"temperature controls randomness – Low T ( more deterministic) – High T (>1.0) . high temperature can cause hallucinations, while low temperature leads to boring outputs ."
+Page 65,[REDACTED_PHONE] National University of Singapore. All rights reserved. Page 65 Demo of GPT-2 https://transformer.huggingface.co/doc/gpt2-large Max time:
+Page 66,"GPT’s Generative Pre-training + Discriminative Fine-tuning . ""Improving language understanding by generative pre-training"""
+Page 67,[REDACTED_PHONE] National University of Singapore. All rights reserved. Page 67 Performance of GPT Results on question answering and commonsense reasoning .
+Page 68,GPT-2 displays broad set of zero-shot capabilities without supervised adaptation or modification using task specific training data . learning to perform a specific task in a probabilistic framework . large dataset containing natural language demonstrations of tasks
+Page 69,[REDACTED_PHONE] National University of Singapore . All rights reserved. Page 69 Seq2Seq Model: T5
+Page 70,"[REDACTED_PHONE] National University of Singapore. All rights reserved . Page 70 Seq2Seq - T5 • Text-to-Text Transfer Transformer, from Google ."
+Page 71,"Colossal Clean Crawled Corpus (C4), 750GB • Cleaned from Common Crawl . Discarded any page with fewer than 5 sentences and only retained lines ."
+Page 72,unified encoder-decoder framework converts various text-based language problems into a text-to-text format . fed some text for context/conditioning (with task-specific prefix) and then asked to produce
+Page 73,the larger the better . training a smaller model on more data was often outperformed by training larger models for fewer steps.
+Page 74,"Typically for evaluating machine translation or summarization results where human reference text is available, extended to other generation tasks like image captioning . ngram matching, e.g. – Candidate: “the cat"
+Page 75,BLEU (Bilingual Evaluation Understudy) – an average of n-gram(n up to 4) precisions . METEOR (Metric for evaluation of Translation with Explicit Ordering)
+Page 76,national university of Singapore. All rights reserved . BLEURT based model with transfer learning . to predict ratings given reference and candidate .
+Page 77,"[REDACTED_PHONE] National University of Singapore. All rights reserved. Page 77 Summary of 3 types of models Strengths Weaknesses Good for Encoders- Only (e.g.,"
+Page 78,[REDACTED_PHONE] National University of Singapore. All rights reserved . Page 78 LARGE Language Models & In-Context Learning .
+Page 79,"national university of Singapore . training data: mainly Common Crawl (45TB of compressed plaintext before filtering, and 570GB after filtering), enhanced with high-quality corpora ."
+Page 80,the model develops a broad set of skills and pattern recognition abilities at training time . then uses those abilities at inference time to rapidly adapt to or recognize the desired task .
+Page 81,[REDACTED_PHONE] National University of Singapore. All rights reserved. Page 81 Settings for In-Context Learning No fine-tuning!
+Page 82,[REDACTED_PHONE] National University of Singapore . all rights reserved. Page 82 Better In-Context Learning with Larger Model .
+Page 83,national university of Singapore. All rights reserved. Page 83 GPT-3 Performances on Benchmark Tasks . Promising results in the zero-shot and one-shot settings for many tasks .
+Page 84,[REDACTED_PHONE] National University of Singapore. All rights reserved. Page 84 Diversified generative capability .
+Page 85,LLM like GPT-3 impressed the world with its abilities in – Generating language to complete the given prompt – In-context learning with a few examples of a given task . how to make it more powerful
+Page 86,[REDACTED_PHONE] National University of Singapore. All rights reserved. Page 86 The Evolution from GPT 3 to GPT 3.5 Jul 2020 Nov 2022 .
+Page 87,[REDACTED_PHONE] National University of Singapore . All rights reserved. page 87 RLHF
+Page 88,"LLM is stateless (no memory) – no access to external data, knowledge, etc – Unable to perform actions – Complicated prompt design and engineering – conditioned by user’s prompts ."
+Page 89,answer questions related to the contents of your own documents . Often add memory to allow multi-turn conversation for a user session .
+Page 90,"if the documents fit in a single context window, pass them in one go to the LLM . summarize each document first, then summarize summaries ."
+Page 91,[REDACTED_PHONE] National University of Singapore. All rights reserved. Page 91 Chatbots powered by LLM • Long-run conversation with the user and provide information • Memory – Remember past interactions (mes
+Page 92,LLM + Tool = Agent Combining the decision-making ability of an LLM with tools to create agents that can perform specific tasks .
+Page 93,[REDACTED_PHONE] National University of Singapore . all rights reserved. Page 93 LARGE Language Models: Risks and Concerns .
+Page 94,[REDACTED_PHONE] National University of Singapore . all rights reserved. page 94 Causing quite a stir and backlash .
+Page 95,[REDACTED_PHONE] National University of Singapore. All rights reserved . Overview of ethical and social considerations on language models by Deepmind .
+Page 96,"prompted for language generation with the input ""what is the gender of a doctor?"" the first answer is, ""Doctor is a masculine noun;"" whereas, when prompted with ""What is the gender"
+Page 97,"""we demonstrate that large language models memorize and leak individual training examples,"" says carlini, Nicholas . USENIX Security Symposium (REDACTED_PHONE) was held in july ."
+Page 98,the three information leaking incidents using ChatGPT in Samsung . optimisation of test sequences for identifying faults in chips .
+Page 99,[REDACTED_PHONE] National University of Singapore . all rights reserved . n=== diversity .
+Page 100,[REDACTED_PHONE] National University of Singapore. All rights reserved. Page 100 From Generative language model to Generating AI .
+Page 101,"Generative models are domain agnostic, applicable to 1-D sequences of any form . generative AI – very impressive results with unsupervised and self-supervised learning ."
+Page 102,[REDACTED_PHONE] National University of Singapore. All rights reserved. Page 102 Generative AI: A Creative New world. Sequoia Capital US/Europe .
+Page 103,"generative-ai-act-two uses foundation models as a piece of a more comprehensive solution . they tend to use foundation models rather than the entire solution, he says ."
+Page 104,[REDACTED_PHONE] National University of Singapore . to build Gen AI applications in production .
+Page 105,Embracing Gen AI https://www.sequoiacap.com/article/ generative-ai-act-two/ .
+Page 106,"the future of artificial intelligence is not about man versus machine, but rather man with machine. Together, we can achieve unimaginable heights of innovation and progress."
+Page 107,"LLMs have been revolutionizing NLP and rapidly progressing . the model displays more reasoning and emergent abilities . light, local fine-tuned models may be preferred ."
+Page 108,"arXiv preprint arxiv:[REDACTED_PHONE]); brown, Tom B., et al. ""Language models are few-shot learners"" generative pre-training:"
+Page 109,"[REDACTED_PHONE] National University of Singapore. All rights reserved. Page 109 References • Fu, Yao; Peng, Hao and Khot, Tushar."
+Overall Summary,[REDACTED_PHONE] National University of Singapore. All rights reserved . Page 2 Agenda • Transfer Learning • The Evolution of Pre-trained Language Models • Representative LMs – Auto-encoding - BERT - Auto-regressive - GPT & GPT2 – Seq2Seq .

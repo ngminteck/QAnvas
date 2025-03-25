@@ -1,0 +1,92 @@
+Page,Summary
+Page 1,2024 National University of Singapore. All rights reserved. Page 1 EBA5004 PLP – New Media and Sentiment Mining Entity & Aspect Mining Dr. Fan Zhenzhen NUS-ISS National
+Page 2,"page 2 Module Objectives At the end of this module, you will be able to Identify common tasks in aspect-based sentiment analysis . use common and LM-based approaches to perform entity/aspect extraction ."
+Page 3,the opinion target - entity and its aspects • Tasks in ABSA • Approaches in entity extraction - Frequency-based approach .
+Page 4,"2024 National University of Singapore. All rights reserved. Page 4 Entities, Aspects & ABSA ."
+Page 5,an opinion consists of a sentiment (positive or negative) and a target (of opinion). Detect subjective opinion and determine its polarity is often the first step in sentiment mining.
+Page 6,"2024 National University of Singapore. All rights reserved. Page 6 Definition of Opinion • Recall that opinion is formally defined as a quadruple (g, s, h, t)"
+Page 7,"2024 National University of Singapore. All rights reserved. Page 7 Opinion Target Extraction • Examples: – although the service is not that great, I still love this restaurant ."
+Page 8,"2024 National University of Singapore. All rights reserved. Page 8 Typical tasks for ABSA . Identify subjective/opinionated sentences . Determine whether opinions are positive, negative or neutral ."
+Page 9,2024 National University of Singapore. All rights reserved. Page 9 ABSA subtasks .
+Page 10,the methods and features used for recognizing entities and aspects are usually different due to their individual specific characteristics . => often leverage on syntactic structures to discover opinion and target relationships .
+Page 11,2024 National University of Singapore . All rights reserved. page 11 Entity Extraction . .
+Page 12,2024 National University of Singapore. All rights reserved. Page 12 Entity Extraction • Similar to the classic problem of Named Entity Recognition (NER) in NLP .
+Page 13,"in traditional NER, the objective is to recognize all named entities of certain types in a corpus . the interest is often to find the mentions of a set of desired entities, e.g. the company’s"
+Page 14,"2024 National University of Singapore. All rights reserved. Page 14 Entity Resolution • Two name ambiguity problems: Apple for Apple Inc. (the maker of iPhone and iPad), or Apple Daily (a Hong Kong newspaper)?"
+Page 15,"2024 National University of Singapore. All rights reserved . can contain documents of any entity or topic, with little or no meta-data (like hashtags)"
+Page 16,"keyword search is often applied first to retrieve relevant posts . it’s better to have a clear mining objective, from which you’ll derive a comprehensive list of name variations ."
+Page 17,"in sentiment analysis applications involving consumer products, the entities are products, which typically have brands and models, forming a hierarchical relationship ."
+Page 18,"a mention refers to some known entity, or none . but instead of PER(person), ORG(organization), GPE(geopolitical entity), UNK(unknown), we are typically looking for"
+Page 19,"semi-supervised approaches try to tap on unlabeled examples; e.g. PU learning, Bayesian sets . identify all entities of the same type as the seeds from a given corpus ."
+Page 20,PU Learning aims to identify entities of phones and a corpus . use sequences of specific POS tags to identify candidates .
+Page 21,"the opinion holder is usually the author of the review, blog, post, etc. it’s trivial when the ID and date/time of the post are usually known ."
+Page 22,2024 National University of Singapore. All rights reserved. Page 22 Aspect Extraction . .
+Page 23,2024 National University of Singapore. All rights reserved. Page 23 Main approaches 1. By finding frequent nouns and noun phrases . 2. By exploiting syntactic dependencies depicting opinion and target relations .
+Page 24,2024 National University of Singapore. All rights reserved. Page 24 Frequency-Based Approach - a multi-layered approach .
+Page 25,a reasonable number of reviews about the same product or at least the same type of products . Count their occurrence frequencies . keep only the frequent ones above a threshold experimentally determined .
+Page 26,2024 National University of Singapore. All rights reserved . Popular Mentions from TripAdvisor .
+Page 27,2024 National University of Singapore. All rights reserved. Page 27 Frequency-based aspect extraction • Collocation detection • The candidate aspects are almost always the most important aspects .
+Page 28,a simplified version of Point-wise Mutual Information (PMI) can be used to compute co-occurrence strength . phrases that often co-occur with such part-of relation indicators are likely to be correct aspects .
+Page 29,2024 National University of Singapore. All rights reserved. Page 29 Parts or Attributes . to distinguish components/parts from attributes – Morphological cues .
+Page 30,2024 National University of Singapore. All rights reserved. Page 30 is-a • Hyponyms ( x is a camera)
+Page 31,2024 National University of Singapore. All rights reserved. Page 31 is-a relation • Hypernyms ( camera is a x)
+Page 32,2024 National University of Singapore. All rights reserved. Page 32 part-of relation • Meronyms ( x is part of camera)
+Page 33,2024 National University of Singapore. All rights reserved . filter by dropping aspects that do not have sufficient mentions alongside known sentiment words . compare the frequencies of the candidates in a review corpus with those in generic corpus
+Page 34,Lexico-Syntactic Approaches 2024 National University of Singapore. All rights reserved.
+Page 35,"2024 National University of Singapore. All rights reserved. Page 35 Exploiting syntactic relations . X of Y: ""the voice quality of the iPhone"""
+Page 36,2024 National University of Singapore. All rights reserved . can be used for simultaneous extraction of sentiment words and opinion targets .
+Page 37,"amod (adjectival modifier) is any adjectival phrase that serves to modify the meaning of the NP . nsubj(like, I) - ""I"" is the nominal subject of """
+Page 38,2024 National University of Singapore. All rights reserved. Page 38 Universal Dependencies . .
+Page 39,2024 National University of Singapore. All rights reserved. Page 39 Stanford Typed Dependencies • mod – modifier .
+Page 40,"Stanford Typed Dependencies • arg - arguments . arg is a case for arg, arg and arg."
+Page 41,2024 National University of Singapore. All rights reserved. Page 41 Common dependency relations . between sentiment words or aspects themselves: the conjunction relation conj .
+Page 42,2024 National University of Singapore. All rights reserved. Page 42 Example Rules for Aspect and Opinion Word Extraction .
+Page 43,the semantic relations of the two nouns can be quite different in different contexts . part-of: “iPhone’s battery” – Possession: “John’s iPhone” .
+Page 44,the approach with no parser is expensive (typically fewer than 20 sentences per second) and it doesn’t work well on informal data .
+Page 45,"page 45 Ranking the candidates: Aspect relevance (r(a): how likely it’s a genuine aspect . if an aspect is modified by multiple sentiment words “delivery” modified by “quick”, “cumber"
+Page 46,use phrase dependency parser to extract noun phrases and verb phrases . Adding comparative- and superlative-based relations .
+Page 47,2024 National University of Singapore. All rights reserved. Page 47 Implicit aspect . opinion expressions that do not mention aspect explicitly as a noun .
+Page 48,people use different words or phrases to describe the same aspect or aspect category . different application or different users may require different categories based on application need or granularity of analysis .
+Page 49,2024 National University of Singapore. All rights reserved. Page 49 Some methods . Aspect terms that are synonyms in dictionaries: “movie” and “show”
+Page 50,2024 National University of Singapore . All rights reserved . traditional supervised- learning approacheses .
+Page 51,2024 National University of Singapore. All rights reserved. Page 51 3. Supervised learning . Dominant method: sequential learning or sequence labeling like hidden Markov models .
+Page 52,2024 National University of Singapore. All rights reserved . O love B-POS the O ease B-ASP of I-ASP .
+Page 53,the observation xi only depends on the current state yi-1 . Observations: words or phrases in a review – Underlying/hidden states: aspect or opinion expression tags .
+Page 54,"the joint probability of a state sequence y and an observation sequence x – p(y0) over the initial state . learn the model parameter that maximizes the observation probability, e.g. MLE from"
+Page 55,"Observations: the number of ice creams eaten on that day – 1, 2, 3 . Emission probabilities (observation likelihood)"
+Page 56,2024 National University of Singapore. All rights reserved. Page 56 Sequence probability • E.g. to compute the joint probability of observation sequence .8 .
+Page 57,2024 National University of Singapore. All rights reserved . find the best sequence of hidden states v3(1)=?
+Page 58,the previous slide shows the computation of vt(j) for two states at two time steps . now try to compute the values for v3(1) & v2(2) .
+Page 59,"the task is to find an appropriate sequence of tags T = t1t2t3...tn that maximize the conditional probability P(T|W,S,S)"
+Page 60,CRF is a probabilistic (undirected) graphical model . it models a conditional probability p(Y|X) over hidden sequence Y given observation sequence X .
+Page 61,the only redeeming factor was the food X DT JJ NN VBD DT NN Y O O O B-A .
+Page 62,2024 National University of Singapore. All rights reserved. Page 62 Recent Advances: Deep Learning Approaches .
+Page 63,"2024 National University of Singapore. All rights reserved. Page 63 Deep Neural Networks • Inspired by the structure and functioning of the human brain, DNNs have emerged as powerful tools for sequence modelling in NLP ."
+Page 64,vanishing gradient problem (or short-term memory) can’t handle long-term dependencies often required in NLP.
+Page 65,page 65 Gated Recurrent Units • A variant of RNN • Capturing long-term dependencies by allowing relevant information to pass through hidden states • Fewer parameters than LSTM .
+Page 66,"long-term memory (LSTM) is a popular variant of RNN . uses memory cell and gates (input gate, forget gate, output gate) to update and forget information ."
+Page 67,page 67 Transformers with Attention • A novel architecture of DNN with layers of encoders/decoders • A special attention layer allowing each element in the sequence to attend to other elements .
+Page 68,"the pre-training helps the model to capture context, syntactic and semantic information in the text . the model can be further fine-tuned using small data set ."
+Page 69,"BERT base: no of transformer layers = 12; total parameters = 110M . BERT Large: no. of transformer layer = 24 total parameter = 340M Fine- tuning Sentiment analysis, text classification ."
+Page 70,page 70 Sentence-level Sentiment Classification https://gluebenchmark.com/leaderboard .
+Page 71,"most treat extraction as a sequence tagging task, using LSTM-based models for token classification . or by fine-tuning pre- trained transformers ."
+Page 72,"2024 National University of Singapore. All rights reserved. Page 72 A sequence-to-sequence approach . using BART, a strong pre-trained model for natural language generation ."
+Page 73,2024 National University of Singapore. All rights reserved . page 73 ABSA subtask formulation .
+Page 74,2024 National University of Singapore. All rights reserved. Page 74 Overall architecture Source sequence: “the battery life is good .
+Page 75,2024 National University of Singapore. All rights reserved. page 75 The latest advance: Zero-Shot Approach .
+Page 76,"no training/fine-tuning of the model, no examples provided to the model . Various approaches – Extraction by question answering (Extractive QA) – By natural language inference (NLI)"
+Page 77,"extractive QA – Given a question and a context, predict the span of answer in the context paragraph . can be used for entity/aspect expression extraction ."
+Page 78,"the dumplings are small and succulent. The drunken chicken was moist and full of alcohol . more specific questions get better results, but do we have to extract these expressions?"
+Page 79,2024 National University of Singapore. All rights reserved. Page 79 ABSA as natural language inference . to transform the ABSA into an NLI task .
+Page 80,2024 National University of Singapore. All rights reserved . arXiv preprint:[REDACTED_PHONE]
+Page 81,generative language models (like ChatGPT) further trained to predict responses to instructions given in input . what is prompt? – User input/instruction to the model to guide model’s generation .
+Page 82,2024 National University of Singapore . All rights reserved . 82 Prompt engineering engineering .
+Page 83,"2024 National University of Singapore. All rights reserved. Page 83 Inference for implicit aspects ""The camera is expensive and doesn't fit in the pocket"""
+Page 84,2024 National University of Singapore. All rights reserved . Getting aspect categories from LLM from lLM .
+Page 85,2024 National University of Singapore. All rights reserved. Page 85 Prompt with multi-turn QA .
+Page 86,QA: entity type -> entity name . stage I • stage II - stage I - phase II .
+Page 87,2024 National University of Singapore. All rights reserved. Page 87 Multi-turn QA: relations -> entities .
+Page 88,2024 National University of Singapore. All rights reserved. Page 88 Multi-turn QA: event type -> arguments • Stage II .
+Page 89,"2024 National University of Singapore. All rights reserved . Liu, Bing. ""Chapter 6: Aspect and Entity Extraction"""
+Page 90,2024 National University of Singapore. All rights reserved . use the restaurant review data set from day 2 workshop: train.csv . supervised-learning approach .
+Overall Summary,2024 National University of Singapore. All rights reserved . page 1 EBA5004 PLP – New Media and Sentiment Mining Entity & Aspect Mining Dr. Fan Zhenzhen NUS-ISS .

@@ -1,0 +1,32 @@
+Page,Summary
+Page 1,CNI Day1 Workshop
+Page 2,Prompting LLM as assistant
+Page 3,Team No. ???
+Page 4,Name 1
+Page 5,Name 2
+Page 6,…
+Page 7,Page 1
+Page 8,Objective
+Page 9,this workshop is to practice crafting effective prompts to enable an LLM to function as a personalized virtual assistant for a specific task or objective.
+Page 10,Which LLM is used?
+Page 11,Identify the objective of your virtual assistant . a virtual assistant can be used to create virtual assistants . the virtual assistant will be able to communicate with you via email .
+Page 12,"discuss different scenarios where an LLM-based assistant could be helpful . consider daily tasks, personal projects, or professional needs ."
+Page 13,choose one specific scenario and define the goal for the assistant . be clear about what you want it to achieve .
+Page 14,Page 2
+Page 15,Design the assistant
+Page 16,a brief persona What specific action do you want the assistant to perform? Parameters: relevant details or conditions to guide the assistant . Add examples or references for specific styles or formats .
+Page 17,Page 3
+Page 18,Create the prompts
+Page 19,Page 4
+Page 20,Test and iterate
+Page 21,chat with the conditioned LLM as a user to perform the task . chat with conditioned lLM as an user .
+Page 22,is the bot able to handle inputs correctly? Is the bot capable of handling input inputs correctly?
+Page 23,"is the language style proper for the persona? if the language is appropriate, is it appropriate for a persona."
+Page 24,"Is the conversation flow normal/expected? if the conversation is normal or expected, what is the difference between the two?"
+Page 25,Are the errors handled well?
+Page 26,Restrictions and challenges encountered
+Page 27,Any other observations / lessons learned
+Page 28,Page 5
+Page 29,Your final prompts
+Page 30,Page 6
+Overall Summary,"CNI Day1 Workshop Prompting LLM as assistant Team No. ??? Name 1 Name 2 ... Page 1 Objective This workshop is to practice crafting effective prompts to enable an LLM to function as a personalized virtual assistant for a specific task or objective . consider daily tasks, personal projects, or professional needs . choose one specific scenario and define the goal for the assistant ."

@@ -1,0 +1,15 @@
+Page,Summary
+Page 1,www.iss.nus.edu.sg New Media And Sentiment Mining Dr Wang Aobo [REDACTED_EMAIL]
+Page 2,www.iss.nus.edu.sg Sentiment Summarization & Visualization 2 .
+Page 3,"Sentiment Summarization refers to the task of automatically summarizing documents . extractive summarization - Sentences in social media data are classified as informative or noninformative, and informative sentences are simply con"
+Page 4,"ei, aij, sijkl, hk, tl formally define opinion as quintuple . sentiment aggregation typically performed on three levels ."
+Page 5,UIUC proposed a novel summarization problem called Contrastive Opinion Summarization . aims to extract comparable sentences from each set of opinions .
+Page 6,Sentiment Visualization 6 Information visualization techniques take advantage of our visual information processing ability by creating visual representations of the large dataset . a fundamental challenge of designing any information visualization system arises from the human and display limitations .
+Page 7,Sentiment visualization 7 is a fundamental challenge of designing any information visualization system . the limited display size means we have to be selective in showing visualizations . one particular challenge arises from the noisy nature of social media text
+Page 8,Sentiment Visualization - Word Clouds 8 • Visualizes the single word or short phrases within social media text data based on frequency of occurrence . there are issues such as co-reference resolution & word sense
+Page 9,Sentiment Heat Map is a graphical way to visualize social media data in the form of a color scheme (e.g. a gradient color ranging from green to red) it can be cognitively challenging for humans to
+Page 10,"Sentiment Visualization - Time Series of Sentimence 10 . the system shows the volume of tweets over time, the keywords over time . analysts can monitor the variations in sentiments when different policies are mentioned ."
+Page 11,Introduction to Sentiment Analysis in New Media Applications & Challenges . National University of Singapore. All Rights Reserved.
+Page 12,"resources 12 a Practical Guide to Sentiment Analysis . Read Chapter 2, 4 and 7 Sentimence Analysis for social media (2020)"
+Page 13,National University of Singapore. All Rights Reserved . www.iss.nus.edu.sg www.facebook.com/ISS.NUS twitter.com .
+Overall Summary,"Sentiment Summarization - Sentences in social media data are classified as informative or noninformative, and those informative sentences are simply concatenated to form a summary 2 . ei, aij, sijkl, hk, tl are the sentiment scores across time (tl)"

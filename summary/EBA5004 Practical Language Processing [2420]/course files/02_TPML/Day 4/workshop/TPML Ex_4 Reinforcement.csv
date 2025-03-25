@@ -1,0 +1,16 @@
+Page,Summary
+Page 1,Day 4. Text processing for Machine Learning Exercise
+Page 2,task: Complete the current word token given the previous words and the leading one or two letters of the actual word token .
+Page 3,Example:
+Page 4,"input: Hi Everyone, Good mo"
+Page 5,"output: Hi Everyone, Good morning"
+Page 6,use Re-enforcement learning method to build an NN Agent (NN/CNN/LSTM/Transformer) to finish this task.
+Page 7,To think about steps:
+Page 8,How to prepare the training data?
+Page 9,Which model could be the agent?
+Page 10,How to design the reward?
+Page 11,Any other steps that mattering…
+Page 12,"Try it out with the help of GPT/Copilot step by step . if you have any questions, please contact the GPT or Copilot team."
+Page 13,your Agent is not going to work . it is OK if your agent isn't going to be able to work.
+Page 14,present and propose possible solutions for each of the steps you have identified . propose solutions to each step you have chosen .
+Overall Summary,text processing for machine learning exercise task: complete the current word token given the previous words and the leading one or two letters of the current words token . NN Agent (NN/CNN/LSTM/Transformer) will finish this task .

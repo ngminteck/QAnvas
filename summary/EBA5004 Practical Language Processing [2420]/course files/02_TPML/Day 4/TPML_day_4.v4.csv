@@ -1,0 +1,79 @@
+Page,Summary
+Page 1,TEXT PROCESSING USING MACHINE LEARNING MODULE 4: Trending Topics on LLMs Dr. Aobo Wang [REDACTED_EMAIL]
+Page 2,LLaMA’s family Parameter-Efficient Fine-tuning Workshop MOE Extra topics to discuss .
+Page 3,fine-tuning with Instructions Copyright National University of Singapore . All rights Reserved 3 .
+Page 4,fine-tuning with Instructions Copyright National University of Singapore . All rights Reserved 4 .
+Page 5,Model Supervised Fine-Tuning Bloomberg GPT GPT . . Model supervised fine-tuning . Bloomberg .
+Page 6,Model Supervised Fine-Tuning (model supervised fine-tuning) is a model supervising fine-touning company based in the u.s.
+Page 7,"LLaMA’s family • Alpaca, a member of the alpaca family, is based in london ."
+Page 8,LLaMA’s family
+Page 9,Prompt Tuning
+Page 10,Prompt tuning prefers larger models . prompt engineering isn't good enough for larger models to be tuned .
+Page 11,Parameter-Efficient Fine-tuning Copyright National University of Singapore . All rights Reserved 1 2 Adapters .
+Page 12,Parameter-Efficient Fine-tuning Copyright National University of Singapore. All Rights Reserved 1 3 • Adapters [REDACTED_PHONE]
+Page 13,Parameter-Efficient Fine-tuning Copyright National University of Singapore . All rights Reserved 1 4 • Adapters .
+Page 14,Parameter-Efficient Fine-tuning Copyright National University of Singapore . all rights Reserved 1 5 .
+Page 15,prefix Tuning (a) Copyright National University of Singapore . 16 prompt vectors are vector vectors .
+Page 16,Parameter-Efficient Fine-tuning Copyright National University of Singapore . Usually it refers to the Prompt Tuning (b)
+Page 17,prefix Tuning (b) Copyright National University of Singapore . 18 soft prompt with Embedding .
+Page 18,prefix Tuning (c) Copyright National University of Singapore . 19 LSTMTM .
+Page 19,prefix Fine-tuning in CV • Visual Prompt Tuning (VPT) 2022 .
+Page 20,prefix Fine-tuning in CV • Context Optimization (CoOp) 2022 . .
+Page 21,Parameter-Efficient Fine-tuning Copyright National University of Singapore . low-rank (LORA) metrics .
+Page 22,Copyright National University of Singapore. All Rights Reserved 2 3 • Low-rank Adaptation (LORA)
+Page 23,low-rank Adaptation (LORA) (low-rank adaptation) (lra) . LORA (llrrr) is a low-level adapted .
+Page 24,LLaMA’s family
+Page 25,there is still a large gap in performance between LLaMA 2 70B and GPT-4 and PaLM-2-L .
+Page 26,LLaMA2
+Page 27,LLaMA2
+Page 28,deepseek-ai/DeepSeek-MoE: Towards Ultimate Expert Specialization in Mixture-of-Experts Language Models .
+Page 29,LLaMA’s family Parameter-Efficient Fine-tuning Workshop MOE Extra topics to discuss RL & Reasoning .
+Page 30,Scaling Law (2020) Copyright National University of Singapore . 3 1 “linearly” increase exponentially.
+Page 31,Emergent Phenomena Knowledge driven logic driven by emerging logic driven logic and logic driven logical logic .
+Page 32,Emergent Phenomena Copyright National University of Singapore . an ability is emergent if it is not present in smaller models .
+Page 33,"all rights reserved 3 4 (FLOPs: floating point operations, a comprehensive measure of a model's scale that considers not only parameters but also factors like data volume and training epochs)."
+Page 34,all rights Reserved 3 5 5 . Copyright National University of Singapore . Copyright 2016 .
+Page 35,Emergent Phenomena
+Page 36,"Emergent Phenomena 13B is very basic, not likely to deal with logic heavy tasks accurately 40B - 50B could be possible Better to start from 70B ."
+Page 37,"Emergent Phenomena 13B is very basic, not likely to deal with logic heavy tasks accurately 40B - 50B could be possible Better to start from 70B ."
+Page 38,Emergent by Grokking ?
+Page 39,Impossible Triangle Retention
+Page 40,RetNet 41
+Page 41,RetNet
+Page 42,retnet dual form of recurrence and parallelism training (QKD)V Infrerence (qKDV)V = Q(K-DV) https://medium.com
+Page 43,GPT-4 is a good data analyst with 90%* ChatGPT Quality Evaluating on GAOKAO Benchmark Outperforming LLM with less and smaller model . using incomplete and inaccurate evaluation method: Swap the order of the
+Page 44,Evaluation
+Page 45,Evaluation
+Page 46,"Hallucination, faithfulness: Input content . Common sense: common sense . common sense: a sense of humour ."
+Page 47,Hallucination: conflicting with the input content . Extrinsic Halluci : creating unknown facts .
+Page 48,Hallucination • Causes (data): Training data quality: - Wrong Memory (link)
+Page 49,training data quality improves language models . deduplicating training data makes language models better . language models are better suited to language models.
+Page 50,Hallucination • Causes (Prompts): Be more specific when ask question . Query/Instruct + Background Content .
+Page 51,Hallucination algorithm (top-p) BeamSeach instead of beamseach .
+Page 52,factual-nucleus sampling algorithm (top-p) sampling algorithm (link)
+Page 53,exposure bias: training and the generation procedure mismatch . minimum risk training (MRT) avoids exposure bias .
+Page 54,Hallucination: How to detect: By External Refence Compare with the results from search engine/Wikipedia . BLEU/ROUGH score against reference .
+Page 55,how to detect: By External Refence Compare with the results from search engine/Wikipedia Transformer Memory Network models .
+Page 56,Hallucination: How to detect: By External Refence Reference Free method Faithfulness .
+Page 57,Hallucination: How to detect (Faithfulness) Refence-Free methods . By Question generation (FEQA)
+Page 58,Refence-Free methods By Natural Language Inference (NLI) Evaluating factuality in generation with dependency-level entailment Error: Putin is president.
+Page 59,Hallucination: How to detect: (Faithfulness) Refence-Free methods . By natural language inference (NLI)
+Page 60,Refence-Free methods By Factualness Classification Metric Annotate/construct a set of data related to illusions/facts Train a detection model Post Class
+Page 61,(Faithfulness) • Mixture with multiple tasks . controllable grounded response generation (Inductive Attention)
+Page 62,LLaMA’s family Parameter-Efficient Fine-tuning Workshop MOE Extra topics to discuss RL & Reasoning .
+Page 63,Reinforcement learning
+Page 64,RL Framework Reinforcement learning
+Page 65,RF with DL
+Page 66,"RF with DL Example Environment: (Forcing +1 or -1 movement of the card) State: L,R,UP,DOWN Agent: 2-layers NN Action Space: 'Move"
+Page 67,Reinforcement learning Limited Action Spaces
+Page 68,RF with NLP Environment:? Reward:? State: ? agent: Transformers Action: select a word by softmax .
+Page 69,Reinforcement learning
+Page 70,"RL with Human Feedback Proximal Policy Optimization, PPO Policy: generate a sequence of words based on prompt Action space : select a word by softmax from V Observation space . all possible sequences"
+Page 71,RL with Human Feedback Reinforcement Learning from Human Feedback (Natural Language Processing at UT Austin) - YouTube .
+Page 72,"RL with Human Feedback RLHF instead of RF, use RM Initial LLM, (GPT), 175B Reward Model RM, 6B ."
+Page 73,"RL with Human Feedback Proximal Policy Optimization, PPO Policy: generate a sequence of words based on prompt Action space . select a word by softmax from V Observation space : all possible sequences"
+Page 74,Reasoning
+Page 75,this is a replicate of DeepSeek-R1-Zero training on small models with limited data RL for Reasoning 1. RL with rule-based reward .
+Page 76,Reasoning
+Page 77,Reference list Evaluating Factuality in Generation with Dependency-level Entailment . arXiv:[REDACTED_PHONE] fixes hallucination with Knowledge Bases .
+Overall Summary,LLaMA’s family Model Tuning with Prompts/Instructions Copyright National University of Singapore . All Rights Reserved 1 2 • Adapters • Prefix-tuning Low-rank Adaptation Parameter-Efficient Fine-tuneing .

@@ -1,0 +1,99 @@
+Page,Summary
+Page 1,day 3: 3: Case studies: Integrating speech recognition and NLP solutions . day 4: 4: Speech synthesis (Text-to-speech)
+Page 2,3
+Page 3,4
+Page 4,5
+Page 5,6
+Page 6,7
+Page 7,8
+Page 8,9
+Page 9,10
+Page 10,11
+Page 11,12
+Page 12,13
+Page 13,14
+Page 14,15
+Page 15,16
+Page 16,17
+Page 17,18
+Page 18,19
+Page 19,20
+Page 20,21
+Page 21,22
+Page 22,23
+Page 23,24
+Page 24,25
+Page 25,26
+Page 26,27
+Page 27,28
+Page 28,29
+Page 29,30
+Page 30,31
+Page 31,32
+Page 32,33
+Page 33,34
+Page 34,35
+Page 35,36
+Page 36,37
+Page 37,38
+Page 38,39
+Page 39,40
+Page 40,41
+Page 41,42
+Page 42,43
+Page 43,44
+Page 44,45
+Page 45,46
+Page 46,47
+Page 47,48
+Page 48,49
+Page 49,50
+Page 50,51
+Page 51,52
+Page 52,53
+Page 53,"Topic 5: Voice Conversion and audio generation . topic 5: audio generation and voice conversion . topics include audio generation, voice generation, and audio ."
+Page 54,"aims to modify an existing voice to resemble another while retaining original content and linguistic features . uses cases: • Speaker imitation, accent conversion, emotion/style transfer ."
+Page 55,translates voice characteristics from one speaker to another . uses adversarial training to learn mapping between different voice domains without paired data .
+Page 56,"input and Output: • May take various forms of input (e.g., text, noise) • Entirely new audio signals as output ."
+Page 57,audioLDM2 transforms noise into coherent audio by iteratively refining the signal (diffusion-based approach) audio samples at https://audioldm.github.io .
+Page 58,"input: Modified speech with a different voice but same content . output: Text, musical notes, sound description, etc. Output: Existing speech signal . Content generation does not generate new content (content-preserving)."
+Page 59,60
+Page 60,61
+Page 61,62
+Page 62,63
+Page 63,64
+Page 64,65
+Page 65,"dialogues follow specific pathways based on user inputs, ensuring that the dialogue adheres to a planned structure . DialogFlow (Generative Chatbot) Detect intents and extract entities from user queries to map them to"
+Page 66,"chat, creative writing, Q&A, coding help, open-domain AI Customer service bots, booking systems, voice assistants, FAQ bots Integration & Deployment API-based integration, broad applications across domains"
+Page 67,68
+Page 68,69
+Page 69,70
+Page 70,71
+Page 71,72
+Page 72,73
+Page 73,74
+Page 74,75
+Page 75,76
+Page 76,77
+Page 77,78
+Page 78,79
+Page 79,80
+Page 80,81
+Page 81,82
+Page 82,83
+Page 83,Google Cloud Tech: Integrate Dialogflow with Telephony Gateway . https://www.youtube.com/watch?v=whZPw0HFnTE .
+Page 84,85
+Page 85,86
+Page 86,87
+Page 87,88
+Page 88,89
+Page 89,90
+Page 90,91
+Page 91,92
+Page 92,93
+Page 93,94
+Page 94,95
+Page 95,96
+Page 96,97
+Page 97,98
+Overall Summary,Accelerating Digital ExcellenceCopyright National University of Singapore Agenda • Day 3 • 3: Case studies: Integrating speech recognition and NLP solutions • 1: Speech processing basics • 2: Speech recognition (Speech-to-text) • Day 4 • 4: Speech synthesis • 6: Spoken dialogue system (Spoken chatbot)

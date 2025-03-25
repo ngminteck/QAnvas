@@ -1,0 +1,47 @@
+Page,Summary
+Page 1,new media and Sentiment Mining Day 1 Dr. Fan Zhenzhen 1 Part I Dr. fan Zhenzezhen .
+Page 2,"National University of Singapore. All Rights Reserved . key takeaways At the end of the course, you should be able to: Identify where sentiment analysis can be applied ."
+Page 3,National University of Singapore. All Rights Reserved . Day Topics Day 1 Introduction to Sentiment Analysis in New Media Applications of Sentimence Analysis .
+Page 4,Introduction to Sentiment Analysis in New Media 4: www.iss.nus.edu.sg Part 1 .
+Page 5,traditional media marketing often sends out messages to the customers instead of initiating conversations . the target audience of traditional media is a largely anonymous mass audience .
+Page 6,internet identity is just the beginning of this transformation . consumers will rely on peers as they make online decisions . socially connected consumers will strengthen communities and shift power away from brands and CRM systems .
+Page 7,"Sentiment analysis is the field of study that analyzes people’s opinions, sentiments, appraisals, attitudes, and emotions toward entities . the entities can be products, services, organizations, individuals, events, issues, or topics"
+Page 8,Sentiment Analysis is about analyzing people’s opinions . we need to define what an opinion means in this context .
+Page 9,"definition of an opinion Formally, an opinion is defined as a quintuple: (ei, aij, sijkl, hk, tl), where ei is the name"
+Page 10,"Sentiment Analysis involves subjectivity classification 2. Polarity classification 4. Opinion Summarization 5. Sarcasm Detection 3. Entity, Opinion Holder and Time Extraction 6. Coreference resolution and Word Sense Disambiguation 7."
+Page 11,"as of 2021, smartphone users are using an estimated 6.23 billion smartphone subscriptions . GSMArena is an online website that provides detailed and accurate information about mobile phones ."
+Page 12,"subjectivity classification is a requirement to distinguish between subjective and objective sentences . if a given sentence is classified as objective, we don’t have to perform any task to determine its polarity ."
+Page 13,one common method is to determine the sentiment associated with a particular sentence . a sentence is completed with punctuations such as “.” and “?” .
+Page 14,"multiple entities mentioned by multiple opinion holders at different time . different users may express their opinions on different phone models based on different time of purchases . users may review different aspects of the entity ""Samsung Galaxy Fold3"""
+Page 15,aspect-based Sentiment Analysis (ABSA) can be seen as the process of building a comprehensive opinion summary at the aspect level . some key tasks of ABSA include extraction and categorization of entities and aspects
+Page 16,Opinion Summarization is an approach to aggregate and summarize the opinions from a large number of users’ phone reviews . traditional text summarization typically involves selection and aggregation of important sentences . it is often used for
+Page 17,"Sarcasm is a sophisticated form of speech act in which the opinion holder says something positive, one actually means something negative, and vice versa . sarcastic sentences are not common in formal phone reviews, but can be"
+Page 18,Coreference resolution is the task of finding all expressions that refer to the same entity in a text . the opinion targets are often mentioned not in the same sentences where sentiments are expressed . Word-sense disambiguation is
+Page 19,an opinion search needs to perform two main tasks: 1. Retrieve documents or sentences relevant to the user query 2. Rank the retrieved documents and sentences . traditional web search engines rank web pages based on authority and relevance scores .
+Page 20,opinions in reviews or social feeds are increasingly used by individuals and organizations to make decisions . positive opinions often mean profit for businesses .
+Page 21,"system rely on machine learning techniques to learn from data . key steps involved are pre-processing & feature generation, feature extraction, training and prediction ."
+Page 22,"Lexicon-based systems often require fine-tuning and maintenance . some lexicon dictionary handle emoticons or emoji’s . others can handle intensity, e.g. booster words, capitalization"
+Page 23,"ML-based Approach Example 23 Step 1. Raw Input Data Processing Source: Text, web, pdf, images (OCR) Step 2. Data Pre-Processing HTML cleaning, Tokenization, Stemming/Lemm"
+Page 24,Hybrid Approach Example 24 Potential Benefits . brings more flexibility for domain experts to intervene and handle complex NLP tasks .
+Page 25,National University of Singapore. All Rights Reserved . 3 Levels of Sentiment Analysis 25 .
+Page 26,"the aim is to classify the polarity of a whole opinionated message . for example, given a phone review, the system determines whether the review expresses an overall positive, negative, or neutral opinion about the"
+Page 27,"based on what you have learned so far, create a one-page action plan to summarize the viewers’ sentiment about Bard versus ChatGPT (and not the companies) Source: https://www.youtube.com/"
+Page 28,applications of Sentiment Analysis 28 . applications of sentiment analysis 27 . . www.iss.nus.edu.sg Part 2.
+Page 29,applications of Sentiment Analysis Some main application areas 1. Customer Feedback and Reviews 2. Social Media Monitoring 3. Financial Prediction 4. Fraud Detection 29 Source: https://netbasequid.com/blog/what-is-social
+Page 30,"customer feedback and reviews • Voice of Customer (VoC) • To improve customer satisfaction, enhance product development, get insights for competitive advantage . Identify positive sentiment: Pinpoint areas for improvement based on customer concerns and frustrations"
+Page 31,National University of Singapore. All Rights Reserved . Customer Reviews 31 Source: https://shopee.sg/HUAWEI-Band-7-Smartwatch-9.9-mm-Ultra-thin-
+Page 32,customer journey map – Customer Experience (CX) 32 Source: Delighted by Qualtrics . delighted.com/blog/guide-to-customer-journey-mapping Measuring customers’
+Page 33,National University of Singapore. All Rights Reserved . Customer Feedback and Reviews 33 Link: https://ieeexplore.eee.org/abstract/document/8862258 .
+Page 34,"social media monitoring, for brand monitoring, public opinion monitoring . identifie trends: Spot emerging issues, positive feedback, and competitor activity . measure impact: Track sentiment over time to see effectiveness of your social media campaigns ."
+Page 35,National University of Singapore. All Rights Reserved . Online Reputation Score 35 https://brand24.com/blog/online-reputation-score/ .
+Page 36,Zignal Labs – Social Listening Tools 36 – social listening tools . National University of Singapore. All rights reserved.
+Page 37,governments are taking various measures to prevent the spreading of COVID-19 . critics view digital contact tracing as an attempt of the government to control people and a fundamental breach of privacy .
+Page 38,Sentiment drives the stock market . it changes people’s consumption habits which in turn drives their investment and savings tendencies 38 Source: www.visualcapitalist.com/understanding-the-disconnect-between-
+Page 39,"sentiment analysis combines sentiment analysis with other data sources to create more informed predictions . sentiment analysis analyses public sentiment by analyzing news articles, social media posts, and financial reports ."
+Page 40,"National University of Singapore. All Rights Reserved . Project: Gold Price Trend Prediction 40 Reuters Eikon Interface Raw news data table Price data table 2022 EBAC Project By: Xiaohong, Haoxi"
+Page 41,"Identify suspicious language by analyzing emails, messages, or social media posts for words and phrases commonly associated with fraud . Analyze customer reviews to identify fake reviews that praise a product or service unrealistically to boost its credibility ."
+Page 42,"KaRuNa: a blockchain-based sentiment analysis framework for fraud cryptocurrency schemes . potential investors are susceptible to monetary losses in the open market due to factors such as pseudo-anonymity of cryptocurrency transactions, non-transpar"
+Page 43,"nLP for Fraud Detection in derivatives market 43 Source: Liu Pan, Natural Language Processing ."
+Page 44,"National University of Singapore. All Rights Reserved . Event-based Insider Trading Detection 44 Source: Liu Pan, Natural Language Processing for fraud detection in derivatives market ."
+Page 45,National University of Singapore. All Rights Reserved . www.iss.nus.edu.sg www.facebook.com/ISS.NUS twitter.com .
+Overall Summary,"new media and Sentiment Mining Day 1 Part I Dr. Fan Zhenzhen 1 National University of Singapore. All Rights Reserved. Traditional media consists of print media, film studios, radios, newspapers, and televisions. traditional media marketing often sends out messages to the customers instead of initiating conversations."

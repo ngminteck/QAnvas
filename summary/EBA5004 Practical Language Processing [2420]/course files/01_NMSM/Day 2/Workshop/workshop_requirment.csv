@@ -1,0 +1,6 @@
+Page,Summary
+Page 1,Highly Positive and Highly Negative Reviews on the aspect of “Staff” . Table 1 is based on a series of reviews on the topic of “staff”.
+Page 2,"use GLOVE as the vectors and any similarity matrix for each of the airlines in Table 1 . if you have a similarity rating, you should select the most similar reviews from the airlines ."
+Page 3,top 5 reviews are similar to positive/negative reviews in Table 1 . based on the GLOVE word vectors with any similarity calculation matrix .
+Page 4,"based on the W2V word vectors trained on the Airline dataset, top 5 reviews are similar to positive/negative reviews in Table 1 ."
+Overall Summary,"for each of the airlines, pick up the most similar reviews with respect to the negative/positive reviews from US Airways in Table 1. Use GLOVE as the vectors and any similarity matrix . Table 4. For US Airways, show top 5 reviews which are similar to the positive/negative reviews in Table 1 based on the W2V word vectors trained on the Airline dataset ."

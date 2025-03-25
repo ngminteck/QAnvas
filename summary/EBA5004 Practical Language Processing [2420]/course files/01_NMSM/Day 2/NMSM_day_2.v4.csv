@@ -1,0 +1,80 @@
+Page,Summary
+Page 1,NMSM Day2 Neural Nets & W2V 2022 NUS. All rights reserved.
+Page 2,Statistical Modelling vs. Deep Neural Nets . Word2Vec & DL Specific – CBOW and SkipGram – ActivationFunction/LossFun
+Page 3,"2022 NUS. All rights reserved. Page 3 How does NLP Work • The whole task here is... Lost glamor Rated 2 by hotogama on Feb 23, 2013 High tea at Raffles! Rated 5"
+Page 4,"PPMI and TF-IDF vectors are – long (|V| > 100,000) – sparse (lots of zero) efficient for simple tasks with reasonably large of dataset . tfid"
+Page 5,"2022 NUS. All rights reserved. Page 5 Statistical modelling . all models are wrong, but some are useful ."
+Page 6,"2022 NUS. All rights reserved. Page 6 How does NLP Work • The whole task here is... Lost glamor Rated 2 by hotogama on Feb 23, 2013 High tea at Raffles! Rated 5"
+Page 7,"2022 NUS. All rights reserved. Page 7 How does NLP Work • The whole task here is... Lost glamor Rated 2 by hotogama on Feb 23, 2013 High tea at Raffles! Rated 5"
+Page 8,"deep learning can create feature vectors that are short (often fixed-sized 2000, decided empirically) - dense (most are non-zeros) – non-Interpretable . able to capture contextual"
+Page 9,2022 NUS. All rights reserved . Workshop: Deep Learning from Scratch . Word2Vec & DL Specific .
+Page 10,100 billion perceptron in our brain - BERT 110 million to 17 billion para . LLAMA 7B – GPT4 ??? .
+Page 11,"perceptron – learns w vector to map inputs to a real-value output between [0,1] – through the summation of the dot product of the wx ."
+Page 12,Word level classification – Positive=1;Negative=0 – let n=5 Like x1 Hate x2 Good x3 Enjoy x4 Bad x5 Like [REDACTED_
+Page 13,Word level classification – Positive=1;Negative=0 – let n=5 = vocabulary_size Like x1 Hate x2 Good x3 Enjoy x4 Bad x5 Like [
+Page 14,Word level classification – Positive=1;Negative=0 – let n=5 = vocabulary_size – Batch_size = 1 . like x1 Hate x2 Good x3 Enjoy
+Page 15,word level classification – Positive=1;Negative=0 – let n=26 vocabulary_size a x1 b x2 c x3 . z x26
+Page 16,word level classification – let n=26 vocabulary_size – More layers . more parameters a x1 b x2 c x3 . z x26 like 0
+Page 17,word level classification – let n=26 vocabulary_size – More parameters – Even More Layers a x1 b x2 c x3 . z x26 like
+Page 18,Page 20 Deep leaning Training Routine Repeat the following until desired . initialize weights vector – Random – One-hot encoding .
+Page 19,2022 NUS. All rights reserved. Page 21 Deep leaning Training Routine “brute force” searching action with strategy until desired . Compute and keep the Cost/Loss – Define
+Page 20,yy = wwww with n=5 training examples (forward) – when w randomly initialized as 3 (guessing) optimization x y_pred (w=3) y=3x
+Page 21,iterations Gradient Descent • Minimize a “fake” lost function . Apply Delta rule wwnnnww =wwoooodd .
+Page 22,"wb26 wp26 (1,26) (26,2) weight wg1 ww w a w (2,3) loss(Ypred , Ycorrect)= ypred"
+Page 23,2022 NUS. All rights reserved. Page 27 Deep leaning Training Routine Repeat following until desired . Initialize weights vector W for all layers .
+Page 24,Word2Vec & DL Specifics – CBOW and SkipGram – ActivationFunction/Lossfunction - Optimiser/Learning Rate .
+Page 25,2022 NUS. All rights reserved. Page 29 Word2Vec &DL Specifics Dr Wang Aobo.
+Page 26,page 30 Features from WordToVec . Feature generation and selection could be tedious . how might we generate “universal” features automatically?
+Page 27,Count from data – Word Co-occurrence + SVD – Count-based model . Learn from Data – CBOW and NN Methods – Predictive Model .
+Page 28,Page 32 32 Count from Data • Word-level representation • Counting context-words within a window_size Sent_1: I enjoy flying Window_size=1:
+Page 29,2022 NUS. All rights reserved . Page 33 Count From Data S1 S2 I 1.5 .1 like 3.14 .23 enjoy 2.7 -.98 Deep .55 .1.1 learning
+Page 30,2022 NUS. All rights reserved . Page 34 Count From Data S1 S2 I 1.5 .1 like 3.14 .23 enjoy 2.7 -.98 Deep .55 .1. learning
+Page 31,Count from data – Word Co-occurrence + SVD – Count-based model . Count and Learn from Data - GLOVE: global vectors for Word Representation .
+Page 32,I like deep learning Sent_2: I enjoy flying Window_size=1 (# of “like” as “I’s” context-words) = 2 .
+Page 33,"Counting context-words within a window_size Sent_1: I enjoy flying Window_size=1 P(I,like)= P(like | I ) = Count(# of “like”"
+Page 34,"2022 NUS. All rights reserved . I like deep learning Sent_3: I enjoy flying Window_size=1 log (P (I,like)) = log(CI,like / CI"
+Page 35,2022 NUS. All rights reserved. Page 39 Sent_1: I enjoy flying Window_size=1 Let vi = the vector representing “I” i refers to “like” j refers “like
+Page 36,"I like deep learning Sent_2: I enjoy flying Window_size=1 . weighted least square Loss Function : L = i,j [log(Cij) - (vi"
+Page 37,"I like deep learning Sent_3: I enjoy flying Window_size=1 L = i,j [log(Cij) - (vi vj + vbias)]2"
+Page 38,"2022 NUS. All rights reserved . I like deep learning Sent_3: I enjoy flying Window_size=1 log (P (I,like)) = log(CI,like / CI"
+Page 39,Count from data – Word Co-occurrence + SVD – Count-based model – Learn from Data – CBOW and SKIPGRAM . NN Methods – Predictive Model
+Page 40,page 44 one-Hot Encoding (Sparse Representation) 44 give she at talk have ramen a drink give talk [REDACTED_PHONE] talk have drink [redACTED [PHONE
+Page 41,page 45 Lookup Function [REDACTED_PHONE] One-Hot Encoder 1 x |V| Word Embeddings |v| x d Input . T T v(‘
+Page 42,the bulk of linguistic questions concern the distinction between a and m . learn the Matrix through “classification” task window_size = 2 .
+Page 43,Word2Vec task: Iterate through every word with a given window . learn W such the models can predict what’s the word given only the context words as inputs .
+Page 44,"page 48 Word2Vec (CBOW) give a ______ at the [REDACTED_PHONE]*window_size,V) talk Re-shaping the rows ."
+Page 45,"Page 49 Nave Sentence Embedding 49 v(‘give') [REDACTED_PHONE] v (‘a’) [redACTED-PHONE], v[‘the’"
+Page 46,"Word2Vec gives a at the [REDACTED_PHONE] W1 (V,N) . the talk Re-shaping the rows ."
+Page 47,Page 51 Activation Function – Smoother decision function is expected . Support backpropagation – Need to be non-linear https://missinglink.ai/guides/neural-network-
+Page 48,Sigmoid function – smooth output between 0 and 1 – interpreted as a probability of “Yes” (Image from Wikipedia)
+Page 49,Tanh Function - smooth output between -1 and 1 – 0 centroid - interpreted as a set of “weights” .
+Page 50,2022 NUS. All rights reserved. Page 54 Activation Function (Sigmoid) vanishing gradient.
+Page 51,"Activations bound in a range – “0” centroid . all you need is simple – Fast A(x) = max(0,x) vanishing gradient."
+Page 52,Page 56 Activation Function (ReLU) • ReLU’s family . 2022 NUS. All rights reserved.
+Page 53,"Word2Vec gives a ______ at the [REDACTED_PHONE]*window_size,V) talk . re-shaping the rows Re-sampled the values Re-"
+Page 54,vector of xi as Input Never be a single Xi as input . the vector is a vector of the vector . it is the first vector to be able to be used .
+Page 55,"Sigmoid function - smooth output between 0 and 1 - interpreted as a probability of “Yes” (Image from Wikipedia) Last layer Activation Function (1,1) A single x as input Never be"
+Page 56,"Word2Vec (CBOW) Loss Function (1,V) give a at the [REDACTED_PHONE] W1 (V,N) [redACTED-PHONE], W2 (N"
+Page 57,"2022 NUS. All rights reserved . cc=11 MM yyoo,ccllooll(ppoo,clc) ."
+Page 58,"Page 62 Loss Function (Categorical) Cross Entropy Loss function (1,V) give a at the [REDACTED_PHONE] W1 (V,N) [REDactED_P"
+Page 59,"not for CBOW Binary Cross Entropy Loss Function Try this plan now [REDACTED_PHONE] W2 (N,1) (1,N) Sigmod (Embeddings AVG) + Rel"
+Page 60,"2022 NUS. All rights reserved . backpropagation SGD (1,V) give a at the [REDACTED_PHONE] W1 (V,N) . uAVG ("
+Page 61,Page 65 Backpropagation SGD vs Adam Faster but sometimes not converging Well generalised but slower Used together with momentum .
+Page 62,learning Rate based on Experience • Vanilla model: MLP/RNN/CNN [REDACTED_PHONE] . complex Models: BERT 10-5 .
+Page 63,Fixed learning Rate – Estimate Fixed Learning Rate get the lr fastest decrease in the loss . increase the .r as iterations going up save and plot the loss as per . iteration . as per
+Page 64,2022 NUS. All rights reserved. Page 68 Backpropagation • Dynamic learning rate – Estimate Initial Learning Rate – Program Dynamic Learning Rate.
+Page 65,"Word2Vec gives a ______ at the [REDACTED_PHONE]*window_size . softmax talk (1,V) Re-shaping the rows Re-Shaping . the"
+Page 66,2022 NUS. All rights reserved. Page 70 CBOW Model Summary - .
+Page 67,Word2Vec (Skipgram) Task: Iterate through each word with a given window . for each word predict the context words within the window (e.g. from Manning (2018) Stanford cs
+Page 68,"language users never choose words randomly . language is essentially non-random . in-/Outputs: [ (‘never’, ['language', 'users', ‘choose'"
+Page 69,language users never choose words randomly . language is essentially non-random . negative sampling of negative sampling .
+Page 70,"language (1) users (2) never (3) choose (4) words (5) randomly (6),(7) and (8) language (1) is (10) essentially (11) non-random ([REDACTED_PHONE]) Relu () language"
+Page 71,2022 NUS. All rights reserved. Page 75 Word2Vec (Skipgram)
+Page 72,different contexts lead to different embeddings . large context window: more semantics related . stackoverflow great website for programmers .
+Page 73,2022 NUS. All rights reserved. Page 77 Properties of Word Embeddings Ingredients Corpus of text As large as possible Annotations 0 Initialize weights . 1x per word Deep Learning
+Page 74,"2022 NUS. All rights reserved. Page 78 When to use pre-trained embeddings? Use as inputs to model for classification task, e.g. tagging, parsing,"
+Page 75,Embedding Bias is a bidding company based in london . the bias are a trademark of the u.s. government .
+Page 76,"Word2Vec Steps 1. Define task that we want to predict 2. Go through each sentence and create the task’s in- /outputs 3. Iterate through task's I/O, put the input"
+Page 77,"Train Word2Vec from ""scratch"" CBOW AND SKIPGRAM . all rights reserved ."
+Page 78,"2022 NUS. All rights reserved. Page 82 References 1. Role, Franois, and Mohamed Nadif . et al. ""A review on automatic text summarization approaches"""
+Overall Summary,"NMSM Day2 Neural Nets & W2V 2022 NUS. All rights reserved . Page 2 Agenda • Statistical Modelling vs. Deep Neural nets • Workshop: Basic NN on Colab • Word2Vec & DL Specific – CBOW and SkipGram – ActivationFunction . Optimiser/Learning Rate . The whole task here is... Lost glamor Rated 2 by hotogama on Feb 23, 2013 High"

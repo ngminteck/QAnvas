@@ -1,0 +1,92 @@
+Page,Summary
+Page 1,2019 NUS. All rights reserved. Page 1 CONVERSATIONAL UI Natural Language Understanding Dr. Aobo Wang Email: [REDACTED_EMAIL]
+Page 2,2019 NUS. All rights reserved. Page 2 Agenda • Task-Oriented CUI – Intent Detection – Slots Filling – Dialog Management – Response Generation • Introduction to Agentic Framework
+Page 3,Specialist Bots Task-oriented Generalist Bots Non-task-oriented Types of CUI . 2019 NUS. All rights reserved.
+Page 4,2019 NUS. All rights reserved. Page 4 Why or Why Not CUI - why or why not .
+Page 5,2019 NUS. All rights reserved. Page 5 Task Oriented CUI Workflow Workflow .
+Page 6,2019 NUS. All rights reserved. Page 6 Task-oriented CUI Why “not” LLM .
+Page 7,2019 NUS. All rights reserved. Page 7 Core Architecture https://sites.google.com/view/deepdial/
+Page 8,2019 NUS. All rights reserved. Page 8 Task-Oriented CUI Workflow State of the Art .
+Page 9,2019 NUS. All rights reserved. Page 9 Task-Oriented CUI Workflow • Google Dialogflow
+Page 10,2019 NUS. All rights reserved. Page 10 Task-Oriented CUI Workflow • RASA Architecture .
+Page 11,2019 NUS. All rights reserved. Page 11 Natural Language Understanding . 2018 nus.
+Page 12,page 12 Language Understanding • Multi-Level Intent Identification • Agents Routing What is a Chatbot ? BookFlight FAQ Knowledge Base
+Page 13,2019 NUS. All rights reserved. Page 13 Natural Language Understanding for Task Completion for task completion .
+Page 14,Question-word Command-word Location-word Time-word WeatherForecast Seattle / London Today / Now . Intent detection Slots Filling sample utterances .
+Page 15,2019 NUS. All rights reserved . Page 15 Intent Detection . .
+Page 16,"""Just ASK: building an architecture for extensible self-service spoken language understanding,"" he says . ""just aSK"" is a tool to build a self-served language ."
+Page 17,Page 17 Deterministic Intent Detection • Simplified Finite State Transducers – Generalised by Named Entity Recognition – Dictionaries enrich the Knowledge Base .
+Page 18,"""Just ASK: building an architecture for extensible self-service spoken language understanding,"" he says . ""just aSK"" is a tool to build a self-served language ."
+Page 19,2019 NUS. All rights reserved . learn to organize the knowledge through modelling . intent classification through machine learning (supervised) models .
+Page 20,Page 20 Utterances are Short – Features for Short Text Classification – Unigram/ Bigram – Term Frequency – TFIDF . POS tags – Dependency Parsing
+Page 21,2019 NUS. All rights reserved. Page 21 Utterances are Short . Knowledge based Patterns – Declarative Knowledge (binary feature)
+Page 22,page 22 CNN and RNN • CNN and BiLSTM • 2019 NUS. All rights reserved .
+Page 23,2019 NUS. All rights reserved. Page 23 Bi-Directional RNN • Contextual BiLSTM for Classification .
+Page 24,"""Just ASK: building an architecture for extensible self-service spoken language understanding"" 2019 NUS. All rights reserved."
+Page 25,2019 NUS. All rights reserved. Page 25 Slots Filling . 2018 nUS.
+Page 26,Observations in sequence – Labels in sequence • L for Location • T for Time – BIO Labels to identify the boundary . outside of Entity/Slot what is the weather in new york O O O BL
+Page 27,Page 27 Slots Filling with Pattern Matching • Regular Expressions – Date & Time – Address – Phone Number • Dictionary – Location – Names of Person and Organization – Domain specific entities .
+Page 28,2019 NUS. All rights reserved . Page 28 CRF with Neural Models • Bi-LSTM + CRFwith Features + Word Embedding .
+Page 29,page 29 CRF with Neural Models • Bi-LSTM + CRF + CNN with Word and Character Embedding . requiring no feature engineering .
+Page 30,page 30 CRF with Neural Models • Bi-LSTM + CRF + CNN with Word and Character Embedding . requiring no feature engineering .
+Page 31,Page 31 With Agentic AI https://sites.google.com/view/deepdial/ .
+Page 32,2019 NUS. All rights reserved. Page 32 With Agentic AI . 2018 NUS .
+Page 33,2019 NUS. All rights reserved . Page 33 With Agentic AI • Intent Detection and Slots Filler – With Dictionary .
+Page 34,dialogue management – interaction strategies – Error Handling and Confirmation Strategies – Dialogue state tracking – dialogue policy .
+Page 35,Page 35 Interaction Strategies Who takes the initiative in the dialog . 2019 NUS. All rights reserved.
+Page 36,2019 NUS. All rights reserved. Page 36 System-directed initiative • Search and Booking Service • Asking questions to navigate the conversation • User just answers its queries – Lack of flexibility .
+Page 37,user has the initiative • System responds to user’s queries – Natural and Flexible – Loss constrain • Faked by user guide .
+Page 38,both the user and the system can take the initiative in the dialog . the user is able to share the initiative with the system .
+Page 39,user can take the initiative by asking questions . introducing new topics . Maintain and monitor the dialog history and the system’s agenda .
+Page 40,page 40 Error Handling and Confirmation Strategies . 2019 NUS. All rights reserved .
+Page 41,Page 41 Error Handling and Confirmation Strategies . 2019 NUS. All rights reserved .
+Page 42,Errors from ASR and NLU might be propagated . explicit confirmation or rejection needed . dialog tends to be lengthy .
+Page 43,2019 NUS. All rights reserved. Page 43 Error Handling and Confirmation Strategies • over-informative responses are challenging.
+Page 44,2019 NUS. All rights reserved. Page 44 When Things Are Not Working . Confirmation Strategy . Sentiment Analysis .
+Page 45,DM Tasks: – interaction strategies – Error Handling and Confirmation Strategies – Dialogue State Tracking . there is no universally agreed definition .
+Page 46,Page 46 Dialogue Management w/o Agentic AI Dialogue Policy . 2019 NUS. All rights reserved.
+Page 47,Dialog State Tracking • Example of the Output of the DST – Cross turn – cross turn .
+Page 48,Dialog State Tracking • Layers of DST • System’s internal representation of the state of the conversation • The system’s belief of “what the user wants” at each turn.
+Page 49,2019 NUS. All rights reserved. Page 49 Dialog Status Tracking • Handcrafted Approaches – Define si based on NLU . Define actions ai attached to the States si .
+Page 50,Page 50 Handcrafted Approaches • Task-oriented Scenario https://sites.google.com/view/deepdial/ AskNext Search Handcrafted States Diagram Actions .
+Page 51,askNext Search https://sites.google.com/view/deepdial/ . 2019 NUS .
+Page 52,2019 NUS. All rights reserved. Page 52 Handcrafted Approaches • Action Types – Task-independent behaviours . error correction and confirmation .
+Page 53,Page 53 Handcrafted Approaches • Efficient and Accurate • Suitable for narrow domain problem • Avoid pretending to be smart • Challenging to anticipate every possible flows • Effort to literately
+Page 54,Page 54 Statistical Approaches • Research Topic – Data driven – Better scalability – Probability distribution .
+Page 55,data driven – Adaptation to deal with new domains . scalability – Improved probability distribution – Joint NLU with DST .
+Page 56,page 56 Statistical Approaches • NN for DST https://sites.google.com/view/deepdial/
+Page 57,"the action types, slots and values are predefined . foodType Local FoodType Indian FoodType Chinese FoodType ITALIAN PriceRange Cheap ."
+Page 58,"Word-based RNN wordvec for word U S IsF IsR IsL IsP 1.2,2.4,5.9,0.1,[REDACTED_PHONE] X1= f("
+Page 59,Statistical Approaches (I) – Delexicalisation whereby slots and values mentioned are replaced with generic labels • [want tagged-value food]
+Page 60,"Word-Based RNN with Delexicalisation Slot = Food most recent user input the most recent machine dialog act Predict the likelihood for all pairs of (value, slot) ."
+Page 61,no more feature engineering or Delexicalisation with lexicon resources . Couple SLU/NLU with DST . better-suited to scaling where creation of such domain-specific lexicones would be infea
+Page 62,Statistical Approaches (II) • Neural Belief Tracker: Data-Driven Data .
+Page 63,utterance representation u1 uku u2 . u3 uk u2.
+Page 64,Page 64 Dataset for DST https://sites.google.com/view/deepdial/ .
+Page 65,2019 NUS. All rights reserved. Page 65 Dialog Policy What the system should do next? What should the system do?
+Page 66,Dialogue Policy • Research Topic – Rule based or Frame-based – Statistical Approaches – Reinforcement learning .
+Page 67,2019 NUS. All rights reserved. Page 67 Handcrafted Approaches • Restaurant searching scenario AskNext Search https://sites.google.com/view/deepdial/
+Page 68,Statistical Approaches • Learn to predict next State/Action . Encode the state/action with numbers AskType Search List of Actions AskLoc AskRating https://sites.google.com
+Page 69,classification based on Encoding Observations (After NLU) [REDACTED_PHONE] Above threshold unknown .
+Page 70,S1 U1 Predict the next System action S2 “I want two chicken pizza”“Welcome...” Action = 1 .
+Page 71,Page 71 Statistical Approaches • Classification based on Encoding . 2019 NUS. All rights reserved.
+Page 72,Statistical Approaches • Classification based on Encoding Previous Action item Current States Current States current States current states current states .
+Page 73,Page 73 Dialog Management with Agentic AI • Restaurant searching scenario AskNext Search https://sites.google.com/view/deepdial/ Tools Rule_Based_Logic .
+Page 74,2019 NUS. All rights reserved . Page 74 Response Generation What to say to users to say .
+Page 75,2019 NUS. All rights reserved . Page 75 Response Generation - Page 75 response generation - is a 501st page .
+Page 76,2019 NUS. All rights reserved . Page 76 Response Generation - Page 77 Response generation .
+Page 77,2019 NUS. All rights reserved . Page 77 Response Generation - page 77 response generation .
+Page 78,page 78 Agenda • Task-Oriented CUI – Intent Detection – Slots Filling – Dialog Management – Response Generation • Introduction to Agentic AI – Definition and Usecases –
+Page 79,2019 NUS. All rights reserved. Page 79 Agentic.com - ()
+Page 80,2019 NUS. All rights reserved. Page 80 Agentic AI Systems - a web-based AI system - is available for download .
+Page 81,2019 NUS. All rights reserved . Page 81 Types of Agentic Systems .
+Page 82,2019 NUS. All rights reserved. Page 82 Architecture of Agentic AI Systems - Architecture of agentic AI systems .
+Page 83,2019 NUS. All rights reserved. Page 83 Agentic.com - ()
+Page 84,2019 NUS. All rights reserved . Page 84 Agentic AI Frameworks - .
+Page 85,"Flow – @start() – def generate_city(self): @listen(generate_city) – generate_fun_fact(self, random_city)."
+Page 86,2019 NUS. All rights reserved. Page 86 AutoGen • Agents within Team • RoundRobin in a Chain Notebooks .
+Page 87,2019 NUS. All rights reserved. Page 87 LongGraphics.com is a web site based on long graphs .
+Page 88,longGraph https://www.youtube.com/watch?v=7KIrBjQTGLA .
+Page 89,Agentic AI Frameworks • No Free Lunch – Benefit of convince – Locked without flexibility to switch –? % are in used – Scaling laws of Complexity .
+Page 90,semantically conditioned LSTM-based natural language generation for spoken dialogue systems . a network-based end-to-end trainable task-oriented dialogue system .
+Overall Summary,2019 NUS. All rights reserved. page 2 Agenda • Task-Oriented CUI – Intent Detection – Slots Filling – Dialog Management – Response Generation • Introduction to Agentic Frameworks – Definition and Usecases .
