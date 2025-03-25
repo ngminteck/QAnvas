@@ -1,0 +1,66 @@
+Page,Summary
+Page 1, S-VSE/Building vision systems using deep learning (transformer)/V2.0 © 2025 National University of Singapore. All Rights Reserved .
+Page 2," Vision Transformer: An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale, ICLR 2021 . S-VSE/Building vision systems using deep learning (transformer/V2.0)"
+Page 3, S-VSE/Building vision systems using deep learning (transformer)/V2.0 © 2025 National University of Singapore .
+Page 4, The National University of Singapore is developing vision systems using deep learning (transformer)/V2.0 . S-VSE/Building vision systems . using deep-learning . (Transformer) and V2 .0 © 2025 National
+Page 5," The output is the inner product between the local patch and the weights . Convolution can be explained as attention or attention . Distance-based (e.g., domain filter)"
+Page 6," Squeeze and Excitation block (SE-block) condenses each feature map into a single value, summarizing spatial information across the entire feature map . Excitation is a two-layer fully connected network that learns channel dependencies and"
+Page 7," The spatial attention map highlights significant spatial locations and is applied  to the input feature maps . It highlights significant significant locations .Reference: Convolutional Block Attention Module, ECCV 2018 ."
+Page 8, General attention mechanism (QKV) maps a query and a set of key-value pairs to an output . The weight assigned to each value is computed by a compatibility function of the query with the corresponding key .
+Page 9, S-VSE/Building vision systems using deep learning (transformer)/V2.0 © 2025 National University of Singapore .
+Page 10, S-VSE/Building vision systems using deep learning (transformer)/V2.0 © 2025 National University of Singapore .
+Page 11, S-VSE/Building vision systems using deep learning (transformer)/V2.0 © 2025 National University of Singapore. All Rights Reserved .
+Page 12, An animation of self-attention is provided at https://lnkd.in/gDW8Um4W . S-VSE/Building vision systems using deep learning (transformer/V2.0)
+Page 13, Masked self-attention: When some tokens are purposefully omitted (masked from contributing to attention weights) Masked attention meansifier masked from contributing  to attention weights . Masked
+Page 14, S-VSE/Building vision systems using deep learning (transformer)/V2.0 © 2025 National University of Singapore .
+Page 15," Multi-head self-attention mechanism is multi-head attention mechanism . It projects the   𝑄, 𝐾,  𝑉  with different learned linear projections,   resemb"
+Page 16, A unified view of GPT-4 is a unified view using deep learning (transformer/V2.0) S-VSE/Building vision systems using deep-learning (Transformer)/V2 .0 © 2025 National
+Page 17, Attention mechanism in a vision system can be treated as a dynamic selection process that is realized by adaptively weighting features according to the importance of the input feature map .
+Page 18," A sequence data contains two square waves and two triangle waves,  each has a fixed width, random height, random center, no overlapping . The heights of the same type of two waves are averaged ."
+Page 19, S-VSE/Building vision systems using deep learning (transformer)/V2.0 © 2025 National University of Singapore. All Rights Reserved .
+Page 20, S-VSE/Building vision systems using deep learning (transformer)/V2.0 © 2025 National University of Singapore. All Rights Reserved .
+Page 21," An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale, ICLR 2021, ."
+Page 22, A convolution of convolution convolution   �ae𝑀×   - Convolution of Convolution:   Convolution of  Patches to a dim vector with one command
+Page 23, Position embeddings are added to patch embeddeddings to retain positional information . S-VSE/Building vision systems using deep learning (transformer)/V2.0 © 2025 National University of Singapore .
+Page 24, ViT (3)Repeat  𝐿𝓿 times (transformer encode) Repeat 𝑑 𝓓𝓁 (2 layers) Normalizes the feature values  of a single token by
+Page 25, The [class] token section can be explained as a (learned) summary token for whole   𝑛𝑚×  𝑑𝑠  - a Layer normalization followed by a
+Page 26," There are a few discrepancies between this slide and the online reference, even though they have the same total amount . Can you identify the discrepancies?"
+Page 27, Swin Transformer splits an input RGB image into non-overlapping patches by a patch splitting module . Each patch is treated as a ‘token’ and its feature is set as a concatenation of the raw pixel
+Page 28, S-VSE/Building vision systems using deep learning (transformer)/V2.0 © 2025 National University of Singapore .
+Page 29, It only computes attention only within each non-overlapping                 window (𝑀) Window MSA (W-MSA) Computes attention . Only within each  narrowly overlapped 
+Page 30," The window-based self-attention module lacks connections across windows, limiting its modeling power . We propose a shifted-window partitioning approach which alternates between two partitioning configurations in consecutive Swin Transformer blocks ."
+Page 31," ViT vs. CNN can only use information in pixels/cells, but the receptive field (pixel area considered) grows larger as network gets deeper . Transformers enable combining information from distant patches with embedding providing a weak embedding"
+Page 32, S-VSE/Building vision systems using deep learning (transformer)/V2.0 © 2025 National University of Singapore. All Rights Reserved .
+Page 33," CNNs like ResNet are designed with local receptive fields and spatial hierarchies that leverage the full image context to recognize patterns patterns . ViTs rely on non-local relationships between patches, which allows them to perform well even when the full"
+Page 34, The detailed configurations are.https://://github.com/google-research/vision_transformer/blob/main/vit_jax/configs/models.py .
+Page 35, ViT finetuning (1) Pick a subset of the parameters and fine-tune only those (e.g. only the top MLP/head for the classification)
+Page 36," Parameter-Efficient Transfer Learning for NLP, ICML 2019, IML 2019 . S-VSE/Building vision systems using deep learning (transformer)/V2.0 © 2025 National University of Singapore ."
+Page 37, The original purposefully paper only experimentally applies for Query and Value . The original paper only applies for query and Value. It is published by the National University of Singapore .
+Page 38, Low-Rank Adaptation (LoRA) keeps the original pretrained parameters   𝑾𝓾0 fixed during the fine-tuning . Only learn an additive modification to these parameters  𝑨 and
+Page 39, S-VSE/Building vision systems using deep learning (transformer)/V2.0 © 2025 National University of Singapore .
+Page 40, S-VSE/Building vision systems using deep learning (transformer)/V2.0 © 2025 National University of Singapore .
+Page 41," CNN vs. ViT: A Practitioner's Guide to deep-learning vision systems . At deployment data drift is likely at deployment time, is data drift likely?"
+Page 42, The Transformer neck-based detector infers the class labels and bounding box coordinates with a set of learnable object queries . It does not change the backbone used for feature extraction .
+Page 43, Transformer backbone-based detectors propose a generic visual backbone that flattens the image into a sequence instead of convolution for feature-extraction .
+Page 44," The ResNet-50 model is based on a CNN backbone . It generates a feature map such as   -such as  𝐻𝐶,  such as - 2048,  �"
+Page 45, Each position needs a unique encoding of size  𝑑 . The encoding is based on a 2D positional encoding matrix ℝ  𝑻𝐻𝓻×  –𝑊�
+Page 46," The final prediction is computed by a 3-layer perceptron with ReLU-activation function and a linear-projection layer . The FFN predicts the normalizedized center coordinates, height and width of the box w.r.t"
+Page 47, Based on the predicted class probability and the ground truth label . Bounding box cost: A combination of the 𝐿�1 distance and generalized IoU between the predicted and ground truth bounding boxes .
+Page 48," Detection = the classification and box prediction of a fixed set of non-geometric “object queries” Quoted from Ross Girshick, inventor of R-CNN series, CVPR 2020 ."
+Page 49, S-VSE/Building vision systems using deep learning (transformer)/V2.0 © 2025 National University of Singapore .
+Page 50, S-VSE/Building vision systems using deep learning (transformer)/V2.0 © 2025 National University of Singapore .
+Page 51, S-VSE/Building vision systems using deep learning (transformer)/V2.0 © 2025 National University of Singapore .
+Page 52, Decoder design (1): SETR-Naive-Hu-HuHu Hu-Hu HuHuHuHu: SETR Hu Hu Hu: HuHu Hu: SetR Hu: HHuHu. Hu: SETHu-
+Page 53, SetR-PUP applies 4convolution operations to reach full resolution with the input image . It applies 4 convolution operations . The input image is 1024 for SETR . The model is based on Cityscapes dataset .
+Page 54, S-VSE/Building vision systems using deep learning (transformer)/V2.0 © 2025 National University of Singapore .
+Page 55," Decoder design (4): SegFormer: Simple and Efficient Design for Semantic Segmentation with Transformers, NeurIPS 2021 ."
+Page 56, S-VSE/Building vision systems using deep learning (transformer)/V2.0 © 2025 National University of Singapore .
+Page 57, Safe Distance @ Parks frees up staff time for other park work . Web portal provides visibility of park crowd conditions to the public for self-management .
+Page 58, The challenge will track the amount of F&B wastage to help us collect data about passengers’ consumption patterns onboard more efficiently .
+Page 59, S-VSE/Building vision systems using deep learning (transformer)/V2.0 © 2025 National University of Singapore .
+Page 60, S-VSE/Building vision systems using deep learning (transformer)/V2.0 © 2025 National University of Singapore. All Rights Reserved .
+Page 61, Researchers from the National University of Singapore used CNN-based Density Estimation and Crowd Counting: A Survey . They used deep learning (transformer) techniques to identify people in an image .
+Page 62, Image-level for evaluating the counting performance (MSE) for measuring the density map similarity (PSE) and Pixel-level . Point-level is for assessing the precision of localization . Point is a point-level to assess the
+Page 63, S-VSE/Building vision systems using deep learning (transformer)/V2.0 © 2025 National University of Singapore .
+Page 64, S-VSE/Building vision systems using deep learning (transformer)/V2.0 © 2025 National University of Singapore .
+Overall Summary, The notations and color codes used across multiple slides might be inconsistent . S-VSE/Building vision systems using deep learning (transformer)/V2.0 © 2025 National University of Singapore .

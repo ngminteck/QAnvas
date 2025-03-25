@@ -1,0 +1,4 @@
+Page,Summary
+Page 1," SVD computation example: Find the SVD of A, UΣV T , where A = (AAT) where A is symmetric)"
+Page 2," The SVD is: A = UΣV T = U. (U) U is U by the formula σui = Avi, or ui = 1.2, or Ui is U . The formula"
+Overall Summary," SVD computation example: Find the SVD of A, UΣV T . A =. (AAT) AAT is symmetric and the eigenvectors of AT A are 25, 9, and 0 ."

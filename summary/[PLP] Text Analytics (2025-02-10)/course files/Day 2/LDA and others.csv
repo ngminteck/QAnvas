@@ -1,0 +1,29 @@
+Page,Summary
+Page 1," Document and Topic Models: pLSA and LDA are Machine Learning Topics in Machine Learning . PLSA, LDA and LGA are Machine Machine Learning Topic Models . The models are based on a model that is based on the"
+Page 2," The topic model is a form of dimensionality reduction . It is useful for several applications including document classification, discovery of semantic structures, sentiment analysis, localization in images, etc."
+Page 3," A word is an item from a vocabulary indexed by {1,…, 𝑉}. We  represent words using unit‐basis vectors . A document is a sequence of  words denoted by w = ("
+Page 4, 10/4/2018: Probabilistic Latent Semantic  Analysis (pLSA) Guidelines: Learning meaning and usage of words without prior linguistic knowledge .
+Page 5, N × M word-document co-occurrence matrix  N = UΣVT. N = U.N. V: orthogonal matrix with right singular vectors (eigenvectors of NTN) V:
+Page 6," 10/4/2018: Outperforms naïve vector space model . LSA Strengths include noise removal and robustness due to dimensionality reduction . Can easily perform queries, clustering, and comparisons ."
+Page 7," Probabilistic Latent Semantic Analysis (pLSA) defines a joint probability model over documents and words . Results are difficult to interpret. Words are observable. Topics are not, they are latent ."
+Page 8, 10/4/2018 is the first time a word w has been generated with probability P(w|z) has been selected with a latent class P(z|d) P(p(z) is a word with probability
+Page 9," P(w|d) for all documents is approximated by a multinomial combination of all factors . Weights P(z |d) uniquely define a  point in the latent semantic  space, define"
+Page 10, 10/4/2018: Probabilistic Latent Semantic Space. Posterior probabilities for latent variables . Pertibabilistic model Fitting via Expectation Maximization .
+Page 11," The model models word-document co-occurrences as a mixture of conditionally conditionally  independent multinomial distributions . It is a mixture model, not a clustering model ."
+Page 12, 10/4/2018: Tempered EM algorithm gives local maximum for EM algorithm . The algorithm is a well defined generative model for new documents. The model is not well defined. It is prone to overfitting.
+Page 13, 10/4/2018: Split data into training and validation sets. Perform EM on training set until performance on validation set decreases . Stop when decreasing β gives no improvement.
+Page 14," Each webpage has an authority score x and a hub score y . Authority – value of content on the page to a community, value of links to other pages, likelihood of being cited . Hub – value of links to others, value"
+Page 15," PHITS: P(d|z) P(c|z), P(z|c). P(pHITS) is pHITS . P(hits) is the name of a community and community . P"
+Page 16, Joint probabilistic model of document content (pLSA) and connectivity (pHITS) Able to answer questions on both structure and content . Model can use evidence about link structure to make predictions about  document content .
+Page 17," Latent Dirichlet Allocation (LDA) is a multinomial distribution whose components all take values on                 (0,1) and which sum to one . The alpha hyperparameter controls the mixture of topics for"
+Page 18, LDA: Dirichlet Distribution (cont’d) assumes the following generative process for each document in a corpus . LDA assumes a new document that is 80% about animals and 20% about cooking .
+Page 19," The model (Plate Notation) is the parameter of the Dirichlet prior on the per-document topic distribution, the topic distribution for document M and the topic for the N-th word in document M . The model"
+Page 20," The model is based on the parameters   𝛼 and  𝛽, the joint distribution of a topic mixture   mixture  and a set of 𝑁 topics  words "
+Page 21," A finite set of random variables is said to be exchangeable if the joint distribution is invariant to permutation . If π is a permutation of the Integers from 1 to N: 𝑥1,…"
+Page 22, LDA places a smooth distribution on the topic simplex denoted by contour lines . Corners of the word simplex correspond to  three distributions where each word  has probability one or two different distributions over words.
+Page 23," The key inferential problem we need to solve is that of computing the posterior distribution  of the hidden variables given a document:   𝜃, 𝑧   𝑤,  - "
+Page 24, The optimizing values of these parameters are found by minimizing the KL divergence  between the variational distribution and the true posterior . The expectation in the multinomial update can be computed as follows:
+Page 25," Given a corpus of documents, we wish to find 𝛼 grotesque and   marginal log likelihood of the data:   𝚼 grotesqueand  vorvorvorobian parameters . We"
+Page 26," The Stanford Topic Modeling Toolbox is available on 10/4/2018 . The toolbox is based on topics such as information retrieval, computer vision, bioinformatics, gene sequencing, genomics, genome sequencing ."
+Page 27, The Missing Link - A Probabilistic Model of Document Content and Hypertext Connectivity . 10/4/2018: Proabilistic Latent Semantic Analysis .
+Overall Summary," Andrew Levandoski and Jonathan Lobo discuss topics in Machine Learning . They use pLSA, LDA and LDA models to represent documents and terms as vectors in a lower-dimensional space ."

@@ -1,0 +1,78 @@
+Page,Summary
+Page 1, S-SRSD/Spatial recognition/V3.3 © 2024 National University of Singapore. All Rights Reserved .
+Page 2," The National University of Singapore's Dr Xavier Xie is a senior Scientist and Tech Lead . He is a Ph.D, CEng MIMechE, PMP® CSM® and a Senior Scientist . He has published a book"
+Page 3," 3D data refers to information structured in three dimensions, adding depth to the 2D grid . Each data point is defined by three coordinates (x, y, z), enabling the representation of spatial relationships and properties not possible"
+Page 4, S-SRSD/Spatial recognition/V3.3 © 2024 National University of Singapore. All Rights Reserved .
+Page 5, S-SRSD/Spatial recognition/V3.3 © 2024 National University of Singapore. All Rights Reserved .
+Page 6, S-SRSD/Spatial recognition/V3.3 © 2024 National University of Singapore. All Rights Reserved .
+Page 7, The S-SRSD/Spatial recognition/V3.3 © 2024 National University of Singapore. All Rights Reserved .
+Page 8, S-SRSD/Spatial recognition/V3.3 © 2024 National University of Singapore. All Rights Reserved .
+Page 9," Robotic Robotics: For navigation, localization, mapping, and avoiding collision . Gesture and proximity detection: For gaming, security. (Kinect, RealSense)"
+Page 10," 3D printing: Rapid prototyping and personalized items by layer by layer through additive manufacturing . Entertainment/Training: Realistic 3D characters and scenes (Flight Simulator, 2K)"
+Page 11, Researchers from the National University of Singapore have created a 3D deep-learning tool called the NIPS16_3DDL . S-SRSD/Spatial recognition/V3.3 © 2024 Singapore .
+Page 12," 3D Common Data Format is a common data format for 3D printing, CAD, CAD and Web-based 3D apps . It is an efficient format for real-time rendering of 3D scenes ."
+Page 13, Find SRSD Day 3 worksheet Materials . Read materials for the two solutions Fine Pose and Landing AI . Discuss in group of 4-5 people .
+Page 14, S-SRSD/Spatial recognition/V3.3 © 2024 National University of Singapore. All Rights Reserved .
+Page 15," Feature-Based Registration: Aligns point clouds using distinctive features . Detects and matches features (e.g., Fast Point Feature Histogram - FPH, Scale-Invariant Feature Transform- SIFT) Align"
+Page 16, PCS Demo - Global Registration . S-SRSD/Spatial recognition/V3.3 © 2024 National University of Singapore. All Rights Reserved .
+Page 17," ICP is essential in 3D vision applications like robotics, SLAM (Simultaneous Localization and Mapping), and 3D reconstruction . It finds the rigid transformation (rotation and translation) that best aligns the"
+Page 18, P-SRSD/Spatial recognition/V3.3 © 2024 National University of Singapore. All Rights Reserved .
+Page 19, S-SRSD/Spatial recognition/V3.3 © 2024 National University of Singapore. All Rights Reserved .
+Page 20," Python Open3D is a versatile library offering efficient 3D data structures, processing algorithms, scene reconstruction and scene reconstruction . S-SRSD/Spatial recognition/V3.3 © 2024 National University of Singapore ."
+Page 21, Using Point-to-Point ICP to stitch point cloud from View 1 (source) with View 2 (target) and find the corresponding transformation matrix .
+Page 22, S-SRSD/Spatial recognition/V3.3 © 2024 National University of Singapore. All Rights Reserved . Evolution Map - ML for PC - ML . page 22 .
+Page 23, S-SRSD/Spatial recognition/V3.3 © 2024 National University of Singapore. All Rights Reserved.
+Page 24," The NTU RGB+D dataset contains 60 action  classes and 56,880 video samples . S-SRSD/Spatial recognition/V3.3 © 2024 National University of Singapore. All Rights Reserved ."
+Page 25, The S-SRSD/Spatial recognition/V3.3 © 2024 National University of Singapore. All Rights Reserved .
+Page 26," The process of interpreting and extracting meaningful information  from 3D environments . It is a critical area in computer vision and robotics, enabling machines to understand and interact with the physical world ."
+Page 27," Multi-sensor and multi-modality approaches are crucial to improving the accuracy and robustness of 3D scene understanding . E.g., RGB + D, RGBD+ LiDAR, Thermal + Visual etc."
+Page 28, S-SRSD/Spatial recognition/V3.3 © 2024 National University of Singapore. All Rights Reserved .
+Page 29, S-SRSD/Spatial recognition/V3.3 © 2024 National University of Singapore. All Rights Reserved .
+Page 30, S-SRSD/Spatial recognition/V3.3 © 2024 National University of Singapore. All Rights Reserved .
+Page 31, S-SRSD/Spatial recognition/V3.3 © 2024 National University of Singapore. All Rights Reserved .
+Page 32, Depth can help us. Assist image classification using RGB-D data. S-SRSD/Spatial recognition/V3.3 .
+Page 33, Depth information encodes the geometric cues necessary to separate object instances . S-SRSD/Spatial recognition/V3.3 © 2024 National University of Singapore .
+Page 34, Camera Field of Views (FOV) can help us determine the angle and distance of an object . S-SRSD/Spatial recognition/V3.3 .
+Page 35, Question: Stack the depth image as the additional 4-th channel of the input tensor . This is similar to when we apply the pre-trained CNN classification model on our own dataset .
+Page 36," HHA: A geocentric embedding that converts a depth image into a three-channel map: Horizontal disparity, Height above ground, and Angle with gravity ."
+Page 37," We need to build a model that can output a box label (one-hot vector, a  classification problem) Box coordinates (𝑥, 𝑦,    𝑤, ℎ"
+Page 38, S-SRSD/Spatial recognition/V3.3 © 2024 National University of Singapore. All Rights Reserved .
+Page 39," The fuse layer (1 × 1 conv) to fuse their features maps (from RGB and D, respectively) to maintain the same feature map structure (e.g., dimension) as  that is obtained using the RGB only ."
+Page 40," The RGB image and the depth map are processed separately using two networks, e.g. using two different networks, to  produce various types of features, which are then fused together ."
+Page 41, RGB-D data: Object detection . Shared convolution layers (𝑐    Shared convolution layer) perform multiplicative comparisons . Geometrical features are 3-channel features calculated from the 1-channel depth
+Page 42, A deep learning fusion scheme fuses features extracted from multiple representations of the input . The fusion pipeline uses element-wise mean pooling operations .
+Page 43, S-SRSD/Spatial recognition/V3.3 © 2024 National University of Singapore. All Rights Reserved .
+Page 44, The coordinate values in an image are always positive . The origin is located on the upper left hand corner . The coordinates are integer values. The coordinates can take on real numbered values .
+Page 45," KITTI dataset: Cars (blue), trams (red), and cyclists (green)Reference: https://navoshta.com/kitti-lidar/"
+Page 46, S-SRSD/Spatial recognition/V3.3 © 2024 National University of Singapore. All Rights Reserved .
+Page 47, S-SRSD/Spatial recognition/V3.3 © 2024 National University of Singapore. All Rights Reserved .
+Page 48," 230K human-labeled 3D object annotations in 39,179 LiDAR point cloud frames . Captured at different times (day, night) and weathers (sun, cloud, rain)"
+Page 49, S-SRSD/Spatial recognition/V3.3 © 2024 National University of Singapore. All Rights Reserved .
+Page 50," Y. Guo, et al., ""Deep Learning for 3D Point Clouds: A Survey,"" IEEE Trans. on Pattern Analysis  and Machine Intelligence, Vol. 43, No. 12, Dec. 2021 ."
+Page 51, Researchers at the National University of Singapore have proposed 3D object recognition with pointformer and point-former networks . They have also proposed complex-YOLO models for 3D shape recognition on point clouds . The team is working on
+Page 52," H. Su, et al., ""Multi-view convolutional neural networks for 3D shape recognition,"" ICCV 2015, https://arxiv.org/abs/1505.00880 ."
+Page 53, VoxNet is a 3D convolutional neural network for real-time object recognition . It was created by the National University of Singapore .
+Page 54," The bird’s eye view representation is encoded by height, intensity and density . S-SRSD/Spatial recognition/V3.3 © 2024 National University of Singapore ."
+Page 55," A. Lang, et al., “PointPillars: Fast encoders for object detection from point clouds,” CVPR 2019, ."
+Page 56, It uses a shared multi-layer perceptron (MLP) to map  each of the 𝑐𝑑 points from 3D to 64 dimensions . The mapping is identical on the   point sets . It
+Page 57, The author’s presentation in CVPR 2017 was presented by the PointNet author in Bilibili . Point cloud classification with PointNet was created on May 2020 .
+Page 58, S-SRSD/Spatial recognition/V3.3 © 2024 National University of Singapore. All Rights Reserved .
+Page 59," The max pooling function doesn’t depend on the order of points . The MLP is sharable and sharable . The # of nodes (𝑐, 6�A) is selected in MLP ."
+Page 60," The learned representation of the  representative of the  point set should be invariant to certain transformations . For example, rotating and translating points all together should not modify the point cloud category of the points ."
+Page 61, S-SRSD/Spatial recognition/V3.3 © 2024 National University of Singapore. All Rights Reserved.
+Page 62, S-SRSD/Spatial recognition/V3.3 © 2024 National University of Singapore. All Rights Reserved.
+Page 63, The Pointformer for 3D object detection in point clouds consists of three parts: a Local-Global Transformer to model interactions in the local region; a Global-Global transformer to capture context-aware representations at the scene level .
+Page 64," The architecture employs a hierarchical structure with downsampling for local feature learning and upsampling . The Point Transformer Layer is suitable for semantic segmentation, object  part segmentation and classification ."
+Page 65," The Point Transformer model achieves state-of-the-art results across multiple benchmarks, including a mean Intersection over Union (mIoU) of 70.4% on Area 5 of the S3DIS dataset"
+Page 66," Generative AI refers to models and techniques that learn patterns  from data to generate new, plausible outputs . These outputs may include text, images, 3D models and scenes ."
+Page 67," This diagram represents a pipeline for 3D scene representation and rendering using methods such as neural networks, radiance fields, signed distance fields (SDFs), and techniques like volume rendering and sphere tracing ."
+Page 68," Stable Point Aware 3D generates high-quality 3D assets from a single image in 0.5 seconds . Powered by Stable AI, SV3D_u for full 3D videos from single or orbital videos and SV3"
+Page 69, SPAR3D first leverages a point diffusion model to generate a sparse point cloud . The triplane transformer then uses the sampled point cloud and image features to produce high-resolution triplane features . S-SRSD/
+Page 70, The multi-modal system enables: RGB-D for recognizing and localizing objects in 3D space . Tactile Sensors to ensure the correct grip strength when handling  fragile items . Thermal Cameras to identify heated or recently used
+Page 71, Discussion 3B Page 71: What are the primary challenges in integrating multi-modal data? How can we mitigate the issue of data scarcity in 3D datasets? Is  synthetic data a viable solution?
+Page 72, National University of Singapore. S-SRSD/Spatial recognition/V3.3 © 2024 . All Rights Reserved.
+Page 73, The National University of Singapore's spatial reasoning system is based on PointNet . S-SRSD/Spatial recognition/V3.3 © 2024 .
+Page 74, The National University of Singapore is the 24th edition of the National Geographic Geographic Geographic Survey of Singapore . S-SRSD/Spatial recognition/V3.3 © 2024 National University Singapore .
+Page 75, S-SRSD/Spatial recognition/V3.3 © 2024 National University of Singapore. All Rights Reserved .
+Page 76," Point Cloud Stitching (PCS) Aligns point clouds using  distinctive features and keypoints . Aligning point clouds without initial guess using robust algorithms like RANSAC. Alignment algorithms like PointNet, DGC"
+Overall Summary," In the realm of data representation, 3D data refers to information structured in three dimensions, adding depth to the traditional 2D grid . Each data point is  defined by three coordinates (x, y, z) Each data"

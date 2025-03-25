@@ -1,0 +1,67 @@
+Page,Summary
+Page 1, AtA\S-PRMLS\Day1b.ppt\V5.0 © 2024 National University of Singapore. All Rights Reserved .
+Page 2, ATA\S-PRMLS\Day1b.ppt\V5.0 © 2024 National University of Singapore. All Rights Reserved .
+Page 3, AtA\S-PRMLS\Day1b.ppt\V5.0 © 2024 National University of Singapore. All Rights Reserved 3 .
+Page 4," In many real-world applications, computers are expected to perform complex pattern recognition tasks . Complex pattern recognition involves thinking & learning . Learning involves both memorising and generalising . Recognition of complex patterns needs parallel processing ."
+Page 5, ATA\S-PRMLS\Day1b.ppt\V5.0 © 2024 National University of Singapore .
+Page 6, A neural network is a massively parallel distributed processor that has a natural propensity for storing experiential knowledge and making it available for use . It resembles the brain in two respects: Knowledge is acquired by the network through a learning process .
+Page 7, The basic biological computing element — the neuron is the neuron . This extremely small computer is a multiple signal processor based  on electrochemical processing principles . ATA\S-PRMLS\Day1b.ppt\V5
+Page 8," There are something like 1010 to 1012 neurons in the human nervous system . About 10% of the neurons are input and output, the remaining 90% are interconnected with other neurons ."
+Page 9," From Biological Neuron to Artificial Neuron, an artificial neuron is a single neural computing element . Signals are added to produce a cumulative (net) input that transforms the net input to produce an output ."
+Page 10, An Example of Simple NN — two inputs & bias — is a simple NN example . The bias input is a fixed positive signal . The weight w0 on the bias input on the input is also adjustable .
+Page 11," Given the same inputs, the output  will be different when different weights are used . The behaviour of neural network can be changed by changing weights . Changing weights purposely reduces the difference between the target and the NN output ."
+Page 12," Parallel processing is more powerful and faster than sequential processing . NNs mimic many intelligent traits found in humans: learning, generalisation, tolerance to missing or noisy data, associative recall and associative learning ."
+Page 13, Some of the successful  applications of neural networks have been described by the National University of Singapore . ATA\S-PRMLS\Day1b.ppt\V5.0 © 2024 National University Singapore. All Rights
+Page 14, W. McCulloch & W. Pitts (1943) described a logical calculus of neural networks that united the studies of neurophysiology and mathematical logic . Hebb (1949) provided a source of inspiration for the
+Page 15," W.K. Taylor (1956): Associative memory; contributions also from Steinbuch, Willshaw and others . Anderson (1972), Kohonen (1972) Nakano (1972): correlation matrix memory; Rosenblatt ("
+Page 16, Some of Pioneering Research Work of Neural Networks ... ... ... . Some of the work of pioneering research work of neural networks ...
+Page 17, AtA\S-PRMLS\Day1b.ppt\V5.0 © 2024 National University of Singapore . Some of Pioneering Research Work of Neural Networks ...
+Page 18, A neural network has a parallel-distributed architecture with a large number of nodes and connections . Each connection points from one node to another and is associated with a weight . Construction of a neural network involves the following tasks: determine the network
+Page 19, The input layer encode the instance presented to the network for processing . The hidden layer — hidden units (nodes) provide non-linearity for the network . An NN may have more than one hidden layers .
+Page 20, General Architecture of Neural Networks (cont.)— Network Properties — — Network Properties . All connections point in one direction (input→ output) The network is a network of feedback connections or loops or feedback connections .
+Page 21," The activation level of node can be discrete (e.g., 0 and 1, when the activation function is hard-limiting) The feature value is mapped into the unit activation (normalised to the interval [0, 1]"
+Page 22," The weight initialisation scheme is specific to the particular neural network model chosen . In many cases, initial weights are randomised to small real numbers . Training of a NN also involves the same calculation ."
+Page 23," Category of Neural Network Learning includes Multi-layer Perceptron Perceptrons, PNN and PNN RBF (partly)"
+Page 24, The activation function employed is a hard-limiting function . Perceptron learning algorithm as a formula . It is a formula for the weight at time t (or t-th iteration) Wi (t) — the weight of the
+Page 25," Perceptron learning rule: If output is ZERO (inactive) and should be ONE (active), increase the  weight values on all active  input links ."
+Page 26, An example of pattern classification on x1-x2 space is given in an example of a pattern classification . The pattern is based on the patterns of four patterns given in two classes . AtA\S-PRMLS\Day
+Page 27," Using the 10 given patterns for training (assuming the sequence as appearance) using the 10 . patterns for . training . The learning step α = 0.5.5, w1 = -1, w2 = 1.5 learning"
+Page 28," Learning in Single Perceptron: No error for all four patterns (-3, 1), (-2, 2), (-1, 2) and (-1.5) for class B . There is an error for the pattern (0"
+Page 29, Single Perceptron and Linear Separability— An Example in 2-dimensional Space — — Equation for straight line                x2 = a × x1 + b .
+Page 30," A neuron can solve the same problem (for your exercise) X.X.X is a neuron that can also solve a problem . The neuron after learning a new thing: N1 can solve it: N0, the neuron after"
+Page 31, Single Perceptron and Linear Separability ... ...OR Problem: Can we train a perceptron to solve this problem? Why?
+Page 32," A single perceptron can only solve a classification problem when it is linearly separable . When n = 2, the hyperplane becomes a line . Many classification problems are not linearly separatedable ."
+Page 33," Perceptron Learning Convergence Theorem: Given a set of input vectors, each of them with a desired output, and each training case is presented to the network with positive probability ."
+Page 34," ADALINE (ADAptive LINear Element) (Widrow, 1959) has a single output which receives multiple inputs, takes the weighted linear sum of the inputs and passes it to a bipolar function (which produces either +1"
+Page 35, A form of gradient descent learning: change weight Wik is proportional to the negative derivative  of error . The learning rate is dependent on the learning rate of the user .
+Page 36, Multilayer perceptron is a feedforward neural network with at least one hidden layer . It can form more complex decision regions to solve nonlinear classification problem . Backpropagation learning method can overcome this difficulty .
+Page 37, Multilayer Perceptron and Backpropagation Learning Learning Learning . Fully connected units with fully connected units . Feedforward signals only; Propagate signals forward and then errors backward .
+Page 38," Backpropagation Algorithm uses the BP weight adjustment formulas . Initialize the weights to small random numbers . Randomly select a training pattern pair (xp, tp) and present the input pattern                 xp to the network ."
+Page 39, AtA\S-PRMLS\Day1b.ppt\V5.0 © 2024 National University of Singapore. All Rights Reserved 39BP Errors and Weight Updates.
+Page 40," For output units k = 1, 2, ..., m, adjust the weights to reduce the error for each pattern . For hidden units, use the chain rule ."
+Page 41," Backpropagation Algorithm: Weights are set to random numbers following Uniform distribution in the range (-1,1) The activation level of an input unit is determined by the instance presented to the network ."
+Page 42," The weight change is computed by a sigmoid function f(a) = 1/[1 + e-a] is used . An iteration includes presenting an instance, calculating activations, and modifying weights . Repeat iterations until convergence"
+Page 43, AtA\S-PRMLS\Day1b.ppt\V5.0 © 2024 National University of Singapore . All Rights Reserved 43.3% ATA .
+Page 44, ATA\S-PRMLS\Day1b.ppt\V5.0 © 2024 National University of Singapore .
+Page 45, The softmax function is often used in the final layer of a neural network-based classifier . Normalizing the output vector with a sofmax function:
+Page 46," An example of Backpropagation — XOR problem — is an example of XOR problems . Initial weights are W12, W13, W14, W1b, W23, W24, W2b and W"
+Page 47, AtA\S-PRMLS\Day1b.ppt\V5.0 © 2024 National University of Singapore .
+Page 48, Generalization is the ability of a network to correctly classify a pattern it has not seen (not been trained on) Networks can be overtrained. It means that they memorize the training set and are unable to generalize well .
+Page 49, Avoid Overtraining & Achieving Good Generalization can usually be avoided by: choosing a large training set when possible .
+Page 50, BP training is based on the gradient descent computations . This process iteratively searches for a set of weights W* that minimize the error function ipientE over all training pattern pairs . The network variables that optimize the error
+Page 51, The chosen error measure (or LOSS function) should be differentiable and tends to zero as the differences between the target and computed patterns progressivelydecrease over the entire training set . The search process depends on the shape of the error
+Page 52, It has been shown that setting the initial weights to small (but not too small) random values is an effective way to avoid shallow troughs and possible entrapment at the start of the training process .
+Page 53, AtA\S-PRMLS\Day1b.ppt\V5.0 © 2024 National University of Singapore .
+Page 54, Adding momentum term to the weight update rule has the effect of smoothing the descent down the error curve . Separate momentum terms can be added to each set of the layer weights using different values of α for each layer to achieve even better
+Page 55, AtA\S-PRMLS\Day1b.ppt\V5.0 © 2024 National University of Singapore .
+Page 56," Stochastic GD (SGD): Just use one single training example with each iteration . Batch GD: Loop over all training examples, accumulate errors and then accumulate errors . Mini Batch G: Process n training examples at once ."
+Page 57," General Design Guidelines: Carefully select the proper network architecture for the given task . Choose a large, reliable training set and divide it into appropriate training, testing and validation sets for use . Pre-process and analyse the training data for maximum"
+Page 58, AtA\S-PRMLS\Day1b.ppt\V5.0 © 2024 National University of Singapore. All Rights Reserved .
+Page 59," Weka is given a data set of 150 samples of Iris flowers each with 4 different feature variables representing petal length, petal width, sepal length and sepal width . Each pattern falls into one of the three classes ."
+Page 60, Weka Explorer Explorer is a free tool to train the MLP . Download and install Weka from:https://mlcms.waikato.ac.nz/weka/
+Page 61," A BP network is auto-built according to the architecture setting . Modify the network if necessary, such as adding/removing nodes and connections ."
+Page 62," You may install and create your own Anaconda environment and  run Jupyter Notebooks using Google Colab . Alternatively, you can run your own version of the book using Colab. AtA\S-PRML"
+Page 63, Download and install latest Anaconda for Python 3.7:  https://www.anaconda.com/download/                • Run “jupyter notebook”
+Page 64," The objective of the dataset is to diagnostically predict whether or not a patient has diabetes, based on certain diagnostic measurements . The datasets consists of several medical predictor variables and one target . Predictor variables includes the number of pregnancies the "
+Page 65, Open the jupyter notebook provided for this workshop . Make sure you understand how the NN models are built . Experiment with different parameters .
+Overall Summary, A neural network is a massively parallel distributed processor that has a natural propensity for storing experiential knowledge and making it available for use . It resembles the brain in two respects: Knowledge is acquired by the network through a learning process .

@@ -1,0 +1,43 @@
+Page,Summary
+Page 1," Module 1: Introduction to Text Analytics . Module 1 provides an introduction to the Text Analytics project . Module 2: Introduction: Dr Fan Zhenzhen and Dr. Fan Zhanzhen . Module 3: Introduction, Text Analytics."
+Page 2," At the end of this module, you can: Describe the tasks in text analytics with examples . Define the process to perform text analytics based on business requirements and text analytics artifacts ."
+Page 3," Text Analytics is an analytics tool that can help people understand the impact of Text Analytics . Text Analytics has been used in more than 1,000,000 of the world's most popular apps ."
+Page 4," The task of deriving insights, trends and patterns from large amounts of unstructured text data to answer questions in a business context . Text Analytics is also known as Text Mining ."
+Page 5, Text Mining converts unstructured text fields into one column of easily processed numeric data . Text mining converts  grotesqueunstructured data fields into columns of easily processed data .
+Page 6," Most information in the world is not in structured data form, says NUS expert . Text is being created in digital format and available, he says . Analyzing text, by itself or in conjunction with data, has become an important part"
+Page 7," What Text Analytics can do? Text Analytics is a tool that can help people make smarter decisions . Text Analytics has been used in more than 1,000,000 of the world's largest social networks ."
+Page 8," Common applications of text analytics are to analyze customer feedback and identify trends in the market and discover new opportunities . Fraud detection: to detect fraudulent activities by analyzing text data in claims/reports . Healthcare: to analyze medical records, clinical notes,"
+Page 9," Sentiment analysis is commonly applied to analyze customer feedback, social media posts, and other types of text data . Text classification automatically puts text into predefined categories for subsequent processing . Email routing, spam filtering; news filtering; fraud"
+Page 10," NUS has published more than 1,000 articles in the past five years . They include articles from NUS.com and the UK.com ."
+Page 11, Things to Note: This does the hard work . This is the best way to get the most out of work done in the world .
+Page 12, Things to Note: Decisions are made by people who make decisions based on beliefs or opinions . The study was published by NUS at the end of 2013 and 2014 .
+Page 13," From http://www.youtube.com/watch?v=OlQpm8qTog4, example 2 ."
+Page 14, Things to Note: Text converted into numbers . Use this article to help students understand the meaning of this article . Use the weekly Newsquiz to test your knowledge of stories you saw on CNN iReport .
+Page 15," Most of the ‘lift’ provided by data mining is provided by structured data . Text mining normally takes a small amount of data mining, but can be significant ."
+Page 16," Many more tasks dealing with natural language text are dealing with  information extraction, parsing, text generation, summarization and machine translation ."
+Page 17, The Text Analytics Process was created by NUS in 2013 . NUS is the world's largest provider of text analysis software . Text Analytics is a free form of analysis and analysis of text messages .
+Page 18, CRISP-DM Process Diagram: Cross-Industry Standard Process for Data Mining . Note the Arrows – iteration & sequence .
+Page 19, The data understanding phase starts with an initial data collection and proceeds with activities in order to identify data quality problems . The data preparation phase covers all activities to construct the final dataset (data that will be fed into the model(s) from
+Page 20, The NUS study aims to understand the business case and the purpose of the study . It also aims to identify available text data or use text data alone or … ?
+Page 21," NUS: Collect Initial data, Describe data, Explore data and verify data quality . Assess the accessibility and usability of the data, and assess the quantity and quality of data . Identify the text data sources (digitized or"
+Page 22," Data Preparation: Select data, Clean data, Construct new data, Integrate data, Format data, Establish the text corpus, etc. Preprocess the data, build stopword/include-word list, create TDM,"
+Page 23, The text mining task is a text mining tool that can be used to classify/score text . The output of the categorization model may be input to other models (using structured data)
+Page 24, The models developed and verified are addressing the business problem and satisfying the defined objectives of the study . The study was carried out by NUS in 2013-2025 .
+Page 25," Models should be updated periodically with new data, says NUS . Deployment ranges from writing a report to integrating the model into BI systems ."
+Page 26, Linguistic Resources is published by NUS at the end of 2013 . NUS is committed to the study of Linguistics in the United States .
+Page 27, Dictionaries are machine readable resources to improve TA systems on various processing steps . They include a filter dictionary (stopword list) and synonym dictionary (substitution dictionary)
+Page 28, The corpora provides examples for statistical methods and machine learning algorithms to work . Quality of corpora is critical for the resulting models . Validity – correct (need ‘ground truth’ to measure) – Validity . Reliability
+Page 29," Objective tasks - easier, subjective tasks - much harder . Define task and guidelines for annotators . Train the annotators (humans) Check self-agreement rate ."
+Page 30, Inter-Annotator Agreement between multiple annotators (assumption: consistency implies consistency implies validity.) Common measures:– Cohen’s Kappa.– Fleiss's Kappa– Scott's Pi– Krippendorff�
+Page 31, The agreement rate for qualitative items takes into account the  possibility of chance agreement . It is based on Cohen’s Kappa Kappa . The agreement rates are based on the number of observations made by annotators .
+Page 32," The Kappa Kappa Kappa is an acronym for Kappa Kappa . Kappa Kappa was created by the University of Cambridge in 1968 . Kappa is a university of origin in the United States . Kappa was founded by the university of Cambridge, Cambridge, in 1968"
+Page 33," NUS: Kappa is a good value if threshold needs to be set, 0.8 is good value . Krippendorff, Landis and Koch, 1977: “Kappa is a  good value.”"
+Page 34," In some tasks, the number of negative cases can be unknown,  undefined or very large . IAA is commonly quantified using the average positive specific agreement - the average pairwise F-measure ."
+Page 35, Tools & Solutions for Text Mining include text mining and text mining tools . NUS is the world's leading provider of text mining technology . Text mining tools can be used to mine text messages .
+Page 36, Various commercial and Open-Source tools are available for use in the cloud . They include tools specialised for industry-specific or task-specific use cases .
+Page 37," A Business Question is a question where if you knew the answer, you would act differently . The Business Question: How much skill do you have? How often are you going to do this? How much time is available?"
+Page 38," Many factors to decide on the tool(s) include how general/flexible a tool should be . Vendor tools are expensive, but you get training and support . Courses can be tool specific, or tool independent ."
+Page 39," Large language models (LLMs) like ChatGPT from OpenAI, are very powerful models trained to interact with user in a conversational manner . They are very versatile for language related tasks with proper prompting ."
+Page 40, The study was carried out by artificial analysis company Artificial Analysis.ai . It is the work of NUS researchers from the University of Oxford .
+Page 41," The f-measure, and reliability in information retrieval, is a key factor in NLP data mining . CRISP-DM 1.0 Step-by-step data mining guide is a step by-step guide ."
+Overall Summary," Text Analytics is the task of deriving insights, trends and patterns from large amounts of text data . Text Mining converts unstructured text fields into one column of easily processed numeric data . The text analytics process is described as Text Mining ."

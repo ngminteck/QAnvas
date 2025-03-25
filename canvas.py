@@ -1,4 +1,3 @@
-#canvas.py
 import os
 import re
 import difflib
@@ -6,7 +5,8 @@ import time
 import html
 from datetime import datetime, timedelta, timezone
 from concurrent.futures import ThreadPoolExecutor, as_completed
-import pprint
+import csv
+from transformers import pipeline
 
 import torch
 from canvasapi import Canvas
@@ -27,19 +27,103 @@ class CanvasManager:
     downloading files, managing timetables, assignments, announcements, etc.
     """
 
+    # Initialize the summarization pipeline once at the class level.
+    _summarizer = pipeline(
+        "summarization",
+        model="sshleifer/distilbart-cnn-12-6",
+        revision="a4f8f3e"
+    )
+
     def __init__(self, api_url: str, api_key: str):
         self.canvas = Canvas(api_url, api_key)
         # Store API URL for use in building canvas links
         self.api_url = api_url
 
     # ======================================================
-    # EMBEDDING INDEX BUILDING
+     # DOWNLOAD FILES FUNCTIONS
+    # ======================================================
+    def download_all_files_parallel(self, base_dir: str = "files", max_workers: int = None):
+        """
+        Download all files for accessible courses concurrently while preserving the subfolder structure.
+        Files are saved to: base_dir/{course_name}/{subfolder(s)}/{filename}.
+        """
+        if max_workers is None:
+            max_workers = os.cpu_count() or 4
+
+        courses = list(self.canvas.get_courses())
+
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            futures = []
+            for course in courses:
+                if getattr(course, "access_restricted_by_date", False):
+                    print(f"Skipping restricted course: {course.id}")
+                    continue
+
+                course_name = self.sanitize_filename(course.name)
+                print(f"Processing course: {course_name}")
+
+                try:
+                    folder_path_map = self.build_folder_path_map(course)
+                except Exception as e:
+                    print(f"Error building folder path map for course {course.name}: {e}")
+                    folder_path_map = {}
+
+                try:
+                    files = list(course.get_files())
+                except Exception as e:
+                    print(f"Error retrieving files for course {course.name}: {e}")
+                    continue
+
+                for f in files:
+                    futures.append(executor.submit(self.download_file, f, course_name, folder_path_map, base_dir))
+
+            for future in as_completed(futures):
+                try:
+                    future.result()
+                except Exception as e:
+                    print(f"Error in a download task: {e}")
+
+    def download_file(self, file_obj, course_name, folder_path_map, base_dir):
+        """
+        Download a single file, preserving folder structure.
+        """
+        try:
+            folder_id = getattr(file_obj, "folder_id", None)
+            folder_name = folder_path_map.get(folder_id, "")
+            target_dir = os.path.join(base_dir, course_name, folder_name)
+            os.makedirs(target_dir, exist_ok=True)
+            file_path = os.path.join(target_dir, str(file_obj.display_name))
+            print(f"Downloading {file_obj.display_name} to {file_path}...")
+            file_obj.download(file_path)
+        except Exception as e:
+            print(f"Error downloading file {file_obj.display_name}: {e}")
+
+    # ------------------------------------------------------
+    # Helper: Remove Excluded Directories from a Path
+    # ------------------------------------------------------
+    @staticmethod
+    def remove_excluded_dirs(path: str, exclude_dirs: list = None) -> str:
+        """
+        Remove any directory from the path whose name (case-insensitive)
+        appears in the exclude_dirs list.
+        For example, if exclude_dirs is ["course files"], then any folder
+        named "course files" will be removed from the path.
+        """
+        if exclude_dirs is None:
+            exclude_dirs = ["course files"]
+        parts = path.split(os.path.sep)
+        filtered = [p for p in parts if p.lower() not in {ed.lower() for ed in exclude_dirs}]
+        return os.path.join(*filtered)
+
+    # ======================================================
+    # EMBEDDING INDEX BUILDING (without summaries)
     # ======================================================
     def build_embedding_index(self, index_dir: str = "chroma_index", base_dir: str = "files"):
         """
         Build the embedding index for all lecture slides by scanning the given base directory
         recursively for PDF, PPTX, DOC, and DOCX files. For PDF files, each page is treated
         as a separate document (i.e. embedding per page). Non-PDF files are split into chunks.
+        This method does NOT generate summary CSV files.
         """
         print(f"\n[DEBUG] Current working directory: {os.getcwd()}")
         print(f"[DEBUG] Will store Chroma index in: {os.path.abspath(index_dir)}")
@@ -50,7 +134,6 @@ class CanvasManager:
 
         start_time = time.time()
 
-        # Recursively scan the base directory for files with supported extensions.
         selected_paths = []
         if not os.path.exists(base_dir):
             print(f"Warning: Base directory '{base_dir}' does not exist.")
@@ -73,7 +156,6 @@ class CanvasManager:
         def load_file(fp):
             print(f"[DEBUG] Loading file: {fp}")
             try:
-                # For PDF files, use PyPDFLoader which returns one document per page
                 if fp.lower().endswith('.pdf'):
                     loader = PyPDFLoader(fp)
                     docs = loader.load()
@@ -83,7 +165,6 @@ class CanvasManager:
                 if docs:
                     print(f"[DEBUG]   -> Loaded {len(docs)} document(s) from {os.path.basename(fp)}")
                 for doc in docs:
-                    # Store the local file path and add a placeholder Canvas link
                     doc.metadata["file_path"] = fp
                     doc.metadata["canvas_link"] = f"{self.api_url}/files/{os.path.basename(fp)}"
                 return docs
@@ -101,7 +182,6 @@ class CanvasManager:
             print("No documents could be loaded from the selected files.")
             return None
 
-        # Separate PDF documents (which are already per page) from others
         pdf_docs = []
         non_pdf_docs = []
         for doc in documents:
@@ -110,18 +190,14 @@ class CanvasManager:
             else:
                 non_pdf_docs.append(doc)
 
-        # Apply text splitting only to non-PDF files
         if non_pdf_docs:
             print(f"\n[DEBUG] Splitting {len(non_pdf_docs)} non-PDF document(s) into chunks...")
             text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
             non_pdf_docs = text_splitter.split_documents(non_pdf_docs)
             print(f"[DEBUG]   -> After splitting, we have {len(non_pdf_docs)} chunk(s) from non-PDF files.")
 
-        # Combine PDF docs (by page) and non-PDF chunks
         docs = pdf_docs + non_pdf_docs
 
-        # Convert any tuple that may have been returned into a Document object,
-        # then filter complex metadata.
         new_docs = []
         for doc in docs:
             if isinstance(doc, tuple) or not hasattr(doc, "metadata"):
@@ -153,6 +229,91 @@ class CanvasManager:
             print(f"Error building index: {e}")
             return None
 
+    # ------------------------------------------------------
+    # BUILD ALL SUMMARIES
+    # ------------------------------------------------------
+    def build_all_summaries(self, base_dir: str = "files", summary_base_dir: str = "summary"):
+        """
+        Traverse the base directory and generate summary CSV files for every supported file.
+        The folder structure is preserved (including the "course files" folder).
+        """
+        print(f"\n[DEBUG] Generating summaries for all files under: {os.path.abspath(base_dir)}")
+        for root, dirs, files in os.walk(base_dir):
+            for file in files:
+                if file.lower().endswith(('.pdf', '.pptx', '.doc', '.docx')):
+                    file_path = os.path.join(root, file)
+                    try:
+                        CanvasManager.create_summary_csv(file_path, summary_base_dir, base_dir)
+                    except Exception as e:
+                        print(f"[DEBUG] Error generating summary for file {file_path}: {e}")
+
+    # ------------------------------------------------------
+    # SUMMARY HELPER FUNCTIONS
+    # ------------------------------------------------------
+    @staticmethod
+    def generate_summary(text: str, max_length: int = 50, min_length: int = 25) -> str:
+        tokens = CanvasManager._summarizer.tokenizer(text, return_tensors="pt", truncation=True)["input_ids"]
+        input_length = tokens.shape[1]
+        if input_length <= min_length:
+            return text.strip()
+        adjusted_max_length = max_length if input_length >= max_length else input_length
+        result = CanvasManager._summarizer(
+            text,
+            max_length=adjusted_max_length,
+            min_length=min_length,
+            do_sample=False,
+            truncation=True
+        )
+        return result[0]['summary_text'] if isinstance(result, list) else result['summary_text']
+
+    @staticmethod
+    def create_summary_csv(file_path: str, summary_base_dir: str = "summary", source_base_dir: str = "files") -> None:
+        print(f"[DEBUG] Generating summary CSV for file: {file_path}")
+        if file_path.lower().endswith('.pdf'):
+            loader = PyPDFLoader(file_path)
+        else:
+            loader = UnstructuredLoader(file_path)
+        docs = loader.load()
+        if not file_path.lower().endswith('.pdf'):
+            splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
+            docs = splitter.split_documents(docs)
+        texts = [doc.page_content for doc in docs if doc.page_content.strip()]
+        results = [None] * len(texts)
+        indices_to_summarize = []
+        texts_to_summarize = []
+        for i, text in enumerate(texts):
+            tokens = CanvasManager._summarizer.tokenizer(text, return_tensors="pt", truncation=True)["input_ids"]
+            if tokens.shape[1] < 10:
+                results[i] = text.strip()
+            else:
+                indices_to_summarize.append(i)
+                texts_to_summarize.append(text)
+        if texts_to_summarize:
+            batch_results = CanvasManager._summarizer(
+                texts_to_summarize,
+                max_length=50,
+                min_length=25,
+                do_sample=False,
+                truncation=True
+            )
+            for idx, res in zip(indices_to_summarize, batch_results):
+                results[idx] = res['summary_text']
+        page_summaries = [(f"Page {i+1}", summary) for i, summary in enumerate(results)]
+        overall_text = " ".join(texts)
+        overall_summary = CanvasManager.generate_summary(overall_text)
+        print("[DEBUG] Generated overall summary")
+        relative_path = os.path.relpath(file_path, source_base_dir)
+        csv_relative_path = os.path.splitext(relative_path)[0] + ".csv"
+        csv_output_path = os.path.join(summary_base_dir, csv_relative_path)
+        os.makedirs(os.path.dirname(csv_output_path), exist_ok=True)
+        with open(csv_output_path, mode="w", newline="", encoding="utf-8") as csvfile:
+            writer = csv.writer(csvfile)
+            writer.writerow(["Page", "Summary"])
+            for page, summary in page_summaries:
+                writer.writerow([page, summary])
+            writer.writerow(["Overall Summary", overall_summary])
+        print(f"[DEBUG] Summary CSV saved at {csv_output_path}")
+
     # ======================================================
     # RETRIEVE LECTURE SLIDES FUNCTIONS
     # ======================================================
@@ -163,7 +324,6 @@ class CanvasManager:
         This method first checks for an existing precomputed index; if not found, it builds
         the index (i.e. precomputes all embeddings) before performing the search.
         """
-        # (Existing implementation remains unchanged)
         max_workers = os.cpu_count() or 4
 
         def resolve_filter(filter_list, alias_mapping, threshold=0.8):
@@ -174,8 +334,7 @@ class CanvasManager:
                     if CanvasManager.get_match_score(item_lower, canonical.lower()) >= threshold:
                         resolved.append(canonical)
                         break
-                    elif any(
-                            CanvasManager.get_match_score(item_lower, alias.lower()) >= threshold for alias in aliases):
+                    elif any(CanvasManager.get_match_score(item_lower, alias.lower()) >= threshold for alias in aliases):
                         resolved.append(canonical)
                         break
             return resolved
@@ -205,30 +364,28 @@ class CanvasManager:
 
         file_paths = {
             "ISY5004": {
-                "VSD": {"path": "files\\Vision Systems (6-10Jan 2025)"},
-                "SRSD": {"path": "files\\Spatial Reasoning from Sensor Data (13-15Jan 2025)"},
-                "RTAVS": {"path": "files\\Real-time Audio-Visual Sensing and Sense Making (20-23Jan 2025)"}
+                "VSD": {"path": "files\\course files\\Vision Systems (6-10Jan 2025)"},
+                "SRSD": {"path": "files\\course files\\Spatial Reasoning from Sensor Data (13-15Jan 2025)"},
+                "RTAVS": {"path": "files\\course files\\Real-time Audio-Visual Sensing and Sense Making (20-23Jan 2025)"}
             },
             "EBA5004": {
-                "TA": {"path": "files\\[PLP] Text Analytics (2025-02-10)"},
-                "NMSM": {"path": "files\\EBA5004 Practical Language Processing [2420]\\01_NMSM"},
-                "TPML": {"path": "files\\EBA5004 Practical Language Processing [2420]\\02_TPML"},
-                "CUI": {"path": "files\\EBA5004 Practical Language Processing [2420]\\03_CNI"}
+                "TA": {"path": "files\\course files\\[PLP] Text Analytics (2025-02-10)"},
+                "NMSM": {"path": "files\\course files\\EBA5004 Practical Language Processing [2420]\\01_NMSM"},
+                "TPML": {"path": "files\\course files\\EBA5004 Practical Language Processing [2420]\\02_TPML"},
+                "CUI": {"path": "files\\course files\\EBA5004 Practical Language Processing [2420]\\03_CNI"}
             }
         }
 
         courses_to_process = {}
         for course, submodules in file_paths.items():
-            matching_submodules = {sm: details["path"] for sm, details in submodules.items() if
-                                   sm in resolved_submodule}
+            matching_submodules = {sm: details["path"] for sm, details in submodules.items() if sm in resolved_submodule}
             if matching_submodules:
                 courses_to_process[course] = matching_submodules
             elif course in resolved_course:
                 courses_to_process[course] = {sm: details["path"] for sm, details in submodules.items()}
 
         if not filter_terms:
-            courses_to_process = {course: {sm: details["path"] for sm, details in submodules.items()} for
-                                  course, submodules in file_paths.items()}
+            courses_to_process = {course: {sm: details["path"] for sm, details in submodules.items()} for course, submodules in file_paths.items()}
 
         if not courses_to_process:
             print("No courses/sub-modules match the provided filter terms.")
@@ -304,66 +461,6 @@ class CanvasManager:
             print("Additional Metadata:", res.metadata)
 
         return final_results
-    # ======================================================
-    # DOWNLOAD FILES FUNCTIONS
-    # ======================================================
-    def download_all_files_parallel(self, base_dir: str = "files", max_workers: int = None):
-        """
-        Download all files for accessible courses concurrently while preserving the subfolder structure.
-        Files are saved to: base_dir/{course_name}/{subfolder(s)}/{filename}.
-        """
-        if max_workers is None:
-            max_workers = os.cpu_count() or 4
-
-        courses = list(self.canvas.get_courses())
-
-        with ThreadPoolExecutor(max_workers=max_workers) as executor:
-            futures = []
-            for course in courses:
-                if getattr(course, "access_restricted_by_date", False):
-                    print(f"Skipping restricted course: {course.id}")
-                    continue
-
-                course_name = self.sanitize_filename(course.name)
-                print(f"Processing course: {course_name}")
-
-                try:
-                    folder_path_map = self.build_folder_path_map(course)
-                except Exception as e:
-                    print(f"Error building folder path map for course {course.name}: {e}")
-                    folder_path_map = {}
-
-                try:
-                    files = list(course.get_files())
-                except Exception as e:
-                    print(f"Error retrieving files for course {course.name}: {e}")
-                    continue
-
-                for f in files:
-                    futures.append(
-                        executor.submit(self.download_file, f, course_name, folder_path_map, base_dir)
-                    )
-
-            for future in as_completed(futures):
-                try:
-                    future.result()
-                except Exception as e:
-                    print(f"Error in a download task: {e}")
-
-    def download_file(self, file_obj, course_name, folder_path_map, base_dir):
-        """
-        Download a single file, preserving folder structure.
-        """
-        try:
-            folder_id = getattr(file_obj, "folder_id", None)
-            folder_name = folder_path_map.get(folder_id, "")
-            target_dir = os.path.join(base_dir, course_name, folder_name)
-            os.makedirs(target_dir, exist_ok=True)
-            file_path = os.path.join(target_dir, file_obj.display_name)
-            print(f"Downloading {file_obj.display_name} to {file_path}...")
-            file_obj.download(file_path)
-        except Exception as e:
-            print(f"Error downloading file {file_obj.display_name}: {e}")
 
     # ======================================================
     # TIMETABLE FUNCTIONS
@@ -667,9 +764,9 @@ class CanvasManager:
             print("Announcement not found.")
             return []
 
-    # ======================================================
+    # ------------------------------------------------------
     # HELPER / UTILITY FUNCTIONS
-    # ======================================================
+    # ------------------------------------------------------
     @staticmethod
     def get_match_score(query: str, title: str) -> float:
         """
@@ -735,18 +832,6 @@ class CanvasManager:
             folder_map[folder.id] = get_full_path(folder)
         return folder_map
 
-    @staticmethod
-    def remove_course_files_prefix(path: str) -> str:
-        """
-        Remove the top-level "course files" folder from the path if present.
-        """
-        if not path:
-            return path
-        parts = path.split(os.path.sep)
-        if parts and parts[0].lower() == "course files":
-            return os.path.join(*parts[1:]) if len(parts) > 1 else ""
-        return path
-
 
 if __name__ == "__main__":
     try:
@@ -762,12 +847,14 @@ if __name__ == "__main__":
     # Uncomment the following line to download all files
     #manager.download_all_files_parallel(base_dir="files")
 
-    # Pre-build the embedding index (build all embeddings first)
-    #manager.build_embedding_index(index_dir="chroma_index")
+    # To build the embedding index (without generating summaries):
+    manager.build_embedding_index(index_dir="chroma_index")
+
+    # To generate summaries separately:
+    manager.build_all_summaries(base_dir="files", summary_base_dir="summary")
 
     """
-
-    # Example 1: Retrieve lecture slides using alias filter term "CNI"
+    # Example usage for retrieving lecture slides:
     print("\nExample 1: Using alias filter term 'CNI'")
     results1 = manager.retrieve_lecture_slides_by_topic(
         topic="how to implement langchain?",
@@ -775,7 +862,6 @@ if __name__ == "__main__":
     )
     print("\nFinal top results from Example 1:", results1)
 
-    # Additional examples:
     print("\nExample 2: Using filter term 'UI'")
     results2 = manager.retrieve_lecture_slides_by_topic(
         topic="how to implement langchain?",
@@ -805,13 +891,11 @@ if __name__ == "__main__":
     )
     print("\nFinal top results from Example 5:", results5)
 
-    print("\nExample 6 : Using no filter'")
+    print("\nExample 6: Using no filter")
     results6 = manager.retrieve_lecture_slides_by_topic(
-        topic="how to implement langchain?",
-
+        topic="how to implement langchain?"
     )
     print("\nFinal top results from Example 6:", results6)
-
 
     # 2. TIMETABLE
     manager.get_timetable(True, 2024, "AIS06")
@@ -823,4 +907,3 @@ if __name__ == "__main__":
     # 4. ANNOUNCEMENTS & NOTIFICATIONS
     manager.list_announcements(hide_older_than=7, only_unread=False)
     manager.get_announcement_detail("Internship Announcement")
-

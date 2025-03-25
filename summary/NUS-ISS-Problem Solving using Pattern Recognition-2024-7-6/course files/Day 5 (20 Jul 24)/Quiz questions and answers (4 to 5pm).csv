@@ -1,0 +1,5 @@
+Page,Summary
+Page 1," PSUPR Quiz: When were the two AI winters, and why did that happened? What was the key event that revived  the interest in neural networks after the second winter? Team Hinton entered the ILSVRC and used"
+Page 2," Calculate the output of a 2D convolution operation with the below input matrix and kernel . After that, apply MaxPooling and show the output, assume the pooling  kernel size is (2,2) and stride ("
+Page 3, Dropout is a very popular method to regularize neural networks . It is effective in preventing  overfitting . Every unit of the neural network (except output layer) is given the probability p of being temporarily ignored .
+Overall Summary," PSUPR Quiz (Total 10 marks) When were the two AI winters, and why did that happened? What was the key event that revived  the interest in neural networks after the second winter?"

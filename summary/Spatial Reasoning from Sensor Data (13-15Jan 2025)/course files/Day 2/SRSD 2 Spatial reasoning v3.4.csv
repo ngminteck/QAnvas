@@ -1,0 +1,54 @@
+Page,Summary
+Page 1, Dr TIAN Jingtianjing@nus.edu.g.S-SRSD/Spatial reasoning/V3.4 © 2025 National University of Singapore .
+Page 2," S-SRSD/Spatial reasoning/V3.4 © 2025 National University of Singapore . ECCV 2022 Tutorial, Self-Supervision on Wheels: Advances in Autonomous Learning from Autonomous Driving Data ."
+Page 3, S-SRSD/Spatial reasoning/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 4," The state-of-the-art methods achieve a translational error of 0.5%-1% of the  travelled distance. According to the  leaderboard on KITTI dataset, the state of theart"
+Page 5," Visual odometry is the process of determining the position and orientation of a robot by analyzing the camera images . The same point (in the physical world) can be seen in consecutive frames . However, it appears on the different positions in the"
+Page 6, S-SRSD/Spatial reasoning/V3.4 © 2025 National University of Singapore. All Rights Reserved Page 6 .
+Page 7, S-SRSD/Spatial reasoning/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 8, S-SRSD/Spatial reasoning/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 9, S-SRSD/Spatial reasoning/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 10," Pinhole camera model: Convert from                 camera reference system   to the image reference system . It depends on camera model focal length    focal length 𝑓,  -  "
+Page 11," Given an image with 640 × 480 pixels and a focal length of 210 pixels, the intrinsic matrix could be  glyglyglyphantanistic . Each pixel has a physical pixel size of  𝑑   "
+Page 12, S-SRSD/Spatial reasoning/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 13, S-SRSD/Spatial reasoning/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 14, Place Recognition matches the input photo to a set of photos in the gallery to recognize the place/location of the input photos . S-SRSD/Spatial reasoning/V3.4 © 2025 .
+Page 15, S-SRSD/Spatial reasoning/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 16, A map is necessary for localizing the robot with a known map . SLAM: no a priori knowledge of the robot’s workspace. An accurate camera pose estimate is necessary .
+Page 17," Visual Place Recognition: A Tutorial . IEEE Robotics & Automation Magazine 2023, pp. 2-16."
+Page 18," A survey on Visual-Based Localization: On the benefit of heterogeneous data, Pattern Recognition, 2018, is published by the National University of Singapore ."
+Page 19," Video Google was proposed in 2003, marking the beginning of the BoW model . CNN-based methods began to gradually take over, such as the fine-tuned CNN model for generic instance retrieval [4, 5]."
+Page 20," Visual place recognition: Major dataset . Oxford5k 5,062 55 Buildings; Paris6k 6,412 55 Buildings ."
+Page 21, The performance metric is based on a single query . S-SRSD/Spatial reasoning/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 22, K: K: current rank; TP: true positives; P: precision; GTP: total number of  ground truth positives . Average precision = average precision (for a single query) Average precision (mAP) = mean average
+Page 23, S-SRSD/Spatial reasoning/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 24," Global features can help coarse place recognition (e.g., ISS building entrance) and local features help fine place recognition . S-SRSD/Spatial reasoning/V3.4 © 2025 National University of Singapore ."
+Page 25, An accelerated segment test has been developed by the National University of Singapore . S-SRSD/Spatial reasoning/V3.4 is based on SORB and rotated BRIEF/ORB .
+Page 26," ORB: Oriented FAST and rotated BRIEF. (Binary robust independent elementary elementary feature) Feature: For each detected keypoint (previous) sample a set (e.g., 128) of intensity "
+Page 27," A Siamese training architecture with four branches, Patches P1 and P2 are different views of the same physical point, and used as positive examples to train the Descriptor . P4 contains no distinctive feature points and is"
+Page 28," Some tricks to reduce manualannotation of keypoints in images . The final loss is the sum of two progressively intermediate losses: one for the interest point detector, and the other for the description ."
+Page 29," A. Babenko, et al., Neural Codes for Image Retrieval, ECCV 2014, https://arxiv.org/abs/1404.1777 ."
+Page 30, Given a set of 2D convolutional feature channel responses  𝑋    𝑓   is the number of feature channels referred to max pooling over all locations .
+Page 31, Pre-trained CNN: Maximum activations . Sampling region: Sample regions extracted at different scales . We show thetop-left region of each scale (gray colored region) and its neighbouring regions (dashed borders) The cross indicates
+Page 32, Many other methods that use activation maps obtained from pre-trained CNN models …. The pre-training CNN models have been used in this study .
+Page 33, Re-trained CNN: Contrastive CNN has two branches with shared parameters . Quadruplet loss pushes the negative pairs from the positives pairs w.r.t different than the positives samples . Triplet loss function computes the distance between
+Page 34, S-SRSD/Spatial reasoning/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 35, Part model: Object as a set of parts; Relative locations between parts; Appearance of part; . Part: Part: Intuition: Part model; Part: Object: Object; Object: Relative locations; Appearance: Appearance: Part
+Page 36, An example on color space . S-SRSD/Spatial reasoning/V3.4 © 2025 National University of Singapore .
+Page 37, S-SRSD/Spatial reasoning/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 38, S-SRSD/Spatial reasoning/V3.4 © 2025 National University of Singapore. All Rights Reserved Page 38.
+Page 39, V-SRSD/Spatial reasoning/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 40, S-SRSD/Spatial reasoning/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 41," Patch-NetVLAD: Multi-Scale Fusion of Locally-Global Descriptors for Place Recognition, CVPR 2021 ."
+Page 42, Contextual patch-NetVLAD aggregates features from each patch’s surrounding neighborhood . A context-driven feature matching mechanism utilizes cluster and saliency context rules to assign higher weights to patches that are less similar to densely populated or
+Page 43, The BoW representations are based on similarity of two images . S-SRSD/Spatial reasoning/V3.4 © 2025 National University of Singapore .
+Page 44, S-SRSD/Spatial reasoning/V3.4 © 2025 National University of Singapore. All Rights Reserved Page 44 .
+Page 45," Vocabulary trees (1): Hierarchical  clustering for large vocabularies .Reference: Nister and Stewenius, ""Scalable Recognition with a Vocabulary Tree”, CVPR 2006"
+Page 46, S-SRSD/Spatial reasoning/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 47, S-SRSD/Spatial reasoning/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 48, S-SRSD/Spatial reasoning/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 49, S-SRSD/Spatial reasoning/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 50, S-SRSD/Spatial reasoning/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 51, Objective: Perform image-based place recognition . S-SRSD/Spatial reasoning/V3.4 © 2025 National University of Singapore .
+Page 52, S-SRSD/Spatial reasoning/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Overall Summary, The same point (in the physical world) can be seen in consecutive frames . It appears on the different positions in the images due to the camera’s position when it captures consecutive frames. This technique is called visual odometry.

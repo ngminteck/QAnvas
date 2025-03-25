@@ -1,0 +1,42 @@
+Page,Summary
+Page 1, Dr TIAN Jingtianjing@nus.edu.g.S-SRSD/Spatial sensing/V3.4 © 2025 National University of Singapore .
+Page 2, S-SRSD/Spatial sensing/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 3, S-SRSD/Spatial sensing/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 4, S-SRSD/Spatial sensing/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 5," Proprioceptive sensors (internal) measure values internally to the system (robot), e.g., motor speed, wheel load, heading of the robot, battery status. Exteroceptive sensor (external) measure the external"
+Page 6, S-SRSD/Spatial sensing/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 7, Proximity: User’s position = position  of closest navigation source . Prox proximity: User's position = location  of nearest navigation source. S-SRSD/Spatial sensing/V3.4 ©
+Page 8, Positioning: Fingerprinting . Nearest neighbour: Find reference point   𝑟 for which the RSS is the largest . Multiple nearest neighbours: Find   multiple reference points .
+Page 9, S-SRSD/Spatial sensing/V3.4 © 2025 National University of Singapore. All Rights Reserved Page 9 .
+Page 10, The travel time of a signal from a reference.station to the current position is given by the distance divided by the signal speed . We can obtain the time difference of arrival (TDOA)
+Page 11," Positioning: Angulation, Angulation and Angle of arrival (AOA) Base station measures angle to mobile terminal . Rotate antenna to the highest RSS value . Derive angle from RSS values of individual antennas in an antenna array"
+Page 12, S-SRSD/Spatial sensing/V3.4 © 2025 National University of Singapore. All Rights Reserved Page 12 .
+Page 13, Positioning: Vision . Multi-View Stereo for Community Photo Collections . Exploring Photo Collections in 3D . S-SRSD/Spatial sensing/V3.4 © 2025 National University of Singapore .
+Page 14, Height: 8.08 inches; Height: 3.41 inches; Breadth: 3 .41 inches . S-SRSD/Spatial sensing/V3.4 © 2025 National University of Singapore .
+Page 15, S-SRSD/Spatial sensing/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 16," A second camera can resolve the ambiguity, enabling the measurement of depth via triangulation . S-SRSD/Spatial sensing/V3.4 © 2025 National University of Singapore ."
+Page 17, Stereo vision: Camera system . Camera system. Camera camera system. General stereo camera system . Two popular stereo camera systems. S-SRSD .
+Page 18, The relationship between two coordinates of the same point due to the coordinate .reference is changed (camera.movement). The relationship . between two camera reference systems is the relationship between the camera reference system to the pixel reference system .
+Page 19, S-SRSD/Spatial sensing/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 20," The image reference system    depends on camera model focal length . It   typically has a focal length of  𝑟,  focal length . The length of the focal length depends on a camera"
+Page 21," Given an image with 640 × 480 pixels and a focal length of 210 pixels, the intrinsic matrix could be 'girgly' The intrinsic matrix is based on the position of the image plane origin in each pixel ."
+Page 22, Theorem: Stick ‘at the end of the original coordinate vector . Advantage: Advantage: both the matrix multiplication multiplication . S-SRSD/Spatial sensing/V3.4 © 2025 National University of Singapore .
+Page 23," Given two calibrated parallel cameras, the right camera is some distance from the right of the left camera . According to triangle similarity theorem between two triangles, we have the same distance as triangle similarity . We have the physical distance between point  "
+Page 24, The matching cost can be defined as SSD (sum of squared differences) We scan along the horizontal line and compare patches to the one in the left image and looking for a most similar patch .
+Page 25, Disparity estimation from stereo images is based on stereo images . The image was created by the National University of Singapore . S-SRSD/Spatial sensing/V3.4 © 2025 .
+Page 26, S-SRSD/Spatial sensing/V3.4 © 2025 National University of Singapore. All Rights Reserved Page 26.
+Page 27, Transform the CCTV view  to a bird-view (top-view)Reference: http://www.cs.toronto.edu/~fidler/slides/2021Winter/CSC420/lecture9
+Page 28, S-SRSD/Spatial sensing/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 29, A Homography matrix is a transformation matrix that maps the point located at (𝑥  𝑦   in one image to the corresponding point located in the other image . It is true for all sets of corresponding
+Page 30, Researchers use OpenCV function to map the position (red cross ‘+’) from the source image to the target plane to obtain the homography matrix .
+Page 31," Keypoint-matching in multiple-view images is a fundamental task . Estimate the transformation (e.g., Homography matrix) between two images, which can help to estimate distance between two pixel positions in the image ."
+Page 32, S-SRSD/Spatial sensing/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 33, Researchers from the National University of Singapore have developed a tool to detect keypoints from two images . The tool uses a feature matching algorithm to detect distinctive keypoints in the image .
+Page 34," Find patches (a window) that generate a large variation when it is moved around with a shift value 𝑢,    -  ""Shifted window"" is the difference between the original patch centered at "
+Page 35, S-SRSD/Spatial sensing/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 36, S-SRSD/Spatial sensing/V3.4 © 2025 National University of Singapore. All Rights Reserved Page 36.
+Page 37," Euclidean distance resembles Euclidean distance using similarity to match features . Given features that are illustrated as squares in left/right images, respectively ."
+Page 38," The probability that a match is correct can be determined by taking the ratio of distance from the closest neighbor to the distance of the second closest . The probability of a correct match is determined using a database of 40,000 keypoints ."
+Page 39, S-SRSD/Spatial sensing/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 40, S-SRSD/Spatial sensing/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Overall Summary, Professor TIAN Jingtianjing@nus.edu.g.S-SRSD/Spatial sensing/V3.4 © 2025 National University of Singapore. All Rights Reserved Page 2: Introduction to spatial sensing and

@@ -1,0 +1,88 @@
+Page,Summary
+Page 1," Dr. Gary Leung: ""Reverence"" is the name of a professor at the National University of Singapore . He is the author of the book, ""Reverevereverererererence"" and ""reverence"
+Page 2, The National University of Singapore's Day 1 program uses audio signal processing and speech recognition techniques . The project will focus on the audio-visual and voice-recognition capabilities of the National Institute of Singapore .
+Page 3, Automatic Speech Recognition (ASR) or Speech-to-Text is a process to automatically . automatically .convert speech into text . A natural way to input information to a  computer .
+Page 4, History of Speech Recognition by the National University of Singapore . Speech recognition is a form of language recognition that can be used in speech recognition .
+Page 5, History of Speech Recognition (2) National University of Singapore. All Rights Reserved. © 2025 National University Singapore .
+Page 6, National University of Singapore has been on the rise of ASRASR in recent years . ASR has been a major focus of research at Singapore's National Institute of Science and Technology .
+Page 7, Deep Learning ASR ASR – Recent Time – is a deep learning machine that uses deep learning to learn more quickly and learn faster .
+Page 8, The National University of Singapore's ASR Methods have been used in the development of ASR methods . The ASR method was developed at the University of the Singapore Institute of Singapore .
+Page 9, E.g. “Read” in English is ‘read’ in English. Reverberation and overlapping audio sources as well.
+Page 10, The National University of Singapore is the largest university in Singapore . It is based on the findings of the National Institute of Singapore’s new research project .
+Page 11," 2025 National University of Singapore . All Rights Reserved . Pronunications: Phoneme, Phonomenon, and Phonomite ."
+Page 12, The National University of Singapore's speech recognition system was developed in the 1970s . It is the first of its kind in Singapore and is being used by the National Institute of Science and Technology .
+Page 13, Traditional ASR System evaluates how likely a certain word is correct . Evaluate how likely it is likely a given speech is correct to be spoken correctly .
+Page 14, Traditional Acoustic Model was created by the National University of Singapore . The model is based on a traditional Acoustic Acoustic model . The new model uses a traditional acoustic acoustic model .
+Page 15, HMM for Sentence is Singapore's version of the National University of Singapore . It is the work of HMMHMM for Singapore . HMM was Singapore's first sentence .
+Page 16, Language Model: Find the most probable word sequence from all the possibilities . Calculate P(W) to find the most likely word sequence .
+Page 17, Language models are trained with textcorpus . N-gram models calculate the likelihood of a word given previous word(s)
+Page 18, Hybrid vs End-to-End (E2E) Modeling . Hybrid vs E2E (Hybrid)  Modelling. Hybrid vs End to End (End to End)
+Page 19," E2E models use a single objective function to output characters or words, greatly simplifying the ASR . E2 models are much more compact than  traditional hybrid models -- can be deployed with high accuracy and low latency ."
+Page 20," E2E models achieve the state-of-the-art  results in most benchmarks in terms of ASR accuracy . Practical challenges such as streaming, streaming,  responsiveness, adaptation capability etc., have been also optimized in"
+Page 21, E2E2E models were created by the National University of Singapore . They are based on the E22E-2E and E2-E models developed in Singapore .
+Page 22, The National University of Singapore is developing a language recognition system . The language model is then used to predict speech patterns . The system is based on a language model rather than a full sequence .
+Page 23, Multiple modules are  progressivelymerged into one network for joint training . It directly maps the input uablyacoustic feature  to the text agicallyresult sequence . It uses DNN to approximate  distributions over characters .
+Page 24, 2025 National University of Singapore . All Rights Reserved at 2025 National Universities Singapore . National University CTCTC is Singapore's largest university in Singapore .
+Page 25, CTCTC ASR ASR example results were created by the National University of Singapore . The results were published at the National Institute of Singapore’s CRC ASRASR . CTCASR was created by 2025 National
+Page 26, 2025 National University of Singapore. All Rights Reserved . End-to-end ASR will be used in the development of the ASR .
+Page 27," LAS model: Listen, Attention and Spell . National University of Singapore is based on the LASLAS model of listening, attention and spell ."
+Page 28, National University of Singapore's LAS model: Performance . The model is based on the performance of LAS' performance model .
+Page 29, RNN-T provides a natural way for streaming ASR and becomes the most popular E2E model . Streaming AED may not be ideal to ASR because decoder does not have access to future signals .
+Page 30, RNN Transducer (RNN-T) was created by the National University of Singapore . The Translator was developed by the university of Singapore in the 1990s .
+Page 31," RNN Transducer (RNN-T) transforms characters one-by-one, with white spaces where appropriate . Feeds predicted symbols to predict the next symbols ."
+Page 32, E2E2E models were created by the National University of Singapore . They are based on the E22E-2E and E2-E models developed in Singapore .
+Page 33, Encoding Encoder is the Most Important component . Encoding is the most important component in Singapore's new system . The National University of Singapore is developing a new system for the first time .
+Page 34, RNN-T encoder for the world's most complex computer-generated images . The image was created by the National University of Singapore .
+Page 35, A good tutorial: https://towardsdatascience.com/transformers-explained-visually-part-1-overview-of-functionality-95a6dd460452 .
+Page 36," The National University of Singapore was founded by the National Institute of Singapore . It was founded in the 1960s, and is now being run by the University Singapore ."
+Page 37," How an ASR system is trained: Speech with text transcription, big enough to cover the language, should have word transcriptions . Pronunciation dictionary, big text corpus and big language corpus should be used to train ASR systems"
+Page 38," Guidelines for Acoustic Modeling Guidelines: Very phonetic languages (e.g., Spanish,                 German) Guidelines: BPE-based acoustic model is preferred ."
+Page 39, Fine-Tune Whisper For Multilingual ASR with Transformers with the help of Espnet: End-to-end speech processing; Kaldi: HMM-DNN acoustic modeling .
+Page 40, N-gram language models are based on language models . LM linear interpolation/Building large n-gram lMs with SRILM with SRILLM . The language model is based on the language of the language .
+Page 41," Training & Testing is divided into training, development and testing sets . Modelling system needs thousand hours of speech and thousands of hours of training ."
+Page 42," Techniques like time-stretching, pitch-shifting, and adding background noise can artificially increase and diversify the dataset . Modern systems are normally trained with thousands of speech data. Some recent ones using 60000 "
+Page 43, ASR performance is usually judged by Word ipientError Rate . Character Error Rate (CER) or                 Syllable Error  Rate (SER) may be used for some languages .
+Page 44, ASR performance is usually measured by Word Error Rate or Concept error rate . Task-specific measures are sometimes used to measure task completion and task completion . The ASR was developed at the National University of Singapore .
+Page 45," The ASR system is intended for a                 specific domain (e.g., medical or legal), additional fine-tuning on domain-specific data can be beneficial . For continually evolving applications, the model might need to adapt to"
+Page 46, Considerations in ASR Deployment: Free text or limited text . Free text: large vocabulary free text recognition . Embedded system: Small system data size. Cloud: Speech recognition is on cloud. Most of free text engines are on
+Page 47," Considerations in ASR Deployment: Near field: Smartphone, PC, etc. Near field, Far field: Microphone is far away from speaker . Channel/Sampling rate: Digital system, Digital system like smartphone, "
+Page 48, Considerations in ASR Deployment in Singapore's ASR deployment . ASR deploys ASR systems in Singapore . The ASR system was designed by the National University of Singapore .
+Page 49," Speaker Recognition: To recognize persons from their voices . Text dependent, Text independent and Text prompted . Text prompted. Text dependent. Text independent. Text prompted’s ‘signal’: Text prompted, Text dependent"
+Page 50," To find the speaker from a group of  people, you can find one to many matching . The National University of Singapore's new speaker identification system is based on speaker identification ."
+Page 51," To detect whether the voice belongs to  the claimed speaker, the voice is matched to the claimed speaker . One-to-one matching can also be used to verify the authenticity of the voice ."
+Page 52, Researchers build a Universal Background Model (UBM) with many people’s speech data . Use sample voice of the target speaker to adapt the GMM model to target speaker's model . The adapted model is used for recognition .
+Page 53, The National University of Singapore has developed a speaker recognition system . It uses a super vector and support vector machine (SVM) to do classification . The system is based on a speaker model .
+Page 54, An i-Vector is a fixed-length low-dimensional representation of a variable-length speech utterance . i-Vecor = speaker + language + recording device + transmission channel + acoustic environment .
+Page 55," Long-term speaker characteristics are captured in the deep neural network by a temporal pooling layer that aggregates over input speech . After training, utterances are mapped directly to fixed-dimensional speaker embeddings ."
+Page 56, National University of Singapore's accuracy measure is based on accuracy of accuracy measures . The accuracy of the accuracy of this measure has been determined by the National Institute of Singapore’s accuracy measure . The study was conducted at the National University Singapore
+Page 57," The speaker recognition system will be able to recognize . a few seconds voice for fast applications, or the  longer speech for better accuracy . The National University of Singapore will use the system to register the user in the system by"
+Page 58, Proving that identity can be recognized over telephone line . Background recognition can be done while talking . Difficult to break if text is prompted by system .
+Page 59," Application Scenarios include authentication for remote banking, access control and access to personalized applications . The application could be used to detect speakers automatically and control them remotely ."
+Page 60," ALIZÉ provides low-level and high-level frameworks for speaker recognition . Kaldi provides complete speaker recognition support . SpeechBrain provides different models for speaker .recognition, including X-vector, ECAPA-TDNN,"
+Page 61, Anti-Spoofing aims to detect attempts where malicious actors try to deceive a speech or speaker recognition system using fake or manipulated voice recordings .
+Page 62," As voice becomes a key biometric for authentication, ensuring that the system isn't fooled by fake voices is crucial to prevent unauthorized access . Devices like Amazon's Alexa or Google Home need to be safeguarded  against spoofing attacks to prevent"
+Page 63, Spoofing attacks involve recording a genuine user's voice and playing it back to deceive the system . Modern TTS systems can generate highly realistic voice outputs . Malicious actors can use these systems to generate  any voice command without needing
+Page 64," Spectral Features Analysis can identify inconsistencies or patterns typical of synthesized or converted voices . Genuine human speech has certain behavioral characteristics, such as natural pauses, breathing patterns, and unique speaking rhythms ."
+Page 65," With advancements in deep learning, tools like Google's WaveNet can produce incredibly realistic voice output . The wide range of microphones and speakers available can introduce variability into the audio signal, making it harder to establish a consistent baseline for"
+Page 66, Neuroscientists have created a tool to identify who spoke when using the speaker's segments . The tool is called Speaker Diarization by Nvidia's deep-learning software .
+Page 67," In scenarios with multiple speakers, diarization helps in understanding the structure of the conversation and the contribution of each participant . It helps in situations like legal depositions or medical consultations where speaker identity is crucial ."
+Page 68," Traditional methods struggle in  such scenarios, and advanced models are required . Overlapping speech is one of the most challenging aspects is when two or more speakers talk simultaneously ."
+Page 69," Main Components: Voice Activity Detection (VAD) and Speaker Segmentation . Non-speech segments (like silence) are filtered out, focusing the analysis only on speech segments ."
+Page 70, NeMo Speaker Diarization Pipeline was created by the National University of Singapore . The pipeline includes speaker diarization and speaker-diarization software .
+Page 71, Diarization Error Rate (DER) is the sum of the percentage of three errors . A lower DER indicates better performance .
+Page 72, Spoken Language Recognition can be handled well as a sub-task (as in OpenAI's Whisper model) It is similar to the methods used in speaker recognition .
+Page 73," Paralinguistic information: Information beyond linguistic content of speech . Typical tasks include Emotion classification, Sleepiness or intoxication detection and health-related analyses ."
+Page 74, Paralinguistic Speech Processing was developed at the National University of Singapore . A typical processing pipeline can be used to process speech speech .
+Page 75, Paralinguistic Speech Processing was developed by the National University of Singapore . It is the first language in the world of speech processing . It was developed in the 1970s and 1980s .
+Page 76, Paralinguistic Speech is challenging due to limited access to quality data . Privacy and Ownership concerns hinder data sharing and large-scale dataset pooling . Future research must focus on ethical data sharing .
+Page 77, Speech can reveal any type of personal information when transcribed . Word choices and speaking styles may unintentionally disclose details about the speaker . Speech can convey nearly all types of private information .
+Page 78," Amazon workers are listening to what you tell                 Alexa (Bloomberg, 2019). Later it was revealed that  Google, Apple and others are doing the same ."
+Page 79, Data minimization: Information should be minimally stored only as long as it is necessary . Anonymization: Strip away private and extra information . Pseudonymsization: Private information is  replaced by some other information .
+Page 80, The National University of Singapore is developing a system for audio-visual applications that can be used in the future . The project is the first of its kind to be developed in Singapore .
+Page 81, Audio-visual Applications for the National University of Singapore's AVCap project . The project is based on the work of the National Institute of Singapore . AVCap is designed to enable the development of the AVCap platform .
+Page 82, Adaptation of the AV Cap was created by the National University of Singapore . It is the first version of this article to be published in the ARXiv.org/AVCap .
+Page 83, The National University of Singapore has published a paper on audio-visual applications . The study was published on the Arxiv.org/pdf/2312.06720 .
+Page 84, The National University of Singapore has published a paper on audio-visual applications . The study was published on the Arxiv.org/pdf/2312.06720 .
+Page 85, RTAVS Day 4 Workshop: Submission in Canvas . Work on submission in canvas . Workshops are open to students from the National University of Singapore .
+Page 86," Dr. Gary Leung: ""Thank you! Thank you! Dr. Leung"" Leung is the president of the National University of Singapore . Leung has been in Singapore for more than 20 years ."
+Overall Summary," The first step to understand speech is to convert speech into text . E2E models directly output characters or even words, greatly simplifying the ASR . No understanding of the meaning yet ."

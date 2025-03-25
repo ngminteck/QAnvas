@@ -1,0 +1,72 @@
+Page,Summary
+Page 1, S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore . All Rights Reserved .
+Page 2, S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 3, S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore . All Rights Reserved .
+Page 4," Computer vision is defined as “a subset of mainstream artificial intelligence that deals with the science of making computers or machines visually enabled, i.e., they can analyze and understand an image” Ultimately, we want to teach the"
+Page 5, S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore . All Rights Reserved .
+Page 6, S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore . All Rights Reserved .
+Page 7, S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore . All Rights Reserved .
+Page 8, S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore . Known during classical period in China and Greece .
+Page 9," The Summer Vision Project (MIT, 1966) is an attempt to use our summer workers in the construction of a significant part of a visual system . The particular task was chosen because it can be segmented into sub-problems which allow"
+Page 10, S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore . All Rights Reserved .
+Page 11, S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 12, S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore. All Rights Reserved Page 12 .Vision systems: TasksReference: https://huggingface.co/tasks; https://
+Page 13, S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 14, S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 15, S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore . All Rights Reserved .
+Page 16, Visual question answering: Why is there a carriage in the street? S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore .
+Page 17, Responsible CV: Fairness . Responsible for Fairness.Responsible for fairness. Responsible in the role of an engineer at MIT .
+Page 18,Responsible CV: Accountability. Responsible for Accountability. S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 19, S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore. All Rights Reserved Page 19 .Responsible CV: Transparency .
+Page 20, S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore. All Rights Reserved Page 20 .Responsible CV: Ethics in charge .
+Page 21," Experiment 1: Draw a horse (the entire body, not just the head) in a white piece of paper . Experiment 2: Draw the entire body in a perspective as weird as possible . Challenge: Draw an entire body (the"
+Page 22, S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 23, S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 24, S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 25, Case study (1) uses artificial intelligence in the food industry to enhance security . Case study was conducted by the National University of Singapore .
+Page 26," Within seconds, video is sent to a command and control centre and fed into a video analytics system . The system is programmed to recognize the man's posture, the outline of the cigarette in his mouth, and other visual indicators ."
+Page 27, S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 28," An image is made of tiny, square-like elements called pixels . An RGB image has three color channels: Red, Green and Blue channels . A grayscale image has just one channel . S-VSE/Vision systems foundation"
+Page 29, S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 30," RGB (Red, Green, Blue) color space: It is a 3-dimensional color space where colors are created by adding different levels of red, green, and blue . HSV (Hue, Saturation, Value) color"
+Page 31, The domain is the set of all possible pixel locations . The range corresponds to all possible intensity values . The image can be interrelated as a function (a 2-D light intensity function)
+Page 32, S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 33, Point operations change a pixel’s intensity value according to its own value . Neighborhood operations calculate new pixel values based upon the values of neighboring pixels nearby .
+Page 34, S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore . All Rights Reserved .
+Page 35, An image histogram is a graph of pixel intensity (on the x-axis) versus the number of pixels that have a particular intensity value .
+Page 36, Histogram: Contrast . Contrast . S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore .
+Page 37," The Probability Density Function (PDF): Divide  the histogram counts by the total number of pixels in the image . The Cumulative Distribution Function (CDF) is a point-based operation . Intuition is """
+Page 38, Histogram equalization is a form of analysis of the historical significance of the human body's shape . It is the result of a study by the National University of Singapore at the National Institute of Singapore .
+Page 39," The objective is to enhance the image contrast by stretching its intensity range from [0,6] to [255]. S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore ."
+Page 40, S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 41, A grayscale image can be converted into a binary black-and-white image by choosing a threshold and converting all values above the threshold to the maximum intensity .
+Page 42, S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore . All Rights Reserved .
+Page 43, A foreground pixel in the input image will be kept only if all pixels inside the structuring element are larger than 0. The output value is set to foreground if any pixel inside the structure is larger than 1.0 0 1 0 1
+Page 44, The S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 45, Pixels are connected if their edges or corners touch . Two adjoining pixels are part of the same object if they are both on and are connected along the horizontal or vertical direction .
+Page 46, S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore. All Rights Reserved Page 46 .
+Page 47," At each pixel location, filtering replaces its original intensity value via a weighted combination of neighboring pixels’ intensity values . S-VSE/Vision systems foundation/V3.4 ."
+Page 48," Neighbourhood operation (linear filtering) is called a ""neighborhood operation"" S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore ."
+Page 49, Neighborhood operation (nonlinear filtering) is a nonlinear filter in which each output sample is computed as the normalized value of the input samples under the window . S-VSE/Vision systems foundation/V3.4 ©
+Page 50, Neighborhood operation (nonlinear  filtering) is a nonlinear filter . S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore .
+Page 51," Edge Detection for Discontinuity in Reflectance, Illumination, Normal, Normal and Depth . Surface normal discontinuity: Change in surface orientation, change (object shape) Surface reflectance discontinuity : Abrupt depth: Abrupt"
+Page 52, S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore . Edge detection can be performed via filtering .
+Page 53, Various features can be further extracted from edges detected from images . S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore .
+Page 54, The gradient is based on the image 𝑓 to compute derivatives . The gradient direction and amplitude of the gradient is determined by the filter .
+Page 55, S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 56, S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 57, S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Page 58, A good representation is one that makes subsequent learning tasks easier . The choice of representation will usually depend on the choice of the subsequent learning task’s choice .
+Page 59, Hand-crafted: Texture is characterized by the repetition of basic elements or textons . Textons are characterized by repeating basic elements of textons. Textons can be found in textiles. Textiles are a form of texture. Text
+Page 60," Given the pixel and its 3 × 3 neighbourhood, compare the pixel to each of its (eight) neighbours (on its left-top, left-middle, right-bottom, etc.) Compare the pixel with its (8) neighbours"
+Page 61, LBP: Local binary pattern (2) LBP is a local binary pattern . It is used to convert from binary code  to decimal code . S-VSE/Vision systems foundation/V3.4 .
+Page 62, LBP: Comparing the center pixel with its neighboring 8 pixels can be visualized as a weighted sum of 8 convolutions . LBP code can be explained as convolutions with filters that are oriented in different directions .
+Page 63," LBP: Local binary pattern (4) How to generate LBP feature for the whole image? Divide the image into cells (e.g., 16 × 16 pixels) Build one histogram per cell, then average all histograms"
+Page 64, An example of the calculation is provided in the following slide . The S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore .
+Page 65," The color of an oriented gradient (1) is 1.41/1/1 . The color color is 0/1, the color is 1/2/1 and the color of a color is 2/3/1"
+Page 66," HoG: Histogram of oriented gradients (2) Image 64×128 A fixed-size input image with 50% overlap, Total 7×15=105 blocks . Each cell has a HoG feature of 9-bin hist"
+Page 67," Contributions of Shape, Texture, and Color may be different among different tasks . S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore ."
+Page 68," Application of hand-crafted feature: Classification . Evaluate image classification performance using three manually-selected subsets of ImageNet, including shape-biased, texture-biased and color-biased ."
+Page 69, Develop a two-class fingerprint spoof classifier that uses LBP and HoG features to distinguish live fingerprints from spoof samples .
+Page 70, S-VSE/Vision systems foundation/V3.4 © 2025 National University of Singapore. All Rights Reserved .
+Overall Summary," Computer vision is defined as “a subset of mainstream artificial intelligence that deals with the science of making computers or machines visually enabled, i.e., they  can analyze and understand an image” The summer vision project is an"

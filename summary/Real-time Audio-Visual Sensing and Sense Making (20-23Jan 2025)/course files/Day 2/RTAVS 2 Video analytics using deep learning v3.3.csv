@@ -1,0 +1,58 @@
+Page,Summary
+Page 1, Video analytics using deep learning/V3.3 © 2025 National University of Singapore. All Rights Reserved . S-RTAVS/Video analytics using . deep learning. Using deep learning .
+Page 2, S-RTAVS/Video analytics using deep learning/V3.3 © 2025 National University of Singapore. All Rights Reserved .
+Page 3," Video analytics can be applied to real-time analysis of live video streams (situation awareness and alerting). Forensic analysis of archives (archive management, search, forensic investigation) Predictive analyses leveraging both live video and archives ."
+Page 4, S-RTAVS/Video analytics using deep learning/V3.3 © 2025 National University of Singapore .
+Page 5," Action: Atomic motion patterns, gesture-like, single clear-cut trajectory . Activity: Series or composition of actions (e.g., interactions between people) Event: Combination of activities or actions . Given an input video clip,"
+Page 6, S-RTAVS/Video analytics using deep learning/V3.3 © 2025 National University of Singapore. All Rights Reserved .
+Page 7, S-RTAVS/Video analytics using deep learning/V3.3 © 2025 National University of Singapore. All Rights Reserved .
+Page 8, People behave differently for the same actions . Cluttered background and camera motion: Indoor controlled environments but not in outdoor uncontrolled environments . Insufficient annotated benchmark dataset.
+Page 9, Action video video recognition dataset. S-RTAVS/Video analytics using deep learning/V3.3 © 2025 National University of Singapore. All Rights Reserved .
+Page 10, S-RTAVS/Video analytics using deep learning/V3.3 © 2025 National University of Singapore .
+Page 11, RandAugment-T randomly takes a list of augmentation operations . It applies on frames with magnitudes of magnitudes (control degree) of 𝑀  augmentation placed at the start and the end of
+Page 12, S-RTAVS/Video analytics using deep learning/V3.3 © 2025 National University of Singapore .
+Page 13," The Horse in Motion is a series of cabinet cards by Eadweard Muybridge, each showing a sequential series of photos depicting the movement of a horse . S-RTAVS/Video analytics using deep learning/V3"
+Page 14," J. Yamato, et al., Recognizing human action in time-sequential images using hidden Markov model, CVPR 1992, ."
+Page 15, Reuse single image classification (single frame based method) Recognize action by recognizing posture (a single frame) S-RTAVS/Video analytics using deep learning/V3.3 © 2025 National University of Singapore .
+Page 16, Reuse single image classification with multiple frames based method . Extract silhouette by background subtraction . Combine silhouette to obtain a 'special image’ (see next a few slides)
+Page 17, S-RTAVS/Video analytics using deep learning/V3.3 © 2025 National University of Singapore. All Rights Reserved .
+Page 18, S-RTAVS/Video analytics using deep learning/V3.3 © 2025 National University of Singapore of Singapore .
+Page 19, S-RTAVS/Video analytics using deep learning/V3.3 © 2025 National University of Singapore. All Rights Reserved .
+Page 20, Action video recognition is a comprehensive tutorial on video modelling in CVPR 2020 and 2021 . S-RTAVS/Video analytics using deep learning/V3.3 © 2025 National University of Singapore .
+Page 21," Action video recognition: Treat video sequence as a bag of fixed-size clip clips . We can apply sliding window, or automatically segment the long video into short sequence (called action localization)"
+Page 22, Action video recognition (CNN-based): Milestones.Non-deeply learned features. Features: Spatiotemporal features with 3D convolutional networks . Features: Single-stream CNN (early or late fusion) Single
+Page 23," An additional bin is added for histogram  of optical flow . It accounts for pixels whose optical flow magnitudes are lower than a                 threshold (i.e., static, no motion)"
+Page 24," HOG and HOF orientations are quantized into 8 bins, magnitudes are used for weighting . An additional zero bin is added for HOF (i.e., in total 9 bins) The final descriptor size is 96"
+Page 25," Motion boundary histograms (MBH) descriptors encodes relative motion between pixels . The MBH descriptor encodes the relative motion of pixels (in the sense that the camera motion, which is the same for all pixels, is somehow"
+Page 26, Single-stream CNN (early fusion) combines information across an entire sequence . Multi-layer perceptron (MLP) classifier:  Multiple frames from the input video .
+Page 27, Single-stream CNN (late fusion) uses deep learning/V3.3 . S-RTAVS/Video analytics using deep-learning/V.3 © 2025 National University of Singapore .
+Page 28," Two-stream convolutional networks for action recognition in videos, NIPS 2014, . K. Simonyan, et al., . et al. respectively, . The model is formed by stacking optical flow and pixel displacement fields between"
+Page 29, Fuse the two networks (at a particular convolutional layer) such that responses at the same pixel position are put in correspondence .
+Page 30, Sum fusion: Computes sum of two feature maps at the same spatial locations . Max fusion: Takes maximum of the two feature map . Concatenation fusion: Stacks feature maps across the feature channels . Bilinear fusion:
+Page 31, Convolutional 3D (C3D): Convolve not only on the spatial dimensions but also on the temporal dimensions . Jointly model spatiotemporal information .
+Page 32, C3D is a model architecture for deep learning using deep learning/V3.3 . Paddings are used to keep the feature map resolution resolution unchanged .
+Page 33," J. Carreira, et al., Action recognition? A new model and the Kinetics dataset, CVPR 2017, ."
+Page 34," X. Wang, et al., Non-local neural networks, CVPR 2018, https://arxiv.org/abs/1711.07971 .Idea: Add spatial-temporal self-attention "
+Page 35," Long video sequence (LRCN) processes the (possibly) variable-length visual input with a CNN (CNN) CNN (LSTM) and LSTM (lSTMs) weights are shared across time, resulting in"
+Page 36," The TSN (temporal segment networks) models long-range temporal structure with a segment-based sampling and aggregation scheme . It divides an input video into segments, sample from those segments, and creates video-level prediction ."
+Page 37, T-C3D (temporal convolutional 3D network): Each input video is firstly divided into parts . Several frames are selected from each part to make up a clip . The feature maps or class scores of different clips
+Page 38," C. Feichtenhofer, et al., SlowFast Networks for Video Recognition, ICCV 2019, https://arxiv.org/abs/1812 ."
+Page 39," The common units for model size are: MB (megabyte), KB (kilobyte), bits (MB) and bits . #parameters: The parameters (weights) count of the given neural network . The model size is the"
+Page 40," Z. Qiu et al., Learning Spatio-Temporal Representation with Pseudo-3D Residual Networks, ICCV 2017 ."
+Page 41, S-RTAVS/Video analytics using deep learning/V3.3 © 2025 National University of Singapore .
+Page 42, S-RTAVS/Video analytics using deep learning/V3.3 © 2025 National University of Singapore .
+Page 43, Action video recognition using deep learning/V3.3 © 2025 National University of Singapore. All Rights Reserved Page 43 .
+Page 44," A. Arnab, et al., “ViViT: A Video Vision Transformer,” ICCV 2021, (ICCV 2021)"
+Page 45," Given the input video clip, each frame is decomposed into non-overlapping patches, each of size   narrowed patches . These patches are flattened into vectors 𝒙�’(�"
+Page 46, S-RTAVS/Video analytics using deep learning/V3.3 © 2025 National University of Singapore .
+Page 47, Multiple head pooling attention: a self-attention operator that enables flexible resolution modeling . Multiple scale transformer block: Progressively grow the channel's dimension while simultaneously reducing the length of the transformers . It has fine spacetime (and
+Page 48, S-RTAVS/Video analytics using deep learning/V3.3 © 2025 National University of Singapore .
+Page 49, S-RTAVS/Video analytics using deep learning/V3.3 © 2025 National University of Singapore. All Rights Reserved .
+Page 50, S-RTAVS/Video analytics using deep learning/V3.3 © 2025 National University of Singapore .
+Page 51, S-RTAVS/Video analytics using deep learning/V3.3 © 2025 National University of Singapore .
+Page 52," AI foundation models (FM)Abbreviation: LR (linear regression), DT (decision tree), SVM (support vector machine), CS (clustering)LLM (large language model), V (vision), S ("
+Page 53, S-RTAVS/Video analytics using deep learning/V3.3 © 2025 National University of Singapore .
+Page 54, S-RTAVS/Video analytics using deep learning/V3.3 © 2025 National University of Singapore .
+Page 55, The behavior of a system is implicitly induced rather than explicitly constructed . Homogenization means the consolidation of the methods for building machine learning systems across a range of applications .
+Page 56, S-RTAVS/Video analytics using deep learning/V3.3 © 2025 National University of Singapore. All Rights Reserved .
+Overall Summary," Video analytics applications typically address information needs that are typically referred to as four “W’s questions: Who (object, action, activity, event, relationship analysis); Where (frame space, 3D space, and world map"

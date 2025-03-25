@@ -1,0 +1,15 @@
+Page,Summary
+Page 1, New Media And Sentiment And Mining: Dr Wang Aobo. www.iss.nus.edu.ngu.sg.g.u.u: New Media and Sentiment .
+Page 2, Sentiment Summarization and Visualization created by Nus.iss.nus.edu.ngu.sg.com .
+Page 3, Social media data makes it a challenging and time-consuming proposition to analyze them manually . We need natural language summaries of opinions in social media (Sentiment Summarization) and a way to present these summaries to the user
+Page 4," National University of Singapore defines an opinion as a quintuple  (ei, aij, sijkl, hk, tl) where ei is the name of an entity, ipientaij is an aspect of e"
+Page 5, Opinionated text data often contains both positive and negative opinions about an entity or aspect . Contrastive Opinion Summarization (COS) aims to extract comparable opinion sentences from each set of opinions . COS aims to
+Page 6, A fundamental challenge of designing any information visualization system arises from the  human and display limitations . The results of text mining and summarization methods can be inaccurate . There are also design challenges that are very specific to sentiment visualization for social media
+Page 7, A fundamental challenge of designing any information visualization system arises from the human and display limitations . One particular design challenge is the noisy nature of social media text .
+Page 8, Sentiment Visualization - Word Clouds - Visualizes single word or short phrases within social media text data based on frequency of occurrence . Quick and low-cost overview of the common words and phrases within the data .
+Page 9, Sentiment Heat Map is a graphical way to visualize social media data in the form of a color scheme . Commonly used to visualize different aspects of an entity and the associated sentiment score .
+Page 10," The visual interface of the Time Series can be used to  show a sentiment timeline that aggregates sentiment responses into four different categories: positive, negative, controversial, or neutral ."
+Page 11, The National University of Singapore's Sentiment Analysis System was designed by the National Institute of Singapore . The system is designed to help people understand their feelings in a new way of expressing them .
+Page 12," A Practical Guide to Sentiment Analysis (Socio-Affective Computing, 5) 1st ed. 2017 Edition . Read the case study “Using Social Media to Identify Consumers’ Sentiments’ ("
+Page 13, The ISSNUS is Singapore's National University of Singapore . It is the largest university in the world and is based in Singapore . All rights to TheISSNUS have been extended to Singapore .
+Overall Summary, We need natural language summaries of opinions in social media (Sentiment Summarization) and a way to present these summaries to the user in an easily understood format . Sentiment visualizations take advantage of our visual information

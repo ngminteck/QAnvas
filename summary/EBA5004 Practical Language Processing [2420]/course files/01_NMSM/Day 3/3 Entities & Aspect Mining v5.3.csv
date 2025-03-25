@@ -1,0 +1,92 @@
+Page,Summary
+Page 1, Dr Fan Zhenzhen: New Media and Sentiment . New Media & Aspect Mining. The University of Singapore’s website is now open to the public .
+Page 2, Module Objectives: Identify common tasks in aspect-based sentiment analysis . Extract key entities and aspects from opinions for closer analysis of sentiments . Use common and LM-based approaches to perform entity/aspect extraction .
+Page 3, Researchers from the National University of Singapore have developed a framework for analysing an entity and its aspects in ABSA . The aim of the project is to extract the knowledge of an entity in a new way of extracting its aspects .
+Page 4, The 2024 National University of Singapore was founded by the National Singapore Institute of Science and Technology . It is the first time the university has been awarded a university in Singapore's history .
+Page 5," An opinion consists of a sentiment (positive or negative) and a target (of opinion) The opinion target is an entity, or its aspects, which can be an  entity or its aspect . Crucial for applications like product review"
+Page 6," Opinion is formally defined as a quadruple (g, s, h, t), where g is the sentiment target, s is the opinion holder (the person or organization who holds the opinion) and t is the time when the opinion"
+Page 7, It is called opinion target Extraction . Identifying them from text data is known as opinion target . It is a form of information extracted from text messages .
+Page 8," ABSA tasks include identifying subjective/opinionated sentences, group entity/aspect synonyms and produce an aspect-based opinion summary of multiple  reviews ."
+Page 9, ABSA subtasks are subtitled to the ABSA program . ABSA is an acronym for the National University of Singapore's ABSA programme .
+Page 10, The methods and features used for recognizing aspects and aspects are usually different due to  specific characteristics . An opinion always has a target. The target is an aspect or an entity. It’s usually a noun or noun phrase (but
+Page 11, The National University of Singapore is committed to developing the world's first experiment on the subject of evolution . The study was conducted at the National Institute of Singapore . It is the first of its kind in Singapore and will be used in the future
+Page 12," Similar to the classic problem of Named Entity Recognition in NLP . Main approaches– Rule-based, supervised statistical machine learning (e.g., HMMs, CRFs, etc.) Semi-supervised approaches that only require"
+Page 13," In traditional NER, the objective is to recognize all named ipiententities of certain types in a corpus . In sentiment mining, the interest is often to find the izations of a set of desired entities, e.g."
+Page 14," Two name ambiguity problems: Polysemy: Apple for Apple Inc. (the maker of iPhone and iPad), or Apple Daily (a Hong Kong newspaper)?– Synonymy: National University of Singapore vs. NUS, Volkswagen vs"
+Page 15, The National University of Singapore has published a guidebook on how to use the world's most complex web-based corpora systems .
+Page 16," In a large corpus, keyword search is often applied  first to retrieve relevant posts, using name variations of the desired entities ."
+Page 17," In sentiment analysis applications involving consumer  products, the entities are products, which typically have                 brands and models, forming a hierarchical relationship . e.g. Apple – iPhone – iPhone Pro 14: 'Brand – product – model"
+Page 18," Supervised Entity Linking aims to identify if a mention refers to some known entity, or none . Instead of PER(person), ORG(organization), GPE(geopolitical entity), we are typically looking for products,"
+Page 19," Semi-supervised approaches try to tap on unlabeled  examples; e.g. PU learning (learning from positive and negative examples), Bayesian sets ."
+Page 20," Given a set of positive examples (of seed entities), and a corpus (a corpus) Find candidate entities from the corpus using sequences of specific POS tags: NNPS (plural proper noun), and CD (cardinal number)"
+Page 21," For social media data, the opinion holder is usually the author of the review, blog, post, etc. It’s trivial when the ID and date/time of the post are usually known . For other data, like news"
+Page 22, 2024 National University of Singapore. Singapore . All rights reserved. For more information on this article visit www.ngsport.org.uk .
+Page 23, Using Deep Neural Networks (DNN) and zero-shot IE with large language models . Using traditional supervised learning. Using Deep . Neural Networks .
+Page 24, The National University of Singapore is developing a frequency-based approach to frequency frequency . It is the first step in the development of a new technology that could be used to improve the quality of life in Singapore .
+Page 25, A reasonable number of reviews about the                 same product or at least about the same type of product . Find nouns and noun phrases using a POS tagger . Count their occurrence frequencies and count their occurrence frequency .
+Page 26," E.g. Popular Mentions from TripAdvisor are from the National University of Singapore . The university is located in Singapore, Singapore, and Singapore is a city of choice ."
+Page 27, The candidate aspects are almost always the most important aspects of the product . It is simple and effective . Caution: Won't work if the corpus has a mixture of very different products .
+Page 28," Use heuristics to filter for noun phrases that are more likely to be aspects of entities . E.g. for camera reviews, phrases indicating part-of relations, like “of camera”, “camera has�"
+Page 29," Morphological cues (e.g., “-iness” suffixes) help distinguish components/parts from attributes . We can query WordNet with the word “camera” and “get its senses”"
+Page 30, The National University of Singapore has published a series of books by the National Institute of Singapore . The book is published by the Singapore Institute of Mental Health and the Singaporean Institute for Mental Health .
+Page 31," Hypernyms ( camera is-a x) is a relation . Hypernms is a word word for a word that means ""hysternyms"" and ""hypernms"" Hypernsynms is the first word for"
+Page 32, Meronyms ( x is part-of camera) are Meronyms . Meronyms are meronyms and meronyms . They are part of the National University of Singapore .
+Page 33, Pattern-based filter to remove non-aspect expressions . Filter by dropping aspects that do not have sufficient mentions . Collapse aspects at the word stem level .
+Page 34, Lexico-Syntactic Approaches is a form of formative research by the National University of Singapore . It is the result of a study by the university of Singapore on how to develop a new form of artificial intelligence .
+Page 35, The linguist uses syntactic relations between sentiment and their sentiment or opinion . E.g. X of Y: “the voice quality of the iPhone” – Genitives: ‘the camera’s price’
+Page 36, Synthetic opinion-target relations can be used for simultaneous extraction of both sentiment words and opinion targets . E.g. “The software is  amazing.” -> pattern “NN – nsubj –JJ”
+Page 37," An adjectival modifier of an NP is any adjectival phrase that serves to modify the meaning of the NP . E.g. I like this amazing software. - ""I"" is the nominal subject of ""like"""
+Page 38, Universal Dependencies are the result of a study by the National University of Singapore . The study was carried out under the auspices of the National Institute of Singapore and Singapore .
+Page 39, Stanford Typed Dependencies: mod – mod – modifier . © 2024 National University of Singapore.  All rights reserved.
+Page 40, Stanford Typed Dependencies: 'Arguments' - arg - arguments . 'Argument' - arguments - is a form of form of language used to refer to a series of words used in this article .
+Page 41, Common dependency relations are between sentiment words and aspects . The relationship between aspects and sentiment words or sentiment words is a common dependency relation . The conjunction relation is between the two sentiments words or aspects .
+Page 42, Singapore's National University of Singapore has been awarded the title of the award of the Singapore Institute of Mental Health . The award was given to the 2024 National University Singapore . It is the first time the university has awarded the award for a Singapore
+Page 43," Genitive constructions are frequently used to express part-of and attribute-of relations . The semantic relations of the two nouns can be quite different in different context . In sentiment analysis, it’s easier to fix NP-"
+Page 44," The approach with no parsing is expensive (typically fewer than 20 sentences), and it doesn’t work well on informal data . Approximate the dependency using distance: – If a sentence does not have a frequent aspect but has some"
+Page 45," Aspect relevance (r(a)): how likely it’s a genuine aspect. If an aspect is modified by multiple sentiment words modified by . “delivery” modified by “quick”, “"
+Page 46, Using phrase dependency parsing to extract noun phrases  and verb phrases . Adding comparative- and superlative-based relations . E.g. “The iPhone 5 has better voice quality than Moto X.”
+Page 47, Implicit aspects - opinion expressions that do not mention aspect explicitly as a noun . Explicit aspects - “The picture quality of the camera is great.”
+Page 48," People use different words or phrases to describe the same                 aspect or aspect category . Need to group aspect expressions into aspect categories,                 each representing one aspect ."
+Page 49, Researchers map aspect expressions to aspect nodes in an existing taxonomy based on similarity . They also use topic modelling (LDA) or semi-supervised methods . The study was published by the National University of Singapore .
+Page 50, Traditional Supervised-Learning Approaches have been developed by the National University of Singapore . The results of the study have been published on the 24th anniversary of the National Institute of Singapore’s first publication of the book “The
+Page 51, Researchers treat aspect extraction as a special IE problem . Dominant method: sequential learning or sequence labeling like hidden Markov models (HMMs)
+Page 52, Sequence labelling - example: “I love the ease of transferring the pictures to my computer” Tags: IOB/IO tags .
+Page 53, Directed sequence model has been successfully applied to many sequence labeling problems such as NER and POS . Assumptions: state yi only depends on its immediate predecessor state  yi-1 . The observation xi only
+Page 54," The joint probability of a state sequence y and an observation sequence x is p(y0) over the initial state,   a state transition distribution p(yi|yi-1),  an observation distribution p"
+Page 55," The number of ice creams eaten on that day – {1, 2, 3} – is the number ice cream eaten that day . H(ot) and C(old) weather are hidden states: H(OT)"
+Page 56," E.g. to compute the joint probability of observation sequence <3, 1, 3> and hidden state sequence <hot, hot,  cold>"
+Page 57," Given the observation sequence <3, 1, 3> find the best sequence of hidden states . Viterbi Decoding is a form of formality ."
+Page 58, The previous slide shows the computation of vt(j) for  two states at two time steps . Now try to compute the values for v3(1) & v2(2)
+Page 59," The task is to find an appropriate sequence of tags T =                 t1t2t3…tn that maximize the conditional probability                 P(T|W,S)"
+Page 60," CRF is a probabilistic (undirected) graphical model, also good  for sequence modeling . It models a conditional probability p(Y|X) over hidden  sequence Y given observation sequence X . To label an"
+Page 61, Output Y are the EA tags (the labels to predict): B-A: beginning of aspect; I-A-A; part of aspect-oriented aspect; O-O: anything outside; Y-Y: O O O
+Page 62, Recent Advances: Deep Learning Approaches . National University of Singapore . All rights reserved.  All rights are granted to the author of this article .
+Page 63," Inspired by the structure and functioning of the human brain, DNNs have emerged as powerful tools for sequence modelling in NLP . Common networks include Recurrent Neural Networks, Gated Recurrent Units (GRUs), Long Short-Term"
+Page 64," Recurrent Neural Network learns through sequential dependence, getting hidden state from the previous step . Cons: vanishing gradient problem (or short-term memory), can’t handle  long-term dependencies often required in NLP ."
+Page 65," Gated Recurrent Units can capture long-term dependencies by allowing relevant information to  pass through hidden states . Fewer parameters than LSTM therefore, therefore, faster to train than train or train ."
+Page 66," Long-Short Term Memory (LSTM) is a popular variant of RNN (RNN) Tackle long-term dependency issue by using memory cell and forget gate (input gate, forget gate, output gate) to selectively update"
+Page 67, Transformers with Attention are a novel architecture of DNN with layers of encoders/decoders . A special attention layer allows each element in the sequence to attend to other elements .
+Page 68, Elmo (Mar 2018) – contextualized word embeddings . Pre-trained transformers using huge amount of text data . The model can be further fine-tuned using small data set to perform a wide variety of NLP
+Page 69, Google's BERT base:    No of transformer layers = 12;    No. of transformer layer = 12 . BERT Large:  No. of transformers layers = 24;  BERT Large
+Page 70, Sentence-level Sentiment Classification was created by the National University of Singapore . It is a form of formality for a sentence to be given to a person with a sentence .
+Page 71," Most treat extraction as a sequence tagging task, using                 LSTM-based models for token classification . Or by fine-tuning pre-trained transformers like BERT . The model learns to adapt to a "
+Page 72," A sequence-to-sequence approach has both encoder and decoder layers . The model is pre-trained using BART, BART, a strong sequence to-train model for natural language generation ."
+Page 73, ABSA subtask formulation was created by the National University of Singapore . ABSA is a formative formantant that can be used to solve complex problems in complex systems .
+Page 74, The device was designed by the National University of Singapore . It has a battery life of up to six hours . It is the first time the device has been made available to the public in 24 years .
+Page 75, The latest advance:Zero-Shot Approach . Zero-Shot approach is the latest advance in the development of the world's most advanced nanotechnology .
+Page 76," Zero-shot ABSA: no training/fine-tuning of the model, no examples provided to the model . Extraction by question answering (Extractive QA) or by natural language inference (NLI)"
+Page 77," Extractive QA – Given a  question and a context, given a question and a . context, . predict the span of answer in the context paragraph . Can be used for entity/aspect expression extraction . Challenge:"
+Page 78," Generic questions do not work well, but more specific questions get better results . Generic questions work well but do we have to explicitly extract expressions?"
+Page 79," The premise can entail the Hypothesis, e.g., for product Reviews– Premise: the review – and the hypothesis – . Models trained to perform NLI can be used to do such ABSA ."
+Page 80, AE: aspect extraction. ASC: aspect sentiment . E2E: end-to-end ABSA as natural language inference . ABSA: ABSA is natural language infraction .
+Page 81, Using generative language models (like ChatGPT) further trained to predict responses to the instructions given in the input . The quality and specificity of the prompt can greatly influence the model’s response .
+Page 82," Singapore's National University of Singapore has been awarded the top prize prize in engineering . The award was presented to students at the university's 24,000-year-old engineering department ."
+Page 83," ""The camera is expensive and doesn't fit in the pocket,"" says Singapore's National University of Singapore . Inference for implicit aspects of the study is possible ."
+Page 84, Getting aspect categories from LLM is a form of formality for LLM . Getting aspects of LLM has been a formative part of the LLM curriculum .
+Page 85," For tasks that’re too complex for one-time prediction, Divide the task into several parts (stages), e.g., identify two entities,  then determine their relation . Instruct the model to predict response stage by stage"
+Page 86," Multi-turn QA: entity type -> entity name; entity name. Stage I • Stage II: Stage I – Stage II . Stage I: entity name, entity type; entity type, entity name ."
+Page 87," Multi-turn QA: relations -> entities. Relations -> entities . Stage I: relations – entities. Stage I – entities – stages II: relations, entities ."
+Page 88," Multi-turn QA: event type -> arguments • Stage I • Stage II . Stage II: Stage I, Stage I and Stage II. Stage I: Event type, event type, argument type, arguments ."
+Page 89," Liu, Bing. “Mining Opinions, Sentiments, and Emotions”. Cambridge University Press, 2015."
+Page 90, Exercise: Use the restaurant review data set from Day 2 Workshop: train.csv . Select two restaurants (each with at least 100 reviews)– Apply ABSA on the two restaurants . Submit a pdf file (NMSM-D
+Overall Summary," An opinion consists of a sentiment (positive or negative) and a target (of a target) An opinion is formally defined as a quadruple (g, s, h, t), where g is the sentiment of the opinion about the"

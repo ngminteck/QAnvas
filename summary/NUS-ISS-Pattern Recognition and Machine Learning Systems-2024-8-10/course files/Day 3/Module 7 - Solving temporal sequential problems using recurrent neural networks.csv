@@ -1,0 +1,31 @@
+Page,Summary
+Page 1,Module 7 - Solving temporal sequential problems using recurrent neural networks . NUS-ISSPattern Recognition using Machine Learning System.
+Page 2,When time is a factor
+Page 3, The other applicationwith time is the other application with time. Source: Cvisiontech.com.com/resources/ocr-primer .
+Page 4," The related inputs are not independent from each other . If you want to predict which word to come in a sentence, you better know what have been typed/ said before ."
+Page 5, Recurrent neural network is a net that perform the same calculation on elements/segments from a sequence . The output of a current element/ segment depends on the outputs from the previous elements/ segments .
+Page 6, CNN is less powerful and slower in calculation than RNN . LSTMCNN is considered more powerful than CNN . CNN can handle arbitrary input/output lengths and generate fixed size outputs .
+Page 7," Time stepPrediction: Assume we have a series of 13 values, and we would like to predict the next value0, 1, 1.1.2.3.4.5. Time step: Time step. Time"
+Page 8," We chop the series into segments, each segment with a fixed amount of time steps, called length . Time step make segments . We don’t feed in the entire series into the net ."
+Page 9, The preprocessed input:© 2024 National University of Singapore. All Rights Reserved. makeStepsThe procedure .
+Page 10, The preprocessed input:segment 3not sufficient length to form segmentmakeSteps. The procedure© 2024 National University of Singapore. All Rights Reserved.
+Page 11, Write a function that can generate the desired preprocessed input from a 1D series/signals with the below signature .
+Page 12, The workingW⋅ x=w11w12⋯w1nx1 w21w22 ⋮ ⋬w2nx2⋬ . The working W⋉x=
+Page 13, The workingW=1 0 0 0 1 −1[2 0 0 −1 1]x1= [01 1 32]
+Page 14, WorkingW=1 0 0 0 1 −1[2 0 0 −1 1]W⋅x1= [01 1 32]x1 = [01 13 of 29 of 29 .
+Page 15, The output of element-wise multiplication is the length ofvandx must be equal . The length of vandxmust be equal to equal . Element-wisev�’x=v1 v1 v2 v
+Page 16," For RNN, the we feed the input segment by segment or row by row . The workingx1x2x3Ws1=W⋅x1activationx1h1= tanh(s1+b"
+Page 17," The same U and W forx1,x2, x3 are changedonlyduring updating phase of training . The workingWs1=W⋅x1activationx1h1= tanh(s1+b"
+Page 18," In rnn, the more we perform recurrent operation,mathematically, that is equivalent to adding more layers to the net . So vanishing gradient§comes in ...RNN ."
+Page 19, RNN how to build rnn in Keras>fromtensorflow.keras.layersimportSimpleRNN . How many segments in a single sample? what is the length of each segment? What is the size of
+Page 20, RNNHow to build rnn in KerasInputimporttensorflow.keras.layers>fromSimpleRNN importtensor.flow.models>from>inputs>y>y= Input(shape)
+Page 21, Francois Chollet’s perspective 20 of 29 of his 29-year-old LSTM project was created by the National University of Singapore . The project is based on the work done by the Singapore Institute of Technology .
+Page 22, The internal working of 'carry' is defined as 'carrying' The Sigmoid function has been defined as the 'carry function' and 'sigmoid functions'
+Page 23, A single LSTM cell was created by the National University of Singapore . A single cell was used to make a single cell . The cell is the result of a single microchip .
+Page 24," LSTMHow to build lstm in KerasInput importtensorflow.keras.layers>fromLSTM import .model.layer (type) Output Shape Param #================================================064)16,"
+Page 25, It is possible to stack recurrent layers and make the net deeper . Superscript denotes LSTM layer; Subscript denote time stepStacking .
+Page 26, Superscript denotes LSTM layer; Subscript denotes time stepStackingTime step 2.1.1h11.2h2024/v1.prumls/y2024 .
+Page 27, Superscript denotes LSTM layer; Subscript denotes time stepStackingTime step 3.1.1h12LSTM 2x2c12h22c22 .
+Page 28," On the output to Dense, only the final output sequence fed into Dense layer . LSTM 1h11.2h22h22g.2gg.3ggg: Densey . Dense"
+Page 29," To stack lstm, return_sequences must be set to True . The output shape is(None, 3, 7) because of returned sequences . The number of rowsof the output is always equal to the number of"
+Overall Summary, Module 7 - Solving temporal sequential problems using recurrent neural networks . NUS-ISSPattern Recognition using Machine Learning System .

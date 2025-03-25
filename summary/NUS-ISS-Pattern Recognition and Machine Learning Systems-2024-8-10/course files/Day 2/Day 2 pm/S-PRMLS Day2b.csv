@@ -1,0 +1,94 @@
+Page,Summary
+Page 1, NUS-ISSPattern Recognition using Machine Learning System .Module 4 - Deep neural networks and deep learning systems .
+Page 2, The rise of machine-learned features is the rise of machines that learn from machine learning . Machine-learners can learn from their own data to learn more quickly and learn even more quickly .
+Page 3, The AI time line is a broad overview of 93 of the 93 AI systems that have been created by the National University of Singapore . It is the first step in the development of artificial intelligence .
+Page 4, The AI time line is the starting point ...Rules EngineKnowledge Based User Interfacea series of if-then-else rules5 of 93 .
+Page 5, Expert system Example: Arriving decision to choose a weapon at any time by the expert system . Rule behind choosing mini gun 6 of 93 is the rule behind choosing a missile . Source: https://wiki.bath.ac.uk/
+Page 6," The yacht was spotted in Mallorca, Spain, in the summer of 1887 . It is believed to be the largest yacht in the world, with a yacht of 93 ."
+Page 7," Experts are expensive and time consuming! Experts are never cheap . Bad in handling sophisticated sensory inputs (like signals, images)"
+Page 8, Features + classifier is a new solution to the rescue . Feature: a number or a vector that describes something about the input . Classifer figures out (by itself) the underlying pattern between features and output .
+Page 9,Filtering ..... or feature extraction
+Page 10, It's all about convolution: Convolution for deep-learning . Filtering is the key to understanding convolutionary patterns .
+Page 11, What filtering can do? What filtering does you do? How filtering can help you filter things out of things you see .
+Page 12, Features + classifierGabor filtering13 of 93 . Gabor filtering is a form of filter that filters filter the noise of a noise noise noise .
+Page 13, Feature vectors14of 93 are based on a number of features that can be used to identify a scene in a scene . Source: http://ilab.usc.u.edu/siagian/Research/Gist/G
+Page 14, Features: Local Binary Pattern . Perform face recognition using a local binary pattern . Performs face recognition with a classifier . Can also be used to identify a person with a face .
+Page 15," Features + classifier not working well for unstructured data, i.e. signals, audios, images, videos and etc . We need to design features manually, through much trial and error, with luck ."
+Page 16," HOG, SIFT, LBP and etc... are hand-crafted features proposed and used, such as HOG and SIFT . But what next? Come out more new features? Better classifiers?"
+Page 17," Instead of deciding the features, get algorithm to learn the most appropriate features by itself? Instead of we deciding thefeatures, get algorithms to learn most appropriate feature extractors? All the way from pixels to classifier, layer by layer?"
+Page 18, Part 1: ConvReLUconvReLUpool.convReLU.upool . Part 2: Deep in action . Part 3: ConvRLU. Upool. ConvLUR: Upool . ConvLur:
+Page 19, National University of Singapore's 'Deep in action' project was created by the National Institute of Singapore . The project was inspired by a group of engineers at the University of Stanford .
+Page 20, Learning the featuresThe idea behind convnet is the inspiration for convnet . Convnet was created by the National University of Singapore . It is the first convnet network to be created in Singapore .
+Page 21, ILSVRC 2012TeamAlgorithmError - 5RankUniversity of TorontoDeep convolutional neural network0.1531 ISIFeatures + Fisher vectors + linear classifiers0.2622 Oxford VGGFeatures + Fisher . vectors
+Page 22, ILSVRC 2013TeamAlgorithmError - 5RankClarifaiDeep convolutional neural network0.1171 NUS.1292 ZF.1353 Andrew Howard .
+Page 23, The progressA not so short summary .TweetOutputFeature learning + Classification. The progress.TweetOutputRules Inference Engine.
+Page 24, Machine learning vs. deep learning is a comparison of machine learning vs deep learning . Data dependencies require powerful machines to work on a low-end machine . No need to understand the learned features that represent the data .
+Page 25,Components in deep learning
+Page 26, The original123113313131123323 321010212 22232631 inputKernelOutput27of 93 . 2D convolution was created by National University of Singapore .
+Page 27, The process in 4 steps includes input and output steps . The process is described in the form of a kernel and kernel kernel . The result is 428 of 93 .
+Page 28, 2D convolutionCalculation at Step 11231133131123323 321010212 23InputKernelOutput=1l132+23×+Calculation input kerne131+30×+×+211+
+Page 29, 2D convolutionCalculation at Step 232101010212 inputKernelOutput=3l122+13×+Calculation input kerne331+10×+×+111+3230 of 93 .
+Page 30, 2D convolutionCalculation at Step 332101010212: 1l132+33×+Calculation input kerne211+10×+×+321+3231 of 93 .
+Page 31, 2D convolutionCalculation at Step 432101010212 input kernels .Output: 3l132+13×+Calculation input kerne111+30×+×+231+3232of 93 .
+Page 32, 2D convolutionConvolution with padding with padding . 1.0.0 . 81314810222316172631201015910Padded inputKernelOutput: 93.33of 93 .
+Page 33, 2D convolution with padding with padding16 Steps are needed to create a new form of formality for the first time . The new formulaxtram is based on a new version of the formulaix kernel kernel .
+Page 34, 2D convolution with padding16 Steps are needed . Step 6: Addict inputKernel*Step 732101021281314810222316Padded inputKernels*Step 835 of 93 .
+Page 35, 2D convolution with padding16 Steps are needed . The steps are needed to enable the convolution of 93 .
+Page 36, 2D convolution with padding16 Steps are needed . Step 1332101021281314810222316172631201015910 . Step 14** lKerneKernelPadded inputStep 16Padded
+Page 37," 2D convolutionThe effect of stride021021112310212310213312231121033230101201 321010212InputKernelOutput•When the stride is (1stride along row direction, 1"
+Page 38, The effect of stride021021112310212310213312231121033230101201 321010212 inputKernelOutput .
+Page 39," 2D convolution with padding with paddingwith Strides(2 , 2)0210211123102123102133122311210332301010120132101021217 inputKernelOutput*Step 1321"
+Page 40, The effect of stride021021112310212310213312231121033230101201 321010212 inputKernelOutput .
+Page 41," 0210211123102123102133122311210332301012012D convolutionwith Strides(2 , 1)021021112123102 1331223 11210330101012013210102"
+Page 42," 0210211123102123102133122311210332301012012D convolution with padding with paddingwith Strides(2 , 1)02102111212310213212121323101201321"
+Page 43," 2D convolution Determine the output size in rows and columns . Mr, Mc,Wr, Wc, Fr, Pr, Pc: Amount of zero-padding in rows or columns respectively . Mr and Mc: Output size"
+Page 44," Assume we have an input of size 128 x 128 (row x column) going into a 2D convolution layer . The filter / kernel size for the layer is 7 x 7, and the stride is 2 x 2, no"
+Page 45, 2D convolution multi-channel convolutionMulti-channel has been explained with the help of the National University of Singapore . Source: http://www.prumls/y2024/v1.0.0 .
+Page 46, The original 421187876501234321 6 input steps were created by the National University of Singapore . Max pooling is based on the data from the original .
+Page 47, Maxpooling Determine the output size in rows and columns . Figure is based on the size of the input and output of the Maxpooler .
+Page 48," Assume we have an input of size 61 x 61 (row x column) going into a 2D pooling layer . The kernel size for the layer is 4 x 4, and the stride is 2 x 2, calculate the output"
+Page 49,Time for exercise!
+Page 50, Convolutional neural network (5th) hidden layer of neuralnetwork (6th)hidden layer (6) output layer (7th) input layer (2nd) input layers (3rd) output layers (4th)
+Page 51, The first convolutional layer (part 1) performs 3 separate 2D convolutions (with padding) to generate 3 intermediate outputs .
+Page 52," The making of ... the first convolutional layer (part 2) Add bias to each convolution output, and apply activation function to get the final output ."
+Page 53, The making of ....The pooling layer ... The pooling . layer is the first convolutional layer . Apply 2 x 2 max-pooling (stride 2) on the . outputs from the . first convolutionsal layer
+Page 54, The making of ... The second convolutional layer (part 1)8* •Performs 6 separate multi-channel 2D convolutions (with padding) to generate 6 convolution outputs .
+Page 55, The making of ... The second convolutional layer (part 2)•Performs 6 separate multi-channel 2D convolutions (with padding) to generate 6 convolution outputs .
+Page 56," The making of ... the first convolutional layer (part 3) Add bias to each intermediate output, and apply activation function to get the final output ."
+Page 57, Convolutional neural network (5th) hidden layer of neuralnetwork (6th)hidden layer (6) output layer (7th) input layer (2nd) input layers (3rd) output layers (4th)
+Page 58," For the first convolutional layer, the number of parameters are calculated . The number of calculations is based on the parameters of the convolutionary layer ."
+Page 59," Number of parameters: 3 x 3 x 6 x 6 + 6 = 6 x [(3 x 3) x 3 + 1] = 16860 of 93 . Calculating parameters: For the second convolutional layer, activate activate ("
+Page 60," To produce a feature map involves Cinumber of ( Fr, Fc) filters . The number of trainable parameters in this case is: Cix ( Frx Fc), Cix D number of feature maps ."
+Page 61," Assume we have an input of size 128 x 128 x 3 (row x column x channel) going into a 2D pooling layer . The kernel size for the layer is 7 x 7, the stride is 2 x 2,"
+Page 62, Convolutional neural network number of parameters involved involved in the network . Number of Paramets involved in network is 1.63 of 93 .
+Page 63,Another exercise!
+Page 64, Convolutional neural networkCalculate the necessary output size No. of parameters and input size no. of feature maps / neurons . No padding for all convolutions .
+Page 65," No padding for all convolutions . Assume the size of an input to a layer is ( 32, 32, 3 )6666of 93 ."
+Page 66,What are the things happening in training
+Page 67," Training modelForward pass: Conv lyr (1st) Conv lyr, Pool lyr (2nd) and Pool lyr . Training model: 48 496365 ."
+Page 68, Training model . Training model forward pass . Forward pass . Back to the page you came from . The training model is based on the training model .
+Page 69, Training model was created by the 2024 National University of Singapore . The entire process was modeled using a loss function . The training model is based on the entire training model .
+Page 70,Time for coding
+Page 71," 60,000 32 x 32 colour images in 10 distinct classes . Airplane Automobile BirdCat Deer Dog Deer Dog Frog Horse Ship Trucks . Each class has 6,000 images ."
+Page 72," Small image size yet large samples, good for quick idea testing . One of the most widely used datasets for machine learning research . Not easy to get good and comparable alternative (dataset)"
+Page 73," Since Tensorflow r1.13, Keras has become officially the preferred higher level API to build deep learning model . Keras-way is the default way to build model in TensorFlow 2.0 . In this course"
+Page 74," The main layout for the code includes Matplotlib setup, data preparation and data preparation . The code is based on the data from the National University of Singapore’s Cifar 10 ."
+Page 75," Numpy for matrix manipulation, sklearn for measuring performance and matplotlib to show image and plot result . Cifar 107676of 93 ."
+Page 76," Most of the key components to build a deep learning model fall under tensorflow.keras.layers . Import all the Keras functions that we are going to use in this problem . Importing libraries, part 2: Import"
+Page 77," Matplotlib setup uses 'ggplot' style for plot . For y axis, labels and ticks put on right rather than left ."
+Page 78, Use Keras in-built cifar10 module to load data . Cifar 10 will download data from the internet if it is never run .
+Page 79," Cifar 103.80 of 93 data must be in the form of (sample, row, clm, channel) The shape of trDat is(50000, 32,32, 3) For deep learning training and testing"
+Page 80,"(sample, row, clm, channel) is a'channel last' channel orderingformat . Some frameworks prefer 'channel first' format ."
+Page 81, To_categorical(trLbl) is imported fromtensorflow.keras.utilsin the beginning of the Cifar 103.0 .
+Page 82," Cifar 103.0: 'One-hot encoding' 'Before Before,' 'Before,' 'before,' 'after' and 'before' . 'After' is 'before and after' data preparation . 'Before' is"
+Page 83," RMSprop(lr=0.0001)>modelname ='wks2_3a' Cifar 104.0.0: Set up random seed, set up optimizer.seed(seed) and optim"
+Page 84," Cifar 104.0.0: Define model, part 2 . Define image: 32MaxPooling2D | (2, 2) FlattenDenseDense(8,8,64)(4,"
+Page 85," Define model, part 2>defcreateModel() model.add(Conv2D(32,(3,3), input_shape=(imgrows,imgclms, channel),padding='same',activation='re"
+Page 86," Cifar 104.0: 'model' for training; 'modelGo' for final evaluation . 'ModelGo' is created for training and 'model go' for evaluation . Total params: 307,450Trainable params:"
+Page 87," ‘monitor’ can be ‘Val_acc’ or ‘val_loss’ and ‘mode’ must be 'max’; when set to ‘v1.0’,"
+Page 88," Training is only a single line>model.fit(trDat,trLbl,validation_data) Train on 50000 samples, validate on 10000 samples ."
+Page 89, Use a new object to load the weights and re-compile again . Cifar 1090of 93.
+Page 90," Test the model, calculate the accuracy and confusion matrix . Cifar 10.91 of 93 . Test model, part 2 ."
+Page 91," Test model, part 3, calculates accuracy and confusion matrix . Test the model, calculate the accuracy and accuracy of the model ."
+Page 92, The Cifar 106.0 test model is based on data from the National University of Singapore’s Y2024/v1.0 model .
+Overall Summary, NUS-ISSPattern Recognition using Machine Learning System . Deep neural networks and deep learning systems by Dr. Gary Leung .

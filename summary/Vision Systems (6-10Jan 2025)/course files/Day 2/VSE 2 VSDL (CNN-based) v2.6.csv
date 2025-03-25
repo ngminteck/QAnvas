@@ -1,0 +1,82 @@
+Page,Summary
+Page 1, S-VSE/Building vision systems using deep learning (CNN)/V2.6 © 2025 National University of Singapore .
+Page 2, S-VSE/Building vision systems using deep learning (CNN)/V2.6 © 2025 National University of Singapore. All Rights Reserved .
+Page 3, S-VSE/Building vision systems using deep learning (CNN) based feature representation learning (today’s class)
+Page 4, S-VSE/Building vision systems using deep learning (CNN)/V2.6 © 2025 National University of Singapore .
+Page 5, Why convolution can extract  features from image: Stacked filters can extract features from image . It can also be used in building vision systems using deep learning (CNN/V2.6)
+Page 6," The Laplacian Pyramid as a Compact Image Code, IEEE Trans. on Communications, 1983, was published by the National University of Singapore ."
+Page 7," Given an input image, a GIST descriptor is computed by convolving the image with 32 Gabor filters (at 4 scales, 8 orientations), producing 32 feature maps . Divide each feature map into 16 cells (by a 4 ×"
+Page 8," An example: VGGNet-16 model (key components) includes a fully connected layer, a pooling layer and a deep learning layer . The model is based on deep learning (CNN)"
+Page 9, A single convolution filter: How to calculate the output value for the destination pixel in the output image . S-VSE/Building vision systems using deep learning (CNN)/V2.6 © 2025 National University of Singapore .
+Page 10, A single element in the feature map is connected to only a small patch of pixels . The same weights (convolution filter) are used for different patches of input image .
+Page 11, Stride controls how the filter convolves around the input . S-VSE/Building vision systems using deep learning (CNN)/V2.6 © 2025 National University of Singapore .
+Page 12, Convolutional layers reduce the size of the output (due to boundary) To save the information from the boundary we can use padding which adds extra rows and columns on the input .
+Page 13," National University of Singapore/Building vision systems using deep learning (CNN)/V2.6 © 2025 National University, Singapore. S-VSE/ building vision systems . using deep-learning (CNN) and CNN/V22"
+Page 14," Convolution layer: Summary: Constructions of deep learning (CNN/V2.6) Number of filters: Output width, output height, output width and height; output channels: Output channels: Output channels:  "
+Page 15, S-VSE/Building vision systems using deep learning (CNN)/V2.6 © 2025 National University of Singapore .
+Page 16, Convolution layers typically produce similar values for neighboring pixels in images . Max pooling or average pooling layers can reduce the size by a simple operation like max or average .
+Page 17," Pooling function (max, average) Pooling size (assume a square size   𝐾𝓾×    -  - is the size of a square input ."
+Page 18," Fully connected layer takes the output of the previous layer, ‘flattens’ them and ‘turns them into a single vector that can be an ‘input for the next stage’"
+Page 19," The softmax function converts a vector of real numbers into a probability distribution . It exponentiates each element, making them positive, and then normalizes them by dividing by the sum of all exponentiated values . It can be also implemented as"
+Page 20, S-VSE/Building vision systems using deep learning (CNN)/V2.6 © 2025 National University of Singapore .
+Page 21, National University of Singapore/Building vision systems using deep learning (CNN) (CNN/V2.6) S-VSE: Building vision systems with deep learning using deep-learning (CNN)/V226 © 2025 National
+Page 22," Advanced architecture: Residual block (ResNet)Advanced architecture:  Plain block(no skip connection) The basic block (with skip connection), basic block, basic block and bottleneck block (used in deeper network)"
+Page 23, S-VSE/Building vision systems using deep learning (CNN)/V2.6 © 2025 National University of Singapore .
+Page 24, S-VSE/Building vision systems using deep learning (CNN)/V2.6 © 2025 National University of Singapore .Advanced architecture: Residual  block (ResNet)
+Page 25," Advanced architecture: Dense block (DenseNet) The growth rate: 32, each layer will add 32 new feature maps to the output ."
+Page 26, S-VSE/Building vision systems using deep learning (CNN)/V2.6 © 2025 National University of Singapore. All Rights Reserved .
+Page 27," ""Building vision systems using deep learning (CNN)/V2.6"" ""Best practice: Image classification,"" ""best practice"" S-VSE: Building vision systems with deep-learning (CNN) and ""CNN/V2"
+Page 28, S-VSE/Building vision systems using deep learning (CNN)/V2.6 © 2025 National University of Singapore .
+Page 29, The data that is correctly classified by a model as positive is known not to be . True positives (TP) are the data correctly classified as positive instances of the concept being modelled . True negatives (TN): The data classified by the
+Page 30, Building vision systems using deep learning (CNN)/V2.6 © 2025 National University of Singapore . S-VSE/Building vision systems . using deep-learning (CNN/V2)
+Page 31, S-VSE/Building vision systems using deep learning (CNN)/V2.6 © 2025 National University of Singapore .
+Page 32, Using deep learning (CNN)V2.6 © 2025 National University of Singapore . S-VSE/Building vision systems using deep learning .
+Page 33, Model weight initialization is modeled using deep learning (CNN/V2.6) An online demo is available at the National University of Singapore .
+Page 34, S-VSE/Building vision systems using deep learning (CNN)/V2.6 © 2025 National University of Singapore .
+Page 35, F-MNIST – CNN: A simple convolutional network  consisting of  two conv and two fully-connected layers . CIFAR-10 – CNN : A slightly larger Convolutional network for the Cifar
+Page 36, A Learning rate schedule adjusts the learning rate between epochs or iterations as the training progresses . S-VSE/Building vision systems using deep learning (CNN)/V2.6 © 2025 National University of Singapore .
+Page 37, National University of Singapore: Building vision systems using deep learning (CNN/V2.6) S-VSE/Building vision systems with deep-learning (CNN) using deep-learners (CNN /V2)
+Page 38, Transfer learning: Finetune a few    layers with a larger number of layers . Add MLP classifier  with a few layers with more layers. Finetunune a larger number of layers with larger layers
+Page 39, Transfer learning: Knowledge distillation. Standard classifier: Train your model (student) using ground truth (teacher)
+Page 40, The “label” (pre-trained model output) is more informative than the ground truth . S-VSE/Building vision systems using deep learning (CNN)/V2.6 © 2025 National University of Singapore .
+Page 41," A fine-tuned CNN model was created by the National University of Singapore . It contains 6 categories of images for waste management, including cardboard, glass, metal, paper, plastic and trash ."
+Page 42, S-VSE/Building vision systems using deep learning (CNN)/V2.6 © 2025 National University of Singapore. All Rights Reserved .
+Page 43," We need to build a model that can output a box label (a classification problem) That is a classification problem, we need to be able to solve that problem ."
+Page 44, S-VSE/Building vision systems using deep learning (CNN)/V2.6 © 2025 National University of Singapore .
+Page 45, Single object localization in image is a black box model with a network of deep learning (CNN/V2.6) Output: Box coordinates (𝑥   𝐴   𝑤 �
+Page 46," The challenge is to train a single neural network model to produce different numbers of categories . Apply a neural network to many different crops (sliding windows) of the image, classify each crop as object or background ."
+Page 47, S-VSE/Building vision systems using deep learning (CNN)/V2.6 © 2025 National University of Singapore .
+Page 48, An object classifier with the same resolution can be used to create an object or background classifier . An object/background labels with scores can be created using an image patch with a resolution .
+Page 49, Non-maximum suppression (NMS) selects one entity (e.g. bounding boxes) out of many overlapping entities . The selection criteria is the overlap measure . An algorithm generates a list of filtered boxes with the highest confidence
+Page 50, Using deep learning (CNN/V2.6) S-VSE/Building vision systems using deep-learning (CNN)
+Page 51," Use Selective Search (OpenCV, an intensity-based pixel grouping method) to propose regions (called “region proposals”) that will be used for object detection ."
+Page 52," The aim is to void the computationally-complicate CNN calculation on each proposed region . The region proposal (from selective search) has various sizes, apply a region proposal to crop and resize to obtain the fixed-size feature for the"
+Page 53," ROI pooling layer converts the features inside the region of interest into a feature map with a fixed spatial extent of   𝐻 𝑊  (e.g., 3 × 3) Each ROI"
+Page 54," Faster R-CNN: Towards Real-Time Object Detection with Region Proposal Networks, NeurIPS 2015 . The team used deep learning (CNN/V2.6) to build vision systems using deep learning ."
+Page 55," Region proposal network (idea) generates possible regions in images that may contain objects . It is explained as objectness score and region positions of anchors, which are placed at each position on the feature map ."
+Page 56," An anchor is centered at one location of the CNN feature map . An anchor configuration (e.g.,   𝐾�1� = 9) is different sizes and aspect ratios ."
+Page 57," Region proposal network (anchor) is used for CNN architecture . Convolutional kernel size:   𝑘  kernels size: 3, stride:  1.6. A square window is"
+Page 58, Two stage: A region proposal + box classification/regression . One stage: Can we integrate region proposal with box classification?
+Page 59, One-stage: YOLO . Number of boxes per grid: Number of objects per grid; number of object categories; . Grid map resolution:   𝑥 - Coordinate of box center inside cell;  
+Page 60," Backbone is a network trained on a large-scale image classification task . It captures hierarchical features at different scales, with lower-level features (e.g., edges and textures) in earlier layers . Neck: Aggregates and"
+Page 61, FOCS (fully convolutional one-stage object detection) runs backbone CNN to get features aligned to input image . Each featurecorresponds to a point in the input .
+Page 62, The point at which all eight neighboring points have a lower value becomes a potential point for the hypothesized bounding box center (key point) The point will be corrected using offset prediction .
+Page 63, A good (brief) summary: https://lilianweng.io/lil-log/tag/object-detection .
+Page 64," Focal loss is a kind of cross-entropy loss that weighs the contribution of each sample to the loss based in the classification error . If a sample is already classified correctly, its contribution to loss decreases, by making the loss implicitly"
+Page 65, Feature pyramid networks have multiple stages that operate at different resolutions . Add top down connections that feed information from high level features back down to lower level features .
+Page 66," Use high-resolution camera, capture objects with closer distance and tiling your images .Generating more data via augmentation methods, such as crop or mosaic,  generate more data about small objects ."
+Page 67, S-VSE/Building vision systems using deep learning (CNN)/V2.6 © 2025 National University of Singapore .
+Page 68, S-VSE/Building vision systems using deep learning (CNN)/V2.6 © 2025 National University of Singapore. All Rights Reserved .
+Page 69, S-VSE/Building vision systems using deep learning (CNN)/V2.6 © 2025 National University of Singapore. All Rights Reserved .
+Page 70, S-VSE/Building vision systems using deep learning (CNN)/V2.6 © 2025 National University of Singapore .
+Page 71, Image: https://neurohive.io/en/popular-networks/vgg16/Note: A VGG model is used here for demonstration .
+Page 72," Each pixel is encoded as a one-hot vector, with a value of 1 for the class it represents . Different classes of objects will have some user-defined color for visualization ."
+Page 73," Pixel-wise cross-entropy loss is calculated based on model prediction (e.g., 0.2, 0.3) and the ground truth one hot vector . This calculation is repeated over all pixels and averaged . Pixel-"
+Page 74, Performance metric: 'IOU' IOU (intersection over union): Overlapping region (overlapping regions) divided by combine region . Dice coefficient: 'Pixels    pixels  resembled
+Page 75," We need to have large receptive fields to figure out what we’re looking at, instead of analyzing a single pixel . We need many layers to analyze a big input image ."
+Page 76, S-VSE/Building vision systems using deep learning (CNN)/V2.6 © 2025 National University of Singapore .
+Page 77," Other pixel labelling tasks: Instance                 segmentation problems: Classification loss (object id, classification loss)"
+Page 78, S-VSE/Building vision systems using deep learning (CNN)/V2.6 © 2025 National University of Singapore .
+Page 79, S-VSE/Building vision systems using deep learning (CNN/V2.6) © 2025 National University of Singapore .
+Page 80, S-VSE/Building vision systems using deep learning (CNN)/V2.6 © 2025 National University of Singapore. All Rights Reserved .
+Overall Summary, The notations and color codes used across multiple slides might be inconsistent . S-VSE/Building vision systems using deep learning (CNN) based feature representation learning (today’s class)

@@ -1,0 +1,47 @@
+Page,Summary
+Page 1," New Media and Sentiment Mining: Day 1 Part I . Dr. Fan Zhenzhen, Fan Zhanzhen, Dr. Zhang, and Dr. Zhenzhou, are discussing how to mine social media in China ."
+Page 2," At the end of the course, you should be able to: Identify where sentiment analysis can be applied . Identify and analyze the classification techniques for sentiment classification and  apply it with open-source libraries ."
+Page 3, Day 1 Introduction to Sentiment Analysis in New Media. Day 2 Deep Learning Basics for Language Processing. Day 3 Entities and Aspects in Sentiment Mining.
+Page 4, Part 1.2: Sentiment Analysis in New Media . Part 1: Sentimental Analysis in a new media format . Part 2: Sentiments Analysis in new media . Part 3: Sentence Analysis in the media .
+Page 5," Traditional Media consists of print media, film studios, radios, newspapers, newspapers, and televisions . Digital media marketing is usually conducted through social networking sites, internet vertisements, podcasts, vlogs, and blogs ."
+Page 6," Today’s social experience is disjointed because consumers  have separate identities in each social network they visit . Consumers will rely on their peers as they make online decisions, whether  or not brands choose to participate ."
+Page 7," Sentiment analysis, also known as Sentiment Mining, is the field of study that analyzes people’s opinions, sentiments, appraisals, attitudes, and attitudes toward entities and their attributes expressed in written text . The field"
+Page 8," Sentiment Analysis is about analyzing people’s opinions, we need to define what an opinion means in a context . For example: sentiment, sentiment, emotion, judgement and evaluation ."
+Page 9," An opinion is defined as a quintuple:                (ei, aij, sijkl, hk, tl), or an aspect of an entity . An opinion can be positive, negative, or neutral, or expressed with"
+Page 10," Sentiment Analysis typically involves Subjectivity Classification, Polarity Classification, Sarcasm Detection and Time Extraction . It also involves Coreference Resolution and Word Sense ."
+Page 11," As of 2021, smartphone users are using an estimated 6.23 billion smartphone subscriptions, which is expected to climb to 7.7 billion by 2027 . GSMArena is an online website that aims to provide detailed and accurate information"
+Page 12," There is a need to distinguish between subjective and objective sentences . If a given sentence is classified as objective (e.g. “the phone  has a 7.6 inch screen size”), we don’t have"
+Page 13, A common method is to determine the sentiment associated with a particular sentence . This method is usually built on important assumptions such as: A sentence expresses a single opinion . A sentence is completed with punctuations such as “?”
+Page 14," Multiple people may express their opinions on different phone models based on different time of purchases . For example, users may review different aspects of the entity “Samsung Galaxy Fold3” such as screen size and battery ratings ."
+Page 15, Aspect-based Sentiment Analysis (ABSA) extracted aspects relating to an entity are extracted . Sentiments associated with these  aspects are analyzed as they evolved over time . ABSA can be seen as the process of building a 
+Page 16," Opinion Summarization is an approach to aggregate and summarize the opinions from a large number of                 users’ phone reviews . Traditional text summarization typically involves selection and aggregation of important sentences . In contrast, opinion summarization"
+Page 17," Sarcasm is a sophisticated form of speech act in which the opinion holder says something positive, but actually means something negative . Sarcastic sentences are very difficult to deal with in sentiment analysis because common sense knowledge and discourse"
+Page 18, Coreference resolution is the task of finding all                 expressions that refer to the same entity in a text . Word-sense disambiguation is the process of identifying the word sense of a word . This is especially tough in
+Page 19, An opinion search needs to perform two main tasks: Retrieve documents or sentences relevant to the user query. Rank the retrieved documents or . sentences .
+Page 20," Opinions in reviews or social feeds are increasingly used by individuals and organizations to make decisions . Positive opinions often mean profit for businesses, and this provides strong incentives for imposters to post fake reviews to promote or to discredit"
+Page 21," NLP techniques include: Stemming, tokenization, part-of-speech and parsing . Lexicons (list of words and expressions) and ML-based techniques ."
+Page 22," Lexicon-based systems can be very naive. They don't take into account how words are combined in a sequence. Some lexicon dictionary handle emoticons or emoji’s . Some can handle intensity, e.g."
+Page 23, The National University of Singapore's ML-based Approach is based on data processing and scoring methods . The approach is described as a 'ML-based approach' and 'prebuild'
+Page 24, Hybrid Approach combines rule-based and ML approaches . Combines the best of rule-and-ML approaches with domain-specific lexicons and rules . Brings more flexibility for domain experts to intervene .
+Page 25, The National University of Singapore has published a series of articles on the topic of Singaporeans' attitudes . The findings have been published by the National Institute of Singapore . The study was commissioned by the Singaporean University of Science and Technology .
+Page 26," The aim is to classify the polarity of a whole opinionated message . The system determines whether the review expresses an                 overall positive, negative, or neutral opinion about the phone ."
+Page 27, Alphabet Inc lost $100 billion in market value on Wednesday after its new chatbot shared inaccurate information in a promotional video and a company event failed to dazzle .
+Page 28, Applications of Sentiment Analysis: Applications of Sentiment Analysis. www.ississ.nus.edu.ngu.sg.com .
+Page 29," Some main application areas are Customer Feedback and Reviews, Social Media Monitoring and Financial Prediction . Fraud Detection and Fraud Detection are also possible applications ."
+Page 30," To improve customer satisfaction, enhance product development, get insights for competitive advantage, etc . Identify positive sentiment: Understand which products, services, or aspects of your  business customers love . Pinpoint areas for improvement based on customer concerns"
+Page 31, HUAWEI-Band-7-Smartwatch-9.9-mm-Ultra-thin-Design-2-Weeks .
+Page 32, Measuring customers’ sentiments across all touchpoints . Customer Experience (CX) was created by Delighted by Qualtrics .
+Page 33, National University of Singapore has published a series of customer feedback and reviews . The reviews are based on customer feedback from students and staff members .
+Page 34," Social listening, for brand monitoring, public opinion monitoring . Track brand mentions: Stay ahead of the curve by monitoring what people are saying about the brand on social media . Track sentiment over time to see the effectiveness of your social"
+Page 35, National University of Singapore's Reputation Score is 35 per cent . Reputation score is based on reputation of a person who has been in Singapore .
+Page 36, Zignal Labs – Social Listening Tools – Social Listening Tools . National University of Singapore – Social listening tools .
+Page 37, Governments worldwide are taking various measures to prevent the spreading of COVID virus . Many critics view digital contact tracing as an attempt to control people and a fundamental breach of privacy .
+Page 38, Sentiment drives the stock market . It changes people’s consumption habits which  in turn drives their investment and savings tendencies .
+Page 39," Financial prediction with sentiment analysis is enhanced by sentiment, but not by sentiment alone . Gauge  public sentiment by analyzing news, social media posts, and financial reports . Identify trends and patterns: Recognize  emotional shifts that"
+Page 40," EBAC Project: Gold Price Trend Prediction. 2022 EBAC project by Xiaohong, Haoxin, Yansun, Chenchen & Youwen ."
+Page 41," Fraud Detection: Identify suspicious language by analyzing emails, messages, or social media posts for words and phrases associated with fraud . Analyze customer reviews to identify fake reviews that praise a product or service unrealistically to boost its credibility ."
+Page 42, Prospective investors are susceptible to ipient losses in the open market due to factors such as pseudo-anonymity of cryptocurrency transactions and untraceable scams . Solution: KaRuNa – a framework to help PI evaluate investment risks accurately
+Page 43," Liu Pan, Natural Language Processing for fraud detection in derivatives market -  17 June 2021. Link: https://www.youtube.com/watch?v=CK6L8Y5zzxM ."
+Page 44," Liu Pan, Natural Language Processing for fraud detection in derivatives market -  17 June 2021. Link: https://www.youtube.com/watch?v=CK6L8Y5zzxM . Link: Event-"
+Page 45, The ISSNUS is Singapore's National University of Singapore . It is the largest university in the world and is based in Singapore . All rights are granted to the university in perpetuity .
+Overall Summary," Sentiment Analysis is about analyzing people’s opinions, sentiments, appraisals, attitudes, and emotions toward entities and their attributes expressed in written text . The field represents “a large problem space’�s large problem"

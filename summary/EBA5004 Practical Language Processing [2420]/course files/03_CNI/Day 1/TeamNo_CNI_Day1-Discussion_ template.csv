@@ -1,0 +1,32 @@
+Page,Summary
+Page 1,CNI Day1 Workshop
+Page 2,Prompting LLM as assistant
+Page 3,Team No. ???
+Page 4,Name 1
+Page 5,Name 2
+Page 6,…
+Page 7,Page 1
+Page 8,Objective
+Page 9, This workshop is to practice crafting effective prompts to enable an LLM to function as a personalized virtual assistant for a specific task or objective .
+Page 10,Which LLM is used?
+Page 11, Identify the objective of your virtual assistant . Identify your objective of the virtual assistant. Identify a virtual assistant’s objective as an objective .
+Page 12," Discuss scenarios where an LLM-based assistant could be helpful . Consider daily tasks, personal projects, or professional needs ."
+Page 13, Choose one specific scenario and define the goal for the assistant . Be clear about what you want it to achieve. Be clear of the goal you want to achieve .
+Page 14,Page 2
+Page 15,Design the assistant
+Page 16," A brief persona is a brief persona . What specific action do you want the assistant to perform? (e.g., schedule a meeting) What is the object or area of focus for the action? What are the users of your assistant"
+Page 17,Page 3
+Page 18,Create the prompts
+Page 19,Page 4
+Page 20,Test and iterate
+Page 21, Chat with the conditioned LLM as a user to perform the task . Chat with a user as a . user . Use the conditioned . LLM to perform tasks .
+Page 22, Is the bot able to handle inputs correctly? Please submit your photos and videos to CNN iReport . Send your photos to the gallery for a new gallery of your favorites .
+Page 23, Is the language style proper for the persona? Is the style of the persona for the person? Is it the style for a politician?
+Page 24, CNN.com will feature iReporter photos in a weekly Travel Snapshots gallery . Please submit your best shots for next week's gallery . Visit CNN iReport.com/Travel next Wednesday for a new gallery of snapshots .
+Page 25,Are the errors handled well?
+Page 26,Restrictions and challenges encountered
+Page 27,Any other observations / lessons learned
+Page 28,Page 5
+Page 29,Your final prompts
+Page 30,Page 6
+Overall Summary, CNI Day1 Workshop Prompting LLM as an assistant for a specific task or objective . Discuss different scenarios where an LLM-based assistant could be helpful . Be clear about what you want the assistant to achieve . Design the assistant

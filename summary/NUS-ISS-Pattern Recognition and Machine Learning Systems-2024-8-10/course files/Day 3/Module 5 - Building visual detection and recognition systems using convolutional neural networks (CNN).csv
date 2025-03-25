@@ -1,0 +1,56 @@
+Page,Summary
+Page 1, Module 5 - Building visual detection andrecognition systems using convolutionalneural networks (CNN) by Dr. Gary Leung . NUS-ISSPattern Recognition using Machine Learning System .
+Page 2, The need of a deeper network and functional APIs is evident in many of the world's largest social networks . The need for a deeper and functional network is also evident in some of the network's largest networks .
+Page 3, Do you think deep neural net can represent this function? Do we think deep-net can do this? Do you have a question? Please email us at http://www.prumls/y2024/v1.03
+Page 4, A feedforward network with a single layer is enough to represent any function . Universal approximation theorem is a theorem for all problem? Is deep neural network the panacea for all challenges?
+Page 5," If there exists such a function, then by universal approximation theorem, there should have a neural network that can represent the function ."
+Page 6," If a mapping is doable by human, we should be able to get neural network to achieve the same . But, universal approximation theorem does not suggest the ways to make neural network . Certain challenges may be inherently unsolvable by any"
+Page 7, The extremeAn equation for all? Do you think it is possible to have one equation with only a change in one parameter and generate the below four figure?
+Page 8," All the samples of any arbitrary dataset can be reproduced by (where each sample has the form ( x, y ) y=fα(x)=sin2(2xτarcsinα)•x must be a positive"
+Page 9, Y=fα(x) = sin2(2xτarcsinα) is the answer to the question: 'An equation for all?'
+Page 10," By universal approximation theorem, possible to perform good classification on a single layer net, so far no learning algorithm can achieve that . The experiences from the past decade show that depth of a net is the key to great performance ."
+Page 11," Krizhevsky et al. model (2012) is the model that won ILSVRC 2012 . Re-implementation by Rob Fergus gives 18.1% top-5 error, in another words, the top"
+Page 12, Top-5 errorHow about top-1 error? Chihuahua (0.4) Hyena and Koala top-5 errors?
+Page 13," When layer 7 is removed, the model will have 16 million less parameters, from 60 million to 44 million . There is only 1.1% drop in performance! From 81.9% to 80.8% for top-5"
+Page 14," The importance of depth is a study on Krizhevsky et al. model (2012) The model will have 50 million less parameters compared to the original model, from 60 million to 10 million ."
+Page 15," The importance of depth is a study on Krizhevsky et al. model (2012) When we remove layer 7, themodel losses 16 million parameters, but the drop in performance is only 1.1% ."
+Page 16," The importance of depth is a study on Krizhevsky et al. model (2012) The model has 9 million parameters . When we remove layer6and7, the model has 10million parameters, the performance drop is 5"
+Page 17," A study on Krizhevsky et al. model (2012) has a huge drop in performance,33.5%. Top-5 accuracy: from81.9%to48.4% . The power of deep net"
+Page 18,Keras
+Page 19, Keras was created by the National University of Singapore . Keras is a form of architecture called Keras . The basic architecture of Keras has been designed by the university itself .
+Page 20, Keras API is the official high-level API of Tensorflow . Keras is the preferred way of building neural network . It is possible to build deep net solely using TensorFlow but toooo many repetition .
+Page 21, Keras API is the official high-level API of Tensorflow . It is better optimized for TF and is better integration with TF-specific features .
+Page 22," KerasLargest array of options for productizing models . Android (TF, TF Lite), iPhone (native CoreML support)•Raspberry Pi•JVMSource: Francois Chollet22of 54 ."
+Page 23," Keras works like playing Lego bricks . Single-input, single-output sequential layer stacks good for 70+% of use cases . Multi- input, multi-output, shared layers, arbitrary static graph topologies good for 95%"
+Page 24, KerasSequential model . Adding layers by sequence (layer by layer) to create an image . Layers can be added by sequence or sequence .
+Page 25," KerasSequential model>defcreateSeqModel() model = Sequential() model.add(Conv2D(32,(3,3), input_shape=16,16,3) MaxPooling2"
+Page 26," The KerasSequential model was created by the National University of Singapore . The model has 283,077 trainable parameters and 0 non-trainable parameters ."
+Page 27," KerasSequential model has been created by the National University of Singapore . The problem is not possible for multiple input or multiple output . A single direction of flow of tensors, no branching, no merging ."
+Page 28," Examples: Analysing video and extracting information from video in flexible manner . Instead of blindly analyzing a video, we post questions in regard to video and get information ."
+Page 29," ""What is the person doing?"" ""Tidying"" Multiple inputs? An video and a question? ""Kondo"" multiple inputs?"
+Page 30, Multiple inputsAn video and a questionLSTMEmbeddingLSTMConcatDenseDenseVideo as tensorquestion as integer sequence.answer as one-hot vector. Feature extractors.
+Page 31," Multiple outputs? An adjusted image and a segmentation input image . Conventional neural network can achieve this, but very tough for other machine learning techniques ."
+Page 32, EncoderCodeDecoder can be a series of convolutional andpooling layers . The decoder has 32 of 54 layers .
+Page 33, Person re-identification technology can be used to identify body shape . Shared layers? Sharing layers? When do we need to re-use layer?
+Page 34, Conv + MaxPoolDenseNormalized correlationConvConv and MaxPool are models of a person re-identification .
+Page 35, KerasFunctional API approach has been developed by the 24th National University of Singapore . It is the first attempt to create the entire network using the Keras function function .
+Page 36," iipt x= Input(shape=16,16,3)= Conv2D(32,(3,3),padding='same', activation='relu')(ipt)x x= MaxPooling2D="
+Page 37," Sequential model>defcreateSeqModel() model = Sequential() model.add(Conv2D(32,(3,3), input_shape=16,16,3) model.compile(loss"
+Page 38," LxInputConv2D | (3, 3) | 32MaxPooling2D . | (2, 2)Lin(16,16,3)Lx(8,8,32)xConv"
+Page 39," Lin Lx= Input(shape=16,16,3)= Conv2D(32,(3,3),padding='same',activation='relu')(Lin)LxRin Rx= input(shape"
+Page 40," The code>defcreateDualInputModel()...x x= concatenate[Lx,Rx],axis=1= Conv2D(64,(3,3),padding='same', activation='relu'"
+Page 41, Fromtensorflow.keras.prumls/y2024/v1.0.0:defcreateDualInputModel() .
+Page 42, The code was created by the National University of Singapore . The model was created using the model's input and output parameters . The data was used to create the model .
+Page 43," Conv2D layer that will get two inputs gets two inputs . Multiple inputsthe code[0]conv2D[0][:]conv2C[0],""convD[1]…first set of tensoroutputs"
+Page 44," The training is done by>model.fit[LDat,RDat],TLbl,validation_data, epochs=100,batch_size=128, shuffle=True, callbacks=callbacks_list)"
+Page 45," To plot model, it requires pydot and graphviz . On Mac, there is a need for additional installation for graph viz ."
+Page 46," Shared layerhow to create?Lin input(16,16,3)Conv2D | (3, 3) | (2, 2)Lx input(8,8,3), LxFlatten(6"
+Page 47," Shared = Conv2D(5,(3,3),activation=‘relu', name='SharedLyr') = shared(Lx) = shared . Lin = Input(shape=16,16,3"
+Page 48," Shared = Conv2D(5,(3,3),activation=‘relu', name='SharedLyr') Shared(Lx)LxLx = MaxPooling2D (pool_size="
+Page 49," Shared = Conv2D(5,(3,3),activation=‘relu',name='SharedLyr') Lin Lx, Lx Lx= Input(shape=16,16,3)="
+Page 50, Kerastensorflow.keras.prumls/y2024/v1.0: KerasMerge layer.add tensorflow.subtract . Subtract tensorflows.multiply tens
+Page 51, Building the model using functional APIs is a short exercise . Build the model with functional APIs . Use functional APIs to build the model and build it using functional models .
+Page 52, Short exerciseDualTw model model 52 of 53 . Short exercise dualTw model 52of 53. Short exercise DualTw model52of 53 .
+Page 53, Suggest a use case / scenario / application where multiple inputs or multiple outputs are required for a deep net . Group discussion: Group discussion .
+Page 54, Suggest a use case / scenario / application where multiple inputs or multiple outputs are required for a deep net . Make your proposal in powerpoint slides by answering the below questions .
+Overall Summary, Module 5 - Building visual detection andrecognition systems using convolutionalneural networks (CNN)by Dr. Gary Leung The need of a deeper network and functional APIs .

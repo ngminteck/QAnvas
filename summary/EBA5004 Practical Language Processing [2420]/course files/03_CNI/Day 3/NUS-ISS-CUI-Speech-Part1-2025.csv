@@ -1,0 +1,141 @@
+Page,Summary
+Page 1," Day 3: Speech processing basics, NLP solutions and speech synthesis . Day 4: Speech synthesis (Text-to-speech) and voice conversion . Day 5: Voice conversion and generation . Day 6: Spoken dialogue system (Sp"
+Page 2,3
+Page 3,4
+Page 4,5
+Page 5,6
+Page 6,7
+Page 7,8
+Page 8,9
+Page 9,10
+Page 10,11
+Page 11,12
+Page 12,13
+Page 13,14
+Page 14,15
+Page 15,16
+Page 16,17
+Page 17,18
+Page 18, Environmental information as well- Indoor / Outdoor- Quiet / Noisy- Quiet/ Noisy . The information includes indoor / outdoor and outdoor settings .
+Page 19,20
+Page 20,21
+Page 21,22
+Page 22,23
+Page 23,24
+Page 24,25
+Page 25,26
+Page 26,27
+Page 27,28
+Page 28,29
+Page 29,30
+Page 30,31
+Page 31,32
+Page 32,33
+Page 33,34
+Page 34," You can askChatGPT (or Gemini inColab) code segments for specific operations . For example, you can ask ChatGPT or Gemini in .Colab code segments ."
+Page 35,36
+Page 36,37
+Page 37,38
+Page 38,39
+Page 39,40
+Page 40,41
+Page 41, Speech-to-Text is the process of automatically converting speech into text . ASR is the first step in processing speech and does not interpret meaning at this stage .
+Page 42, E.g. “Read” in English*Further Reading: Read vs Spontaneous Speech (https://languagelog.ldc.upenn.edu/nll/?p=60956)
+Page 43,44
+Page 44,45
+Page 45, National University of SingaporeASR in Recent Years: ASR in recent years has been at the forefront of academic excellence . ASRASR has been on the rise in Singapore's academic success .
+Page 46,47
+Page 47," AI systems perform better than humans than humans and perform worse than humans . AI systems have evolved to be more intelligent and more intelligent than humans, say researchers ."
+Page 48, Accelerating Digital Excellence: Singapore's National University of Singapore . Evolution of ASR methods has evolved in recent years . Accelerating digital Excellence is a key part of Singapore's success .
+Page 49,50
+Page 50,51
+Page 51,52
+Page 52,53
+Page 53, Evaluate how likely a given speech signal corresponds to a sequence of sound units . Evaluates how likely  a certain word sequence is correct. Evaluate  how likely it is to be correct .
+Page 54,55
+Page 55,56
+Page 56,57
+Page 57,58
+Page 58,59
+Page 59,60
+Page 60,61
+Page 61,62
+Page 62,63
+Page 63,64
+Page 64,65
+Page 65,66
+Page 66,67
+Page 67,68
+Page 68,69
+Page 69,70
+Page 70,71
+Page 71, Transformer Transducer 72nd Transformer is a Transformer . Transformer or Transformer.7272 is a computer-controlled device .
+Page 72,or Transformer Transducer73
+Page 73,74
+Page 74, A good tutorial: https://towardsdatascience.com/transformers-explained-visually-part-1-overview-of-functionality .
+Page 75,76
+Page 76, Part 4.77: EMERGING ADVENTING ADVANCING SPEECH PROCESSING . Part 4: Emphasizing advanced speech processing . Part 5: Embracing advanced speech processes . Part 7: Advancing speech
+Page 77, National University of Singapore: Paradigm Shift is a foundational layer upon which specialized applications are built . The shift involves extensive training data and being adapted to wide range of downstream tasks .
+Page 78,79
+Page 79," National University of Singapore's Whisper Model . Trained on 680k hours of multilingual and multitask supervised data . Three tasks: speech recognition, speech translation, and language recognition ."
+Page 80, National University of Singapore's Wav2Vec2.0: Self Supervised Learning . Accelerating Digital Excellence .
+Page 81,82
+Page 82,83
+Page 83,84
+Page 84,85
+Page 85,86
+Page 86, National University of Singapore's LLM with Speech Capabilities. Accelerating Digital Excellence. Accelerate Digital Excellence . Accelerating digital Excellence . National University Singapore's National Institute of Singapore .
+Page 87,88
+Page 88, Combine external LMs with E2E models via shallow fusion for domain adaptation . Combine external models with E-E models for domains adaptation using shallow fusion . Shallow fusion is a technique that can be used to adapt to a given domain
+Page 89," Guidelines for Acoustic Modeling Units . Very phonetic languages (e.g., Spanish, German) BPE-based acoustic models are preferred . It is recommended to use a pronunciation dictionary to map words to modeling units ."
+Page 90, Fine-Tune Whisper For Multilingual ASR with Transformers . Espnet: End-to-end speech processing . Kaldi: HMM-DNN acoustic modeling .
+Page 91, Further Reading on N-gram Language Models . LM training with SRILM . LM linear interpolation/Building large n-gram LMs .
+Page 92,93
+Page 93,94
+Page 94, Character Error Rate (CER) or Syllable Error Rate may be used for some languages . CER or SER may also be used in other languages .
+Page 95,96
+Page 96,97
+Page 97,98
+Page 98,99
+Page 99,100
+Page 100,101
+Page 101,102
+Page 102,103
+Page 103,104
+Page 104,105
+Page 105,106
+Page 106, SpeechRecognition is open-source Python Speech Recognition . Supported engines include CMU Sphinx (works offline) and Google Cloud Speech API . Microsoft Bing Voice Recognition and IBM Speech to Text .
+Page 107, Python Speech Recognition is an open-source Python speech recognition tool . It recognizes speech input from the microphone . Transcribes audio data to an audio file . Calibrate the recognizer energy threshold for ambient noise levels . Cal
+Page 108, Topic 3: Case studies: Integrating speech recognition and NLP solutions with speech recognition . NLP is a form of language-recognition technology that can be used in speech recognition systems .
+Page 109,"Integrating speech recognition and NLP integration is possible . Voice search, customer service analysis and speech translation are possible applications . Possible applications: Voice Search, Customer Service Analysis and Speech Translation ."
+Page 110, Goal: segment and cluster the audio so that all segments from the same speaker are grouped together . 111: The process of determining who spoke when in an audio recording .
+Page 111,112
+Page 112,113
+Page 113,114
+Page 114, Text output from ASR often needs to be transformed or normalized to match the input format expected by an existing text-based search system . e.g. iPhone sixteen sixty four g b = iPhone 16 64GB . Real me = Real
+Page 115," Quality Control of Customer Service: Customer and agent sentiment . Speech sentiment analysis on voice characteristics such as pitch, loudness, etc . Text sentiment analysis: Non-talk time, talk speed, non-talking time and talk speed . Inter"
+Page 116," Speech translation enables users to watch foreign videos, such as films and lectures, in their own language . Applications of machine translation include: Cross-border communication and localization of websites ."
+Page 117, Evolution of Machine Translation Methods has evolved from the cold war to deep-learning . Accelerating Digital Excellence is National University of Singapore's latest project .
+Page 118, National University of Singapore: Evolution of Machine Translation Methods . Accelerating Digital Excellence: Accelerating digital Excellence . Evolution of machine Translation Methods: Aims to improve the efficiency of machine translation methods .
+Page 119, Bilingual Evaluation Understudy (BLEU) Score is based on n-grams of machine-translated sentences . Higher scores represent better MT performances . BLEU scores may decreases as sentence lengths increase .
+Page 120," Catastrophic Errors in MT: Generation of profanity, elimination of language-specific offensive word list . Mistranslation of proper names, reversal of intended meaning and violent content ."
+Page 121, Misrecognized words lead to inaccurate or nonsensical translations . Out-of-vocabulary words and domain-specific terms can be mistranslated . MT systems for low-resource languages exhibit poor accuracy .
+Page 122, Real time translation: start while sentence is spoken . Subtitles: have to be readable in limited time . Dubbing: sync up with video of speaker’s mouth movement .
+Page 123, Dynamic Sentence Boundary Detection for Simultaneous Translation . Real time translation: start while sentence is spoken . Real-time translation starts while sentence being spoken .
+Page 124, Live or Near-live Translation: start while sentence is spoken . Real-time translation: start . Start while sentences are spoken. Real time translation starts while the words are spoken .
+Page 125,126
+Page 126,127
+Page 127,128
+Page 128, Handling Context Across Multiple Sentences requires co-reference . Translation of pronouns may require co-referencing of pronouns . Pronquames may need to be translated in multiple sentences .
+Page 129, National University of Singapore: Accelerating Digital Excellence. Accelerating digital Excellence . National University Singapore: We are committed to the world of digital innovation .
+Page 130," National University of Singapore. Accelerating Digital Excellence: BLEU, ROUGE . Accelerating digital Excellence: Acceleration Digital Excellence . National University Singapore. Singapore."
+Page 131," Business, medical, or legal meetings contain domain-specific terms that need accurate recognition and summarization . Hesitations, false starts and filler words (“um”, “uh”) in ASR output lead to"
+Page 132,133
+Page 133,134
+Page 134,135
+Page 135,136
+Page 136,137
+Page 137, Consider quantization and distillation of models (i.e. smaller models) Consider small models with few-shot prompting . Consider starting with T4 16GB 16GB GPU that works well for 3B or 8B models .
+Page 138," Gartner Hype Cycle Cycle 139: ""Accelerating Digital Excellence"" National University of Singapore has been awarded the highest ranking ranking in the world for digital innovation ."
+Page 139," Facebook, instagram and instagram have been featured in this article . We are happy to make an announcement at the end of the month ."
+Overall Summary, Speech-to-text is the first step in processing speech and does not interpretmeaning at this stage . It transforms digital signal (a continuous sequence of values) into text (discrete symbol representations) E.g. “Read

@@ -1,0 +1,41 @@
+Page,Summary
+Page 1,Your project title
+Page 2,Proposal/progress presentation
+Page 3, List your team members’ full name (as in your course registration) List their full name as in your team member’s full name .
+Page 4," This template lists the key questions that we would like to know in the proposal/progress presentation . Feel free to modify its template format (e.g., font color, size, decoration, etc)"
+Page 5,Project highlights
+Page 6,Project sponsor
+Page 7, Is this project proposed by yourselves or by any company? Do you know who proposed this project? Please contact us at http://www.mailonline.co.uk .
+Page 8," If it is sponsored by the company, what support (e.g., real-world datasets, domain knowledge, etc) do they provide?"
+Page 9,Business problem statement
+Page 10, What is the business problem that you will investigate? What do you have to do to fix it? What's your business problem? Please email us at CNN.com/Heroes.com .
+Page 11,Why is it interesting and useful?
+Page 12,What is its impact on Singapore?
+Page 13,Technical problem statement
+Page 14, What is the technical problem statement to address the business problem of this project? What is a technical solution to the problem?
+Page 15, Entrance access control is a business problem; face recognition is a technical problem . Face recognition or fingerprint recognition is also a technical issue .
+Page 16,Related work
+Page 17,Dataset
+Page 18, What dataset are you using? Do you use public datasets or collect them yourself? Share your own dataset in the comments below .
+Page 19," If you use a public dataset, have you downloaded it? Have you sought permission from the dataset owner (e.g., request form)?"
+Page 20," If it needs to be collected by yourself, how do you plan to collect it? Use your own phone to record, grab it from the Internet, etc?"
+Page 21," How much data (# categories, # records, etc) do you plan to use in this project? Do you know how much data do you need to use?"
+Page 22,Proposed technical approach
+Page 23, You are encouraged to draw a flowchart to illustrate. What is your proposed technical approach? You are asked to draw your own flowchart .
+Page 24," In your drawing, please clarify which module uses pre-trained models (e.g., downloaded from Internet) Which module uses reference from GitHub (if any) highlight which module is developed by yourself (i.e., your efforts for"
+Page 25," You can use references (e.g., GitHub references) so that you don’t need to develop everything from the scratch . However, please clarify what is borrowed from references and what is developed by yourselves ."
+Page 26,Experimental design
+Page 27, How will you evaluate your developed system? How do you evaluate it? How will it evaluate your new system? Ask us if you have developed a new system to test your knowledge of how it works .
+Page 28," What is your experimental setup (e.g., using a benchmark dataset, setting up a prototype, etc)? What do you do?"
+Page 29," What performance metrics will you use to evaluate your results? You might need to consider technical metrics (e.g., accuracy, etc) or business metrics ."
+Page 30,Project deliverables
+Page 31," An entrance access control system with face detection (existing OpenCV), face recognition (pre-trained model), and facial mask detection (new component developed in this project)."
+Page 32," What do you plan to demonstrate in your final demonstration? For example, a system processes photos (jpg file) from a dataset . Or a simple website for the user to upload a file, or a recorded video (mp4 file)"
+Page 33, You can use a mockup to illustrate your project deliverables . You can also use mockups to illustrate deliverables in your project .
+Page 34,Team members’ responsibility
+Page 35, You can clarify how you plan to split the project deliverables among your team members . You can also decide how you want to split deliverables with your team .
+Page 36, This table is used to evaluate whether your project scope is either too heavy or too light according to your team size .
+Page 37, Team member responsibility A B C D E is responsible for the team's actions . Project responsibility is responsibility for the entire team . Team responsibility responsibility is the responsibility .
+Page 38,Progress
+Page 39, Use one slide to list the progress that has been made in the United States . Use another slide to show the progress in the country's first major city . Use the slide to highlight some of the progress made by the government .
+Overall Summary," This template lists the key questions that we would like to know in the proposal/progress presentation . What dataset are you using? Do you use public datasets or collect them yourself? If you use a public dataset, have you downloaded it?"

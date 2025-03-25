@@ -1,0 +1,45 @@
+Page,Summary
+Page 1, NUS-ISS: Problem Solving Using    Pattern Recognition.                                                 problems solveable problem solving using a neural network.                 phenomenal network.                     
+Page 2," The original version of this article was created by the National University of Singapore . It has been published by the university of Singapore, the National Institute of Singapore and the University of London ."
+Page 3, National University of Singapore. The padded. 2D convolution. 2C convolution: The padded . The padded is padded .
+Page 4, Two-channel convolution is a form of convolution that can be used to solve complex problems in complex computing systems . It is the result of the National University of Singapore .
+Page 5, The original version of this article was created by the National University of Singapore . It was originally published in the May 24th edition of this year's edition of The Open Source Library .
+Page 6, National University of Singapore has published a guidebook on how to use software programming . Max pooling can be used to pool pooling forward layers of software .
+Page 7," Neurological network is a network of layers with input and hidden hidden layers . The output layer is the output layer of each layer and the hidden layer of the network . The input layer of network is the input layer and output layer, the"
+Page 8, The first convolutional layer (part 1) performs 3 separate 2D   convolutions (with padding) to generate 3 intermediate outputs . The making of the making of ... the making .
+Page 9," The making of the making of ... the first convolutional layer . Add bias to each convolution, and apply activation to get the final output ."
+Page 10, The making of .... the pooling layer is the making of ... the Pooling Layer . The Pooling layer was created by the National University of Singapore .
+Page 11, The second convolutional                  layer (part 1) performs 6 separate multi-channel    convolutions (with padding) to   generate 6 convolution outputs .
+Page 12, The making of ...   The second convolutional                  layer (part 2) Performs 6 separate multi-channel    channel convolutions (with padding) to generate 6 convolution outputs .
+Page 13," The making of the making of ... the first convolutional layer . Add bias to each intermediate, and apply activation function to get the final output ."
+Page 14," The National University of Singapore's network network is a network of layers and layers . The output layer of each layer is the output layer, the input layer and the hidden layer of the network ."
+Page 15, We will apply dropout in  the workshop later on . The National University of Singapore will host a workshop on the same topic .
+Page 16, Aims to regularize neural networks; effective in preventing overfitting . Approximates training a large number of neural networks with different architectures . Every unit of the neural network (except output layer) is given the probability p of  being
+Page 17,Any fans of Japan?
+Page 18, Aims to classify hand drawn Japanese characters to classify Japanese characters . Cursive Kuzushiji is the name of the character used to refer to a Japanese character .
+Page 19, Kuzushiji MNIST's alternative 'Another 'MNIST' alternative' The alternative has been proposed by the National University of Singapore .
+Page 20," Kuzushiji MNIST: The basic model, part 1,22, is the basic model of the model . The model was created by the National University of Singapore ."
+Page 21," Kuzushiji MNIST: The basic model, part 1,23, is based on the basic model of the National University of Singapore's MNIST ."
+Page 22, The main layout for the code is the main layout of the code . The code was created by the 2024 National University of Singapore . It is based on the data from the train model .
+Page 23," Import libraries, part 1: import numpy as np.import sklearn.metrics as metrics. import matplotlib.pyplot as plt. import os.yumpy for matrix manipulation; .import numpy for"
+Page 24," Import libraries, part 2> from tensorflow.keras.models import Sequential.layers import Dropout,CSVLogger and MaxPooling2D . The Keras functions that   are going to use"
+Page 25," The first three lines setup the font   grotesquemanager, so that we can display  the Japanese words correctly in later Japanese words . Use 'ggplot' style to plot our   training and testing result ."
+Page 26, The grayplt is a function that can display a gray scale image correctly . It can also be used to display a scale image . The gray scale is based on the size of the image .
+Page 27," Kuzushiji MNIST: MNIST-29.29/29/20/29.3. Data preparation, part 1, is part 1 . Data preparation is based on data from the National University of Singapore ."
+Page 28," The current shape for trDat is. (60000, 28, 28) The shape for tsDat is currently. (90000) need to be reshaped into the form   samples, width, height, channel"
+Page 29," Kuzushiji MNIST provides the data preparation, part 3, data preparation and analysis . The data is based on data from the National University of Singapore ."
+Page 30, The model name is 'wks5_1a' The model is created by the National University of Singapore's MNIST program .
+Page 31, Where to put the Dropouts? How many channels/neurons should I put for each CNN/Dense layer? How do I change stride value? How to enable GPU on colab?
+Page 32, The model was created by the National University of Singapore's MNIST MNIST program . The model name is 'wks5_1a' and the model is created using a random seed seed .
+Page 33, The National University of Singapore's MNIST MNIST will define a model . The model name is 'wks5_1a' and the model is created using a random seed seed .
+Page 34," The National University of Singapore's MNIST MNIST will define a model, part 1, by creating a model with a model name . The model name is 'wks5_1a'"
+Page 35," Kuzushiji MNIST MNIST4.4. Define model, part 2: 'model' for training; 'modelGo' for final evaluation ."
+Page 36," Before training, we need to specify  where/how we are saving the model . The model will be used during training and save training into data data ."
+Page 37," Kuzushiji MNIST393939.39.55. Trainmodel.fit(trDat, grotesquetrLbl) is only a single line with model.fit() ."
+Page 38," Using a fresh model (i.e. modelGo); must be fresh to test the model with the trained weights . After training, we need to do a final evaluation (no training)"
+Page 39," Kuzushiji MNIST 6.41: T est model, part 2, T est the model, calculate the accuracy and confusion matrix . The model was created by the National University of Singapore ."
+Page 40, The best accuracy (on testing dataset) is 96.56% . The model was created by the National University of Singapore . The accuracy of the model is based on the accuracy of 100 test Scored Scored Tests .
+Page 41," Kuzushiji MNIST: T est model, part 4, is part 4 of a pandas-based study ."
+Page 42, The original model; given previously; this will serve as the base for the COLAB! Add 1x CNN and 1x MaxPooling layer; decide on the channels and sizes of these layers . Add an additional dense layer of activation
+Page 43," From the original model, add padding for all CNN layers, add 3x additional CNN layers; decide on the number of neurons yourself for all dense layers . Consider the different variations in your model and observe their performances ."
+Overall Summary," The first convolutional neural network was created by Singapore's National University of Singapore . The network is called a network of two layers: a pooling layer and a hidden layer . The first layer is called the ""padded"" layer"
