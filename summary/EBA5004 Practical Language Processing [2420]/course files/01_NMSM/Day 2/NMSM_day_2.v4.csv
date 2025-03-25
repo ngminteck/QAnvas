@@ -1,80 +1,80 @@
 Page,Summary
-Page 1, 2022 NUS Day 2: Neural Nets & W2V . Dr Wang Aobo.wang@nus.edu.g.sg.
-Page 2," Workshop: Basic NN on Colab and Workshop: Word2Vec from Scratch . Deep Learning Basics for NLP: MLP, MLP and Deep Learning Training Routine (quiz)"
-Page 3," The whole task here is… 'How does NLP Work?' says NUS expert . The Raffles Hotel in London is a great location with a little bit of history, the staff make this hotel ."
-Page 4," Frequency TF-IDF and PPMI vectors are long (|V| > 100,000) vectors are sparse (lots of zero) efficient for simple tasks with reasonably large of dataset ."
-Page 5," Statistical models are wrong, but some are useful . N-gram/RandomForest/MaxEnt– for Machine Translation . Phrase/Tree-based Model + beam search ."
-Page 6," The Raffles Hotel is a great location with a little bit of history, the  staff make this hotel . It's still a place to go to, but it's not what it was, but still a great place to visit ."
-Page 7," The whole task here is: 'The whole task is… The whole Task here is… the whole task . The Raffles Hotel is a great location with a little bit of history, the  staff make this hotel, the staff make"
-Page 8," Classic NLP vs. Deep learning can create feature vectors that are short (often fixed-sized <2000, decided empirically) and dense (most are non-zeros)"
-Page 9," Deep Learning Basics for NLP: MLP, MLP and Deep Learning Training Routine (quiz) The Workshop: Deep Learning from Scratch: Word2Vec & DL Specific: CBOW and SkipGram ."
-Page 10," Perceptron is a system that depends on probabilistic rather than deterministic principles for its operation, gains its reliability from the properties of statistical measurements obtained from a large population of elements ."
-Page 11," Perceptron learns w vector to map the inputs to a real-value output between [0,1] and a transformation function (aka. activation function)"
-Page 12," The word level classification is Positive=1;Negative=0– let n=5 is ""Like"" and ""Hate"" The word n is a form of form that indicates a positive or negative ."
-Page 13, The word level classification was created using a vocabulary_size n=5 . NUS has a word level of 1; Negative 1; Positive=1; Negative=0 .
-Page 14," The word level classification is Positive=1;Negative=0 . NUS has a vocabulary_size of 1,000 words, n=5 = vocabulary size - Batch_size = 1 ."
-Page 15, The word level classification was created by NUS and NUS researchers at the University of Cambridge . The word size of the word is 1-2 and n=26 . NUS has a word level of 1-26 .
-Page 16," The Multi-Layer Perceptron has a word level classification system called a ""word level classification"" with a word size of 26 . The NUS has a vocabulary of 26 words ."
-Page 17," The NUS word level classification was created by NUS in 2012 . The word n=26 was created using vocabulary_size and parameters . NUS has published more than 1,000 articles since 2011 ."
-Page 18, Deep leaning Training Routine: Repeat the following until desired until desired . Initialize weights vector with a random weight vector . Compute and log the loss  with a log of the loss . Optimizer: Compute the loss and log
-Page 19," Deep leaning Training Routine with strategy until desired . Compute and keep the Cost/Loss function . Define and compute the  loss(Ypred , Ycorrect) loss function ."
-Page 20," The loss function is based on n=5 training examples (forward) Loss function:  L =    L,   L,  lose function: Loss function . When w randomly initialized as 3"
-Page 21, The Delta rule is based on an attempt to minimize a “fake” lost function . Minimize a ‘fake’ed function and apply Delta rule to the Delta rule .
-Page 22," In 2022 NUS, the Chain Rule defines the definition of the rule of the NUS guidelines . The NUS rule is based on the rule that the rule should be applied to all parties involved in the rulemaking ."
-Page 23," Deep leaning Training Routine: Initialize weights vector W for all layers . Compute and keep the cost/loss (Ypred, Ycorrect) Cost/loss function(Ypred)"
-Page 24, Workshop: NN Basics on Colab and Workshop: Word2Vec & DL Specifics . CBOW & SkipGram: CBOW and SkipGrams; CBOW/LossFunction: Optimiser/Learning Rate;
-Page 25," Dr Wang Aobo.wang@nus.edu.ngu.sg . Dr Wang.wang.wang: ""Aoobo"" is a word for the word word2Vec &DL Specifics ."
-Page 26," Feature generation and selection could be tedious, says NUS . Zooming into word level vector representation could be useful, suggests WordToVec ."
-Page 27, Features from Word Vectors include CBOW and SKIPGRAM . NN Methods and Predictive Model are based on Word Co-occurrence + SVD .
-Page 28, The study was created by NUS researchers at the University of Cambridge . It is the first of its kind in the world of deep learning and NLP techniques .
-Page 29," S1 S2 S2.5 S2: 1.5.5 .1.5 (1.4) (2.2) S2S2: 6 7 3 1 8 (N) (N,N"
-Page 30, S1 S2I 1.5 .1 .1                 like 3.14 .23                 enjoy 2.7 -.98                                                       referior: vinced valuable
-Page 31, Features from WordToVec include Word Co-occurrence + SVD . Count and Learn from Data: Count from Data; Learn from Word2Vec .
-Page 32, GloVE-Global Vectors for Word Representation: Word-level representation . Counting context-words within a window_size: I like deep learning.
-Page 33, Global Vectors for Word Representation: Word-level representation . Counting context-words within a window_size . Table 1: I like deep learning. I like NLP. I enjoy flying.
-Page 34," NLP: I like deep learning and deep learning. I like NLP. I enjoy flying. I love deep learning, I enjoy deep-learning. We expect mapping vi ● vj to log ."
-Page 35, Let   vi = the vector representing ‘I’i refers to “I” i refers to  ‘i’ Then we Expect : mapping vi ● vj to log (Cij) to log
-Page 36, The weighted least square Loss Function is defined by weighting least square loss function . It is defined as the weighted leastsquare loss function and its upper bound . The number Cij should be a big number .
-Page 37, The weight_Func(Cij) should have a upper bound as Cij can be a big number . The number of Cij weights should be bound to a certain number .
-Page 38," We expect mapping vi ● vj to log (Cij) and log (P (I,like) vj) to log . We expect log(CI,like / CI) log to log log (CI) log ("
-Page 39, Features from Word Vectors include CBOW and SKIPGRAM . NN Methods and Predictive Model are described as 'NN Methods' and 'Predictive Model'
-Page 40, Give she at talk have ramen a drink and have a drink . Give 1 0 0 0 . 0 0. 0 0 1 0. 1 0 . The number of words used in this article has been published by NUS.
-Page 41, The lookup function is based on a lookup of the Matrix . It is designed to look at the Matrix in a new way to predict predictions .
-Page 42, The bulk of the linguistic questions concern the distinction between a and m. a linguistic account of a.phenomenon .
-Page 43, The model can predict what’s the word given only the context words as                  inputs . The model is based on W such the word W can be used to predict what's the word .
-Page 44," Give a  give a    at the top of the word: ""Give a ______ at the bottom of the page"""
-Page 45, The Sentence Embedding Layer in CNN was created by NUS in 2012 . The pooling layer is based on CNN’s Pooling Layer . The Pooling layer was created in 2012 and 2013 .
-Page 46, The word word2Vec (CBOW) is a word2 word word 2.2 . The word 2Vec word 2 has been used in the past by NUS. It has been translated into the word 2 .
-Page 47," Neural-network activation functions bound in (0,1) need to be non-linear . Smoother decision function is expected, says NUS ."
-Page 48, Sigmoid function – smooth output between 0 and 1– interpreted as a probability of ‘Yes’ – interpreted as “Yes”
-Page 49, The Tanh Function is smooth output between -1 and 1. It is interpreted as a set of “weights”
-Page 50, NUS. All rights reserved. © 2022 NUS . All rights to be published by NUS at the end of the year .
-Page 51," Intuitions can be useless for NN . Smoother decision function is expected . FastA(x) = max(0,x)vanishing gradient ."
-Page 52, Page 56: Activation Function (ReLU) and ReLU’s Family . NUS: ReLU's family is a family of animals .
-Page 53, The word2Vec (CBOW) is given to give it a 'give' at the end of the word . The word has been used in the past by NUS since 2012 .
-Page 54," Last Layer Activation Function: SoftMax. (1,V) Never be a single xi as Input ."
-Page 55, Sigmoid function is smooth output between 0 and 1 - interpreted as a probability of ‘Yes’ – interpreted as ‘yes’ A single x as input will never be a vector of xi .
-Page 56, W2.2Vec (CBOW) encompasses the need to give a loss function . The loss function is the function function of the loss function function . W1.1 encompasses loss function functions .
-Page 57," Loss Function (Categorical) Cross Entropy Loss Function (1,V) gives a loss function that can be reduced to 0.1/2/3 . The loss function is the function of the function that determines the"
-Page 58," The loss function is the function of the function that determines the loss function of a loss function . The function gives the function a function that is called the ""categorical"" Loss Function. The function has a function called ""Categ"
-Page 59, In 2022 NUS NUS will publish a new version of this year's NUS Bulletin Bulletin Bulletin Board for the Bulletin Board . The code is based on an open-source version of Bulletin Board’s Bulletin Board.
-Page 60," The word2Vec (CBOW) gives the word ""gave,"" ""give"" and ""give,"" ""ggive"" ""guid"" ""Give"" ""gouveve"" ""Gouvereveve"
-Page 61, Backpropagation backpropagant SGD vs Adam Faster is a well generalised generalised approach . But it is sometimes slower than Adam Faster and sometimes not converging . It is used together with momentum .
-Page 62, Backpropagation has a fixed Learning Rate based on Experience . Vanilla model: MLP/RNN/CNN/CNN  10-2  ~10-3 . Typical models: LSTM/CNN 10-3;
-Page 63, Backpropagation is based on an estimate of Fixed Learning Rate (Lurghghght) and a plan to use it to reduce the loss of life .
-Page 64," 2022 NUS. All rights reserved . NUS: Backpropagation, Dynamic Learning Rate, Back Propagation and Program Dynamic Learning Rates . Back to Mail Online home ."
-Page 65, The word2Vec (CBOW) is a word2 word word word22 . The Probstalktalktalk has been used in the past by 2022 NUS.
-Page 66," 2022 NUS. CBOW will be the first time a model has been driven by a car . CBOW was developed by the University of Cambridge, Cambridge, in 2007 ."
-Page 67, Word2Vec (Skipgram) task: Iterate through each word with a given window . For each word predict the context words within the window .
-Page 68," Language users never choose words randomly, and language is essentially non-random . In-/Outputs: 'language', 'users', 'choose', 'words', 'randomly', 'and', 'language' and 'random"
-Page 69," Language users never choose words randomly, and language is essentially non-random . Windows: 'language', 'users’, ‘never’ and 'choose', 'words’; 'language' is 'non-"
-Page 70, Language (1) users (2) never (3) choose (4) words) and (8) language is (10)  essentially (11) non-random (12) . (13) language (1
-Page 71, Word2Vec (Skipgram) is the name of a new form of technology developed by the University of Cambridge . It is the first step in the development of the technology behind the Skipgram .
-Page 72, Different contexts lead to different embeddings . Small context window: more syntax related . Large context window : more semantics related .
-Page 73, Embeddings are based on the properties of a word . They are designed to make it look like a text that is large as large as possible . Embedding is the result of deep learning and deep learning .
-Page 74," When you don’t have much training/annotated data, pre-trained embeddings are useful . They can be used to model for classification tasks, e.g. tagging, parsing, ranking (based on"
-Page 75, Embedding Bias is the work of 2022 NUS . The NUS is committed to developing the world's most important science and technology .
-Page 76, Neither GloVe or Word2Vec has been shown to provide definitively better results rather they should both be evaluated for a given dataset .
-Page 77, Train Word2Vec from “scratch” CBOW AND SKIPGRAM . CBOW and SKIP GRAM .
-Page 78, The study was published in the journal Journal of Computer Science12.4 (2016): 178-190-190 . It is the work of Franois and Mohamed Nadif .
-Overall Summary, NMSM Day2: Day2                Neural Nets & W2V . Includes Workshop: Word2Vec from Scratch . Workshop: Basic NN on Colab and Workshop: N-gram/RandomForest/Max
+Page 1,2022 NUS. All rights reserved. Dr Wang Aobo aoba.wang@nus.edu.sg .
+Page 2,Page 2 Agenda • Statistical Modelling vs. Deep Neural Nets • Workshop: Basic NN on Colab . Workshop: Word2Vec & DL Specific – CBOW and SkipGram
+Page 3,the whole task here is... Lost glamor . ML + CPU Supervised Unsupervised Unsupervised ...
+Page 4,"tfidf and PPMI vectors are – long (|V| > 100,000) – sparse (lots of zero) ... 4.23 0.00 8.90 sent1 0.01 0.00 0."
+Page 5,"All models are wrong, but some are useful . SVM/KNN/Decision Tree/RandomForest/Nave Bayes/MaxEnt – for Sequence Labeling ."
+Page 6,"the whole task here is... Lost glamor Rated 5 by hotogama on Feb 23, 2013 We had afternoon tea in the tiffin room at Raffles!"
+Page 7,"the staff make this hotel a little bit of a history, great location with a bit of history . great service ... amazing 1 0 0 service 0 1 1 lost 0-1 0 glamour ..."
+Page 8,"deep learning can create feature vectors that are – short (often fixed-sized 2000, decided empirically) – dense (most are non-zeros) and able to capture contextual dependency ."
+Page 9,Page 9 Agenda • Workshop: Deep Learning from Scratch . Workshop: Word2Vec & DL Specific – CBOW and SkipGram .
+Page 10,"Page 10 Deep Learning Basics . ""system that depends on probabilistic rather than deterministic principles . for its operation, gains reliability from the properties of statistical measurements ."
+Page 11,"given a set of inputs x, perceptron – learns w vector to map the inputs to a real-value output between [0,1] – through the summation of the do"
+Page 12,Hate x2 Good x3 Enjoy x4 Bad x5 Like 1 0 0 1 1 Bad 0 2 1 1 1 2 1 2 2 2 3 3 4 4 4 0 5 0 4
+Page 13,Hate x2 Good x3 Enjoy x4 Bad x5 Like x1 0 0 1 0 2 0 Bad w1 w2 w3 w4 w5 w
+Page 14,hate x2 Good x3 enjoy x4 bad x5 hate 0 1 0 0 good 0 2 0 bad 0 3 0 Good 0 5 0 Bad 0 6 6 6
+Page 15,"w26 s f(s) 1|0 (1,26) (1,1) (1,2) (1,3) (1,4) (1,5) (1,6) (1,7) (1,8) (1,9) (26,"
+Page 16,"wb26 wp26 s f(s) s (s) (1,26) (26,2) (wg1 wg2 1|0 (2,1) (1,1)"
+Page 17,"wb26 wp26 s f(s) 1|0 (1,26) (26,2) weight wg1 ,2 ,3 . (1,1) weight . w w"
+Page 18,Page 20 Deep leaning Training Routine Repeat the following until desired . Page 20 NUS. All rights reserved.
+Page 19,Page 21 Deep leaning Training Routine “brute force” searching action with strategy until desired . Compute and keep the Cost/Loss – Define and compute the loss .
+Page 20,"yy = wwww with n=5 training examples (guessing) y=3x y_true ypred – ytrue = 0 0 0, 1 3 2 1 2"
+Page 21,2022 NUS. All rights reserved. Page 23 Apply Delta rule wwnnnww =ww2 4ww + 6 ddLL .
+Page 22,"wb26 wp26 (1,26) (26,2) weight loss (ypred , Ycorrect) = x * bp * w* wg - 1 WWWWW"
+Page 23,2022 NUS. All rights reserved. Page 27 Deep leaning Training Routine Repeat the following until desired .
+Page 24,Workshop: NN Basics on Colab . Workshop: Word2Vec & DL Specifics – CBOW and SkipGram .
+Page 25,2022 NUS. All rights reserved. Dr Wang Aobo aoba.wang@nus.edu.sg.
+Page 26,Page 30 Features from WordToVec . Feature generation and selection could be tedious . how might we generate “universal” features automatically?
+Page 27,Page 31 Features from Word Vectors – Count from Data – Word Co-occurrence + SVD . Learn from Data: GLOVE: Global Vectors for Word Representation .
+Page 28,2022 NUS. All rights reserved. Page 32 32 Count from Data . Sent_2: I like deep learning Sent-3: I enjoy flying Window_size=1: .
+Page 29,Page 33 Count From Data S1 S2 I 1.5 .1 like 3.14 .23 enjoy 2.7 -.98 Deep .55 .2 learning .8 2.5 NLP -2.5 3 flying 4.5
+Page 30,Page 34 Count From Data S1 S2 I 1.5 .1 like 3.14 .23 enjoy 2.7 -.98 learning .8 2.5 NLP -2.5 3 flying 4.5 4.9 34 Sorted S
+Page 31,Page 35 Features from WordToVec – Count from Data – Word Co-occurrence + SVD . NN Methods – Predictive Model .
+Page 32,Page 36 36 GLOVE-Global Vectors for Word Representation . Counting context-words within a window_size = 1 (# of “like” as “I’s” context- words) =
+Page 33,"GLOVE-Global Vectors for Word Representation . Count(# of “like” as “I’s” context-words) = CI,like / CI = 2/3 log (P ("
+Page 34,2022 NUS. All rights reserved . GLOVE-Global Vectors for Word Representation .
+Page 35,"vj = the vector representing “like” j refers to “like"" Thus we Define: Least Square Loss Function : L = ij [ log(Cij) - (vi"
+Page 36,"weighted least square Loss Function : L = i,j [log(Cij) - (vi vj + vbias)]2 Weight_Func("
+Page 37,weight_func(Cij) should have a upper bound as Cij can be a big number 41 GLOVE-Global Vectors for Word Representation .
+Page 38,2022 NUS. All rights reserved . GLOVE-Global Vectors for Word Representation .
+Page 39,NN Methods – Predictive Model – Count and Learn from Data . GLOVE: Global Vectors for Word Representation - Count + SGD .
+Page 40,page 44 One-Hot Encoding (Sparse Representation) 44 give she at talk have ramen a drink have 0 0 1 0 2 0 drink 0 3 0 4 0
+Page 41,Page 45 Lookup Function 45 0.10.2 -0.4 0.9 0.2 0.1 -0.3 0.9 0.2% 0.3 -2.0 0.5 -0.5 0.2 0.3% -3.0 0 0.5% -
+Page 42,the bulk of linguistic questions concern the distinction between a and m . learn the matrix through “classification” task window_size = 2 .
+Page 43,iterate through every word with a given window; learn W such the models can predict what’s the word given only the context words as inputs .
+Page 44,"0 0. . . 0. 0.1 . 0,4 . 1,0 . 1 . 2*window_size,V) talk Re-shaping the values . (1,V) ."
+Page 45,Page 49 Nave Sentence Embedding 49 v(‘give’) 0.5 -1.3 0.6 1.1 v (‘at’)
+Page 46,"0 0. . . 0. 0.1 . 0,4 . 1,010 . 1 . 2*window_size,V) talk Re-shaping the values . (1,V) give"
+Page 47,"page 51 Activation Function – Smoother decision function is expected – Activations bound in (0,1) – Support backpropagation – Need to be non-linear."
+Page 48,Page 52 Activation Function – smooth output between 0 and 1 – interpreted as a probability of “Yes”
+Page 49,Page 53 Activation Function - smooth output between -1 and 1 – 0 centroid . interpreted as a set of “weights”
+Page 50,Page 54 Activation Function (Sigmoid) vanishing gradients . all rights reserved. 2022 NUS.
+Page 51,"Page 55 Activation Function (ReLU) – Smoother decision function is expected . All you need is – Simple – Fast A(x) = max(0,x) vanishing gradient ."
+Page 52,Page 56 Activation Function (ReLU): ReLU’s Family . ReLU's Family is a family-owned business .
+Page 53,"give a at the 0.4 . 0.6 . 0.0.9 .0.2 (2*window_size,V) Softmax () talk ."
+Page 54,Page 58 Last Layer Activation Function - SoftMax . All rights reserved . Page 57 Last layer . xi as Input Never be a single x .
+Page 55,Sigmoid function – smooth output between 0 and 1 – interpreted as a probability of “Yes” (Image from Wikipedia)
+Page 56,"u Embeddings AVG () + Relu () 0.5 . . (1,V) . 1 . 2 . 4 .2 0 1 0 0 0. ."
+Page 57,u Embeddings AVG () + Relu () .1 . 2 .4 .2 0 1 0 0 Talk - 0*log(0.1) –
+Page 58,u Embeddings AVG () + Relu () .1 . .2 .4 . 2 0 1 0 0 Softmax () talk loss=CE 0.17
+Page 59,0 0. . . 1 - 0 - 1-1 - 2 - 3 - 4 - 5 - 6 - 7 - 8 - 9 - 10 - 15 - 20
+Page 60,uAVG () + Relu () = WW11(nnnww) = lloooooo ww22 .
+Page 61,Page 65 Backpropagation SGD vs Adam Faster but sometimes not converging Well generalised but slower Used together with momentum .
+Page 62,Page 66 Backpropagation • Learning Rate based on Experience • Vanilla model: MLP/RNN/CNN 10-2 10-3
+Page 63,Fixed Learning Rate: lr == as iterations going up save and plot the loss as per iteration going up . Page 67 Backpropagation .
+Page 64,Page 68 Backpropagation. All rights reserved. Dynamic Learning Rate – Estimate Initial Learning Rate.
+Page 65,"0 W1 (V,N) 0.1 . 0.3 . 0.0.8 N AVG () + Relu () 0,3 . 0,43 ., 0.75 ."
+Page 66,2022 NUS. All rights reserved. Page 70 CBOW Model Summary . Page 69 CBOOW model summary .
+Page 67,iterate through each word with a given window; predict the context words within the window . page 71 Word2Vec (Skipgram)
+Page 68,"language users never choose words randomly . 'language' is essentially non-random . ('words', 'choose' and 'and')"
+Page 69,"language users never choose words randomly . 'never', 'is' is essentially non-random ."
+Page 70,"language (1) users (2) never (3) choose (4) words (5) randomly (6),(7) and (8) language (1) is essentially (11) non-random (12)"
+Page 71,2022 NUS. All rights reserved. Page 75 Skipgram Model: 'skipgram'
+Page 72,different contexts lead to different embeddings . stackoverflow is a great website for programmers . large context window: more semantics related .
+Page 73,Page 77 Properties of Word Embeddings Ingredients Corpus of text As large as possible Annotations 0 Initialize weights 1x per word Deep Learning Model 1x Cost Function Appropriately GPU Lotsa
+Page 74,"Page 78 When to use pre-trained embeddings? Generally, when you don’t have much training/annotated data . Use as inputs to model for classification task ."
+Page 75,Page 79 Embedding Bias: Page 78 . Page 81 . page 79: Page 80: Page 90: Page 95: Page 99: Page 100: Page 110: Page 120: Page 130:
+Page 76,Neither GloVe nor Word2Vec has been shown to provide definitively better results rather they should both be evaluated for a given dataset .
+Page 77,Page 81 Train Word2Vec from “scratch” CBOW AND SKIPGRAM . All rights reserved.
+Page 78,"""deep contextualized word representations."" arXiv preprint:1802.05365 (2018). ""Attention is all you need."" Advances in neural information processing systems. 2017. 6. Howard, Jeremy, and Sebastian"
+Overall Summary,neural networks are based on a set of vectors called 'global vectors' . the vectors can be used to predict a word's context . nnp is a

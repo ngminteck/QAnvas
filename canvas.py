@@ -7,6 +7,7 @@ from datetime import datetime, timedelta, timezone
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import csv
 from transformers import pipeline
+import shutil
 
 import torch
 from canvasapi import Canvas
@@ -27,26 +28,36 @@ class CanvasManager:
     downloading files, managing timetables, assignments, announcements, etc.
     """
 
-    # Initialize the summarization pipeline once at the class level.
+    # Initialize the summarization pipeline with T5 (for summarization)
     _summarizer = pipeline(
         "summarization",
-        model="sshleifer/distilbart-cnn-12-6",
-        revision="a4f8f3e"
+        model="t5-base",   # you can change to "t5-small" if desired
+        tokenizer="t5-base"
     )
 
     def __init__(self, api_url: str, api_key: str):
         self.canvas = Canvas(api_url, api_key)
-        # Store API URL for use in building canvas links
         self.api_url = api_url
 
+    # ------------------------------------------------------
+    # Helper: Clean Text (Pre-Processing)
+    # ------------------------------------------------------
+    @staticmethod
+    def clean_text(text: str) -> str:
+        """
+        Clean the input text by stripping HTML tags, normalizing whitespace,
+        and removing extraneous characters.
+        """
+        # Remove HTML tags and decode entities.
+        text = CanvasManager.strip_html(text)
+        # Replace multiple whitespace with single space.
+        text = re.sub(r'\s+', ' ', text)
+        return text.strip()
+
     # ======================================================
-     # DOWNLOAD FILES FUNCTIONS
+    # DOWNLOAD FILES FUNCTIONS (unchanged)
     # ======================================================
     def download_all_files_parallel(self, base_dir: str = "files", max_workers: int = None):
-        """
-        Download all files for accessible courses concurrently while preserving the subfolder structure.
-        Files are saved to: base_dir/{course_name}/{subfolder(s)}/{filename}.
-        """
         if max_workers is None:
             max_workers = os.cpu_count() or 4
 
@@ -84,9 +95,6 @@ class CanvasManager:
                     print(f"Error in a download task: {e}")
 
     def download_file(self, file_obj, course_name, folder_path_map, base_dir):
-        """
-        Download a single file, preserving folder structure.
-        """
         try:
             folder_id = getattr(file_obj, "folder_id", None)
             folder_name = folder_path_map.get(folder_id, "")
@@ -99,32 +107,22 @@ class CanvasManager:
             print(f"Error downloading file {file_obj.display_name}: {e}")
 
     # ------------------------------------------------------
-    # Helper: Remove Excluded Directories from a Path
+    # EMBEDDING INDEX BUILDING (with cleaning)
     # ------------------------------------------------------
-    @staticmethod
-    def remove_excluded_dirs(path: str, exclude_dirs: list = None) -> str:
-        """
-        Remove any directory from the path whose name (case-insensitive)
-        appears in the exclude_dirs list.
-        For example, if exclude_dirs is ["course files"], then any folder
-        named "course files" will be removed from the path.
-        """
-        if exclude_dirs is None:
-            exclude_dirs = ["course files"]
-        parts = path.split(os.path.sep)
-        filtered = [p for p in parts if p.lower() not in {ed.lower() for ed in exclude_dirs}]
-        return os.path.join(*filtered)
-
-    # ======================================================
-    # EMBEDDING INDEX BUILDING (without summaries)
-    # ======================================================
     def build_embedding_index(self, index_dir: str = "chroma_index", base_dir: str = "files"):
         """
-        Build the embedding index for all lecture slides by scanning the given base directory
-        recursively for PDF, PPTX, DOC, and DOCX files. For PDF files, each page is treated
-        as a separate document (i.e. embedding per page). Non-PDF files are split into chunks.
+        Build the embedding index for all lecture slides by scanning the given base directory.
+        Each PDF page is treated as a separate document; non-PDF files are split into chunks.
+        Text from documents is cleaned before embeddings are computed.
         This method does NOT generate summary CSV files.
+        Before building the new index, the existing index directory is removed (if it exists)
+        to ensure a complete rebuild.
         """
+        # Clear existing index directory
+        if os.path.exists(index_dir):
+            print(f"[DEBUG] Clearing existing index directory: {index_dir}")
+            shutil.rmtree(index_dir)
+
         print(f"\n[DEBUG] Current working directory: {os.getcwd()}")
         print(f"[DEBUG] Will store Chroma index in: {os.path.abspath(index_dir)}")
         print(f"[DEBUG] Processing all directories under base directory: {os.path.abspath(base_dir)}")
@@ -133,7 +131,6 @@ class CanvasManager:
         print(f"[DEBUG] CPU cores available: {cpu_cores}")
 
         start_time = time.time()
-
         selected_paths = []
         if not os.path.exists(base_dir):
             print(f"Warning: Base directory '{base_dir}' does not exist.")
@@ -143,13 +140,11 @@ class CanvasManager:
             for file in files:
                 if file.lower().endswith(('.pdf', '.pptx', '.doc', '.docx')):
                     selected_paths.append(os.path.join(root, file))
-
         if not selected_paths:
             print("No files found in the base directory.")
             return None
 
         print(f"Found {len(selected_paths)} file(s) for building the index.\n")
-
         documents = []
         max_workers = os.cpu_count() or 4
 
@@ -165,6 +160,8 @@ class CanvasManager:
                 if docs:
                     print(f"[DEBUG]   -> Loaded {len(docs)} document(s) from {os.path.basename(fp)}")
                 for doc in docs:
+                    if doc.page_content:
+                        doc.page_content = CanvasManager.clean_text(doc.page_content)
                     doc.metadata["file_path"] = fp
                     doc.metadata["canvas_link"] = f"{self.api_url}/files/{os.path.basename(fp)}"
                 return docs
@@ -189,7 +186,6 @@ class CanvasManager:
                 pdf_docs.append(doc)
             else:
                 non_pdf_docs.append(doc)
-
         if non_pdf_docs:
             print(f"\n[DEBUG] Splitting {len(non_pdf_docs)} non-PDF document(s) into chunks...")
             text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
@@ -230,12 +226,12 @@ class CanvasManager:
             return None
 
     # ------------------------------------------------------
-    # BUILD ALL SUMMARIES
+    # BUILD ALL SUMMARIES (separate method)
     # ------------------------------------------------------
     def build_all_summaries(self, base_dir: str = "files", summary_base_dir: str = "summary"):
         """
         Traverse the base directory and generate summary CSV files for every supported file.
-        The folder structure is preserved (including the "course files" folder).
+        The folder structure is preserved.
         """
         print(f"\n[DEBUG] Generating summaries for all files under: {os.path.abspath(base_dir)}")
         for root, dirs, files in os.walk(base_dir):
@@ -248,14 +244,15 @@ class CanvasManager:
                         print(f"[DEBUG] Error generating summary for file {file_path}: {e}")
 
     # ------------------------------------------------------
-    # SUMMARY HELPER FUNCTIONS
+    # SUMMARY HELPER FUNCTIONS (with cleaning and post-processing)
     # ------------------------------------------------------
     @staticmethod
     def generate_summary(text: str, max_length: int = 50, min_length: int = 25) -> str:
+        text = CanvasManager.clean_text(text)
         tokens = CanvasManager._summarizer.tokenizer(text, return_tensors="pt", truncation=True)["input_ids"]
         input_length = tokens.shape[1]
         if input_length <= min_length:
-            return text.strip()
+            return text
         adjusted_max_length = max_length if input_length >= max_length else input_length
         result = CanvasManager._summarizer(
             text,
@@ -264,7 +261,9 @@ class CanvasManager:
             do_sample=False,
             truncation=True
         )
-        return result[0]['summary_text'] if isinstance(result, list) else result['summary_text']
+        summary = result[0]['summary_text'] if isinstance(result, list) else result['summary_text']
+        # Post-process summary to clean extra spaces.
+        return CanvasManager.clean_text(summary)
 
     @staticmethod
     def create_summary_csv(file_path: str, summary_base_dir: str = "summary", source_base_dir: str = "files") -> None:
@@ -277,14 +276,14 @@ class CanvasManager:
         if not file_path.lower().endswith('.pdf'):
             splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
             docs = splitter.split_documents(docs)
-        texts = [doc.page_content for doc in docs if doc.page_content.strip()]
+        texts = [CanvasManager.clean_text(doc.page_content) for doc in docs if doc.page_content.strip()]
         results = [None] * len(texts)
         indices_to_summarize = []
         texts_to_summarize = []
         for i, text in enumerate(texts):
             tokens = CanvasManager._summarizer.tokenizer(text, return_tensors="pt", truncation=True)["input_ids"]
             if tokens.shape[1] < 10:
-                results[i] = text.strip()
+                results[i] = text
             else:
                 indices_to_summarize.append(i)
                 texts_to_summarize.append(text)
@@ -297,7 +296,7 @@ class CanvasManager:
                 truncation=True
             )
             for idx, res in zip(indices_to_summarize, batch_results):
-                results[idx] = res['summary_text']
+                results[idx] = CanvasManager.clean_text(res['summary_text'])
         page_summaries = [(f"Page {i+1}", summary) for i, summary in enumerate(results)]
         overall_text = " ".join(texts)
         overall_summary = CanvasManager.generate_summary(overall_text)

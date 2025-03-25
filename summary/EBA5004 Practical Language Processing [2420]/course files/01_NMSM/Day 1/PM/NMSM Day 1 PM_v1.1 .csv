@@ -1,51 +1,50 @@
 Page,Summary
-Page 1," Dr. Wang Aobo: New Media, New Media and SENTIMENT MINING Guidelines . New Media Guidelines: LEXICON-BASED & SUPERVISED METHODs ."
-Page 2, Considerations for Sentiment Analysis System . Considerations include Lexicon-based approach for sentiment mining. Considerations are based on Lexicon and Word Embeding Vectors as Features2 .
-Page 3, Cost and Speed: E-commerce reviews: Platforms like Amazon process trillions of customer  reviews daily . Social Medial Monitoring: Processing millions of social media posts per second . Model refreshment with newly collected data every day
-Page 4," Financial sentiment analysis (e.g., stock market news sentiment): A                 finance-specific model trained on SEC filings, earnings reports, and analyst reviews outperforms general GPT-based sentiment analysis ."
-Page 5, Considerations for Sentiment Analysis System . Considerations include Lexicon-based approach for sentiment mining. Considerations are based on Lexicon and Word Embeding Vectors as Features5 .
-Page 6, Shap Analysis with Logistic Regression — SHAP latest  documentation . Explainabilityability. Explainability. 6.6.6: Sentiment Analysis. 6:6:6.7: 6:7:7.
-Page 7, Microsoft Learn ML.NET models with Permutation Feature Importance . Explainabilityability. Explainability.7.7: Interpretability. 7:7:7-Interpretability .
-Page 8," Explainability.8.8: Explainable AI, LIME & SHAP for Model Interpretability . Unlocking AI's decision-making . Unlock AI's Decision-Making ."
-Page 9, Considerations for Sentiment Analysis System . Considerations include Lexicon-based approach for sentiment mining. Considerations are discussed in the form of a proposal for a sentiment mining system .
-Page 10, A pre-trained sentiment model can do this cheaply without needing GPT’s advanced reasoning . The chatbot analyzing user sentiment in real-time needs fast processing .
-Page 11,"Cost and Speed
-11"
-Page 12, Considerations for Sentiment Analysis System . Considerations include Lexicon-based approach for sentiment mining. Considerations are based on Lexicon and Word Embeding Vectors as Features .
-Page 13, The Typical Sentiment Analysis System is designed to help people understand their feelings in the social media world . The system is based on an image of a person with a negative view of the public .
-Page 14," In any business analytics system, the business objectives need to be clearly defined . Examples of typical business objectives include: To reduce customer churn by focusing on their key complaints . To anticipate stock market reactions based on public sentiments. To detect fake news"
-Page 15," The pre-processing pipeline will be dependent on type of text data we are working with . Social media from media like WSJ, Reuters are usually well-structured and can be extracted relatively easily ."
-Page 16," Before training the sentiment analysis models, we need to ensure that the training is of sufficiently high quality . Garbage in garbage out phenomenon is very real . There are two ways of improving the quality of the training corpora: Having domain experts"
-Page 17, Step 4: Sentiment Classification  and Scoring . Different levels of sentiment classification (e.g document-level and sentence-level)
-Page 18, Key performance indicators (KPIs) refer to a set of quantifiable measurements used to gauge a business value of the system . KPIs are related to the concept of Return on Investment (ROI)
-Page 19, Lexicon-based semi-supervised approach to the world's most complex computer systems is being used in the U.S. 1.1919.19.
-Page 20, Lexicon semi-supervised approach uses observations from words/ their patterns to construct rules for sentiment scores . The sentiment scores from individual ‘patterns’ are aggregated and aggregated .
-Page 21," Lexicon-based approach uses a sentiment lexicon (patterns - words, iopinions, idioms) and composite expression, composite expression ."
-Page 22," Lexicon semi-supervised approach . Opinion Lexicon: list of words, phrases, expressions used to express sentiment . +ve terms: good, excellent, cool, wow! …                : stinks, bad, old"
-Page 23," Creating the Opinion Lexicon is a combination of manual, dictionary and corpus-based approaches . Manual: by inspection, by inspection; dictionary: own source, WordNet, SenitWordNet for words/phrases; corpus:"
-Page 24," The phone’s call quality is not good [1], but its battery life is long . Apply sentiment shifters and handle but-clauses . Call quality – negative, battery life - positive ."
-Page 25," A simple method as example: Assumption: the target entities and aspects are known                 (as NER in a sentence, or in a specific review)                .                : Mark sentiment words and phrases, apply sentiment Rules (such"
-Page 26," Negation words like not, never, none, nobody, nowhere, neither, cannot…(identify with the adjective if less than ‘n’ words?) ""The taste is not good.” ""The"
-Page 27," Decreased (or removal, disappearance)  and  increased quantity of an opinionated item (NEG and POS, often nouns) can change its orientation ."
-Page 28, The quantity or change of quantity of potential positive or negative items (PositivePolarity Item) is the quantity or . change of the potential  positive or  negative items . These items include “battery life”
-Page 29," When multiple sentiment words occur together, “terribly(-) good(+)’s “pretty (+) ugly (-)” is ‘pretty’ and ‘ugly’, ‘terribly"
-Page 30, The rules include: “extremely happy’ (for granular scale of sentiment) “Extremely happy” and ‘extremely unhappy’ “.” (for “girglygranular
-Page 31, “Fast forward” “I’m feeling lucky” is a sentiment word . Sentiment words in non-opinion contexts: “Best Denki” and “Hope you get well soon
-Page 32, Many sentiment words have multiple meanings or senses and they do  not always express sentiment in all contexts . Words with different senses can have different sentiment .
-Page 33, Unsupervised training method is shown to perform well in a large number of applications . Supervised training is dependent on training data which needs to be manually labelled for each domain . Models trained in one domain often perform poorly in
-Page 34, Supervised approach  34.34.34 . Supervised approach to adviser and supervised approach . 2.2.3.4.5.4 .
-Page 35, The Supervised Classifier System is a self-learned computer-controlled system . It is designed to be able to monitor and train people to identify and identify a person . It was designed to teach people how to use the system .
-Page 36, Sentiment Analysis Classifiers:                                  problems provide an algorithm that predicts sentiment analysts concerning their nearest neighbors . The algorithm is based on Bayes Bay
-Page 37, Training data for sentiment analysis was used to train data on sentiment analysis . The training data was used in the form of training data to train people to understand sentiment .
-Page 38," The training and test data sets should be used from the same domain as far as possible . In generating training data set, go for “high-precision” and “low recall”"
-Page 39," The training data set is usually not static but requires fine-tuning even after production . This helps to account for changing fads in expressions, languages slangs etc as well ."
-Page 40," First, a revision over synsets (revision primer from Text Mining) Then expand and modify the dictionary corpus . Using existing dictionary corpus, egs are: sentWordNet, SentWordNet and public sources eg. Liu"
-Page 41," WordNet is a large lexical database of English . Nouns, verbs, jectives and adverbs are grouped into sets of cognitive synonyms . SentiWordnet adds on to WordNet by assigning sentiment polarity ."
-Page 42, The bootstrapping of wordnet’s synsets can be understood in 2 steps . Use a seed set of positive                 and negative words with                 their sentiment . These words then takes on the original seedset�
-Page 43, Use the meta-data in social media to assign positive  or negative ratings to the comment posts . Use high or low ratings as  positive labels; and  high ratings as negative labels .
-Page 44, User-generated ratings are based on user-generated reviews . Mind the biased reviews. Mind the bias of the reviews. Remember your reviews .
-Page 45, Features for sentiment analysis: 2.45.45 . Features for the sentiment analysis are based on sentiment analysis . The sentiment analysis is a form of analysis of sentiment in the form of sentiment analysis.
-Page 46, Some common features used in sentiment analysis are: POS tags (adjectives or nouns) Part of speech tags (POS tags) and phrases (n-grams) Syntactic dependency (more about this on Day 3) The
-Page 47, Feature Selection (or extraction) is used to select relevant features and reduce the number of  features used in the matrix . Various ways (trial-and-error) include removing features that appear rarely in the documents .
-Page 48, Two key steps before building a sentiment analysis are: Training data (corpus) selection/ generation and Features selection . These pre-steps are key to the success of a sentiment analysis .
-Overall Summary," Aims for Sentiment Analysis System: Lexicon-based approach for sentiment mining . Model refreshment with newly collected data every day . Models trained on SEC filings, earnings reports, and analyst reviews outperforms GPT-based sentiment analysis"
+Page 1,EB5204: NEW MEDIA AND SENTIMENT MINING MODULE 2.2: LEXICON-BASED & SUPERVISED METHODS Dr. Wang Aobo isswan
+Page 2,sentiment mining is a lexicon-based approach to analyzing and analyzing data . it is based on a Lexicon-based method of identifying and identifying words . Feature engineering for sentiment mining can
+Page 3,e-commerce platforms like amazon process trillions of customer reviews daily . social media monitoring: processing millions of social media posts per second . model refreshment with newly collected data every day.
+Page 4,"a finance-specific model trained on SEC filings, earnings reports, and analyst reviews outperforms general GPT-based sentiment analysis . a finBERT / AZFinText ."
+Page 5,sentiment mining is a lexicon-based approach to analyzing and analyzing data . it is based on a Lexicon-based method of identifying and identifying words . Feature engineering for sentiment mining can
+Page 6,SHAP latest documentation explainsability 6 Sentiment Analysis with Logistic Regression . explanationability 6 is the latest document in the Explainability series .
+Page 7,ML.NET models with Permutation Feature Importance - Microsoft Learn how to use ML .NET | Explainability 7 .
+Page 8,"Explainability 8 Explainable AI, LIME & SHAP for Model Interpretability . Unlocking AI's Decision-Making Power | DataCamp ."
+Page 9,sentiment mining is a lexicon-based approach to analyzing and analyzing information . it is based on a Lexicon-based method of analyzing data . Feature engineering for sentiment mining can be used to
+Page 10,a chatbot analyzing user sentiment in real-time needs fast processing . a pre-trained sentiment model can do this cheaply without needing advanced reasoning .
+Page 11,Cost and Speed 11
+Page 12,sentiment mining is a lexicon-based approach to analyzing and analyzing information . it is based on a Lexicon-based method of analyzing data . Feature engineering for sentiment mining can be used to
+Page 13,0. Overview of Typical Sentiment Analysis System Step 1 Step 2 Step 4 Step 5 Step 3 Step 4 .
+Page 14,the business objectives need to be clearly defined in any business analytics system . examples of typical business objectives include: 1. to reduce customer churn . 2. To anticipate stock market reactions based on public sentiments 3. To detect fake news
+Page 15,"the next step is to identify the data source and type of text data . social media from media like WSJ, Reuters are usually well-structured and can be extracted relatively easily ."
+Page 16,step 3: Identifying Training Corpora . two ways to improve quality of training corpora: 1. Having domain experts to perform data annotations . perform tasks such as Subjectivity Classification and Sarcasm Detect
+Page 17,examples of supervised sentiment classification methods 1. Nave Bayes methodology 2. K Nearest Neighbour (kNN) Classification 3. Maximum Entropy Method 4. Support vector machine (SVM) 2. Syntactic
+Page 18,"key performance indicators (kPIs) refer to a set of quantifiable measurements used to gauge a business value of the system . resources (e.g. manpower, time, budget) are expended in the"
+Page 19,1. Lexicon-based semi-supervised approach 19 . 1. . 2. . 3. . 4. . 5.
+Page 20,Lexicon semi-supervised approach uses observations from words/ their patterns to construct rules for sentiment scores . most used in industry practice actually. Especially finance because of its flexibility .
+Page 21,"compute the sentiment polarity of a target in a sentence by using sentiment aggregation . also consider sentiment shifters, but-clauses, and the syntactic relationships of sentiment expressions and opinion targets"
+Page 22,"-ve terms: stinks, bad, old-fashioned, yuck!,... There are flaws – note due to the context . ""the bag is a little big for her"""
+Page 23,"the Opinion Lexicon is a combination of manual, dictionary and corpus based approaches . knowing some sentiment words helps to find more . ""the dress is elegant and refined but provocative"" is one example ."
+Page 24,"the phone’s call quality is not good [+1], but its battery life is long [+1] • Apply sentiment words and phrases ."
+Page 25,"main steps: Mark sentiment words and phrases; apply sentiment rules (such as negation words) Aggregate opinions; Across sentences and time, weighing by its importance ."
+Page 26,"auxiliary verbs (e.g., would, should, could, might, must, ought) may change sentiment orientation, but not always . ""the service could be improved."" ""it hardly works."" ""the car failed"
+Page 27,"increased quantity of an opinionated item (NEG and POS, often nouns) can change its orientation . ""this drug reduced my pain significantly."" ""my pain disappeared after taking the drug."""
+Page 28,"the camera memory went up a lot. ""the battery life is short."" ""Sony reduced the price of the camera."" POS NPI + no/low/less/decreased => POS 28 ."
+Page 29,"if two sentiment words have the opposite polarity, the first adjective gets higher weight . if in two clauses connected by ""but"", the one after the connector is dominant ."
+Page 30,"other rules: Consume resource and produce waste . ""after taking the drug, my blood pressure went up to 200"""
+Page 31,Sentiment words in non-opinion contexts need to be careful with such words . Entity names containing sentiment words “best denki” and “fast forward” are a good example .
+Page 32,"many sentiment words have multiple meanings or senses and they do not always express sentiment in all contexts . some express different sentiments in different context ""this car smells,"" ""this perfume smells good,"" ""This room has"
+Page 33,Pros and cons of unsupervised training methods . supervised methods have shown to perform well in a large number of applications . Cons: heavy investment in time and effort to build the initial knowledge base .
+Page 34,2. Supervised approach 34
+Page 35,35 Overview of Supervised Classifier System Training set generation Features engineering . supervised training set generation .
+Page 36,oNave Bayes o K-Nearest neighbor o Max Entropy o Support Vector machine o Deep learning (detailed in next class)
+Page 37,1. Training data for sentiment analysis 37
+Page 38,"in generating training set, go for 'high-precision' and 'low recall' high precision means be sure those you say are positive are indeed positive . those that are negative are indeed negative . Normally happens"
+Page 39,"the training data set is usually not static but requires fine- tuning even after production . this helps to account for changing fads in expressions, languages slangs etc as well ."
+Page 40,w3.org/community/sentiment/wiki/Datasets iii. nltk corpus Then expand and modify the dictionary corpus .
+Page 41,SentiWordnet adds on to WordNet by assigning sentiment polarity to these senses . the training corpus can be expanded using bootstrapping .
+Page 42,the bootstrapping of wordnet synsets can be understood in 2 steps . use a seed set of positive and negative words with their sentiment .
+Page 43,use the meta-data in social media to assign positive or negative ratings . use high ratings this as positive labels; and low ratings as negative labels .
+Page 44,User-generated ratings 44 . user-generated reviews . ireport.com: tell us what you think .
+Page 45,2. Features for sentiment analysis 45
+Page 46,some common features used in sentiment analysis are: Part of speech (POS) tags (adjectives or nouns) Negations • Syntactic dependency (more about this on Day 3)
+Page 47,Various ways (trial-and-error) to reduce the number of features used in the matrix . Remove features that appear rarely in the documents . Leverage on the labels to pick K most useful features .
+Page 48,training data (corpus) selection/ generation ii. Features selection . features selection requires domain expertise . training data selection needs to be as similar as possible to production data .
+Overall Summary,ML.NET and SentiWordNet will be presented at a conference in london on october 8 . the workshop will focus on the use of a supervised sentiment analysis system
