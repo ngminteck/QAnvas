@@ -1,7 +1,6 @@
 # Ignore the models directory
 keys/
 files/
-summary/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -31,7 +31,7 @@ class CanvasManager:
     # Initialize the summarization pipeline with T5 (for summarization)
     _summarizer = pipeline(
         "summarization",
-        model="t5-small",   # you can change to "t5-small" if desired
+        model="t5-small",   # you can change to a different model if desired
         tokenizer="t5-small"
     )
 
@@ -45,14 +45,27 @@ class CanvasManager:
     @staticmethod
     def clean_text(text: str) -> str:
         """
-        Clean the input text by stripping HTML tags, normalizing whitespace,
-        and removing extraneous characters.
+        Clean the input text by stripping HTML tags, removing sensitive personal information,
+        normalizing whitespace, and removing extraneous characters.
         """
         # Remove HTML tags and decode entities.
         text = CanvasManager.strip_html(text)
-        # Replace multiple whitespace with single space.
+        # Remove sensitive personal information (emails and phone numbers).
+        text = CanvasManager.remove_sensitive_info(text)
+        # Replace multiple whitespace with a single space.
         text = re.sub(r'\s+', ' ', text)
         return text.strip()
+
+    @staticmethod
+    def remove_sensitive_info(text: str) -> str:
+        """
+        Remove sensitive personal information such as email addresses and phone numbers.
+        """
+        # Remove email addresses.
+        text = re.sub(r'[\w\.-]+@[\w\.-]+\.\w+', '[REDACTED_EMAIL]', text)
+        # Remove phone numbers: matches various formats including international ones.
+        text = re.sub(r'(\+?\d[\d\-\s().]{7,}\d)', '[REDACTED_PHONE]', text)
+        return text
 
     # ======================================================
     # DOWNLOAD FILES FUNCTIONS (unchanged)
@@ -739,7 +752,7 @@ class CanvasManager:
             for idx, (score, course, ann) in enumerate(matches, start=1):
                 desc = getattr(ann, "message", None) or getattr(ann, "description", None)
                 if desc:
-                    desc = self.strip_html(desc)
+                    desc = CanvasManager.strip_html(desc)
                 created_at = getattr(ann, "created_at", None)
                 print("-" * 50)
                 print(f"Announcement {idx}:")
@@ -845,12 +858,12 @@ if __name__ == "__main__":
     manager = CanvasManager(API_URL, api_key)
 
     # Uncomment the following line to download all files
-    #manager.download_all_files_parallel(base_dir="files")
+    # manager.download_all_files_parallel(base_dir="files")
 
     # To build the embedding index (without generating summaries):
-    #manager.build_embedding_index(index_dir="chroma_index")
+    manager.build_embedding_index(index_dir="chroma_index")
 
-    # To generate summaries separately:
+    # To generate summaries separately (with sensitive information removed):
     manager.build_all_summaries(base_dir="files", summary_base_dir="summary")
 
     """
