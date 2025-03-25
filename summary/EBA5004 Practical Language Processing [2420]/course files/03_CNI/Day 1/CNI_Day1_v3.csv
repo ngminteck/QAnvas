@@ -1,89 +1,89 @@
 Page,Summary
-Page 1," The contents of this document may not be reproduced in any form or by any  means, without the written permission of ISS, NUS, other than for the purpose for which it has been supplied ."
-Page 2," The course aims to learn skills to design and implement systems that  can interact with users using spoken or written natural language, like chatbots and virtual assistants ."
-Page 3, The 2025 National University of Singapore is Singapore's most prestigious university . Students will be able to take part in the course at the university's new campus .
-Page 4, The National University of Singapore 2025 course includes a four-week course on Conversational UIs . The course is designed to help students understand the content of the user’s interactions .
-Page 5, 2025 National University of Singapore . All rights reserved.  All rights to be published at the National Institute of Singapore’s website .
-Page 6," 2025 National University of Singapore . All rights reserved. For confidential support call the Samaritans on 08457 90 90 90, visit a local Samaritans branch or click here for details ."
-Page 7, CUIs? Virtual Assistants? Conversational Agents? CUIs are virtual assistants or conversational agents . The National University of Singapore is developing a chatbot that can be programmed to interact interactively .
-Page 8, Chatbots Are Here to Stay by Accenture Research . Chatbots are here to stay by 2025 National University of Singapore .
-Page 9," It can be used to take over inquiries coming into the customer service desk, reducing the need for human agents . It can also be used as an alternative UI for enterprise software ."
-Page 10," The National University of Singapore's new software is based on the work of 2025 National University Singapore . The software is designed to help customers perform activities like booking tickets, ordering food, managing accounts, etc."
-Page 11, 2025 National University of Singapore . All rights reserved.  All rights to the author of this article are subject to copyright .
-Page 12, 2025 National University of Singapore . All rights reserved.  All rights to be published at the National Institute of Singapore’s website .
-Page 13," Intents - an end-user’s intention for one conversation - can be matched with actions . Responses – text, speech, or visual responses to be  returned to the user - may be used to invoke an intent ."
-Page 14," 2025 National University of Singapore . All rights reserved.  All rights to the National Institute of Singapore. For confidential support on suicide matters call the Samaritans on 08457 90 90 90, visit a local Samaritans branch or click here for"
-Page 15," Modular systems – different components taking care of  separate functions, e.g. status tracking, response generation, etc.; often used for task-oriented dialog . End-to-end systems - one single model trained from a "
-Page 16," 2025 National University of Singapore . All rights reserved.  All rights are reserved. For confidential support call the Samaritans on 08457 90 90 90, visit a local Samaritans branch or click here for details ."
-Page 17, Chat (typed) and voice interfaces demand different design considerations . Custom UI may be preferred in virtual assistant cases for tight UI control control .
-Page 18, NLP and intent matching are often tightly tightly integrated in applications . Sentence re‐writing and tagging the represemantic entities in the input
-Page 19, Contextual clues can improve intent matching accuracy . Larger systems need to group intents for scalability .
-Page 20," Contextual information is vital for intent matching, necessary for applications with frequent use . A proactive chatbot initiates dialogues"
-Page 21, Chatbots are expected to do some small talk with scripted dialogue . Brokering is needed when multiple handlers available for one intent
-Page 22," NLG, more sophisticated than pre‐scripted responses, may need to combine multiple answers into compound response . Personalize the response "
-Page 23," Chatbots may even communicate with other chatbots using natural language . Chatbot integration capabilities require integration with existing systems . Chatbots can be integrated into existing systems, such as those of the National University of Singapore ."
-Page 24, The National University of Singapore's analytics capabilities help handling error situations by gathering questions by human operators . Analytics can generate reports with 
-Page 25," 2025 National University of Singapore.  All rights reserved. Page 25: Major, Major, Conversational, Platforms and Platforms ."
-Page 26," The Large Language Model (sequence-to-sequence and augoregressive transformers) and transfer learning . Trained with dialogue data or conversation-like data, to generate ."
-Page 27," BlenderBot (Meta AI), DialoGPT (GPT), GODEL,                 Meena and LaMDA (Google), Sparrow (Deepmind), GPT3.5/4, Claude, LlaMa"
-Page 28," Hallucination, lack of real-time knowledge or proprietary knowledge, may provide outdated or inaccurate information . Bias in response, limited context retention, security risks with sensitive data or financial information, risk of prompt injection attack . Lat"
-Page 29, 2025 National University of Singapore . All rights reserved.  All rights to the authors of this article are protected under the law of law .
-Page 30, Prompts play a critical role in grounding the model for better context . Structure the prompts by separating messages into different roles . System - contexts –U s e r  – t h e  i n p u t – – Chatbot
-Page 31," End-to-End systems work by injecting the data into the input context to the model . For task-based applications, e.g. ticket booking, food ordering, taxi booking, etc. Train and adapt for tasks"
-Page 32," Informational chatbots need to have access to up-to-date, domain-specific information which is not in the language model ."
-Page 33," Chatbots also need to take actions like booking a flight, ordering food, sending an email, and retrieving real-time information like stock prices and sports scores ."
-Page 34, 2025 National University of Singapore . All rights reserved.  All rights to be published at the 2025 National Universities of Singapore.
-Page 35," 2025 National University of Singapore . All rights reserved.  All rights are reserved. For confidential support call the Samaritans on 08457 90 90 90, visit a local Samaritans branch or click here for details ."
-Page 36," Exercise: F i n d  a task-based chatbot online, talk to it online, or recall your last experience using a chatbot for a task . Then state the following at _______– The objective of the chatbot"
-Page 37," There’s three non-stops today. The first one departs PGH at 10:00am . The second flight departing at 5:55pm, ar"
-Page 38," A conversation is a sequence of turns, a speaker contributes to the dialogue at each turn, which might be single or multiple sentences . Need to know when to start/stop talking is to rely on cues embedded in sentence structure, inton"
-Page 39," An utterance does not just present the information – it performs an action . E.g. request, warning, promise, apology, greeting, declaration, invitation, compliment, etc."
-Page 40, Adjacency pairs - Certain turns have specific follow-ups . Invitation – acceptance or rejection with explanation– Apology – acknowledgement. Repairs / corrections - Clarification questions .
-Page 41," Some conversations might be controlled by one speaker (e.g. a  reporter interviewing a tennis player), who has the conversational initiative . Conversations can also be mixed initiative, with the initiative shifting back and forth between the participants ."
-Page 42, Efficient communication relies on the inherent cooperation between conversational participants . The Maxim of Quality – the truth of what we say and the quantity of info that we provide – is the Maxim of Relevance .
-Page 43, 2025 National University of Singapore . All rights reserved.  All rights to be published at the National Institute of Singapore’s website .
-Page 44," A design language based on human conversation is a synthesis of several design disciplines, including interface design, interaction design, visual design, motion design, audio design, and UX writing . The role of the designer is to map out what the user"
-Page 45, 2025 National University of Singapore . All rights reserved.  All rights to be published at the National Institute of Singapore.
-Page 46, 2025 National University of Singapore . All rights reserved. Page 46: Step-by-step. Step by the author of this article .
-Page 47," The National University of Singapore’s National Institute of Singapore has published a guidebook on how to create a user-friendly system . The guidebook is published by the National Institute for Computer Science, Singapore, and is available on the"
-Page 48," With no persona design With persona design with persona design . Page 48: Create, create, create and create . Figure 48: Creating, creating, creating and creating ."
-Page 49," Persona - the conversational partner you create to interact directly with users (evoking distinct tone, word choice, style, personality, etc.) Brainstorm a list of adjectives describing the persona . Narrow down to 4-"
-Page 50, The chatbot was created by 2025 National University of Singapore . It is the first of its kind to have been created by Singapore's National Institute of Technology . The bot is designed to be able to interact with a chatbot .
-Page 51, Talk to the AI characters here: https://npc.ai/arcade . © 2025 National University of Singapore .
-Page 52, The Cooperative Principle: Don’t monopolize the conversation . Give clear prompts for the user to take action ( e.g. a question) Keep turns brief and optimally relevant from the user’s  point of view
-Page 53, 2025 National University of Singapore . All rights reserved.  All rights to be published at the National Institute of Singapore.
-Page 54, 2025 National University of Singapore . All rights reserved.  All rights to the authors of this article are subject to consideration .
-Page 55," 2025 National University of Singapore . All rights reserved. Page 55: ""Another example. Another example. That example.”"
-Page 56," Pronquatives referring to entities mentioned in the previous turn are often omitted from the dialog . References to what’s on the screen are often used to refer to the user's geographical location, current time, etc."
-Page 57, 2025 National University of Singapore . All rights reserved.  All rights to the Singaporean university . Use this article to help students understand more about Singaporean students' experiences .
-Page 58," Greetings – Welcome the user, set expectations, and let the user take control . Questions – What size do you want?– Acknowledgement – Okay– Confirmations – Got it. In what size?– Apologies –"
-Page 59, The National University of Singapore’s conversational system is designed to be conversational . It is based on the language of the language used by the university of Singapore .
-Page 60," Use everyday language and common terminology, and  avoid technical jargons and sophisticated language . Add variation by randomizing – choose from a few conversational alternatives ."
-Page 61," 2025 National University of Singapore.  All rights reserved. Page 61: High-level, high-level and low-level flows ."
-Page 62," 2025 National University of Singapore.  All rights reserved. Page 62: High-level, high-level and low-level flows ."
-Page 63, 2025 National University of Singapore . All rights reserved.  All rights to the Singaporean university . Visit 2025 Singaporean University's website to find out more .
-Page 64," Errors in human-to-human conversations, when they don’t respond to you or when they say something that  confuses you, are asked to do something that you can't do, are erroneous . System can�"
-Page 65, An apology with a condensed repetition of the original  question is typically an apology . Don’t give vague promises that will erode user confidence . End the conversation gracefully after 2 nd attempt fails to avoid further frustration .
-Page 66," Possible causes: hasn't spoken loud enough, or the user hasn’t said anything (still thinking, unsure, left the room, distracted, changed their mind, or spoke before the mic opened) Repeat/rephrase the"
-Page 67, The National University of Singapore provides guidance on how to deal with errors that might be caused by a system failure or an invalid request from user . The guide to dealing with errors is published by 2025 .
-Page 68, 2025 National University of Singapore . All rights reserved.  All rights to the author of this article are subject to consideration .
-Page 69," The National University of Singapore has published a guidebook on the design of its new software . The book is published by the National Institute of Singapore, 2025 . The guidebook is available to download and test ."
-Page 70," The long tail is the most common path to navigate the most commonly common detours . For highly uncommon paths (the long tail), consider  a generic solution like generic prompts ."
-Page 71," Consider different devices used when the conversation occurs: Smart speaker, headphones, smart display, smart car, smart TV, laptop, phone, watch, etc. Consider how different devices are used in the conversation: Smart speakers, headphones and smart"
-Page 72, Use everyday language and common terminology . Avoid monologues and avoid technical jargons and sophisticated language . Add variation by randomizing – choose from a few conversational alternatives .
-Page 73," 2025 National University of Singapore . All rights reserved. For confidential support on suicide matters, call the Samaritans on 08457 90 90 90, visit a local Samaritans branch or click here for details ."
-Page 74, The National University of Singapore’s language recognition system was designed to detect design and implementation errors . The system is designed to test how well the system meets its objectives and the users’ expectations .
-Page 75, Speech-to-text transcription and ‘Who spoke when’ diarization.’ Annotate the transcript to indicate when each participant speaks.
-Page 76," Common metrics are based on logs of the interaction of users with the system . E.g. the duration of the dialog, number of turns and the quality of the synthesized speech ."
-Page 77, It takes the amount of time that it takes to start engaging  a task after any instructions and other messages provided by the  automotive system . The National University of Singapore has published the findings .
-Page 78," The Subjective Assessment of Speech System Interfaces ( SASSI) is based on 34 statements related to 6 factors in Likert scales: Likeability, cognitive demand and speed ."
-Page 79," 2025 2025 National University of Singapore . All rights reserved. Page 79: ""SassI"" ""System response accuracy,"" ""Cognitive demand,"" ""Likeability,"" ""Speed,"" ""Habitability"""
-Page 80," There are Quantifiable measures to monitor and assess the bot’s  performance . Total users of the bot are estimated to be more than 100,000 people ."
-Page 81," Bot messages – total number of messages sent by the bot in each interaction (conversation length) – number of conversations started and successfully completed on a given day . Bot messages: Bot messages, bot messages, in messages, total number"
-Page 82, Retention rate – percentage of users returning to use the bot  in a given time frame . Goal completion time/messages/taps – the lower the better . Fallback rate – Percentage of times when the bot fails .
-Page 83," Neuro-conversational agents need to handle a wide variety of topics, focusing on naturalness of conversation . Sensibleness and Specificity are key metrics for neural conversational agents ."
-Page 84," Chatbot Arena is a benchmark platform for large language models (LLMs) It features anonymous,  randomized battles in a crowdsourced manner . Ask any question to two anonymous AI chatbots (ChatGPT, Gemini, Claude,"
-Page 85," Traditional auto-scoring methods (like BLEU, ROUGE, METEOR) don’t compare machine response to reference response, and they DON’T correlate well with human scores . Traditional auto"
-Page 86," Use the LLM to judge whether the output is correct (e.g. relative to the reference answer) or whether it adheres to specific criteria . Regression testing: measure the chatbot’s performance across experiments, or"
-Page 87, Gartner reports (2019) – Market Guide for Virtual Customer Assistants– Market guide for Conversational Platforms– Architecture of Conversational platforms . – The.Definitive. Guide to the Google.com/assistant/
-Overall Summary," The contents contained in this document may not be reproduced in any form or by any . without the written permission of ISS, NUS, other than for the purpose for which it has been supplied . At the end of this module, you"
+Page 1,"the contents contained in this document may not be reproduced in any form or by any means, without the written permission of ISS, NUS, other than for the purpose for which it has been supplied ."
+Page 2,"learn skills to design and implement systems that can interact with users using spoken or written natural language, like chatbots and virtual assistants . this module aims to develop applications with conversational UI using traditional and machine learning approaches ."
+Page 3,Page 3 Course Lecturers Dr. Fan Zhenzhen Dr. Wang Aobo Dr. Gary LEUNG .
+Page 4,Course agenda Introduction to Conversational UIs Conversation Design . Day 1 Understanding the Content of User’s Utterances Response Generation Day 2 Speech processing basics Speech recognition (Speech-to-Text)Speaker
+Page 5,Page 5 Introduction to Conversational UI at the National University of Singapore . all rights reserved. Page 5 Conversational U.S. UI: UI and Conversational Design .
+Page 6,Page 6 Conversational UI a new paradigm of user interface design . page 6 UI: a conversational user interface (UI) .
+Page 7,Page 7 Chatbots or ... ... CUIs? Virtual Assistants? Conversational Agents? Dialogue Systems?
+Page 8,Chatbots are here to stay by Accenture Research . https://www.accenture.com/_acnmedia/pdf-77/accenture-research-conversational-ai-platform
+Page 9,"customer service to take over inquiries coming into the customer service desk, reducing the need for human agents . IT service desk aims to automate parts of the service desk to more quickly and effectively solve routine IT problems . examples include vacation"
+Page 10,2025 National University of Singapore. All rights reserved . Informational – Handle inquiries – Provide customer- and context-specific results .
+Page 11,"Page 11 from Alexa: 2025 National University of Singapore. All rights reserved. page 11 from april 20, 2018 ."
+Page 12,Page 12 Choices of Deployment . 2025 National University of Singapore. All rights reserved.
+Page 13,2025 National University of Singapore. All rights reserved. page 13 Main concepts of Conversational UI • Intents - an end-user’s intention for one conversation turn .
+Page 14,2025 National University of Singapore. All rights reserved . Page 14 Main Concepts: a conceptual framework for a research project .
+Page 15,Page 15 Common Architectures of Dialog Systems . end-to-end systems - one single model trained from a dialog dataset; often used for general conversation systems.
+Page 16,"2025 National University of Singapore. All rights reserved . Page 16 Modular Systems, Inc., c/o nusg ."
+Page 17,"Page 17 Detailed Capabilities for User Interface . Chat (typed) and voice interfaces demand different design considerations . rely on external platforms for user interaction, like FB Messenger ."
+Page 18,NLP and intent matching are often tightly integrated in applications . rewriting and tagging the semantic entities in the input can improve intent matching accuracy . realtime unsupervised learning is prone to potential attacks .
+Page 19,"large systems need to group intents for scalability . user may modify an intent along the way, or bring in another intent before the existing one is handled ."
+Page 20,a chatbot initiates dialogues based on events and rules . balancing helpfulness and intrusiveness is crucial for successful implementation .
+Page 21,chatbots are expected to do some small talk . bots can take user input as a query and map to a node in repository .
+Page 22,"2025 National University of Singapore. All rights reserved . Page 22 Response Generation Capabilities . Generate additionally facial expressions, actions if an agent is used ."
+Page 23,many use cases require integration with existing systems . chatbots may even communicate with other bots using natural language .
+Page 24,Page 24 Exceptions and Analytics Capabilities Handling error situations by asking clarifying questions . Generate reports with performance metrics to Identify areas of improvement .
+Page 25,"Page 25 Major Conversational Platforms: a n evolving market . Page 25: neoliberal, edgy, sydney-based conversational platform . page 25:"
+Page 26,page 26 National University of Singapore. All rights reserved . page 26 Leveraging on Large Language Models (sequence-to-squence and augoregressive transformers)
+Page 27,'large language models' have demonstrated abilities to do more than holding a conversation . 'conversational AI' is a powerful natural language understanding and generation .
+Page 28,"major challenges with LLMs Informational • Hallucination: risk of generating incorrect answers . lack of real-time knowledge or proprietary knowledge: may provide outdated or inaccurate information . security risks with sensitive data or financial information,"
+Page 29,LLM as-a-service https://www.datacamp.com/blog/llmops-essentials-guide-to-operationalizing-large-language-models/
+Page 30,structure the prompts by separating messages into different roles . 'chatbot' and 'assistant' are the output of a structured prompt .
+Page 31,"Earlier research made End-to-End systems work by injecting the external data into the input context to the model . e.g. ticket booking, food ordering, taxi booking, etc."
+Page 32,"chatbots need access to up-to-date, domain-specific information which is not in the language model -> content retrieval -> memory -> remember past interactions with the user with a certain window size ."
+Page 33,"openAI Assistants API supporting 3 types of tools: Code Interpreter, File Search, and Function Calling . tool calling expands their capabilities beyond response generation ."
+Page 34,Page 34 Tool calling flow diagrams and flowcharts . page 34 . all rights reserved. Page 34.
+Page 35,"Page 35 About Human Conversation . Human Conversation is a free, open-access, online resource . it's a non-profit organization that aims to improve the quality of life for all ."
+Page 36,"page 36 Exercise •F i n d a taskbased chatbot online, talk to it . state the objective of the chatbot– three things you like about it – Three things you don't like"
+Page 37,uh hmm I don’t think there’s many options for nonstops . there are three non-stops today . a16: It’s a Friday .
+Page 38,"a speaker contributes to the dialogue at each turn – which might be single or multiple sentences . need to know when to start/stop talking – relying on cues embedded in sentence structure, intonation,"
+Page 39,"speech acts perform an action - e.g. request, warning, promise, apology, greeting, declaration, invitation, compliment, etc."
+Page 40,2025 National University of Singapore. All rights reserved . page 40 Opening sequences – greeting then comments on weather/sports... • Closing sequence – e.g. summing up then fare
+Page 41,"conversations can also be mixed initiative, with the initiative being shifted back and forth between the participants . the hearer is expected to draw inference to interpret the utterance (e.g. “i need to be there for"
+Page 42,2025 National University of Singapore. All rights reserved. page 42 Being cooperative • The Cooperative Principle – Efficient communication relies on the inherent cooperation between conversational participants
+Page 43,Conversation Design is a conversational design studio based in the heart of the city of singapur . page 43 Conversation Design aims to create a space where people can connect with each other .
+Page 44,"Conversation Design is a synthesis of several design disciplines, including voice user interface design, interaction design, visual design, motion design, audio design, and UX writing ."
+Page 45,Page 45 The Process of Conversation Design: the process of conversation design . 2025 National University of Singapore. All rights reserved.
+Page 46,2025 National University of Singapore. All rights reserved . Page 46 Step 1: Is conversation the right fit for the task?
+Page 47,Identify your users – who are your users? what are their needs? – What words and phrases do they use to talk about these tasks?
+Page 48,Page 48 Step 3: Create a persona with no persona design . Step 4: Create your own persona using the same persona template . step 5: Create the persona of your dreams .
+Page 49,Create a persona - the conversational partner you create to interact directly with users . Brainstorm a list of adjectives describing the persona (perceived by users) Narrow down to 4-6 .
+Page 50,Page 50 Persona example https://www.userlike.com/en/blog/chatbot-persona-singapore/
+Page 51,page 51 AI characters with persona Talk to the AI characters here: https://npc.ai/arcade
+Page 52,2025 National University of Singapore. All rights reserved . Page 52 Step 4. Write sample dialog . Don’t present all options/questions in a single turn .
+Page 53,Page 53 Example –N o Monologue 2025 National University of Singapore. All rights reserved.
+Page 54,2025 National University of Singapore. All rights reserved. Page 54 The cooperative principle •E . g .
+Page 55,Page 55 Another example 2025 National University of Singapore. All rights reserved. Page 57 201 .
+Page 56,2025 National University of Singapore. All rights reserved . sometimes need knowledge of the previous turn to understand the user’s question .
+Page 57,Page 57 Examples: 2025 National University of Singapore. All rights reserved. Page 58 Examples: Example:
+Page 58,"2025 National University of Singapore. All rights reserved . Choose appropriate prompts – spoken or displayed, or both ."
+Page 59,"you can say something like ""between 2 and 5"" or ""in the afternoon"" if you want the flowers delivered, you can use the command 'commands' or 'suggestions' ."
+Page 60,"use everyday language and common terminology, and avoid technical jargons and sophisticated language . keep the conversation friendly and informal by adding variation by randomizing ."
+Page 61,2025 National University of Singapore. All rights reserved. Page 61 High level flows are a high level of flow that can be measured in terms of a number of factors.
+Page 62,Page 62 High level flows at the national university of Singapore. All rights reserved. Page 63 High level flow rates at the nusg.
+Page 63,2025 National University of Singapore. All rights reserved . Page 63 Questions and Answers . 202 Questions & Answers.
+Page 64,"Errors in human-to-human conversations, when – they don’t respond to you – They say something that confuses you . they ask you to do something you can’t do ."
+Page 65,"end the conversation gracefully after 2nd attempt fails, to avoid further user frustration . don’t give vague promises that will erode user confidence ."
+Page 66,"Error handling –n o input . Possible causes – hasn’t spoken loud enough, or the user hasn't said anything ."
+Page 67,page 67 Error handling – system errors . account for all possible errors that might be encountered from system .
+Page 68,Page 68 Why testing is important? 2025 National University of Singapore. All rights reserved. Page 69 .
+Page 69,usability test of the design . Get people to role play the dialogs as user . Observe their reactions . test in simulators .
+Page 70,Page 70 Step 6: Focus on the key use cases . Step 7: Adequately support the less common detours .
+Page 71,"scale the design from spoken to multimodal conversation . consider different devices used when the conversation happens – smart speaker, headphones – In a car, on a smart display ."
+Page 72,Page 72 Style of Language - Focus on the user . Avoid monologues . avoid technical jargons and sophisticated language .
+Page 73,Page 73 Evaluating Conversational UI at the National University of Singapore . All rights reserved. Page 74 UI: a conversational approach to learning.
+Page 74,page 74 Testing conversational UI (UI) to test how well the system meets its objectives and the users’ expectations .
+Page 75,page 75 E.g. Component EvaluationSpeech Recognition . Transcribe the spoken words to text using ASR technology .
+Page 76,"Page 76 Common System Metrics – Computed from logs of the interaction of users with the system . aka interaction parameters – E.g. the duration of the dialog, number of turns ."
+Page 77,timetotask: the amount of time that it takes to start engaging in a task . Correct transfer rate: the percentage of calls that the customers are correctly redirected to the appropriate human agent . Containment
+Page 78,the chatbot has 34 statements related to 6 factors in Likert scales: • System response accuracy • Likeability• Cognitive demand• Annoyance • Habitability • speed • speed of response • likeability• Likeability • Like
+Page 79,SASSI Statements System response accuracy Cognitive demand Likeability Speed Annoyance Habitability . 2025 National University of Singapore. All rights reserved.
+Page 80,Page 80 Quantifiable measures to monitor and assess the bot’s performance User Metrics Overall trend in user base • Total users of the bot • Active users - who see the intended content in a defined time frame • Engag
+Page 81,Message Metrics How individuals interact with the bot . bot messages – total number of messages sent by the bot in each interaction . miss messages - number of . messages that the bot can’t process .
+Page 82,Retention rate – percentage of users returning to use the bot in a given time frame . Fallback rate - percentage of times when the bot fails .
+Page 83,"page 83 Metrics for LLMs For end-to-end neural conversational agents, which need to handle a wide variety of topics . using common sense to judge if a response is reasonable and specific in the"
+Page 84,"chatbot arena is a benchmark platform for large language models (LLMs) that features anonymous, randomized battles in a crowdsourced manner . u can keep chatting until you find a winner ."
+Page 85,"traditional auto-scoring methods (like BLEU, ROUGE, METEOR) don’t correlate well with human scores . the lower the perplexity, the more confident the model is in generating the next token"
+Page 86,use the LLM to judge - whether the output is correct (e.g. relative to the reference answer) - if it adheres to specific criteria . Capture human grading rules into an LLM prompt
+Page 87,Towards a Conversational Agent that Can Chat About ... Anything . Guide to Tool Calling in LLMs by Sunil Kumar .
+Overall Summary,2025 National University of Singapore. All rights reserved . 25 Conversational UIs - a new paradigm of user interfaces . all rights reserved. . Page 81 Message Metrics How well the bot’s been doing its task .

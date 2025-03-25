@@ -1,5 +1,5 @@
 Page,Summary
-Page 1, The National University of Singapore's Speech-to-speech project will focus on NLP solutions . The project is part of a series of case studies aimed at integrating speech recognition and NLP solution . The aim is to improve the quality of
+Page 1,Accelerating Digital ExcellenceCopyright National University of Singapore Agenda • Day 3 • 3: Case studies: Integrating speech recognition and NLP solutions • Day 4 • 4: Speech synthesis (Text-to-speech)
 Page 2,3
 Page 3,4
 Page 4,5
@@ -51,20 +51,20 @@ Page 49,50
 Page 50,51
 Page 51,52
 Page 52,53
-Page 53, Topic 5: Voice Conversion and Audio  Generation Generation . Voice conversion and audio  generation: Voice Conversion conversion .
-Page 54," Voice Conversion aims to modify an existing voice to resemble another while retaining the original content and linguistic features . It also aims to produce an output that mimics a target voice . Use Cases: Speaker imitation, accent conversion, emotion/style transfer"
-Page 55, CycleGAN-VC: Uses adversarial training to learn mappings between different voice mappings without paired data . Effectively translates voice characteristics from one speaker to another . An extension of StarGAN that enables multi-speaker voice conversion .
-Page 56," The National University of Singapore's new audio generation tool aims to create audio from scratch . Focuses on creating audio, whether it's speech, music, or sound effects, without a predefined input voice ."
-Page 57, AudioLDM2 generates high-quality audio based on text prompts or other audio inputs . Gradually transforms noise into coherent audio by iteratively refining the noise .
-Page 58," Voice Conversion and Audio Generation: Voice Conversion Audio Generation . Goal is to transform a voice to sound like a different speaker . Generation generates new audio (speech,  music, sound effects)"
+Page 53,Topic 5: Conversion of Voices and Audio Generation . Topic 4: Adaptation of Audio to a Speech Format .
+Page 54,aims to modify an existing voice to resemble another while retaining the original content and linguistic features . takes a source voice as input and produces an output that mimics a target voice .
+Page 55,kecl.ntt.co.jp/people/kameoka.hirokazu/Demos/stargan-vc/ 56.
+Page 56,"audio generation focuses on creating audio from scratch, often WITHOUT a predefined input voice . use cases: TTS, music composition, sound effect generation, speech enhancement 57 ."
+Page 57,audioLDM2 converts noise into coherent audio by iteratively refining the signal . audio samples at https://audioldm.github.io/audiodm2/ .
+Page 58,Voice Conversion and Audio Generation Goal Transform a voice to sound like a different speaker . Content Generation does not generate new content (content-preserving)
 Page 59,60
 Page 60,61
 Page 61,62
 Page 62,63
 Page 63,64
 Page 64,65
-Page 65," ChatGPT (Generative Chatbot) produces a conversational response based on a large language model . DialogFlow is a task-oriented Chatbot designed for specific applications, like customer support or booking systems . ChatGpt"
-Page 66, National University of Singapore. Accelerating Digital Excellence . ChatGPT vs DialogFlow is a form of AI that aims to be more open-ended and responsive .
+Page 65,ChatGPT produces conversational response based on a large language model . DialogFlow (Task-oriented Chatbot) Detects intents and extracts entities from user queries to map them to pre-defined responses
+Page 66,"ChatGPT vs DialogFlow Type of AI System Generative, open-ended responses based on context and large-scale data Intent-driven, rule-based responses mapped to predefined structures Conversational Flexibility Flexible"
 Page 67,68
 Page 68,69
 Page 69,70
@@ -81,7 +81,7 @@ Page 79,80
 Page 80,81
 Page 81,82
 Page 82,83
-Page 83, Google Cloud Tech: Integrate Dialogflow with Telephony Gateway . Voximplant: Convert your Chatbot into a Voicebot (can use 3rd party TTS)
+Page 83,Google Dialogflow Place calls on your chatbot | IVR | https://dialogflow.cloud.google.com/ . Voximplant: Convert your Dialogflow Chatbot into a Voicebot (
 Page 84,85
 Page 85,86
 Page 86,87
@@ -96,4 +96,4 @@ Page 94,95
 Page 95,96
 Page 96,97
 Page 97,98
-Overall Summary, Speech processing basics: Speech recognition (Speech-to-text) and Speech synthesis (Text tospeech) are discussed . Voice conversion (voice-conversion) and generation (Spoken chatbot) are presented at the National University
+Overall Summary,"Accelerating Digital ExcellenceCopyright National University of Singapore Topic 5: Voice Conversion and Audio Generation . ChatGPT (Generative Chatbot) produces conversational response based on a large language model . DialogFlow (Task-oriented Chatbot), a chatbot that can use 3rd party tts, can be deployed on various channels ."

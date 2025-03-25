@@ -47,4 +47,4 @@ Page 45,2. Features for sentiment analysis 45
 Page 46,some common features used in sentiment analysis are: Part of speech (POS) tags (adjectives or nouns) Negations • Syntactic dependency (more about this on Day 3)
 Page 47,Various ways (trial-and-error) to reduce the number of features used in the matrix . Remove features that appear rarely in the documents . Leverage on the labels to pick K most useful features .
 Page 48,training data (corpus) selection/ generation ii. Features selection . features selection requires domain expertise . training data selection needs to be as similar as possible to production data .
-Overall Summary,ML.NET and SentiWordNet will be presented at a conference in london on october 8 . the workshop will focus on the use of a supervised sentiment analysis system
+Overall Summary,ML.NET and SentiWordNet will be presented at a conference in london on october 8 . the workshop will focus on the use of a supervised sentiment analysis system . it will also examine how to improve the quality of the training corpora .

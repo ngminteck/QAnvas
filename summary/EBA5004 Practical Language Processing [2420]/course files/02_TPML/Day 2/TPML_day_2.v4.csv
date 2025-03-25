@@ -79,4 +79,4 @@ Page 77,https://www.baeldung.com/java-langchain-basics Framework - LangChain •
 Page 78,Data Pipeline . Split Documents into Chunks . Calling OpenAI API . Embeddings and vector storage .
 Page 79,"performance also a key consideration . word vectors can be generated from word2vec, GLOVE, BERT, ELMO etc."
 Page 80,84 https://towardsdatascience.com/word-embeddings-and-document-vectors-part-2-order-reduction- 2d11c3b5139c . https://
-Overall Summary,"'attention is all you need': a novel architecture that aims to solve sequence-to-sequence tasks while handling long-range dependencies with ease . in the original paper, the transformer is used for machine"
+Overall Summary,"'attention is all you need': a novel architecture that aims to solve sequence-to-sequence tasks while handling long-range dependencies with ease . in the original paper, the transformer is used for machine translation, translating from french to english . all rights reserved ."

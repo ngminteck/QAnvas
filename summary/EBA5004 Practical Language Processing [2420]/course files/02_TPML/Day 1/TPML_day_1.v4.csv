@@ -61,4 +61,4 @@ Page 59,most popular Bi-directional GRU Simplified LSTM . Vanilla not in use any
 Page 60,"Page 60 LSTM with Dropout RNN 0 0 1 0 0,0 1,0,0,1 0 2,0,2 0 Dropout P1=0.5,0 2022 NUS. All"
 Page 61,Page 61 LSTM with Dropout: Variational RNN . Page 62 LStm with dropout: a repeat of a .
 Page 62,2022 NUS. All rights reserved. page 62 LSTM with Dropout . https://arxiv.org/pdf/1512.05287.pdf
-Overall Summary,2022 NUS. All rights reserved . page 57 LSTM What’s inside a 'simple' lstm? .
+Overall Summary,2022 NUS. All rights reserved . page 57 LSTM What’s inside a 'simple' lstm? a: 'i think it’s a good idea to use a simple lntm to learn a new language' Page 61 LStm with Dropout Variational RNN https://arxiv.org/pdf/1512.05287.pdf .

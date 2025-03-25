@@ -76,4 +76,4 @@ Page 74,Reasoning
 Page 75,this is a replicate of DeepSeek-R1-Zero training on small models with limited data RL for Reasoning 1. SFT for cold start 2.
 Page 76,Reasoning
 Page 77,https://github.com/NVIDIA/NeMo/blob/main/tutorials/nlp/Multitask_Prompt_and_PTuning.ipynb
-Overall Summary,LLaMA’s family Model Tuning with Prompts/Instructions Copyright National University of Singapore. All Rights Reserved 3 1 “linearly” increase exponentially Emergent Phe
+Overall Summary,"LLaMA’s family Model Tuning with Prompts/Instructions Copyright National University of Singapore. All Rights Reserved 3 1 “linearly” increase exponentially Emergent Phenomena 13B is very basic, not likely to deal with logic heavy tasks accurately 40B - 50B could be possible."

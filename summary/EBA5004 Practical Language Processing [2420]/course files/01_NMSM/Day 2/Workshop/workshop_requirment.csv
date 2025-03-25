@@ -3,4 +3,4 @@ Page 1,Table 1: Highly Positive and Highly Negative Reviews on the aspect of “
 Page 2,pick up the most similar reviews with respect to the negative/positive reviews . use GLOVE as the vectors and any similarity matrix .
 Page 3,US Airways shows top 5 reviews which are similar to the positive/negative reviews in Table 1 . based on the GLOVE word vectors with any similarity calculation matrix .
 Page 4,US Airways shows top 5 reviews which are similar to the positive/negative reviews in Table 1 . based on the same similarity calculation matrix .
-Overall Summary,"pick up the most similar reviews with respect to the negative/positive reviews from US Airways . use GLOVE as the vectors and any similarity calculation matrix . for US Airways, show top 5 reviews which are similar to the positive"
+Overall Summary,"pick up the most similar reviews with respect to the negative/positive reviews from US Airways . use GLOVE as the vectors and any similarity calculation matrix . for US Airways, show top 5 reviews which are similar to the positive/negative reviews in Table 1 ."

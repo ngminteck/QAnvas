@@ -77,4 +77,4 @@ Page 75,Page 79 Embedding Bias: Page 78 . Page 81 . page 79: Page 80: Page 90: P
 Page 76,Neither GloVe nor Word2Vec has been shown to provide definitively better results rather they should both be evaluated for a given dataset .
 Page 77,Page 81 Train Word2Vec from “scratch” CBOW AND SKIPGRAM . All rights reserved.
 Page 78,"""deep contextualized word representations."" arXiv preprint:1802.05365 (2018). ""Attention is all you need."" Advances in neural information processing systems. 2017. 6. Howard, Jeremy, and Sebastian"
-Overall Summary,neural networks are based on a set of vectors called 'global vectors' . the vectors can be used to predict a word's context . nnp is a
+Overall Summary,neural networks are based on a set of vectors called 'global vectors' . the vectors can be used to predict a word's context . nnp is a class of neural networks that can be applied to a given dataset . it has been shown that it is more efficient than a supervised model . but it has not been proven that it can improve the accuracy of a prediction .
