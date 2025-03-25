@@ -297,9 +297,10 @@ class CanvasManager:
             )
             for idx, res in zip(indices_to_summarize, batch_results):
                 results[idx] = CanvasManager.clean_text(res['summary_text'])
-        page_summaries = [(f"Page {i+1}", summary) for i, summary in enumerate(results)]
+        page_summaries = [(f"Page {i + 1}", summary) for i, summary in enumerate(results)]
         overall_text = " ".join(texts)
-        overall_summary = CanvasManager.generate_summary(overall_text)
+        # Generate a longer overall summary
+        overall_summary = CanvasManager.generate_summary(overall_text, max_length=150, min_length=50)
         print("[DEBUG] Generated overall summary")
         relative_path = os.path.relpath(file_path, source_base_dir)
         csv_relative_path = os.path.splitext(relative_path)[0] + ".csv"
@@ -847,7 +848,7 @@ if __name__ == "__main__":
     #manager.download_all_files_parallel(base_dir="files")
 
     # To build the embedding index (without generating summaries):
-    manager.build_embedding_index(index_dir="chroma_index")
+    #manager.build_embedding_index(index_dir="chroma_index")
 
     # To generate summaries separately:
     manager.build_all_summaries(base_dir="files", summary_base_dir="summary")

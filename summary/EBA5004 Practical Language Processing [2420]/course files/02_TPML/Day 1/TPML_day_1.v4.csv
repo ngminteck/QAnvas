@@ -1,64 +1,64 @@
 Page,Summary
-Page 1, Day 1. Classic DNN for Text Processing. Day 1 . Day 2 . Day 3. All rights reserved for 2022 NUS .
-Page 2, Day 1: Classic DNN for Text Processing. Day 2: Attention & Transformers. Day 3: Transfer Learning with Pre-trained Models. Day 4: Reinforcement Learning with Finetuning .
-Page 3, Automatically put text into categories- Classification- Sentiment detection - Spam email detection - Emotion detection . Extract specific information from the text- Extraction - Named Entity extraction .
-Page 4," Other Fancier Use Cases: Object Classification/Clustering & Recommendation, Search Engine, Voice Assistant, Machine Translation, Grammar Error Correction & Language Learning ."
-Page 5, The moment when NLP became useful is the moment when it became useful . GPT-3 is the result of a successful study of NLP techniques . NUS will publish the findings in 2022 .
-Page 6, The moment when NLP became useful is the moment when it became useful . MicroSoft/OpenAI/GitHub– Copilot 2021 .
-Page 7," The moment when NLP became useful is the moment when it became useful, says Microsoft's Open-AI (Microsoft) 2022– DALLE-2 ."
-Page 8," The moment when NLP became useful was the moment when it became useful, says NUS . 2021-2022 is the year of the year when the world's most powerful language is spoken ."
-Page 9," What can NLP do now? Without Reasoning without Reasoning? NLP can do so much more with the help of NLP . NUS will publish a book in 2022: ""Without Reasoning"""
-Page 10, The RNN and LSTM project is the work of 2022 NUS researchers . The project will focus on data Splits and Evaluation and Optimization .
-Page 11," Data SplitsDNN are always Supervised, except for Reinforcement Learning . All data Splits are always supervised and supervised ."
-Page 12, Train on this Evaluate  Evaluate  during  training and evaluate evaluation before and after training .
-Page 13," K-Fold Cross Validation Evaluation: ""Train,"" ""Train"" and ""Train Valid,"" ""train Valid"" Train Valid Train valid valid Train valid Train validated Train TrainFold 0-fold 1-2 ."
-Page 14, K-Fold Cross Validation Evaluation is part of the NUS initiative to improve the quality of cross-crosscross technology . The NUS is committed to developing the technology to improve cross cross technology in the future .
-Page 15," 2022 NUS. All rights to be published in 2022 . NUS: ""Evaluation & Optimization"" and ""Optimization"" are open to the public ."
-Page 16," Only out-of-date methods such as NaïveBayes and LogR are facing under-/overfitting problems . Latest Deep Learning methods have no such problems, thus dominating in world of Machine Learning ."
-Page 17," 2022 NUS. All rights reserved. Page 17: ""Optimization and Generalization"" page 17: Optimization, Generalization and Optimization ."
-Page 18," NUS: Train longer and increase the complexity of models . Improve the data quality by removing the noisy data from noisy data . Train longer, increase complexity and improve data quality ."
-Page 19, Weights regularization (i.e. adding a cost associated with having  large weights)  put constraints on complexity of the model by forcing its weights to take small values . Dropping out randomly randomly setting activated outputs to zero is
-Page 20, A network with large network weights can be a sign of an unstable network where small changes in the input can lead to large changes . Encourage the network to keep the weights small .
-Page 21," Cost function = Loss (say, binary cross entropy) + Regularization term. L1:. The weights may be reduced to zero. L2 forces the weights to decrease towards zero (but not exactly zero)."
-Page 22," Weights regularization will be regularized when w=2, we get the minimum loss . Without any regularization, the loss of weight will be lessened ."
-Page 23, The Delta rule may be reduced to zero given different 𝝀w weights . It is the result of an iterative approach to weight regularization . The rule is based on the fact that the weight is regularized .
-Page 24," Weights regularization (26,2) regularization and vocabulary_size (26) normalized word level n=26 . Weighs regularization is a form of language that can be used to describe a word ."
-Page 25, The Delta rule has no chance of being 0 has been applied in 2022 NUS . The rule is the result of an iterative approach to weights regularization . NUS.
-Page 26, Weights regularization  forcing its weights to take small values . Dropping out (i.e. randomly setting activated outputs to zero) is effective in regularizing the model .
-Page 27, The Dropout Layer (Dropout Layer) is the dropout layer of a garment that is designed to prevent overfitting . NUS is committed to helping people avoid overfitting in the future .
-Page 28, P=3/6=0.5 -0.1/6 = 0.5/3 =0.2/6/7 = 0/6 . P= 3/6 is 3/4/6; P
-Page 29, The RNN and LSTM project is the work of 2022 NUS researchers . The NUS team is working on the RNN code for text processing and data analysis . The project aims to use the CNN for Text Classification and L
-Page 30, CNN for Text Classification provides a sliding window towards the (1-D) direction of Text . Weights to be learned: Not matrix multiplication (Dot Product) But Convolution .
-Page 31, CNN for Text Classification: Weights to be learned and learned . Weights are shared and shared to be shared by users .
-Page 32, CNN for Text Classification: 'Kernan (Ngram feature extractor)’ – Sliding window towards the (1-D) direction of Text. Weights to be learned and shared and shared . MaxPooling the
-Page 33, CNN for Text Classification: Multi-Kernels (Ngram feature extractors) Weights to be learned and shared . MaxPooling the  results (re-shaping the rows)
-Page 34, Multi-Kernels (Ngram feature extractors) are multi-kernels . Add Dropout layer (optional) and Add Dense layer (re-shape the matrix) – Add Softmax to obtain Probs .
-Page 35, The 2022 NUS workshop will take place in the UK and Australia . It will be the first of its kind to take part in the U.S. National History Month celebrations .
-Page 36, The RNN and LSTM model is based on RNN text Encoder and SeqtoSeq model . The NUS project aims to improve the quality of text data . The project will be presented at the University of Cambridge
-Page 37, Recurrent Neural Networks are the result of recurrent neural networks . The network is a form of a network of neurons and neurons that form a network . It is the result result of a neural network called Recurrent Neural Networks .
-Page 38, RNN Encoder is a better ( than Ngram) way to represent word/sentence . Encode the sequence of word tokens (which CNN lacks of)
-Page 39, RNN Encoder is a better ( than Ngram) way to represent word/sentence . Encode the sequence of word tokens (which CNN lacks of)
-Page 40, NUS Encoder is a better ( than Ngram) way to represent word/sentence . Encode the sequence of word tokens (which CNN lacks of)
-Page 41, Bi-RNN Encoder is a better ( than Ngram) way to represent word/sentence . Encode the sequence of word tokens (which CNN lacks of)
-Page 42," The good the good movie is a good movie, says NUS. The good is the good is good, says the author of a new book ."
-Page 43," W3_h: ""What’s inside A?"" ""A: The good"" ""A"" is ""the good movie"" ""The good"" is the ""good"""
-Page 44," Recurrent Neural Networks with Dense and Softmax (Dense) and Hardmax (Hardmax) have been described as ""predicting networks"""
-Page 45," Recurrent Neural Networks have been created by NUS researchers . They have been called SoftMAX, SoftMAX and SoftMAX . SoftMAX is SoftMAX. SoftMAX SoftMAX (SoftMAX) SoftMAX(1,Classes)("
-Page 46," RNN: ""Bi-Directional RNN is never random"" NUS: ""Never random,"" ""Predict Neutral,"" ""Never Random"""
-Page 47," RNN: ""Bi-Directional RNN is never random"" NUS: ""Never random,"" ""Predict,"" ""never random"""
-Page 48, The RNN and LSTM text Encoder and CNN for Text Classification are discussed in the RNN-LSTM workshop . NUS is committed to the project in 2022 .
-Page 49, RNN Vanishing Gradients: “poof” and “predict” is “Poof’��s’. “PredictLoss’” .
-Page 50, RNN Vanishing Gradients: Long Short Short Term Memory . Historical words are less influential to represent the future words . Keeping a memory of past time steps: Add the memory to the current step. Gates control the strengths of the memory
-Page 51, NUS is committed to developing a framework for learning and problem-oriented programming . The framework is based on the work of NUS professor Peter Schmidhuber and his colleagues .
-Page 52," The shape of the Matrix remains in the shape of LSTM . It is similar to Conv without summing up and is different from Element Wise Product . It's not the same as Element Wise product, but it's different from dot"
-Page 53, The Element Wise Product is based on LSTM and is being developed by NUS at the University of Cambridge . It is the first phase of a new system that has been designed for the NUS platform . NUS is developing a
-Page 54," W3_hW3_i(1,hidden_dim) is W33_HW3-i (1, hidden_dim), W3-HW-H (1) is HW3W"
-Page 55, LSTM uses an Empty/Random Matrix C to hold memory . Calculate the strengths/weights of the current memory of C . Gates control the strengths of the memory .
-Page 56, A for LSTM? Introduce one Empty/Random Matrix C to hold memory . Calculate the strengths/weights of the current memory of C . Forget some useless memory before adding a movie .
-Page 57, A for LSTM? Introduce one Empty/Random Matrix C to hold memory . Calculate the strengths/weights of the current memory of C . Forget some useless memory before adding a new movie .
-Page 58," As long as there are many layers nested, the functions and gradients gets multiplied in a nested manner– It is a DNN problem ."
-Page 59, LSTM/GRU doesn’t guarantee no  guarantee no ipient gradient vanishing . It’s just better than the  vanilla RNN RNN .
-Page 60, Naïve Dropout RNN with Dropout P1=0.5.5; P2 = 0.5%; P1 =0.4; P1 P1 is 0.4 . P1: 0.3
-Page 61, The RNN is based on the structure of the NUS' LSTM with Dropout . The NUS NUS LSTm was created by NUS in 2012 .
-Page 62, LSTM with Dropout and Variational RNN with dropout can be used in the future . NUS is the world's largest university and research group of researchers in the U.S.
-Overall Summary, Aobo Wang Aobo: The moment when NLP became useful is the moment when it became useful with Google/OpenAI/GitHub . He also discusses Text Processing Using Machine Learning with Machine Learning . The first day of the
+Page 1,2022 NUS. All rights reserved. Dr Wang Aobo: Text Processing Using Machine Learning Day 1 .
+Page 2,Day 1: Classic DNN for Text Processing . Day 2: Attention & Transformers; Day 3: Transfer Learning with Pre-trained Models .
+Page 3,"Page 3 What can NLP do? Automatically put text into categories- Classification, Sentiment detection, Spam email detection, Emotion detection . Extract specific information from the text- Extraction, Named Entity extraction from"
+Page 4,Page 4 What can NLP do? Other Use Cases: 1. Object Classification/Clustering & Recommendation 2. Search Engine 3. Question Answering System 4. Voice Assistant 5. Machine Translation 6. Grammar Error Correction
+Page 5,Page 5 The moment when NLP became useful • Summary • GPT-3. All rights reserved. Page 5 2022 NUS.
+Page 6,Page 6 The moment when NLP became useful . page 7 The moment NLP was useful – a case in point . Page 7 .
+Page 7,open-AI (Microsoft) 2022 – DALLE-2 An astronaut + riding a horse + in a photorealistic .
+Page 8,Page 8 The moment when NLP became useful • Reasoning • Google 2021-2022 – LaMDA 2 – PaLM .
+Page 9,Page 9 What can NLP do now? Without Reasoning: a new approach to NLP . Page 9: 2022 NUS. All rights reserved.
+Page 10,Page 10 Today’s Agenda • Data Splits and Evaluation • Evaluation and Optimization – Over-/Underfitting – Regularization and Dropout • CNN for Text Classification – Convolutional Kernels for Text
+Page 11,"Page 11 Data Splits DNN are always Supervised, except for Reinforcement Learning . DNN is always supervised ."
+Page 12,Page 12 Hold-Out Evaluation Training set Held-out validation set Total available labelled data Train on this Evaluate during training .
+Page 13,Page 13 K-Fold Cross Validation Evaluation Train Data Split into 3 parts Test Evaluate after training Train Valid Train Valid Trace Valid Train Train Fold 0 Fold 1 Fold 2 Fold 3 Fold 4 Fold 5 Fold 6 Fold 7 Fold 8
+Page 14,Page 14 K-Fold Cross Validation Evaluation Evaluation . Page 14 2022 NUS. All rights reserved.
+Page 15,Page 15 Evaluation & Optimization REGULARIZATION AND DROPOUT . 2022 NUS. All rights reserved.
+Page 16,page 16 Over-/Underfitting Image from https://towardsdatascience.com/understanding-the-bias-variance-tradeoff-165e6942b229
+Page 17,Page 17 Optimization and Generalization Optimization and generalization . Page 17 2022 NUS. All rights reserved.
+Page 18,"Improve the data quality by removing the noisy data . Train longer – Increase the complexity of models (# of Layers, # of neuros per layer)"
+Page 19,dropping out (i.e. randomly setting activated outputs to zero) is effective in regularizing the model by forcing its weights to take small values .
+Page 20,large network weights can be a sign of an unstable network . small changes in input can lead to large changes in output . encourage the network to keep the weights small .
+Page 21,"2022 NUS. All rights reserved . Due to the addition of this regularization term, the values of weight matrices decrease ."
+Page 22,"Page 22 Weights regularization: w=2, we get the minimum loss . page 22: page 22. All rights reserved. page 23: page 24: page 25: page 26:"
+Page 23,wnew = 3.000.3 23.802 = 1.80 . dl dw = 2w4+6+2w =0.3 winit = 3 .
+Page 24,"wb26 wp26 s f(s) s (s) (1,26) (26,2) weight 0 wg2 1|0 (2,1) (1,1)"
+Page 25,w have no chance to be 0 . wnew = 0.990.3 40.994 = 1.00 w .
+Page 26,dropping out (i.e. randomly setting activated outputs to zero) is effective in regularizing the model 26 .
+Page 27,jamesmccaffrey: page 27 Dropout Layer Prevent from Overfitting Image . all rights reserved .
+Page 28,"0.5 -0.2 -0.1 0.3 -0.5 0.2 . 0.2 (0,6) (4,6) (6,3) 0 0 0,3 -0.3 0 (0,3) (0,4) (0,5) (0"
+Page 29,Page 29 Agenda • Data Splits and Evaluation • Evaluation and Optimization • CNN for Text Classification – Convolutional Kernels for Text . Workshop • RNN and LSTM – RNN text Encoder .
+Page 30,"(ngram, wordEmb) k times = (k,1) To be Learned – Not matrix multiplication (Dot Product) – But Convolution ."
+Page 31,Page 31 CNN for Text Classification . – Sliding window towards the (1-D) direction of Text . Weights to be learned .
+Page 32,Page 32 CNN for Text Classification (ngram feature extractor) - re-shaping the rows .
+Page 33,Page 33 CNN for Text Classification • Multi-Kernels (Ngram feature extractors) – Sliding window towards the (1-D) direction of Text – Weights to be learned and shared – Max
+Page 34,Page 34 CNN for Text Classification • Multi-Kernels (Ngram feature extractors) • Add Dropout layer (optional) – Add Dense layer (re-shape the matrix)
+Page 35,2022 NUS. All rights reserved . Page 35 Workshop OPTIMIZATION AND CNN .
+Page 36,Page 36 Agenda • Data Splits and Evaluation • Evaluation and Optimization • CNN for Text Classification • Workshop • RNN and LSTM – RNN text Encoder .
+Page 37,Page 37 Recurrent Neural Networks • Texts are always in Sequence. but CNN is not . Where are the neurals and layers ?
+Page 38,page 38 RNN Encoder is a better (than Ngram) way to represent word/sentence . it encodes the sequence of word tokens (which CNN lacks of) w1 w2 w
+Page 39,page 39 RNN Encoder is a better (than Ngram) way to represent word/sentence . it encodes the sequence of word tokens (which CNN lacks of) w1 w2 w
+Page 40,Page 40 RNN Encoder is a better (than Ngram) way to represent word/sentence . it encodes the sequence of word tokens (which CNN lacks of) w1 w2 w
+Page 41,Page 41 Bi-RNN Encoder is a better (than Ngram) way to represent word/sentence . encodes the sequence of word tokens (which CNN lacks of)
+Page 42,w3 the good the good movie the good good movie . w2 the bad the good film the good and the good . page 42 .
+Page 43,tanh the good the good movie is a tv movie starring tamil chow . taiwanese actor nao xiaoping is
+Page 44,Page 44 Recurrent Neural Networks . Classification with Dense and Softmax . Page 44 .
+Page 45,"Page 45 Recurrent Neural Networks. All rights reserved . SoftMAX softMAX (1,Classes)(1,classes)."
+Page 46,2022 NUS. All rights reserved . Page 46 Bi-Directional RNN language RNN is RNN never random .
+Page 47,Page 47 Bi-Directional RNN Classification RNN is RNN never random RNN RNN Predict Neutral RNN . Page 47 RNN predicts neutrality based on a number of factors .
+Page 48,Page 48 Agenda • Data Splits and Evaluation • Evaluation and Optimization • CNN for Text Classification • Workshop • RNN and LSTM – RNN text Encoder .
+Page 49,dh0 = “poof” = Large enough = Okay = small = tiny . h3 RNN never random RNN Predict Loss is h4h2h1h0 d(loss)
+Page 50,gates control the strengths of the memory to represent the future words . a memory of past time steps can be added to the current step . the memory can also be used to create a new word .
+Page 51,Page 51 LSTM Gallery From Neubig (2019) CMU NN4NLP Course From Olah (2015) blogpost From Hochreiter and Schmidhuber (1997) page From http://deeplearning.net From Wikipedia
+Page 52,Page 52 What ‘s inside LSTM • Some preparations: – Element Wise Product or – Different from dot Product – Similar to Conv without summing up .
+Page 53,"tanh (1,hidden_dim) is a . 'simple' and . easy-to-use annotation tool . it's also a great way to get a feel for"
+Page 54,"annotation W3_h w3_i (1,hidden_dim) (1,input_im) (input-dim, hidden_dm) Sigmod (1,hidden"
+Page 55,LSTM introduces one Empty/Random Matrix C to hold memory . Gates control the strengths/weights of the memory tanh 1 2 ht-1 x
+Page 56,tanh 1 2 1 ht-1 xt Ct-1 Ct 2 tanh the good memory Add the good movie 0 C*t-1 0.
+Page 57,LSTM introduces one Empty/Random Matrix C to hold memory . Calculate the strengths/weights of the current memory before adding tanh 1 2 1 ht
+Page 58,"as long as there are many layers nested , the functions and gradients gets multiplied . it is a DNN problem ."
+Page 59,most popular Bi-directional GRU Simplified LSTM . Vanilla not in use anymore . LS/GRU doesn’t guarantee no gradient vanishing .
+Page 60,"Page 60 LSTM with Dropout RNN 0 0 1 0 0,0 1,0,0,1 0 2,0,2 0 Dropout P1=0.5,0 2022 NUS. All"
+Page 61,Page 61 LSTM with Dropout: Variational RNN . Page 62 LStm with dropout: a repeat of a .
+Page 62,2022 NUS. All rights reserved. page 62 LSTM with Dropout . https://arxiv.org/pdf/1512.05287.pdf
+Overall Summary,2022 NUS. All rights reserved . page 57 LSTM What’s inside a 'simple' lstm? .

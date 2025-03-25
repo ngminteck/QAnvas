@@ -1,83 +1,82 @@
 Page,Summary
-Page 1," Dr Wang Aobo  isswan@nus.edu.ngu: ""Advanced DNN systems"" Dr Aobo: ""DNN is the world's most advanced technology"""
-Page 2, National University of Singapore's Seq2Seq models and DNN systems are discussed in a workshop at the Singapore Institute of Science and Technology . The workshop will discuss how to use these models to represent sentences and sentences .
+Page 1,TEXT PROCESSING WITH MACHINE LEARNING MODULE 2: Advanced DNN systems Dr Wang Aobo isswan@nus.edu.sg
+Page 2,Seq2Seq models • Advanced DNN systems • Attention • Transformer • Workshop • Sentence/ Document representation
 Page 3,Sequence to Sequence
-Page 4, RNN starts with a random state (vector)   𝒉𝟎  -  predict Predict R R R R R Routine is something non-random .
-Page 5, RNN starts with a random state (vector)  𝒉𝟎   -  vanishing random state is something non-random . RNN begins with a state (veget)
-Page 6," Sequence to Sequence: “Translate” (Ideally, any object A to any object B) French English: ‘French English.’ ‘‘ ‘Translating’ is a form of"
-Page 7, The Generalized Encoder-Decoder Framework is a generalized encoder-decoder framework . Training requires the paired condition and target generation to train well .
-Page 8, NLP counterparts of “ImageNet’s”  counterparts are NLP-like datasets with labels . NLP is capturing long-term dependencies and hierarchical relations . Plain Text are everywhere: Plain Text is everywhere. Plain
-Page 9, ELMo (2017) LSTM for Language Modelling: Starting from WordVec. Given “Let’s stick to’ve’�Predict ‘improvisation’ Given ‘Let
-Page 10, ELMoAlways Bi-LSTM  is always Bi-lSTM . ELMo always always has the word “stick” - stick .
-Page 11, LEGO Arts - Have Fun with it…. LEGO Arts . Have fun with LEGO Arts! LEGO Arts is a fun way to build your own LEGO creations .
-Page 12, Before and After the Moment: Before and Before the Moment. The moment is the moment of the moment . The moment was the moment that changed the way people react to it .
-Page 13," WorkshopLSTM and SEQ2SEQ Workshop. Workshop. workshop. Workshop: LSTM, SEQ 2SEQ . Workshop: Workshop."
-Page 14, Turing Award to “NVIDIA’s” “LSTM” is given the Turing Award for “transformer” technology . Turing Award is given to ‘NVIDIA”
-Page 15, The “ImageNet” Moment for NLP is Jay Alammar’s blog post . The imageNet moment is a moment for the first time in the history of NLP .
-Page 16," In psychology, attention is the cognitive process of selectively concentrating on one or a few things while ignoring others . Many of the new advances in NLP starts from attention -transformer, BERT ."
-Page 17, A neural network to mimic human brain actions in a simplified manner . Attention selectively concentrating on a few relevant things . Useful in sequence modelling .
-Page 18," The attention mechanism was introduced by Bahdanau et al in 2015 . Vanishing gradients prevent parallelization and prevents parallelization . ‘C’ does not sufficiently capture the prior information, in comes an attention mechanism ."
-Page 19," Attention – what does it do exactly? What does it mean for ‘good’ attention? Suppose a statement: To predict the next word ‘French’, which precedent word is most important with ‘weights’"
-Page 20," At every decoding step, the decoder allocates a set of attention weights aligned to the input words . Also known as additive attention as it  performs a linear combination of    encoder states and the decoder"
-Page 21," Sequence to Sequence: “Translate” (Ideally) any object A to any object B. ‘Translate' is ‘translate’, ‘A’ or ‘B’ is"
-Page 22," The Decoder is based on an Attention based Sequence to Sequence . The Encoder is called a Decoder with a Conductor . Decoder has been called a ""Decoder,"" or ""Encoder"""
-Page 23, The Attention based Sequence to Sequence is an example of a sequence . The Attention Based Sequence is a Sequence of a Sequence . The Sequence is based on a Sequence that is followed by a Sequence Sequence .
-Page 24," Attention based Sequence to Sequence . tanh tanh Box: ""Attention based sequence to Sequence"" tanh box: ""Tanh box"""
-Page 25, Luong architecture model uses top hidden layer states in layers of encoder and decoder . Luong attention uses top hidden layer states to form the ‘scores’ with 3 ‘alternatives’ The hidden 
-Page 26," Bahdanau use a global attention model, in which all the words in the sentence are weighted . A key issue is the length of the ‘sentence’ – or the attention span . The solution is a local attention"
-Page 27, BE TRANSFORMED: Be Transformed . Be transformed. Be transformed! Be transformed . Be transform. Be transform! Be transform .
-Page 28, The Transformer in NLP aims to solve sequence-to-sequence tasks while handling long-range  dependencies with ease . Foundation of the BERT and OpenAI GPT-2/3/4 algorithms .
-Page 29," National University of Singapore's Transformer Applications. 29                 speech recognition, biological sequence analysis, machine translation and machine translation.                                                 transformer applications.                   transformed speech recognition receive "
-Page 30," In the original paper, the transformer is used for machine translation,    translating from French to English . It is still a seq2seq model ."
-Page 31, National University of Singapore's Transformer architecture is a form of architecture . Transformer technology has been used to transform Singapore's urban landscape .
-Page 32, Stackable Encoders and Decoders will not be RNNs but Self-Attentioned layers . Similar idea of stacking multiple layers of En/Decoders .
-Page 33, Breaking down the Transformer   architecture . The Transformer is the brainchild of the National University of Singapore .
-Page 34, The National University of Singapore's Encoder Box has two layers – – multi-head attention layer and feed forward layer . It has 2 attention layers +   feed forward layer – the attention layer . The Encoder has 2 layers
-Page 35, National University of Singapore's encoder encoder . Inside the encoder. The encoder was created by Singapore's National Institute of Science and Technology .
-Page 36," Inside the decoder, the world's largest transformer has been created by Singapore's National University of Singapore . The device was designed by the university's National Institute of Technology in Singapore ."
-Page 37, Transformers use self-attention instead of RNNs or CNNs instead of using CNNs . Self attention is an attention relating different positions of a single sequence in order to compute a representation of the sequence .
-Page 38," For the words : “I kicked the ball”, we want to know how the word   ‘kicked’ relates to the different words in the sentence ."
-Page 39," The National University of Singapore has published a series of articles on computer science . The findings were published at the National Institute of Singapore . The results were published on October 1, 2013 ."
-Page 40, The National University of Singapore has published a number of articles on the topic of Attention . It is the first chapter of a new series of books by the National Institute of Singapore .
-Page 41," The beast with many heads. The original paper has 8 attention heads, with each set of encoder/decoder . Each of the attention heads uses a slice of the original dataset (in this case 1/8th of the dataset"
-Page 42, Multi-headed attention is computed multiple times   independently and in parallel – ‘multi-headed   attention’ These attentions are concatenated by a Wo  weighting matrix .
+Page 4,RNN starts with a random state (vector) hh00 . RNN ends with 'sequence to sequence' if it's something non-random .
+Page 5,RNN starts with a random state (vector) hh00 . what if it is something non-random?
+Page 6,• “Translate” (Ideally) any object A to any object B French English Image Text Audio Text Document Summary Question Answers
+Page 7,training requires the paired condition and target generation . a large amount of data is needed for model to train well .
+Page 8,"Language Modeling is capturing – long-term dependencies – hierarchical relations – sentiment . the service was poor, but the food was ______ ."
+Page 9,ELMo (2017) LSTM for Language Modelling Starting from WordVec Given “Let’s stick to” Predict “improvisation”
+Page 10,ELMoAlways Bi-LSTM vec(“stick”): “elmo” means “stick” in Spanish .
+Page 11,LEGO Arts - Have Fun with it . Have fun with it.. Have FUN with it.... LEGO Arts: Have Fun....
+Page 12,GloVe Language Modelling LSTMTransformer 2018 . Before and After the Moment Oct 2018 Jun 2014 .
+Page 13,Workshop LSTM AND SEQ2SEQ . SEQ1SEQ2 is a two-day workshop aimed at improving the quality of air quality in the air.
+Page 14,Turing Award to “NVIDIA” Oct 2018 LSTM Transformer 2018 lstm 1997 Attention 2012 .
+Page 15,"the “ImageNet” Moment for NLP (*Image from Jay Alammar’s blog) 24 Transformer blocks 1024 hidden layers, and 340M parameters 16 TPU pods for training Apr 2017 Oct 2018 ??? 2018 12"
+Page 16,"in psychology, attention is the cognitive process of selectively concentrating on one or a few things while ignoring others ."
+Page 17,A neural network to mimic human brain actions in a simplified manner . Attention selectively concentrating on a few relevant things . more parameters and calculations to capture contextual information .
+Page 18,the attention mechanism introduced by Bahdanau et al in 2015 prevents parallelization . ‘C” does not sufficiently capture the prior information .
+Page 19,Laurent Lives In France And he Speaks Excellent ‘French’. Copyright National University of Singapore.
+Page 20,"at every decoding step, the decoder allocates a set of attention weights – , aligned to the input words ."
+Page 21,Sequence to Sequence • “Translate” (Ideally) any object A to any object B CC00CCRR .
+Page 22,Attention Encoder CCii+11 hhii Attention CC11 CC22 CCtthh11hhtt11
+Page 23,Attention based Sequence to Sequence hhii tanh WWRR . hheeeeaaaiiiaahaaaeett softmax AAttt
+Page 24,• tanh Box Attention based Sequence to Sequence based on a 'sequence to sequence'
+Page 25,the hidden vectors are multiplied to form the ‘scores’ with 3 alternatives . the encoder and decoder use top hidden layer states .
+Page 26,"the Bahdanau use a global attention model, in which all the words in the sentence are weighted . a key issue is the length of the ‘sentence’ – or the attention span . the solution"
+Page 27,BE TRANSFORMED Copyright National University of Singapore. All Rights Reserved 27 a.s.c.
+Page 28,The Transformer in NLP is a novel architecture that aims to solve sequence-to-sequence tasks while handling long-range dependencies with ease . foundation of the BERT and OpenAI GPT-2/3/4 algorithms
+Page 29,National University of Singapore. All Rights Reserved 29 • speech recognition • biological sequence analysis • machine translation • natural language generation.
+Page 30,"the transformer is used for machine translation, translating from french to english . it is still a seq2seq model ."
+Page 31,"Copyright National University of Singapore. All Rights Reserved 31st june, 2018. Transformer architecture National university of singapore."
+Page 32,the Encoder and Decoder box will not be RNNs but Self-Attentioned layers . the box will be able to stack multiple layers of encoders and decoders .
+Page 33,broken down the Transformer architecture . breaking down the architecture of the decoders . Breaking down the Encoder Architecture . National University of Singapore .
+Page 34,looking into the Transformer architecture Encoder Copyright National University of Singapore . 34 Decoder One Single Encoding Box has 2 layers – multi-head attention layer feed forward layer . one single decoder box has 2
+Page 35,Copyright National University of Singapore. All Rights Reserved 35 . Copyright nasu.singapore.
+Page 36,Copyright National University of Singapore . All Rights Reserved 36 october 2014 . Copyright National University . of Singapore.
+Page 37,"self-attention, sometimes called intra-attention is an attention mechanism relating different positions of a single sequence in order to compute a representation of the sequence ."
+Page 38,copyright National University of Singapore. All Rights Reserved 38 . ‘kicked’ relates to the different words in the sentence .
+Page 39,Training Self attention scores matrices to be learned Computation summary . I Kicked The ball . The ball was kicked . the ball was scored .
+Page 40,Copyright National University of Singapore. All Rights Reserved 40 . Copyright: national university of singapore.
+Page 41,"the original paper has 8 attention heads, with each set of encoder/decoder . each of the attention heads uses a slice of the original dataset for training . the use of this multi-heads is supposed to provide"
+Page 42,'multi-headed attention' is computed multiple times independently and in parallel . these attentions are concatenated by a Wo weighting matrix .
 Page 43,Memory Wall
-Page 44," Flash Attention reduces the number of times data is read from DRAM memory when computing Softmax,  thus improving efficiency ."
-Page 45, MHA GQA is 30-40% faster with performance drop than 30% faster . Performance drop is 40% faster than at least 40% slower than at first .
-Page 46, Lower the Memory usage and Speed up the inference . Lower the memory usage and speed up the infrairmary . Speed up inference. Speed up an inference .
-Page 47," DeepSeek-V2: A Strong, Economical, and Efficient Mixture-of-Experts Language Model . Low-rank joint compression for key and value to reduce the KV cache . Lower the Memory usage"
-Page 48,"LLAMA2 – Grouped Query – Grouping Query . Speed Up Attention: Grouped Grouped Question . Grouped Questions: Grouping Attention, Grouping Grouping Questions . Grouping Question: Group of Questions, Group of Qu"
-Page 49, Each word will have a vector for positional encoding that sheds details on where the word lies in the sentence . This results in a new vector – 'embedding with time signal'
-Page 50, There are also some residuals that ‘by-pass’ the attention layer . Residuals summing up are also ‘directly’ by-passing’ attention layers .
-Page 51, The future  positions are ‘masked’ by giving                  them an –inf weight . Each word is only affected by the words before it .
-Page 52," Final Layer and Softmax Layer is a vector for each different word that is output from the decoder, which is turned into a word . The word with the highest   probabilities is then chosen as the  iop"
+Page 44,Speed Up Attention Flash Attention reduces the number of times data is read from DRAM memory . this improves the efficiency of Softmax's processing .
+Page 45,Speed Up Attention MQA MHA GQA 30%-40% faster with performance drop Trade off Trade off : .
+Page 46,"Lower the Memory usage & Speed up the inference . inference: Lower the memory usage, Speed up inference."
+Page 47,"deepseek-v2: a strong, economical, and efficient mixture-of-experts language model . low-rank joint compression for key and value to reduce the KV cache ."
+Page 48,Speed Up Attention LLAMA2 – Grouped Query – LLama2 - .
+Page 49,the word will have a vector for positional encoding that sheds details on where the word lies . this results in a new vector – ‘embedding with time signal’ .
+Page 50,Residuals summing There is also some residuals that directly ‘by-pass’ the attention layer .
+Page 51,"each word goes through the decoder and decoded in the process . in this decoding stage, each word is only affected by the words before it . the future positions are ‘masked’ by giving them an –"
+Page 52,"the linear layer is a FFN that projects the vector produced by the stack of decoders, into a much larger vector called a logits vector . the word with the highest probabilities is then chosen as the"
 Page 53,Decoding Progress
 Page 54,Decoding Progress
-Page 55, Researchers at the National University of Singapore have created a new system for the first time . The new system uses a 3.5-day GPU and 3.8-second memory memory . The system was created by the National Institute of Technology
-Page 56, Single Head Attention + LSTMs. single GPU + 1 day. single GPUs + 1.5 days. Single GPU + 3.5 day . Single GPUs + 2.6 day days. Fighting the direction of research.
-Page 57, Perhaps we were too quick to throw away the  past era of models simply due to a new flurry of progress . Perhaps we're too committed to our existing models to backtrack .
-Page 58,"Continue with Transformers
-Transformer s"
+Page 55,"8Head Attention + Transformers 8 GPU + 3.5 day Google Research, 2017 . Google Research is a non-profit organisation based out of the National University of Singapore ."
+Page 56,"57 Single Head Attention + LSTMs Single GPU + 1 day Stephen Merity, 2019 8Head Attention + Transformers 8 GPU + 3.5 day Google Research, 2017 ."
+Page 57,a new flurry of progress may have thrown away the past era of models . instead we’re too committed to our existing stepping stones to backtrack .
+Page 58,Continue with Transformers Transformer s
 Page 59,Continue with Transformers
-Page 60, 15% of the words in each sequence are replaced with a                 [MASK] token .15% of words in the sequence are replaced with a replaced with a progressive token .
-Page 61, BERTMASK LM  & Next Sentence Prediction Prediction: Sentencing will take place in the U.S. BERTERTMASk LM  and Next Sentencing Prediction: Death .
-Page 62," GPT 2/3Transformer Decoders: Transformer Decodeers . Transcoders: Decodes, Decodes and Decodes . GPT: Transcode: Decodees. GPT. Decodes. G"
-Page 63, No Silver Bullet (2020) is No. Silver Bullet . The project was created in 2009 and will be published in 2020 . It is the first time the project has been presented in a public forum .
-Page 64, East to read blogs on transformer/ attention: https://towardsdatascience.com/sequence-2-sequence-model-with-attention-mechanism-9e9ca2a613a.
-Page 65," National University of Singapore's 6.9-seq models: Seq2Seq models, DNN systems, Attention, Transformer and Transformer systems. 6-9-9:9.9: 9-11:"
-Page 66, Doc2vec Sentence Representation is an extension of Word2vec . Doc2Vec vectors represent the theme or overall meaning of a document .
-Page 67, The gensim (also in Tensorflow) seems to have better accuracy than TF as noted in industry industry .
-Page 68," Document Similarity Word Movers Distance is based on WordVectors such as GLOVE, W2V . Allows to assess the “distance” between two documents in a ‘meaningful way, even when they"
-Page 69," Distributed Memory Model (PV-DM) and Distributed Bag Of Words (PVDBOW) Both are Self-supervised methods, in that from the original paragraphs/  documents, you try to create a"
-Page 70, Paragraph Vectors - Distributed Memory Model (PV-DM) are obtained by training FFN   on the synthetic task of predicting the next word based an average of   both context word-vectors and
-Page 71, Paragraph Vector Distributed Bag Of    Words (PVDBOW) PVs obtained by training a neural  network on  the synthetic task of predicting a target word .
-Page 72," National University of Singapore's Vectors. 76: Skip thoughts to generate the previousand nextsentences . Sentence to Vector: ""Vectors"""
-Page 73, Quick thoughts to predict/classify the next sentence . Sentence to Vectors . Quick thoughts of the nextsentences .
-Page 74, Quick-thoughts generally to create document  vectors . Skip thoughts more for word/sentence  vectors. Skip thoughts for word and phrase phrases more for words/sentences .
-Page 75," Sentence-Bert 2018: Sentence to Vectors . Sentence of Bert Bert 2018: ""Bertert 2018"" Sentence for Bert Bert's crimes: ""Vectors"""
-Page 76," Sentence to VectorsBertScore 2020 is set to be served at a maximum of six years . Sentence is set for the prison term of 20 years . For more information, visit www.vectors.com/"
-Page 77," LangChain: QA with Knowledge Base, Retrieval Augmented Generation and QA . Langchain: QA with knowledge base, QA, QC, QQA and QC-QA-QC"
-Page 78," Data Pipeline: Split Documents into Chunks, Split Chunks and Calling OpenAI API . Embeddings and vector storage: Embedding and vector Storage: Calling pre-trained models and calling pre-training models . Data pipeline:"
-Page 79," Averaging word vectors – strong benchmark. The word vectors can be  generated from word2vec, GLOVE, BERT, ELMO etc. Performance also a key consideration ."
-Page 80, Researchers from the National University of Singapore have created a framework for word embeddings and document-vectors . The framework was created by the National Institute of Singapore and the National Singapore Institute of Technology .
-Overall Summary, The ‘ImageNet’ Moment for NLP’s Moment for ‘Attention’ is capturing long-term dependencies – long term dependencies– hierarchical relations– sentiment– Plain Text are everywhere(Large) Language Model
+Page 60,BERT MASK LM 15% of the words in each sequence are replaced with a [MASK] token .
+Page 61,BERT MASK LM & Next Sentence Prediction S.A.P. & S.S.
+Page 62,GPT 2/3 Transformer Decoders
+Page 63,no Silver Bullet (2020) https://arxiv.org/pdf/2009.07238v2.pdf
+Page 64,All Rights Reserved 68 . Useful article explaining positional encoding using sinusoidal function . Youtube video on transformer https://www.youtube.com/watch?v=rBCqOTEfxvg
+Page 65,Seq2Seq models • Advanced DNN systems • Attention • Transformer • Workshop • Sentence/ Document representation
+Page 66,"Doc2Vec vectors represent the theme or overall meaning of a document . the documents here can refer to paragraphs, articles or whole documents ."
+Page 67,document comparison can be done by a similarity measure . genism seems to have better accuracy as noted in industry .
+Page 68,"Document Similarity Word Movers Distance allows to assess the ‘distance’ between two documents in a meaningful way, even when they have no words in common . uses Euclidean distance and a ‘transport matrix’ –"
+Page 69,"two main training methods of these Paragraph Vectors (PV) are Self-supervised methods . from the original paragraphs/ documents, you try to create a representative paragraph/ document vector ."
+Page 70,similar to CBOW Word2Vec except with a new paragraph vector that represents the documentconcept .
+Page 71,faster but may not be as accurate as the PV- DM . similar to word2vec skipgram Copyright National University of Singapore .
+Page 72,Sentence to Vectors - Copyright National University of Singapore. All Rights Reserved 76 . Skip thoughts to generate the previousand nextsentences.
+Page 73,"Quick thoughts to predict/classify the nextsentences . Sentence to Vectors is a free, open-source, open source software application ."
+Page 74,quick thoughts generally to create document vectors . copyright National University of Singapore. All Rights Reserved 78 .
+Page 75,Sentence-Bert 2018 Sentance to Vectors . SentENCE-BERT 2018 .
+Page 76,"Sentence to Vectors BertScore 2020: a resounding yes, a no, and a yes, no."
+Page 77,https://www.baeldung.com/java-langchain-basics Framework - LangChain • QA with Knowledge Base
+Page 78,Data Pipeline . Split Documents into Chunks . Calling OpenAI API . Embeddings and vector storage .
+Page 79,"performance also a key consideration . word vectors can be generated from word2vec, GLOVE, BERT, ELMO etc."
+Page 80,84 https://towardsdatascience.com/word-embeddings-and-document-vectors-part-2-order-reduction- 2d11c3b5139c . https://
+Overall Summary,"'attention is all you need': a novel architecture that aims to solve sequence-to-sequence tasks while handling long-range dependencies with ease . in the original paper, the transformer is used for machine"
