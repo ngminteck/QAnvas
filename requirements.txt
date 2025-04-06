@@ -9,3 +9,6 @@ python-magic-bin
 docx2txt
 PyQt6
 pytesseract
+pdf2image
+openai
+camelot

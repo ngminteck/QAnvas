@@ -19,24 +19,35 @@ from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.vectorstores.utils import filter_complex_metadata
 from langchain.docstore.document import Document
 from langchain_openai import OpenAI
+from langchain_openai import ChatOpenAI
 
 # For OCR extraction
 from pdf2image import convert_from_path
 import pytesseract
+import requests
 
-def ocr_extract_text(pdf_path: str):
-    """
-    Extract text from each page of a PDF using OCR.
-    Returns a list of strings, one per page.
-    """
-    print(f"[DEBUG] Running OCR on {pdf_path} ...")
-    images = convert_from_path(pdf_path)
-    texts = []
-    for idx, image in enumerate(images, start=1):
-        text = pytesseract.image_to_string(image)
-        print(f"[DEBUG] OCR extracted text for page {idx}:\n{text}\n")
-        texts.append(text)
-    return texts
+# Import Camelot for table extraction
+import camelot
+
+
+def list_all_models():
+    api_key = os.getenv("OPENAI_API_KEY")
+    if not api_key:
+        print("Please set the OPENAI_API_KEY environment variable.")
+        return
+
+    headers = {
+        "Authorization": f"Bearer {api_key}"
+    }
+    response = requests.get("https://api.openai.com/v1/models", headers=headers)
+    if response.status_code == 200:
+        models = response.json()
+        print("Available Models:")
+        for model in models.get("data", []):
+            print(model["id"])
+    else:
+        print("Error listing models:", response.text)
+
 
 class CanvasManager:
     """
@@ -50,19 +61,6 @@ class CanvasManager:
     def __init__(self, api_url: str, api_key: str):
         self.canvas = Canvas(api_url, api_key)
         self.api_url = api_url
-
-    # ------------------------------------------------------
-    # Multi-Agent Initialization using LangGraph
-    # ------------------------------------------------------
-    @classmethod
-    def init_multi_agent(cls, openai_key: str):
-        try:
-            from langgraph import MultiAgent, AgentTask
-            cls.multi_agent = MultiAgent(api_key=openai_key)
-            print("Multi-agent initialized via LangGraph.")
-        except ImportError:
-            print("LangGraph not installed. Multi-agent functionality will not be available.")
-            cls.multi_agent = None
 
     # ------------------------------------------------------
     # HELPER / UTILITY FUNCTIONS
@@ -379,8 +377,7 @@ class CanvasManager:
         if file_path.lower().endswith('.pdf'):
             insufficient = any(len(cls.clean_text(doc.page_content).split()) < min_word_count for doc in docs)
             if insufficient:
-                print(
-                    f"[DEBUG] Detected insufficient text in at least one page. Running OCR fallback for {file_path}...")
+                print(f"[DEBUG] Detected insufficient text in at least one page. Running OCR fallback for {file_path}...")
                 ocr_texts = cls.ocr_extract_text(file_path)
 
         # Loop over docs: update or generate summary.
@@ -411,8 +408,7 @@ class CanvasManager:
                                                                  file_name=os.path.basename(file_path))
                         if len(new_summary.split()) >= min_word_count:
                             break
-                        print(
-                            f"[DEBUG] Attempt {attempt} for page {i} produced a summary with fewer than {min_word_count} words; retrying...")
+                        print(f"[DEBUG] Attempt {attempt} for page {i} produced a summary with fewer than {min_word_count} words; retrying...")
                         attempt += 1
                 else:
                     new_summary = summaries[i - 1]
@@ -590,59 +586,132 @@ class CanvasManager:
         return final_results
 
     # ======================================================
-    # TIMETABLE FUNCTIONS
+    # TIMETABLE AND EXAM DATE FUNCTIONS
     # ======================================================
-    def get_timetable(self, full_time: bool, intake: int, course: str):
+    def get_timetable_or_exam_date(self, full_time: bool, intake_year: int, course: str, query: str):
+        """
+        Locates a local PDF file that matches the specified course code (direct or fuzzy match)
+        in the correct timetable directory for full_time vs. part_time and the given intake_year.
+        Then extracts the timetable information (including exam dates) using the Camelot table extraction method.
+        """
         if full_time:
             mode_folder = "MTech Full Time"
-            intake_folder = f"Aug {intake} FT Intake"
+            intake_folder = f"Aug {intake_year} FT Intake"
         else:
             mode_folder = "MTech Part Time"
-            intake_folder = f"Jan {intake} PT Intake"
-        target_course_name = "MTech in EBAC/IS/SE (Thru-train)".lower()
-        try:
-            courses = list(self.canvas.get_courses())
-        except Exception as e:
-            print("Error retrieving courses:", e)
-            return
-        found_course = next(
-            (c for c in courses if not getattr(c, "access_restricted_by_date", False)
-             and target_course_name in c.name.lower()),
-            None
+            intake_folder = f"Jan {intake_year} PT Intake"
+
+        # Build the local directory path.
+        local_timetable_dir = os.path.join(
+            "files",
+            "MTech in EBAC_IS_SE (Thru-train)",
+            "course files",
+            "Timetable",
+            mode_folder,
+            intake_folder
         )
-        if found_course is None:
-            print(f"Timetable course '{target_course_name}' not found.")
+        print("[DEBUG] Local timetable directory:", local_timetable_dir)
+        if not os.path.exists(local_timetable_dir):
+            print(f"Local timetable directory not found: {local_timetable_dir}")
             return
-        print("Found timetable course:", found_course.name)
-        try:
-            files = list(found_course.get_files())
-        except Exception as e:
-            print("Error retrieving files from timetable course:", e)
+
+        # List all files in the directory for debugging.
+        print("[DEBUG] Files in directory:")
+        for f in os.listdir(local_timetable_dir):
+            print(" -", f)
+
+        # Gather all PDF files in the local timetable directory.
+        timetable_files = [
+            os.path.join(local_timetable_dir, f)
+            for f in os.listdir(local_timetable_dir)
+            if f.lower().endswith(".pdf")
+        ]
+        if not timetable_files:
+            print("No timetable PDF files found in the local directory.")
             return
-        try:
-            folder_map = self.build_folder_path_map(found_course)
-        except Exception as e:
-            print("Error building folder mapping:", e)
-            folder_map = {}
-        target_folder = f"course files/Timetable/{mode_folder}/{intake_folder}"
-        print(f"Looking for files in folder: {target_folder}")
-        files_in_target = []
-        for f in files:
-            folder_id = getattr(f, "folder_id", None)
-            folder_name = folder_map.get(folder_id, None)
-            if folder_name and folder_name.lower() == target_folder.lower():
-                files_in_target.append(f.display_name)
-        if not files_in_target:
-            print(f"No files found in folder {target_folder}.")
+
+        # Fuzzy match (or direct match) the user's course code to one of the PDF filenames.
+        matched_file = self.fuzzy_match_file(timetable_files, course)
+        if not matched_file:
+            print(f"No matching timetable PDF found for course code '{course}'.")
             return
-        course_code = course.upper()
-        files_for_course = [fname for fname in files_in_target if course_code in fname.upper()]
-        if files_for_course:
-            print(f"\nFiles for course code {course}:")
-            for file_name in files_for_course:
-                print("  -", file_name)
+
+        print(f"Processing timetable file: {matched_file}")
+        # Pass the query to the extraction function.
+        timetable_info = self.extract_timetable_or_exam_date_from_local_file(matched_file, query)
+        if timetable_info:
+            print("\nExtracted Timetable Information:")
+            print(timetable_info)
         else:
-            print(f"No timetable file found for course code {course}.")
+            print("Failed to extract timetable information.")
+
+    def extract_timetable_or_exam_date_from_local_file(self, file_path: str, query: str) -> str:
+        """
+        Reads a local PDF file (which may contain images), applies OCR fallback if needed,
+        and uses ChatGPT to extract and format the timetable information (including exam dates),
+        based on the provided query.
+        """
+        print(f"[DEBUG] Reading timetable file from local path: {file_path}")
+        loader = PyPDFLoader(file_path)
+        docs = loader.load()
+        full_text = ""
+        for doc in docs:
+            text = self.clean_text(doc.page_content)
+            # If text is insufficient, try OCR.
+            if len(text.split()) < self.OCR_WORD_THRESHOLD:
+                print("[DEBUG] Insufficient text on a page, running OCR fallback for timetable...")
+                ocr_texts = self.ocr_extract_text(file_path)
+                if ocr_texts:
+                    text = "\n".join([self.clean_text(t) for t in ocr_texts])
+            full_text += text + "\n"
+        if not full_text.strip():
+            print("[DEBUG] No text extracted from the timetable file.")
+            return None
+
+        # Create a prompt that includes both the extracted text and the custom query.
+        prompt = (
+            f"Below is the timetable text extracted from the PDF:\n\n{full_text}\n\n"
+            f"Based on this information, please answer the following query: {query}\n"
+        )
+        print(f"[DEBUG] Generated prompt for timetable extraction:\n{prompt}\n")
+        try:
+            # Use a powerful model without explicitly setting max_tokens.
+            llm = ChatOpenAI(model_name="gpt-4.5-preview", temperature=0.5)
+            response = llm.invoke(prompt)
+            timetable_info = response.content.strip() if hasattr(response, "content") else str(response).strip()
+            return timetable_info
+        except Exception as e:
+            print("Error during ChatGPT extraction of timetable:", e)
+            return None
+
+    @staticmethod
+    def fuzzy_match_file(files, course_code, threshold=0.5):
+        """
+        Given a list of file paths and a course code (e.g. 'AIS06'),
+        first check if any file's name starts with the course code (case-insensitive).
+        If so, return that file. Otherwise, return the file with the highest similarity ratio
+        above the given threshold, or None if none qualify.
+        """
+        # First, try a direct startswith match.
+        for fpath in files:
+            filename = os.path.basename(fpath)
+            if filename.upper().startswith(course_code.upper()):
+                print(f"[DEBUG] Direct match found: {filename}")
+                return fpath
+
+        # Fallback to fuzzy matching.
+        best_score = 0.0
+        best_file = None
+        print("[DEBUG] Starting fuzzy matching for course code:", course_code)
+        for fpath in files:
+            filename = os.path.basename(fpath)
+            ratio = difflib.SequenceMatcher(None, filename.upper(), course_code.upper()).ratio()
+            print(f"[DEBUG] Comparing file '{filename}' with course code '{course_code.upper()}': score = {ratio:.2f}")
+            if ratio > best_score:
+                best_score = ratio
+                best_file = fpath
+        print("[DEBUG] Best match score:", best_score)
+        return best_file if best_score >= threshold else None
 
     # ======================================================
     # ASSIGNMENTS FUNCTIONS
@@ -856,8 +925,8 @@ if __name__ == "__main__":
     API_URL = "https://canvas.nus.edu.sg/"
     manager = CanvasManager(API_URL, api_key)
 
-    # Initialize multi-agent via LangGraph (if available)
-    CanvasManager.init_multi_agent(openai_key)
+    # List all available models
+    list_all_models()
 
     # Uncomment to download files:
     # manager.download_all_files_parallel(base_dir="files")
@@ -866,7 +935,7 @@ if __name__ == "__main__":
     # manager.build_embedding_index(index_dir="chroma_index")
 
     # Generate summaries; new summary text replaces old ones if incomplete.
-    #manager.build_all_summaries(base_dir="files", summary_base_dir="summary")
+    # manager.build_all_summaries(base_dir="files", summary_base_dir="summary")
 
     """
     # Example usage for retrieving lecture slides:
@@ -905,19 +974,13 @@ if __name__ == "__main__":
     )
     print("\nFinal top results from Example 5:", results5)
     """
-    print("\nExample 6: Using no filter")
-    results6 = manager.retrieve_lecture_slides_by_topic(
-        topic="how to implement langchain?"
-    )
-    print("\nFinal top results from Example 6:", results6)
-
     # 2. TIMETABLE
-    manager.get_timetable(True, 2024, "AIS06")
+    manager.get_timetable_or_exam_date(True, 2024, "AIS06", "I am AIS06 2024 FT batch, What is my exam date?")
 
     # 3. ASSIGNMENTS & DEADLINES
-    manager.list_upcoming_assignments(hide_older_than=0)
-    manager.get_assignment_detail("CNI Day 4 Workshop")
+    # manager.list_upcoming_assignments(hide_older_than=0)
+    # manager.get_assignment_detail("CNI Day 4 Workshop")
 
     # 4. ANNOUNCEMENTS & NOTIFICATIONS
-    manager.list_announcements(hide_older_than=7, only_unread=False)
-    manager.get_announcement_detail("Internship Announcement")
+    # manager.list_announcements(hide_older_than=7, only_unread=False)
+    # manager.get_announcement_detail("Internship Announcement")
