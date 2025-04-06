@@ -374,17 +374,24 @@ class CanvasManager:
                     for row in existing_rows:
                         summaries.append(row.get("Summary", "").strip())
 
+        # Pre-run OCR only once if any page has insufficient text
+        ocr_texts = None
+        if file_path.lower().endswith('.pdf'):
+            insufficient = any(len(cls.clean_text(doc.page_content).split()) < min_word_count for doc in docs)
+            if insufficient:
+                print(
+                    f"[DEBUG] Detected insufficient text in at least one page. Running OCR fallback for {file_path}...")
+                ocr_texts = cls.ocr_extract_text(file_path)
+
         # Loop over docs: update or generate summary.
         for i, doc in enumerate(docs, start=1):
             text = cls.clean_text(doc.page_content)
             print(f"\n[DEBUG] Extracted text for page {i} of {os.path.basename(file_path)}:\n{text}\n")
-            # If extracted text is too short (<OCR_WORD_THRESHOLD words) and it's a PDF, try OCR fallback.
-            if file_path.lower().endswith('.pdf') and len(text.split()) < cls.OCR_WORD_THRESHOLD:
-                print(f"[DEBUG] Extracted text for page {i} is too short. Running OCR fallback...")
-                ocr_texts = cls.ocr_extract_text(file_path)
+            # Use OCR text if extracted text is too short and OCR results are available.
+            if file_path.lower().endswith('.pdf') and len(text.split()) < min_word_count and ocr_texts:
                 if i - 1 < len(ocr_texts):
                     text = cls.clean_text(ocr_texts[i - 1])
-                    print(f"[DEBUG] OCR extracted text for page {i}:\n{text}\n")
+                    print(f"[DEBUG] Using OCR extracted text for page {i}:\n{text}\n")
             if not text.strip():
                 new_summary = "[No content to summarize]"
             else:
@@ -400,10 +407,12 @@ class CanvasManager:
                     attempt = 1
                     new_summary = ""
                     while attempt <= max_attempts:
-                        new_summary = cls.summarize_page_chatgpt(text, page_number=i, file_name=os.path.basename(file_path))
+                        new_summary = cls.summarize_page_chatgpt(text, page_number=i,
+                                                                 file_name=os.path.basename(file_path))
                         if len(new_summary.split()) >= min_word_count:
                             break
-                        print(f"[DEBUG] Attempt {attempt} for page {i} produced a summary with fewer than {min_word_count} words; retrying...")
+                        print(
+                            f"[DEBUG] Attempt {attempt} for page {i} produced a summary with fewer than {min_word_count} words; retrying...")
                         attempt += 1
                 else:
                     new_summary = summaries[i - 1]
@@ -428,14 +437,16 @@ class CanvasManager:
     # ------------------------------------------------------
     @staticmethod
     def summarize_page_chatgpt(text: str, page_number: int, file_name: str) -> str:
-        prompt = (f"Please summarize the following content from page {page_number} of the document '{file_name}' "
-                  f"in a concise paragraph. Focus on the key points:\n\n{text}")
+        prompt = (
+            f"Please summarize the following content from page {page_number} of the document '{file_name}' "
+            f"in a concise paragraph. Focus on the key points:\n\n{text}"
+        )
         print(f"\n[DEBUG] Prompt for page {page_number}:\n{prompt}\n")
         try:
             llm = OpenAI(temperature=0.5, max_tokens=150)
-            summary = llm.invoke(prompt).strip()
-            print(f"[DEBUG] Summary for page {page_number}:\n{summary}\n")
-            return summary
+            response = llm.invoke(prompt).strip()
+            print(f"[DEBUG] Response from OpenAI for page {page_number}:\n{response}\n")
+            return response
         except Exception as e:
             print(f"Error during summarization on page {page_number}: {e}")
             return "[API Error]"
