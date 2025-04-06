@@ -866,7 +866,7 @@ if __name__ == "__main__":
     # manager.build_embedding_index(index_dir="chroma_index")
 
     # Generate summaries; new summary text replaces old ones if incomplete.
-    manager.build_all_summaries(base_dir="files", summary_base_dir="summary")
+    #manager.build_all_summaries(base_dir="files", summary_base_dir="summary")
 
     """
     # Example usage for retrieving lecture slides:
