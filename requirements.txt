@@ -11,4 +11,4 @@ PyQt6
 pytesseract
 pdf2image
 openai
-camelot
+pdfplumber

@@ -26,8 +26,6 @@ from pdf2image import convert_from_path
 import pytesseract
 import requests
 
-# Import Camelot for table extraction
-import camelot
 
 
 def list_all_models():
@@ -504,7 +502,7 @@ class CanvasManager:
     # ======================================================
     # TIMETABLE AND EXAM DATE FUNCTIONS
     # ======================================================
-    def get_timetable_or_exam_date(self, full_time: bool, intake_year: int, course: str, query: str):
+    def get_timetable_or_exam_date(self, full_time: bool, intake_year: int, course: str):
         if full_time:
             mode_folder = "MTech Full Time"
             intake_folder = f"Aug {intake_year} FT Intake"
@@ -535,34 +533,41 @@ class CanvasManager:
         if not matched_file:
             return
 
-        timetable_info = self.extract_timetable_or_exam_date_from_local_file(matched_file, query)
+        timetable_info = self.extract_timetable_or_exam_date_from_local_file(matched_file)
         return timetable_info
 
-    def extract_timetable_or_exam_date_from_local_file(self, file_path: str, query: str) -> str:
-        loader = PyPDFLoader(file_path)
-        docs = loader.load()
-        full_text = ""
-        for doc in docs:
-            text = self.clean_text(doc.page_content)
-            if len(text.split()) < self.OCR_WORD_THRESHOLD:
-                ocr_texts = self.ocr_extract_text(file_path)
-                if ocr_texts:
-                    text = "\n".join([self.clean_text(t) for t in ocr_texts])
-            full_text += text + "\n"
-        if not full_text.strip():
-            return None
+    def extract_timetable_or_exam_date_from_local_file(self, file_path: str) -> str:
+        import pdfplumber
 
-        prompt = (
-            f"Below is the timetable text extracted from the PDF:\n\n{full_text}\n\n"
-            f"Based on this information, please answer the following query: {query}\n"
-        )
         try:
-            llm = ChatOpenAI(model_name="gpt-4.5-preview", temperature=0.5)
-            response = llm.invoke(prompt)
-            timetable_info = response.content.strip() if hasattr(response, "content") else str(response).strip()
-            return timetable_info
-        except Exception:
-            return None
+            with pdfplumber.open(file_path) as pdf:
+                table_texts = []
+                # Iterate through each page in the PDF
+                for page in pdf.pages:
+                    # Extract tables from the current page as a list of tables.
+                    # Each table is represented as a list of rows (which are lists of cell strings).
+                    tables = page.extract_tables()
+                    for table in tables:
+                        # Format each row: join cell content with tab separation.
+                        formatted_rows = []
+                        for row in table:
+                            # Join cells with a tab (and replace None with an empty string)
+                            formatted_rows.append("\t".join(cell if cell is not None else "" for cell in row))
+                        if formatted_rows:
+                            # Join rows with newline separation.
+                            table_str = "\n".join(formatted_rows)
+                            table_texts.append(table_str)
+                # Combine table strings across all pages.
+                full_text = "\n\n".join(table_texts)
+
+            if not full_text.strip():
+                return "Error: No table content found in the PDF."
+
+        except Exception as e:
+            return f"Error during PDF table extraction: {str(e)}"
+
+        # Simply return the extracted table text without using the LLM prompt.
+        return full_text
 
     @staticmethod
     def fuzzy_match_file(files, course_code, threshold=0.5):
@@ -786,7 +791,7 @@ if __name__ == "__main__":
     manager = CanvasManager(API_URL, api_key)
 
     # List all available models
-    list_all_models()
+    #list_all_models()
 
     # Uncomment to download files:
     # manager.download_all_files_parallel(base_dir="files")
@@ -821,7 +826,7 @@ if __name__ == "__main__":
     )
     """
     # 2. TIMETABLE
-    timetable_info = manager.get_timetable_or_exam_date(True, 2024, "AIS06", "I am AIS06 2024 FT batch, What is my exam date?")
+    timetable_info = manager.get_timetable_or_exam_date(True, 2024, "AIS06")
     if timetable_info:
         print(timetable_info)
 
