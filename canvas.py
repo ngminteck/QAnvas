@@ -194,9 +194,38 @@ class CanvasManager:
         def load_file(fp):
             try:
                 docs = []
+                # If it's a PDF, use PyPDFLoader and try to extract tables using pdfplumber.
                 if fp.lower().endswith('.pdf'):
                     loader = PyPDFLoader(fp)
                     docs = loader.load()
+
+                    # Use pdfplumber to extract tables and preserve their formatting.
+                    import pdfplumber
+                    try:
+                        with pdfplumber.open(fp) as pdf:
+                            table_texts = []
+                            for page in pdf.pages:
+                                tables = page.extract_tables()
+                                for table in tables:
+                                    formatted_rows = []
+                                    for row in table:
+                                        # Join cells with a tab, replacing None with an empty string.
+                                        formatted_rows.append(
+                                            "\t".join(cell if cell is not None else "" for cell in row))
+                                    if formatted_rows:
+                                        table_str = "\n".join(formatted_rows)
+                                        table_texts.append(table_str)
+                            if table_texts:
+                                # Create a block of table text. You can choose to prepend or append.
+                                table_text_block = "\n\n" + "\n\n".join(table_texts)
+                                # Append the table text to each document's content.
+                                for doc in docs:
+                                    doc.page_content += table_text_block
+                    except Exception as e:
+                        # If pdfplumber fails, simply continue with the text already extracted.
+                        pass
+
+                    # Optionally, if the text appears too short, try using OCR as fallback.
                     for idx, doc in enumerate(docs):
                         if len(doc.page_content.split()) < CanvasManager.OCR_WORD_THRESHOLD:
                             ocr_texts = CanvasManager.ocr_extract_text(fp)
@@ -205,6 +234,7 @@ class CanvasManager:
                 else:
                     loader = UnstructuredLoader(fp)
                     docs = loader.load()
+                # Clean text and set metadata.
                 for doc in docs:
                     if doc.page_content:
                         doc.page_content = CanvasManager.clean_text(doc.page_content)
@@ -389,8 +419,9 @@ class CanvasManager:
     # ======================================================
     # RETRIEVE LECTURE SLIDES FUNCTIONS
     # ======================================================
-    def retrieve_lecture_slides_by_topic(self, topic: str, index_dir: str = "chroma_index", k: int = 100,
-                                           filter_terms: list = None):
+    def retrieve_lecture_slides_by_topic(self, query: str, index_dir: str = "chroma_index", k: int = 100,
+                                         subjects: list = None) -> str:
+        # --- Resolve filtering based on subjects (if any) ---
         def resolve_filter(filter_list, alias_mapping, threshold=0.8):
             resolved = []
             for item in filter_list:
@@ -399,7 +430,8 @@ class CanvasManager:
                     if CanvasManager.get_match_score(item_lower, canonical.lower()) >= threshold:
                         resolved.append(canonical)
                         break
-                    elif any(CanvasManager.get_match_score(item_lower, alias.lower()) >= threshold for alias in aliases):
+                    elif any(
+                            CanvasManager.get_match_score(item_lower, alias.lower()) >= threshold for alias in aliases):
                         resolved.append(canonical)
                         break
             return resolved
@@ -418,14 +450,15 @@ class CanvasManager:
             "CUI": ["Conversational Uls", "CNI"]
         }
 
-        resolved_course = resolve_filter(filter_terms, course_aliases, threshold=0.8) if filter_terms else []
-        resolved_submodule = resolve_filter(filter_terms, sub_module_aliases, threshold=0.8) if filter_terms else []
+        resolved_course = resolve_filter(subjects, course_aliases, threshold=0.8) if subjects else []
+        resolved_submodule = resolve_filter(subjects, sub_module_aliases, threshold=0.8) if subjects else []
 
         file_paths = {
             "ISY5004": {
                 "VSD": {"path": "files\\course files\\Vision Systems (6-10Jan 2025)"},
                 "SRSD": {"path": "files\\course files\\Spatial Reasoning from Sensor Data (13-15Jan 2025)"},
-                "RTAVS": {"path": "files\\course files\\Real-time Audio-Visual Sensing and Sense Making (20-23Jan 2025)"}
+                "RTAVS": {
+                    "path": "files\\course files\\Real-time Audio-Visual Sensing and Sense Making (20-23Jan 2025)"}
             },
             "EBA5004": {
                 "TA": {"path": "files\\course files\\[PLP] Text Analytics (2025-02-10)"},
@@ -437,67 +470,83 @@ class CanvasManager:
 
         courses_to_process = {}
         for course, submodules in file_paths.items():
-            matching_submodules = {sm: details["path"] for sm, details in submodules.items() if sm in resolved_submodule}
+            matching_submodules = {sm: details["path"] for sm, details in submodules.items() if
+                                   sm in resolved_submodule}
             if matching_submodules:
                 courses_to_process[course] = matching_submodules
             elif course in resolved_course:
                 courses_to_process[course] = {sm: details["path"] for sm, details in submodules.items()}
 
-        if not filter_terms:
-            courses_to_process = {course: {sm: details["path"] for sm, details in submodules.items()} for course, submodules in file_paths.items()}
+        if not subjects:
+            courses_to_process = {course: {sm: details["path"] for sm, details in submodules.items()}
+                                  for course, submodules in file_paths.items()}
 
         if not courses_to_process:
-            return []
+            return "No course/sub-module matches provided filter terms."
 
+        # --- Initialize embeddings ---
         use_cuda = torch.cuda.is_available()
         if use_cuda:
             embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", model_kwargs={"device": "cuda"})
         else:
             embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", model_kwargs={"device": "cpu"})
 
+        # --- Load or build the vector store ---
         if os.path.exists(index_dir):
             try:
                 vector_store = Chroma(persist_directory=index_dir, embedding_function=embeddings)
-            except Exception:
-                return []
+            except Exception as e:
+                return f"Error loading vector store: {str(e)}"
         else:
             vector_store = self.build_embedding_index(index_dir=index_dir)
             if vector_store is None:
-                return []
+                return "Error building vector store."
 
+        # --- Perform similarity search ---
         try:
-            results = vector_store.similarity_search(topic, k=k)
-        except Exception:
-            return []
-        if filter_terms:
+            results = vector_store.similarity_search(query, k=k)
+        except Exception as e:
+            return f"Error during similarity search: {str(e)}"
+
+        # Optionally filter results based on allowed file paths.
+        if subjects:
             allowed_paths = []
             for course, submodules in courses_to_process.items():
                 for submodule, allowed_path in submodules.items():
                     allowed_paths.append(allowed_path.lower())
-            filtered_results = []
-            for res in results:
-                file_path = res.metadata.get("file_path", "").lower()
-                if any(allowed_path in file_path for allowed_path in allowed_paths):
-                    filtered_results.append(res)
+            filtered_results = [res for res in results if any(allowed_path in res.metadata.get("file_path", "").lower()
+                                                              for allowed_path in allowed_paths)]
             results = filtered_results
 
-        top_results = results[:k]
-        final_results = []
-        for idx, res in enumerate(top_results, start=1):
+        if not results:
+            return "No relevant lecture slide excerpts were found."
+
+        # --- Combine the content along with reference metadata ---
+        excerpts_references = ""
+        for res in results:
             file_info = res.metadata.get("file_path", "Unknown file")
             page_info = res.metadata.get("page", "N/A")
             canvas_link = res.metadata.get("canvas_link", "Not available")
-            filename = os.path.basename(file_info) if file_info != "Unknown file" else file_info
-            final_results.append({
-                "result_rank": idx,
-                "content": res.page_content,
-                "file_path": file_info,
-                "filename": filename,
-                "page": page_info,
-                "canvas_link": canvas_link,
-                "metadata": res.metadata
-            })
-        return final_results
+            excerpt = res.page_content
+            block = f"File: {file_info}\nPage: {page_info}\nLink: {canvas_link}\nExcerpt:\n{excerpt}\n---\n"
+            excerpts_references += block
+
+        # --- Create a prompt to synthesize a final answer with references ---
+        synthesis_prompt = (
+            "You are an expert lecturer assistant. Below are excerpts from lecture slide documents, each with its reference metadata (including file, page, and link). "
+            "Analyze the content and provide a detailed, clear answer to the query. In your answer, include a reference section that cites the source details (file, page, link) "
+            "for each key piece of information you mention.\n\n"
+            f"Excerpts and References:\n{excerpts_references}\n"
+            f"Query: {query}\n"
+        )
+
+        try:
+            llm = ChatOpenAI(model_name="gpt-4", temperature=0.5)
+            response = llm.invoke(synthesis_prompt)
+            final_answer = response.content.strip() if hasattr(response, "content") else str(response).strip()
+            return final_answer
+        except Exception as e:
+            return f"Error during final answer generation: {str(e)}"
 
     # ======================================================
     # TIMETABLE AND EXAM DATE FUNCTIONS
@@ -797,7 +846,7 @@ if __name__ == "__main__":
     # manager.download_all_files_parallel(base_dir="files")
 
     # Uncomment to build embedding index:
-    # manager.build_embedding_index(index_dir="chroma_index")
+    #manager.build_embedding_index(index_dir="chroma_index")
 
     # Generate summaries; new summary text replaces old ones if incomplete.
     # manager.build_all_summaries(base_dir="files", summary_base_dir="summary")
@@ -805,24 +854,24 @@ if __name__ == "__main__":
     """
     # Example usage for retrieving lecture slides:
     results1 = manager.retrieve_lecture_slides_by_topic(
-        topic="how to implement langchain?",
-        filter_terms=["CNI"]
+        query="how to implement langchain?",
+        subjects=["CNI"]
     )
     results2 = manager.retrieve_lecture_slides_by_topic(
-        topic="how to implement langchain?",
-        filter_terms=["UI"]
+        query="how to implement langchain?",
+        subjects=["UI"]
     )
     results3 = manager.retrieve_lecture_slides_by_topic(
-        topic="how to implement langchain?",
-        filter_terms=["EBA5004", "CUI"]
+        query="how to implement langchain?",
+        subjects=["EBA5004", "CUI"]
     )
     results4 = manager.retrieve_lecture_slides_by_topic(
-        topic="how to implement langchain?",
-        filter_terms=["TPML", "CUI"]
+        query="how to implement langchain?",
+        subjects=["TPML", "CUI"]
     )
     results5 = manager.retrieve_lecture_slides_by_topic(
-        topic="what is transformer?",
-        filter_terms=["VSD", "EBA5004"]
+        query="what is transformer?",
+        subjects=["VSD", "EBA5004"]
     )
     """
     # 2. TIMETABLE

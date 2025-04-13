@@ -35,7 +35,7 @@ tools = [
     Tool(
         name="Retrieve Lecture Slides",
         func=partial(manager.retrieve_lecture_slides_by_topic),
-        description="Retrieve lecture slides related to a topic. Inputs: topic (str), filter_terms (optional)."
+        description="Retrieve lecture slides related to a query. Inputs: query (str), subjects (optional)."
     ),
     Tool(
         name="Get Timetable",
