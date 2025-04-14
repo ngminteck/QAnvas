@@ -26,6 +26,7 @@ from pdf2image import convert_from_path
 import pytesseract
 import requests
 
+import tiktoken
 
 
 def list_all_models():
@@ -130,6 +131,15 @@ class CanvasManager:
         text = re.sub(r'[\w\.-]+@[\w\.-]+\.\w+', '[REDACTED_EMAIL]', text)
         text = re.sub(r'(\+?\d[\d\-\s().]{7,}\d)', '[REDACTED_PHONE]', text)
         return text
+
+    @staticmethod
+    def count_tokens(text: str, model: str = "gpt-4") -> int:
+        """Accurately count tokens using tiktoken."""
+        try:
+            encoding = tiktoken.encoding_for_model(model)
+        except Exception:
+            encoding = tiktoken.get_encoding("cl100k_base")
+        return len(encoding.encode(text))
 
     # ======================================================
     # DOWNLOAD FILES FUNCTIONS
@@ -416,12 +426,12 @@ class CanvasManager:
         except Exception:
             return "[API Error]"
 
-    # ======================================================
-    # RETRIEVE LECTURE SLIDES FUNCTIONS
-    # ======================================================
+        # ======================================================
+        # RETRIEVE LECTURE SLIDES FUNCTIONS
+        # ======================================================
+
     def retrieve_lecture_slides_by_topic(self, query: str, index_dir: str = "chroma_index", k: int = 100,
                                          subjects: list = None) -> str:
-        # --- Resolve filtering based on subjects (if any) ---
         def resolve_filter(filter_list, alias_mapping, threshold=0.8):
             resolved = []
             for item in filter_list:
@@ -484,14 +494,12 @@ class CanvasManager:
         if not courses_to_process:
             return "No course/sub-module matches provided filter terms."
 
-        # --- Initialize embeddings ---
         use_cuda = torch.cuda.is_available()
         if use_cuda:
             embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", model_kwargs={"device": "cuda"})
         else:
             embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", model_kwargs={"device": "cpu"})
 
-        # --- Load or build the vector store ---
         if os.path.exists(index_dir):
             try:
                 vector_store = Chroma(persist_directory=index_dir, embedding_function=embeddings)
@@ -502,13 +510,11 @@ class CanvasManager:
             if vector_store is None:
                 return "Error building vector store."
 
-        # --- Perform similarity search ---
         try:
             results = vector_store.similarity_search(query, k=k)
         except Exception as e:
             return f"Error during similarity search: {str(e)}"
 
-        # Optionally filter results based on allowed file paths.
         if subjects:
             allowed_paths = []
             for course, submodules in courses_to_process.items():
@@ -521,22 +527,36 @@ class CanvasManager:
         if not results:
             return "No relevant lecture slide excerpts were found."
 
-        # --- Combine the content along with reference metadata ---
+        # --- Combine excerpts with metadata using dynamic token count ---
+        max_tokens = 8000  # maximum token count (input + planned output)
         excerpts_references = ""
+        tokens_used = 0
+
         for res in results:
             file_info = res.metadata.get("file_path", "Unknown file")
             page_info = res.metadata.get("page", "N/A")
             canvas_link = res.metadata.get("canvas_link", "Not available")
             excerpt = res.page_content
-            block = f"File: {file_info}\nPage: {page_info}\nLink: {canvas_link}\nExcerpt:\n{excerpt}\n---\n"
+            block = (
+                f"File: {file_info}\n"
+                f"Page: {page_info}\n"
+                f"Link: {canvas_link}\n"
+                f"Excerpt:\n{excerpt}\n---\n"
+            )
+            block_tokens = CanvasManager.count_tokens(block)
+            if tokens_used + block_tokens > max_tokens:
+                break
             excerpts_references += block
+            tokens_used += block_tokens
 
-        # --- Create a prompt to synthesize a final answer with references ---
+        print(excerpts_references)
+
         synthesis_prompt = (
-            "You are an expert lecturer assistant. Below are excerpts from lecture slide documents, each with its reference metadata (including file, page, and link). "
-            "Analyze the content and provide a detailed, clear answer to the query. In your answer, include a reference section that cites the source details (file, page, link) "
-            "for each key piece of information you mention.\n\n"
-            f"Excerpts and References:\n{excerpts_references}\n"
+            "You are an expert lecturer assistant. Below are content from lecture slide documents, each with its reference metadata "
+            "(including file, page, and link). Analyze the content and provide a detailed, clear answer to the query. "
+            "In your answer, include a reference section that cites the source details (file, page, link) for each key piece of information."
+            "If no useful information found,you can provide your own suggestion response, reference links and you also can provide slide content source details (file, page, link) maybe partital mention about it.\n\n"
+            f"Content and References:\n{excerpts_references}\n"
             f"Query: {query}\n"
         )
 
@@ -851,29 +871,13 @@ if __name__ == "__main__":
     # Generate summaries; new summary text replaces old ones if incomplete.
     # manager.build_all_summaries(base_dir="files", summary_base_dir="summary")
 
-    """
+
     # Example usage for retrieving lecture slides:
     results1 = manager.retrieve_lecture_slides_by_topic(
-        query="how to implement langchain?",
-        subjects=["CNI"]
+        query="how to implement langchain?"
     )
-    results2 = manager.retrieve_lecture_slides_by_topic(
-        query="how to implement langchain?",
-        subjects=["UI"]
-    )
-    results3 = manager.retrieve_lecture_slides_by_topic(
-        query="how to implement langchain?",
-        subjects=["EBA5004", "CUI"]
-    )
-    results4 = manager.retrieve_lecture_slides_by_topic(
-        query="how to implement langchain?",
-        subjects=["TPML", "CUI"]
-    )
-    results5 = manager.retrieve_lecture_slides_by_topic(
-        query="what is transformer?",
-        subjects=["VSD", "EBA5004"]
-    )
-    """
+    print(results1)
+
     # 2. TIMETABLE
     timetable_info = manager.get_timetable_or_exam_date(True, 2024, "AIS06")
     if timetable_info:
