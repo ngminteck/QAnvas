@@ -225,23 +225,27 @@ class CanvasManager:
         Build an embedding index (using Chroma) for documents in the specified base directory.
         Uses OCR fallback for PDF files with insufficient text.
         """
+        print("[DEBUG] Starting to build embedding index.")
         if os.path.exists(index_dir):
+            print(f"[DEBUG] Removing existing index directory: {index_dir}")
             shutil.rmtree(index_dir)
         start_time = time.time()
         selected_paths = []
         if not os.path.exists(base_dir):
+            print(f"[DEBUG] Base directory does not exist: {base_dir}")
             return None
         for root, _, files in os.walk(base_dir):
             for file in files:
                 if file.lower().endswith(('.pdf', '.pptx', '.doc', '.docx')):
-                    selected_paths.append(os.path.join(root, file))
-        if not selected_paths:
-            return None
+                    full_path = os.path.join(root, file)
+                    selected_paths.append(full_path)
+        print(f"[DEBUG] Found {len(selected_paths)} files to process.")
 
         documents = []
         max_workers = os.cpu_count() or 4
 
         def load_file(fp):
+            print(f"[DEBUG] Loading file: {fp}")
             try:
                 docs = []
                 if fp.lower().endswith('.pdf'):
@@ -255,19 +259,22 @@ class CanvasManager:
                             for page in pdf.pages:
                                 tables = page.extract_tables()
                                 for table in tables:
-                                    formatted_rows = ["\t".join(cell if cell is not None else "" for cell in row)
-                                                      for row in table]
+                                    formatted_rows = [
+                                        "\t".join(cell if cell is not None else "" for cell in row)
+                                        for row in table
+                                    ]
                                     if formatted_rows:
                                         table_texts.append("\n".join(formatted_rows))
                             if table_texts:
                                 table_text_block = "\n\n" + "\n\n".join(table_texts)
                                 for doc in docs:
                                     doc.page_content += table_text_block
-                    except Exception:
-                        pass
+                    except Exception as e:
+                        print(f"[DEBUG] Table extraction error in file {fp}: {e}")
                     # Use OCR fallback if the extracted text is too short.
                     for idx, doc in enumerate(docs):
                         if len(doc.page_content.split()) < CanvasManager.OCR_WORD_THRESHOLD:
+                            print(f"[DEBUG] Insufficient text detected in {fp}, applying OCR for page index {idx}.")
                             ocr_texts = CanvasManager.ocr_extract_text(fp)
                             if idx < len(ocr_texts):
                                 doc.page_content = ocr_texts[idx]
@@ -280,8 +287,10 @@ class CanvasManager:
                         doc.page_content = CanvasManager.clean_text(doc.page_content)
                     doc.metadata["file_path"] = fp
                     doc.metadata["canvas_link"] = f"{self.api_url}/files/{os.path.basename(fp)}"
+                print(f"[DEBUG] Successfully loaded {len(docs)} document(s) from file: {fp}")
                 return docs
-            except Exception:
+            except Exception as e:
+                print(f"[DEBUG] Error loading file {fp}: {e}")
                 return []
 
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
@@ -291,6 +300,7 @@ class CanvasManager:
                 documents.extend(docs_from_file)
 
         if not documents:
+            print("[DEBUG] No documents loaded; returning None.")
             return None
 
         pdf_docs, non_pdf_docs = [], []
@@ -318,11 +328,14 @@ class CanvasManager:
         embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", model_kwargs={"device": device})
 
         try:
+            print("[DEBUG] Creating Chroma vector store from documents.")
             vector_store = Chroma.from_documents(docs, embeddings, persist_directory=index_dir)
             vector_store.persist()
             elapsed_time = time.time() - start_time
+            print(f"[DEBUG] Successfully built embedding index in {elapsed_time:.2f} seconds.")
             return vector_store
-        except Exception:
+        except Exception as e:
+            print(f"[DEBUG] Error during vector store creation: {e}")
             return None
 
     def build_all_summaries(self, base_dir: str = "files", summary_base_dir: str = "summary"):
@@ -455,6 +468,7 @@ class CanvasManager:
         Retrieve relevant lecture slides based on the query and an optional list of subjects.
         Uses similarity search on an embedding index.
         """
+        print(f"[DEBUG] Starting lecture slide retrieval for query: '{query}'")
         index_dir = "chroma_index"
         k = 100
 
@@ -472,7 +486,6 @@ class CanvasManager:
                         break
             return resolved
 
-        # Define course and sub-module alias mappings.
         course_aliases = {
             "ISY5004": ["Intelligent Sensing Systems", "Computer Vision", "CV", "ISS"],
             "EBA5004": ["Practical Language Processing", "NLP", "Nature Language Processing", "PLP"]
@@ -518,6 +531,7 @@ class CanvasManager:
                                   for course, submodules in file_paths.items()}
 
         if not courses_to_process:
+            print("[DEBUG] No courses or sub-modules match the provided filter terms.")
             return "No course/sub-module matches provided filter terms."
 
         use_cuda = torch.cuda.is_available()
@@ -527,15 +541,18 @@ class CanvasManager:
         if os.path.exists(index_dir):
             try:
                 vector_store = Chroma(persist_directory=index_dir, embedding_function=embeddings)
+                print("[DEBUG] Loaded existing vector store.")
             except Exception as e:
                 return f"Error loading vector store: {str(e)}"
         else:
+            print("[DEBUG] No existing vector store found. Building a new one.")
             vector_store = self.build_embedding_index(index_dir=index_dir)
             if vector_store is None:
                 return "Error building vector store."
 
         try:
             results = vector_store.similarity_search(query, k=k)
+            print(f"[DEBUG] Similarity search returned {len(results)} result(s).")
         except Exception as e:
             return f"Error during similarity search: {str(e)}"
 
@@ -547,15 +564,16 @@ class CanvasManager:
             filtered_results = [res for res in results if any(allowed_path in res.metadata.get("file_path", "").lower()
                                                               for allowed_path in allowed_paths)]
             results = filtered_results
+            print(f"[DEBUG] After filtering by subjects, {len(results)} result(s) remain.")
 
         if not results:
+            print("[DEBUG] No relevant lecture slide excerpts found.")
             return "No relevant lecture slide excerpts were found."
 
         # Combine excerpts with metadata using dynamic token count.
         max_tokens = 8000
         excerpts_references = ""
         tokens_used = 0
-
         for res in results:
             file_info = res.metadata.get("file_path", "Unknown file")
             page_info = res.metadata.get("page", "N/A")
@@ -564,12 +582,12 @@ class CanvasManager:
             block = (f"File: {file_info}\nPage: {page_info}\nLink: {canvas_link}\nExcerpt:\n{excerpt}\n---\n")
             block_tokens = CanvasManager.count_tokens(block)
             if tokens_used + block_tokens > max_tokens:
+                print(f"[DEBUG] Maximum token limit reached; stopping at {tokens_used} tokens.")
                 break
             excerpts_references += block
             tokens_used += block_tokens
 
-        print(excerpts_references)
-
+        print("[DEBUG] Excerpts and references collected for synthesis prompt.")
         synthesis_prompt = (
             "You are an expert lecturer assistant. Below are content from lecture slide documents, each with its reference metadata "
             "(including file, page, and link). Analyze the content and provide a detailed, clear answer to the query. In your answer, "
@@ -581,6 +599,7 @@ class CanvasManager:
             llm = ChatOpenAI(model_name="gpt-4", temperature=0.5)
             response = llm.invoke(synthesis_prompt)
             final_answer = response.content.strip() if hasattr(response, "content") else str(response).strip()
+            print("[DEBUG] Lecture slide synthesis complete; returning final answer.")
             return final_answer
         except Exception as e:
             return f"Error during final answer generation: {str(e)}"
