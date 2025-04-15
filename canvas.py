@@ -909,7 +909,7 @@ if __name__ == "__main__":
     # manager.download_all_files_parallel(base_dir="files")
 
     # Uncomment to build the embedding index:
-    manager.build_embedding_index(index_dir="chroma_index")
+    #manager.build_embedding_index(index_dir="chroma_index")
 
     # Uncomment to build summaries:
     #manager.build_all_summaries(base_dir="files", summary_base_dir="summary")
