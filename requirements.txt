@@ -12,3 +12,4 @@ pytesseract
 pdf2image
 openai
 pdfplumber
+tiktoken
