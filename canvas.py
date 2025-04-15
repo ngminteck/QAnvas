@@ -890,10 +890,10 @@ if __name__ == "__main__":
     # manager.download_all_files_parallel(base_dir="files")
 
     # Uncomment to build the embedding index:
-    # manager.build_embedding_index(index_dir="chroma_index")
+    manager.build_embedding_index(index_dir="chroma_index")
 
     # Uncomment to build summaries:
-    # manager.build_all_summaries(base_dir="files", summary_base_dir="summary")
+    #manager.build_all_summaries(base_dir="files", summary_base_dir="summary")
 
     # Example usage for retrieving lecture slides:
     results1 = manager.retrieve_lecture_slides_by_topic(query="how to implement langchain?")
