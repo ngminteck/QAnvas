@@ -58,7 +58,7 @@ class CanvasManager:
 
     Adjustable OCR fallback threshold is available as a class attribute.
     """
-    OCR_WORD_THRESHOLD = 0
+    OCR_WORD_THRESHOLD = 5
 
     def __init__(self, api_url: str, api_key: str):
         """
@@ -330,7 +330,6 @@ class CanvasManager:
         try:
             print("[DEBUG] Creating Chroma vector store from documents.")
             vector_store = Chroma.from_documents(docs, embeddings, persist_directory=index_dir)
-            vector_store.persist()
             elapsed_time = time.time() - start_time
             print(f"[DEBUG] Successfully built embedding index in {elapsed_time:.2f} seconds.")
             return vector_store
@@ -906,7 +905,7 @@ if __name__ == "__main__":
     # list_all_models()
 
     # Uncomment to download all files:
-    manager.download_all_files_parallel(base_dir="files")
+    #manager.download_all_files_parallel(base_dir="files")
 
     # Uncomment to build the embedding index:
     manager.build_embedding_index(index_dir="chroma_index")
