@@ -14,7 +14,7 @@ import tiktoken
 from canvasapi import Canvas
 
 # Embedding, document loaders, and vector store libraries.
-from langchain_community.vectorstores import Chroma
+from langchain_chroma import Chroma
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_unstructured import UnstructuredLoader
 from langchain.text_splitter import CharacterTextSplitter
@@ -58,7 +58,7 @@ class CanvasManager:
 
     Adjustable OCR fallback threshold is available as a class attribute.
     """
-    OCR_WORD_THRESHOLD = 5
+    OCR_WORD_THRESHOLD = 0
 
     def __init__(self, api_url: str, api_key: str):
         """
@@ -906,10 +906,10 @@ if __name__ == "__main__":
     # list_all_models()
 
     # Uncomment to download all files:
-    # manager.download_all_files_parallel(base_dir="files")
+    manager.download_all_files_parallel(base_dir="files")
 
     # Uncomment to build the embedding index:
-    #manager.build_embedding_index(index_dir="chroma_index")
+    manager.build_embedding_index(index_dir="chroma_index")
 
     # Uncomment to build summaries:
     #manager.build_all_summaries(base_dir="files", summary_base_dir="summary")
