@@ -60,7 +60,7 @@ class CanvasManager:
     """
     OCR_WORD_THRESHOLD = 5
 
-    def __init__(self, api_url: str, api_key: str):
+    def __init__(self):
         """
         Initialize the Canvas Manager.
 
@@ -68,8 +68,13 @@ class CanvasManager:
             api_url (str): The base URL for the Canvas instance.
             api_key (str): The API key for authentication.
         """
-        self.canvas = Canvas(api_url, api_key)
-        self.api_url = api_url
+        self.api_url = "https://canvas.nus.edu.sg/"
+        self. api_key = ""
+        with open("keys/canvas.txt", "r") as file:
+            self.api_key = file.read().strip()
+
+        self.canvas = Canvas(self.api_url, self.api_key)
+
 
     # ----------------------------------------------------------------------------
     # Helper / Utility Functions
@@ -883,14 +888,17 @@ class CanvasManager:
         else:
             return "Announcement not found."
 
+    def other(self, query: str):
+        try:
+            llm = ChatOpenAI(model_name="gpt-4", temperature=0.5)
+            response = llm.invoke(query)
+            final_answer = response.content.strip() if hasattr(response, "content") else str(response).strip()
+            return final_answer
+        except Exception as e:
+            return f"Error during final answer generation: {str(e)}"
+
 
 if __name__ == "__main__":
-    try:
-        with open("keys/canvas.txt", "r") as file:
-            api_key = file.read().strip()
-    except Exception:
-        api_key = ""
-
     try:
         with open("keys/openai.txt", "r") as file:
             openai_key = file.read().strip()
@@ -898,8 +906,7 @@ if __name__ == "__main__":
         openai_key = ""
 
     os.environ["OPENAI_API_KEY"] = openai_key
-    API_URL = "https://canvas.nus.edu.sg/"
-    manager = CanvasManager(API_URL, api_key)
+    manager = CanvasManager()
 
     # Uncomment to list all available OpenAI models.
     # list_all_models()
@@ -908,7 +915,7 @@ if __name__ == "__main__":
     #manager.download_all_files_parallel(base_dir="files")
 
     # Uncomment to build the embedding index:
-    manager.build_embedding_index(index_dir="chroma_index")
+    #manager.build_embedding_index(index_dir="chroma_index")
 
     # Uncomment to build summaries:
     #manager.build_all_summaries(base_dir="files", summary_base_dir="summary")

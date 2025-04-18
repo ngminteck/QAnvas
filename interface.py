@@ -7,7 +7,7 @@ from PyQt6.QtCore import QThread, pyqtSignal
 
 # Import the ask_canvas_agent function from your agent module.
 # Make sure that agent.py is in the same directory or in your PYTHONPATH.
-from agent import ask_canvas_agent
+from agent import ask
 
 
 class AgentWorker(QThread):

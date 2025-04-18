@@ -11,7 +11,8 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_openai import ChatOpenAI
 
 from canvas import CanvasManager
-
+import re
+import os
 
 # Define Pydantic models for tool input schemas.
 class RetrieveLectureSlidesInput(BaseModel):
@@ -33,6 +34,10 @@ class GetAnnouncementDetailInput(BaseModel):
     announcement_title: str
 
 
+class OtherInput(BaseModel):
+    query: str
+
+
 # For tools that require no input, we can simply use an empty model.
 class EmptyInput(BaseModel):
     pass
@@ -50,17 +55,17 @@ class CanvasAgent:
       4. Execute the tools and then synthesize a final answer.
     """
 
-    def __init__(self,
-                 canvas_api_key_path: str = "keys/canvas.txt",
-                 openai_api_key_path: str = "keys/openai.txt",
-                 api_url: str = "https://canvas.nus.edu.sg/"):
-        # Load API keys.
-        self.canvas_api_key = self._load_key(canvas_api_key_path, "Canvas API")
-        self.api_url = api_url
-        self.openai_api_key = self._load_key(openai_api_key_path, "OpenAI API")
+    def __init__(self):
+
+        self.openai_api_key = ""
+
+        with open("keys/openai.txt", "r") as file:
+            self.openai_api_key = file.read().strip()
+
+        os.environ["OPENAI_API_KEY"] = self.openai_api_key
 
         # Initialize the Canvas Manager.
-        self.manager = CanvasManager(self.api_url, self.canvas_api_key)
+        self.manager = CanvasManager()
 
         # Consolidated tool info with structured input schemas.
         self.tool_info = {
@@ -97,6 +102,12 @@ class CanvasAgent:
                 "description": ("Retrieve details of a specific announcement. "
                                 "Provide 'announcement_title' (str)."),
                 "schema": GetAnnouncementDetailInput,
+            },
+            "Other": {
+                "function": self.manager.other,
+                "description": ("Other intent no in the list. "
+                                "Provide a 'query' string"),
+                "schema": OtherInput,
             },
         }
 
@@ -175,23 +186,60 @@ Question: {{input}}
 
     def detect_intents(self, response_text: str) -> list:
         """
-        Remove extraneous markdown and parse the JSON output from the LLM.
-        Returns a list of intents (each with 'action' and 'action_input').
+        Parse the LLM response for intents. First try valid JSON, then Python literals, then split on blank lines.
+        Returns a list of intent dicts.
         """
-        if response_text.startswith("```"):
-            lines = response_text.splitlines()
-            json_lines = [line for line in lines if not line.strip().startswith("```")]
-            response_text = "\n".join(json_lines).strip()
+        text = response_text.strip()
+        # 1) Try JSON array/object
         try:
-            parsed = json.loads(response_text)
+            parsed = json.loads(text)
             if isinstance(parsed, list):
+                print(f"[DEBUG] Parsed entire response as JSON list with {len(parsed)} intents")
                 return parsed
-            elif isinstance(parsed, dict):
+            if isinstance(parsed, dict):
+                print("[DEBUG] Parsed entire response as JSON object")
                 return [parsed]
-            else:
-                return []
-        except json.JSONDecodeError:
-            return []
+        except Exception:
+            pass
+
+        # 2) Try Python literal parsing
+        try:
+            import ast
+            parsed_py = ast.literal_eval(text)
+            if isinstance(parsed_py, list):
+                print(f"[DEBUG] Parsed entire response as Python literal list with {len(parsed_py)} intents")
+                return parsed_py
+            if isinstance(parsed_py, dict):
+                print("[DEBUG] Parsed entire response as Python literal dict")
+                return [parsed_py]
+        except Exception:
+            pass
+
+        # 3) Fallback: split on blank lines and parse each chunk as JSON
+        # Normalize CRLF to LF
+        text_normalized = text.replace('\r\n', '\n')
+        raw_chunks = [
+            c.strip()
+            for c in re.split(r'\n{2,}', text_normalized)
+            if c.strip()
+        ]
+        print(f"[DEBUG] Found {len(raw_chunks)} raw chunks after blank-line split")
+
+        intents = []
+        for idx, chunk in enumerate(raw_chunks, start=1):
+            try:
+                intent = json.loads(chunk)
+                print(f"[DEBUG] Chunk {idx} → parsed intent via JSON: {intent}")
+                intents.append(intent)
+            except json.JSONDecodeError:
+                try:
+                    import ast
+                    intent = ast.literal_eval(chunk)
+                    print(f"[DEBUG] Chunk {idx} → parsed intent via Python literal: {intent}")
+                    intents.append(intent)
+                except Exception as e:
+                    print(f"[DEBUG] Chunk {idx} failed to parse: {e}")
+        return intents
 
     def process_agent_response(self, response_text: str, original_query: str) -> str:
         """
@@ -211,7 +259,7 @@ Question: {{input}}
                 try:
                     # Convert the action_input into a Pydantic model to validate.
                     model_cls = self.tool_info[mapped_tool]["schema"]
-                    validated_params = model_cls(**intent.get("action_input", {})).dict()
+                    validated_params = model_cls(**intent.get("action_input", {})).model_dump()
                     result = self.tool_mapping[mapped_tool](**validated_params)
                     tool_results[mapped_tool] = result
                 except Exception as e:
@@ -219,6 +267,8 @@ Question: {{input}}
             else:
                 tool_results[intent.get("action", "")] = "Tool not found."
 
+        print("Tool Results.\n")
+        print(tool_results)
         synthesis_prompt = (
             "You are a helpful Canvas Q&A assistant.\n\n"
             f"The original query was:\n{original_query}\n\n"
