@@ -230,7 +230,6 @@ class CanvasManager:
         Build an embedding index (using Chroma) for documents in the specified base directory.
         Uses OCR fallback for PDF files with insufficient text.
         """
-        print("[DEBUG] Starting to build embedding index.")
         if os.path.exists(index_dir):
             print(f"[DEBUG] Removing existing index directory: {index_dir}")
             shutil.rmtree(index_dir)
@@ -472,7 +471,6 @@ class CanvasManager:
         Retrieve relevant lecture slides based on the query and an optional list of subjects.
         Uses similarity search on an embedding index.
         """
-        print(f"[DEBUG] Starting lecture slide retrieval for query: '{query}'")
         index_dir = "chroma_index"
         k = 100
 
@@ -545,18 +543,15 @@ class CanvasManager:
         if os.path.exists(index_dir):
             try:
                 vector_store = Chroma(persist_directory=index_dir, embedding_function=embeddings)
-                print("[DEBUG] Loaded existing vector store.")
             except Exception as e:
                 return f"Error loading vector store: {str(e)}"
         else:
-            print("[DEBUG] No existing vector store found. Building a new one.")
             vector_store = self.build_embedding_index(index_dir=index_dir)
             if vector_store is None:
                 return "Error building vector store."
 
         try:
             results = vector_store.similarity_search(query, k=k)
-            print(f"[DEBUG] Similarity search returned {len(results)} result(s).")
         except Exception as e:
             return f"Error during similarity search: {str(e)}"
 
@@ -568,14 +563,12 @@ class CanvasManager:
             filtered_results = [res for res in results if any(allowed_path in res.metadata.get("file_path", "").lower()
                                                               for allowed_path in allowed_paths)]
             results = filtered_results
-            print(f"[DEBUG] After filtering by subjects, {len(results)} result(s) remain.")
 
         if not results:
-            print("[DEBUG] No relevant lecture slide excerpts found.")
             return "No relevant lecture slide excerpts were found."
 
         # Combine excerpts with metadata using dynamic token count.
-        max_tokens = 8000
+        max_tokens = 8192
         excerpts_references = ""
         tokens_used = 0
         for res in results:
@@ -586,7 +579,6 @@ class CanvasManager:
             block = (f"File: {file_info}\nPage: {page_info}\nLink: {canvas_link}\nExcerpt:\n{excerpt}\n---\n")
             block_tokens = CanvasManager.count_tokens(block)
             if tokens_used + block_tokens > max_tokens:
-                print(f"[DEBUG] Maximum token limit reached; stopping at {tokens_used} tokens.")
                 break
             excerpts_references += block
             tokens_used += block_tokens
@@ -603,7 +595,6 @@ class CanvasManager:
             llm = ChatOpenAI(model_name="gpt-4", temperature=0.5)
             response = llm.invoke(synthesis_prompt)
             final_answer = response.content.strip() if hasattr(response, "content") else str(response).strip()
-            print("[DEBUG] Lecture slide synthesis complete; returning final answer.")
             return final_answer
         except Exception as e:
             return f"Error during final answer generation: {str(e)}"

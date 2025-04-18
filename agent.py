@@ -267,8 +267,7 @@ Question: {{input}}
             else:
                 tool_results[intent.get("action", "")] = "Tool not found."
 
-        print("Tool Results.\n")
-        print(tool_results)
+        print("Debug: tool result response:\n", tool_results)
         synthesis_prompt = (
             "You are a helpful Canvas Q&A assistant.\n\n"
             f"The original query was:\n{original_query}\n\n"
@@ -296,10 +295,9 @@ Question: {{input}}
             input=query,
             chat_history=chat_history
         )
-        print("Debug: Full prompt sent to agent:\n", full_prompt)
+
         response = self.llm.invoke([{"role": "user", "content": full_prompt}])
         response_text = response.content if hasattr(response, "content") else str(response)
-        print("Debug: Raw agent response:\n", response_text)
         self.memory.save_context({"input": query}, {"output": response_text})
         final_result = self.process_agent_response(response_text, query)
         return final_result
