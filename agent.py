@@ -272,7 +272,7 @@ Question: {{input}}
                 print(res)
                 print()
         # ────────────────────────────────────────────────────────────────────────────
-        
+
         synthesis_prompt = (
             "You are a helpful Canvas Q&A assistant.\n\n"
             f"The original query was:\n{original_query}\n\n"
