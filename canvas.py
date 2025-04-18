@@ -583,7 +583,6 @@ class CanvasManager:
             excerpts_references += block
             tokens_used += block_tokens
 
-        print("[DEBUG] Excerpts and references collected for synthesis prompt.")
         synthesis_prompt = (
             "You are an expert lecturer assistant. Below are content from lecture slide documents, each with its reference metadata "
             "(including file, page, and link). Analyze the content and provide a detailed, clear answer to the query. In your answer, "

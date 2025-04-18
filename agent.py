@@ -194,10 +194,8 @@ Question: {{input}}
         try:
             parsed = json.loads(text)
             if isinstance(parsed, list):
-                print(f"[DEBUG] Parsed entire response as JSON list with {len(parsed)} intents")
                 return parsed
             if isinstance(parsed, dict):
-                print("[DEBUG] Parsed entire response as JSON object")
                 return [parsed]
         except Exception:
             pass
@@ -207,10 +205,8 @@ Question: {{input}}
             import ast
             parsed_py = ast.literal_eval(text)
             if isinstance(parsed_py, list):
-                print(f"[DEBUG] Parsed entire response as Python literal list with {len(parsed_py)} intents")
                 return parsed_py
             if isinstance(parsed_py, dict):
-                print("[DEBUG] Parsed entire response as Python literal dict")
                 return [parsed_py]
         except Exception:
             pass
@@ -223,19 +219,16 @@ Question: {{input}}
             for c in re.split(r'\n{2,}', text_normalized)
             if c.strip()
         ]
-        print(f"[DEBUG] Found {len(raw_chunks)} raw chunks after blank-line split")
 
         intents = []
         for idx, chunk in enumerate(raw_chunks, start=1):
             try:
                 intent = json.loads(chunk)
-                print(f"[DEBUG] Chunk {idx} → parsed intent via JSON: {intent}")
                 intents.append(intent)
             except json.JSONDecodeError:
                 try:
                     import ast
                     intent = ast.literal_eval(chunk)
-                    print(f"[DEBUG] Chunk {idx} → parsed intent via Python literal: {intent}")
                     intents.append(intent)
                 except Exception as e:
                     print(f"[DEBUG] Chunk {idx} failed to parse: {e}")
@@ -267,7 +260,6 @@ Question: {{input}}
             else:
                 tool_results[intent.get("action", "")] = "Tool not found."
 
-        print("Debug: tool result response:\n", tool_results)
         synthesis_prompt = (
             "You are a helpful Canvas Q&A assistant.\n\n"
             f"The original query was:\n{original_query}\n\n"
