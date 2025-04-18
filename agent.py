@@ -186,11 +186,15 @@ Question: {{input}}
 
     def detect_intents(self, response_text: str) -> list:
         """
-        Parse the LLM response for intents. First try valid JSON, then Python literals, then split on blank lines.
-        Returns a list of intent dicts.
+        Robustly parse the LLM response for intents. First try valid JSON,
+        then Python literals, then split on blank lines *and* on single lines
+        so you catch consecutive JSON objects with only newlines between them.
         """
+        import json, ast, re
+
         text = response_text.strip()
-        # 1) Try JSON array/object
+
+        # 1) Whole-text JSON
         try:
             parsed = json.loads(text)
             if isinstance(parsed, list):
@@ -200,9 +204,8 @@ Question: {{input}}
         except Exception:
             pass
 
-        # 2) Try Python literal parsing
+        # 2) Whole-text Python literal
         try:
-            import ast
             parsed_py = ast.literal_eval(text)
             if isinstance(parsed_py, list):
                 return parsed_py
@@ -211,27 +214,46 @@ Question: {{input}}
         except Exception:
             pass
 
-        # 3) Fallback: split on blank lines and parse each chunk as JSON
-        # Normalize CRLF to LF
-        text_normalized = text.replace('\r\n', '\n')
-        raw_chunks = [
-            c.strip()
-            for c in re.split(r'\n{2,}', text_normalized)
-            if c.strip()
-        ]
+        # 3) Chunked fallback: split on blank lines
+        text_norm = text.replace('\r\n', '\n')
+        blank_chunks = [c.strip() for c in re.split(r'\n{2,}', text_norm) if c.strip()]
 
         intents = []
-        for idx, chunk in enumerate(raw_chunks, start=1):
-            try:
-                intent = json.loads(chunk)
-                intents.append(intent)
-            except json.JSONDecodeError:
+        for idx, chunk in enumerate(blank_chunks, start=1):
+            # If this chunk has multiple lines, treat each line as its own JSON
+            lines = [line.strip() for line in chunk.split('\n') if line.strip()]
+            for line_no, line in enumerate(lines, start=1):
+                e_json = e_ast = None
+
+                # Try JSON
                 try:
-                    import ast
-                    intent = ast.literal_eval(chunk)
-                    intents.append(intent)
-                except Exception as e:
-                    print(f"[DEBUG] Chunk {idx} failed to parse: {e}")
+                    o = json.loads(line)
+                    # normalize to list
+                    if isinstance(o, list):
+                        intents.extend(o)
+                    elif isinstance(o, dict):
+                        intents.append(o)
+                    continue
+                except Exception as err:
+                    e_json = err
+
+                # Try Python literal
+                try:
+                    o = ast.literal_eval(line)
+                    if isinstance(o, list):
+                        intents.extend(o)
+                    elif isinstance(o, dict):
+                        intents.append(o)
+                    continue
+                except Exception as err:
+                    e_ast = err
+
+                # Both failed for this line
+                print(f"[DEBUG] Chunk #{idx}, Line #{line_no} failed to parse:\n"
+                      f"    Text: {line!r}\n"
+                      f"    JSON error: {e_json}\n"
+                      f"    AST  error: {e_ast}\n")
+
         return intents
 
     def process_agent_response(self, response_text: str, original_query: str) -> str:
@@ -260,19 +282,8 @@ Question: {{input}}
             else:
                 tool_results[intent.get("action", "")] = "Tool not found."
 
-         # ─── Debug-print formatted tool results ────────────────────────────────────
-        print("\n[DEBUG] Tool execution results:")
-        try:
-            # pretty-print as JSON (fallback to str() for non-serializable objects)
-            print(json.dumps(tool_results, indent=2, default=str))
-        except Exception:
-            # safe fallback
-            for name, res in tool_results.items():
-                print(f"--- {name} ---")
-                print(res)
-                print()
-        # ────────────────────────────────────────────────────────────────────────────
-
+        print("Tool Results.\n")
+        print(tool_results)
         synthesis_prompt = (
             "You are a helpful Canvas Q&A assistant.\n\n"
             f"The original query was:\n{original_query}\n\n"
@@ -300,9 +311,10 @@ Question: {{input}}
             input=query,
             chat_history=chat_history
         )
-
+        print("Debug: Full prompt sent to agent:\n", full_prompt)
         response = self.llm.invoke([{"role": "user", "content": full_prompt}])
         response_text = response.content if hasattr(response, "content") else str(response)
+        print("Debug: Raw agent response:\n", response_text)
         self.memory.save_context({"input": query}, {"output": response_text})
         final_result = self.process_agent_response(response_text, query)
         return final_result
