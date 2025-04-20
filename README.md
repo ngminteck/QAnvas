@@ -85,5 +85,42 @@ pip install -r requirements.txt
 ### 4. Canvas Key Access
 Ensure you have access to the required Canvas Key to authenticate and use the system.
 
+## System Information
+### 1. Document Extraction Pipeline
+#### 1.File Discovery & Loading
+- Walks the files/ directory and picks up .pdf, .pptx, .doc, and .docx.
+- For PDFs: uses PyPDFLoader to pull out text; for other formats, uses UnstructuredLoader.
+- Table extraction (PDF only):
+- Opens with pdfplumber, iterates each page’s tables, formats rows into tab‑delimited strings, and appends to the page’s page_content.
+  
+#### 2 .OCR Fallback
+- If a page’s extracted text is under OCR_WORD_THRESHOLD (5 words):
+- Convert page to image(s) via pdf2image’s convert_from_path.
+- Run pytesseract.image_to_string on each image.
+- Replace the sparse text with the OCR output.
+
+#### 3.Text Cleaning & Metadata
+- Strips HTML (strip_html), collapses whitespace, and redacts emails/phone numbers.
+- Attaches metadata to each Document:
+```bash
+{
+  "file_path": "...",
+  "canvas_link": "https://canvas.nus.edu.sg/files/…"
+}
+```
+
+#### 4. Chunking Non‑PDF Docs
+- Runs CharacterTextSplitter (chunk_size=1000, overlap=200) on non‑PDF documents to keep embedding inputs within token limits.
+
+### 2. Vector Store Construction
+- Embedding Model all-MiniLM-L6-v2 via HuggingFaceEmbeddings
+- Building with Chroma
+
+### 3. Agent 
+- Intent Extraction Agent - Runs the initial prompt in CanvasAgent.ask() to turn free‑form user text into a list of tool calls (intents + inputs).
+- Document‑Retrieval Agent - Inside retrieve_lecture_slides_by_topic: synthesizes retrieved slide excerpts into a coherent “mini‑lecture” answer.
+- Final‑Synthesis Agent - After all tools run, re‑invokes GPT‑4 to integrate every tool’s output into one clear, well‑structured response.
+
+
 
 
