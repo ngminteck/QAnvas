@@ -13,3 +13,5 @@ pdf2image
 openai
 pdfplumber
 tiktoken
+datasets
+accelerate

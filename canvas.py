@@ -8,10 +8,18 @@ import shutil
 from datetime import datetime, timedelta, timezone
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-import torch
 import requests
 import tiktoken
 from canvasapi import Canvas
+from pdf2image import convert_from_path
+import pytesseract
+import pdfplumber
+from pdf2image.exceptions import PDFInfoNotInstalledError
+
+
+import torch
+from sentence_transformers import SentenceTransformer, InputExample, losses, util
+from torch.utils.data import Dataset, DataLoader
 
 # Embedding, document loaders, and vector store libraries.
 from langchain_chroma import Chroma
@@ -23,9 +31,7 @@ from langchain_community.vectorstores.utils import filter_complex_metadata
 from langchain.docstore.document import Document
 from langchain_openai import OpenAI, ChatOpenAI
 
-# OCR extraction packages.
-from pdf2image import convert_from_path
-import pytesseract
+
 
 
 def list_all_models():
@@ -48,6 +54,15 @@ def list_all_models():
     else:
         print("Error listing models:", response.text)
 
+class InputExampleDataset(Dataset):
+    def __init__(self, examples: list[InputExample]):
+        self.examples = examples
+
+    def __len__(self):
+        return len(self.examples)
+
+    def __getitem__(self, idx: int) -> InputExample:
+        return self.examples[idx]
 
 class CanvasManager:
     """
@@ -227,119 +242,149 @@ class CanvasManager:
     # ----------------------------------------------------------------------------
     def build_embedding_index(self, index_dir: str = "chroma_index", base_dir: str = "files"):
         """
-        Build an embedding index (using Chroma) for documents in the specified base directory.
-        Uses OCR fallback for PDF files with insufficient text.
+        Build an embedding index (using Chroma) for documents.
+        - Discovers PDF/PPTX/DOC(X) files under `base_dir`
+        - Loads & cleans pages (tables + OCR fallback, skipping if Poppler missing)
+        - Splits non-PDF docs into chunks
+        - Runs one-epoch unsupervised TSDAE on page texts
+        - Builds & persists a Chroma vector store with the fine‑tuned or base embeddings
         """
+        # 0) Clean up old index
         if os.path.exists(index_dir):
-            print(f"[DEBUG] Removing existing index directory: {index_dir}")
             shutil.rmtree(index_dir)
         start_time = time.time()
-        selected_paths = []
-        if not os.path.exists(base_dir):
-            print(f"[DEBUG] Base directory does not exist: {base_dir}")
-            return None
-        for root, _, files in os.walk(base_dir):
-            for file in files:
-                if file.lower().endswith(('.pdf', '.pptx', '.doc', '.docx')):
-                    full_path = os.path.join(root, file)
-                    selected_paths.append(full_path)
-        print(f"[DEBUG] Found {len(selected_paths)} files to process.")
 
+        # 1) Discover files
+        selected = []
+        for root, _, files in os.walk(base_dir):
+            for f in files:
+                if f.lower().endswith(('.pdf', '.pptx', '.doc', '.docx')):
+                    selected.append(os.path.join(root, f))
+        if not selected:
+            print("[DEBUG] No files to process; aborting.")
+            return None
+
+        # 2) Load & clean
         documents = []
-        max_workers = os.cpu_count() or 4
 
         def load_file(fp):
-            print(f"[DEBUG] Loading file: {fp}")
-            try:
-                docs = []
-                if fp.lower().endswith('.pdf'):
-                    loader = PyPDFLoader(fp)
-                    docs = loader.load()
-                    # Attempt to extract tables using pdfplumber and append table text.
-                    import pdfplumber
-                    try:
-                        with pdfplumber.open(fp) as pdf:
-                            table_texts = []
-                            for page in pdf.pages:
-                                tables = page.extract_tables()
-                                for table in tables:
-                                    formatted_rows = [
-                                        "\t".join(cell if cell is not None else "" for cell in row)
-                                        for row in table
-                                    ]
-                                    if formatted_rows:
-                                        table_texts.append("\n".join(formatted_rows))
-                            if table_texts:
-                                table_text_block = "\n\n" + "\n\n".join(table_texts)
-                                for doc in docs:
-                                    doc.page_content += table_text_block
-                    except Exception as e:
-                        print(f"[DEBUG] Table extraction error in file {fp}: {e}")
-                    # Use OCR fallback if the extracted text is too short.
-                    for idx, doc in enumerate(docs):
-                        if len(doc.page_content.split()) < CanvasManager.OCR_WORD_THRESHOLD:
-                            print(f"[DEBUG] Insufficient text detected in {fp}, applying OCR for page index {idx}.")
-                            ocr_texts = CanvasManager.ocr_extract_text(fp)
-                            if idx < len(ocr_texts):
-                                doc.page_content = ocr_texts[idx]
-                else:
-                    loader = UnstructuredLoader(fp)
-                    docs = loader.load()
-                # Clean document text and add metadata.
-                for doc in docs:
-                    if doc.page_content:
-                        doc.page_content = CanvasManager.clean_text(doc.page_content)
-                    doc.metadata["file_path"] = fp
-                    doc.metadata["canvas_link"] = f"{self.api_url}/files/{os.path.basename(fp)}"
-                print(f"[DEBUG] Successfully loaded {len(docs)} document(s) from file: {fp}")
-                return docs
-            except Exception as e:
-                print(f"[DEBUG] Error loading file {fp}: {e}")
-                return []
+            docs = []
+            if fp.lower().endswith('.pdf'):
+                docs = PyPDFLoader(fp).load()
+                # table extraction
+                try:
+                    with pdfplumber.open(fp) as pdf:
+                        tables = []
+                        for page in pdf.pages:
+                            for tbl in page.extract_tables():
+                                rows = ["\t".join(cell or '' for cell in row) for row in tbl]
+                                if rows:
+                                    tables.append("\n".join(rows))
+                        if tables:
+                            block = "\n\n" + "\n\n".join(tables)
+                            for d in docs:
+                                d.page_content += block
+                except Exception:
+                    pass
+                # OCR fallback
+                for i, d in enumerate(docs):
+                    if len(d.page_content.split()) < CanvasManager.OCR_WORD_THRESHOLD:
+                        try:
+                            images = convert_from_path(fp)
+                        except PDFInfoNotInstalledError:
+                            print(f"[DEBUG] Poppler not found; skipping OCR for {fp}")
+                            break
+                        texts = [pytesseract.image_to_string(img) for img in images]
+                        if i < len(texts):
+                            d.page_content = texts[i]
+            else:
+                docs = UnstructuredLoader(fp).load()
 
-        with ThreadPoolExecutor(max_workers=max_workers) as executor:
-            futures = {executor.submit(load_file, fp): fp for fp in selected_paths}
-            for future in as_completed(futures):
-                docs_from_file = future.result()
-                documents.extend(docs_from_file)
+            # clean & metadata
+            for d in docs:
+                d.page_content = CanvasManager.clean_text(d.page_content) if d.page_content else ''
+                d.metadata['file_path'] = fp
+            return docs
+
+        with ThreadPoolExecutor(max_workers=os.cpu_count() or 4) as exec:
+            futures = [exec.submit(load_file, fp) for fp in selected]
+            for f in as_completed(futures):
+                documents.extend(f.result() or [])
 
         if not documents:
-            print("[DEBUG] No documents loaded; returning None.")
+            print("[DEBUG] No documents loaded; aborting.")
             return None
 
-        pdf_docs, non_pdf_docs = [], []
-        for doc in documents:
-            if doc.metadata.get("file_path", "").lower().endswith(".pdf"):
-                pdf_docs.append(doc)
-            else:
-                non_pdf_docs.append(doc)
-        if non_pdf_docs:
+        # 3) Split non-PDF docs
+        pdfs = [d for d in documents if d.metadata['file_path'].lower().endswith('.pdf')]
+        others = [d for d in documents if d not in pdfs]
+        if others:
             splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=200)
-            non_pdf_docs = splitter.split_documents(non_pdf_docs)
-        docs = pdf_docs + non_pdf_docs
+            others = splitter.split_documents(others)
+        docs = pdfs + others
 
-        new_docs = []
-        for doc in docs:
-            if isinstance(doc, tuple) or not hasattr(doc, "metadata"):
-                try:
-                    doc = Document(page_content=doc[0], metadata=doc[1])
-                except Exception:
-                    continue
-            new_docs.extend(filter_complex_metadata([doc]))
-        docs = new_docs
+        # 4) Filter metadata noise
+        cleaned = []
+        for d in docs:
+            cleaned.extend(filter_complex_metadata([d]))
+        docs = cleaned
 
+        # 5) Unsupervised TSDAE fine‑tuning
+        corpus = [d.page_content for d in docs if d.page_content.strip()]
+        ft_dir = "models/tsdae_canvas"
+        if not os.path.isdir(ft_dir):
+            print("[DEBUG] Running 1‑epoch TSDAE fine‑tuning on slide corpus…")
+            base_model = SentenceTransformer("all-MiniLM-L6-v2")
+            examples = [InputExample(texts=[t, t]) for t in corpus]
+            # Wrap examples in the Dataset wrapper
+            example_dataset = InputExampleDataset(examples)
+            loader = DataLoader(example_dataset, shuffle=True, batch_size=16)
+            loss_fn = losses.MultipleNegativesRankingLoss(base_model)
+            base_model.fit(
+                train_objectives=[(loader, loss_fn)],
+                epochs=1,
+                warmup_steps=50,
+                output_path=ft_dir
+            )
+
+        # 6) Build & persist Chroma index
         device = "cuda" if torch.cuda.is_available() else "cpu"
-        embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2", model_kwargs={"device": device})
-
+        emb_model = ft_dir if os.path.isdir(ft_dir) else "all-MiniLM-L6-v2"
+        embeddings = HuggingFaceEmbeddings(model_name=emb_model, model_kwargs={"device": device})
         try:
             print("[DEBUG] Creating Chroma vector store from documents.")
-            vector_store = Chroma.from_documents(docs, embeddings, persist_directory=index_dir)
-            elapsed_time = time.time() - start_time
-            print(f"[DEBUG] Successfully built embedding index in {elapsed_time:.2f} seconds.")
-            return vector_store
+            store = Chroma.from_documents(docs, embeddings, persist_directory=index_dir)
+            print(f"[DEBUG] Built index in {time.time() - start_time:.2f}s")
+            return store
         except Exception as e:
             print(f"[DEBUG] Error during vector store creation: {e}")
             return None
+    def evaluate_embedding_models(self, test_pairs, k: int = 5):
+        """
+        Compare the vanilla vs TSDAE-fine-tuned embedding models.
+        test_pairs: List of tuples (query, ground_truth_excerpt)
+        """
+        # Load both models
+        base = SentenceTransformer("all-MiniLM-L6-v2")
+        ft = SentenceTransformer("models/tsdae_canvas")
+
+        # Prepare corpus and embeddings
+        corpus = [excerpt for _, excerpt in test_pairs]
+        base_cemb = base.encode(corpus, convert_to_tensor=True)
+        ft_cemb = ft.encode(corpus, convert_to_tensor=True)
+
+        def precision_at_k(model, corpus_emb):
+            hits = 0
+            for q, true_excerpt in test_pairs:
+                q_emb = model.encode(q, convert_to_tensor=True)
+                scores = util.cos_sim(q_emb, corpus_emb)[0]
+                topk = scores.topk(k).indices.tolist()
+                if corpus.index(true_excerpt) in topk:
+                    hits += 1
+            return hits / len(test_pairs)
+
+        print("Base P@5:", precision_at_k(base, base_cemb))
+        print("TSDAE P@5:", precision_at_k(ft, ft_cemb))
 
     def build_all_summaries(self, base_dir: str = "files", summary_base_dir: str = "summary"):
         """
@@ -906,6 +951,71 @@ if __name__ == "__main__":
 
     # Uncomment to build the embedding index:
     #manager.build_embedding_index(index_dir="chroma_index")
+    tests = [
+        # From CNI_Day1_v3.pdf
+        ("What is the title of Module 1 in the course?", "Introduction to Conversational UIs"),
+        ("Name one of the course lecturers.", "Dr. Fan Zhenzhen"),
+        ("What is the main objective of this course?",
+         "to learn skills to design and implement systems that can interact with users using spoken or written natural language"),
+        ("By the end of Module 1, you should be able to determine what about conversational UIs?",
+         "roles that systems with conversational UI can play in fielded applications"),
+        (
+        "What are the two broad architectures of dialog systems introduced?", "Modular systems and End‑to‑end systems"),
+        ("Which day covers Understanding the Content of User’s Utterances?", "Day 1"),
+        ("Which topics are covered on Day 2?", "Speech processing basics and Speech recognition"),
+        ("Which topics are covered on Day 3?",
+         "Speech synthesis (Text‑to‑Speech), Voice conversion, and Spoken dialogue system"),
+        ("Give one popular use‑case for conversational UIs mentioned.", "Customer service"),
+        ("Define an intent as used in conversational UIs.", "an end‑user’s intention for one conversation turn"),
+
+        # From CUI‑Day2 v.4.0.pdf
+        ("What are the four main stages of a task‑oriented CUI workflow?",
+         "Intent detection, Slot filling, Dialog management, Response generation"),
+        ("Name one commercial platform exemplifying task‑oriented CUI.", "Alexa"),
+        ("Which framework is cited for intent detection and entity extraction?", "Google Dialogflow"),
+        ("What deterministic technique is used in intent detection?", "Finite State Transducers"),
+        ("What neural architectures are mentioned for stochastic intent detection?", "CNN and Bi‑LSTM"),
+        ("In slot filling, what labeling scheme is used to mark entities?", "BIO labels"),
+        ("Give one pattern‑matching method used for slot filling.", "Regular expressions"),
+        ("What end‑to‑end neural approach combines sequence modeling and structured prediction?", "Bi‑LSTM + CRF"),
+        ("With agentic AI, what can replace pattern‑based slot filling?", "a large language model"),
+        ("Name one dialog management task.", "Error handling and confirmation strategies"),
+
+        # From NUS‑ISS‑CUI‑Speech‑Part1‑2025.pdf
+        ("What is Automatic Speech Recognition (ASR)?",
+         "the process of automatically converting speech into written text"),
+        ("Name two environmental factors that affect speech recognition.",
+         "Indoor versus Outdoor and Quiet versus Noisy"),
+        ("In early ASR, what two probabilities are evaluated?",
+         "likelihood of a word sequence and likelihood that the signal matches sound units"),
+        ("What self‑supervised model is mentioned for speech?", "Wav2Vec 2.0"),
+        ("Which open‑source Python library supports multiple ASR engines?", "SpeechRecognition"),
+        ("Name one offline engine supported by that library.", "CMU Sphinx"),
+        ("What three tasks does OpenAI’s Whisper cover?",
+         "speech recognition, speech translation, and language recognition"),
+        ("Which neural‑transducer ASR model is referenced?", "Transformer Transducer"),
+        ("What paradigm shift is described in advanced speech processing?",
+         "foundational models trained on extensive data"),
+        ("Give one example of an adverse audio condition mentioned.", "Reverberation"),
+
+        # From NUS‑ISS‑CUI‑Speech‑Part2‑2025‑02.pdf
+        ("What is the purpose of voice conversion?",
+         "modify an existing voice to resemble another while retaining the original content"),
+        ("Name one adversarial‑training approach for voice conversion.", "CycleGAN‑VC"),
+        ("Name a multi‑speaker extension for voice conversion.", "StarGAN‑VC"),
+        ("What does audio generation focus on?", "creating entirely new audio"),
+        ("Which diffusion‑based model is cited for high‑quality audio?", "AudioLDM2"),
+        ("Give one use‑case for audio generation.", "Text‑to‑Speech"),
+        ("What key difference distinguishes voice conversion from audio generation?",
+         "conversion preserves original content, generation creates new content"),
+        ("In comparing ChatGPT with Dialogflow, what type of responses does ChatGPT provide?",
+         "Generative, open‑ended responses"),
+        ("What kind of dialogs is Dialogflow best suited for?", "Task‑specific, guided dialogues"),
+        ("Which metric evaluates machine‑translated speech output?", "BLEU score"),
+    ]
+
+    manager.evaluate_embedding_models(tests)
+    print("")
 
     # Uncomment to build summaries:
     #manager.build_all_summaries(base_dir="files", summary_base_dir="summary")
@@ -914,6 +1024,7 @@ if __name__ == "__main__":
     results1 = manager.retrieve_lecture_slides_by_topic(query="how to implement langchain?")
     print(results1)
 
+    print("")
     # Timetable
     timetable_info = manager.get_timetable_or_exam_date(True, 2024, "AIS06")
     if timetable_info:
